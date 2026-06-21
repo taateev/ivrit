@@ -1,0 +1,5 @@
+{"t":"2026-06-21T22:51:40.867Z","session":"test","id":"סיבה","grade":"good","peeked":false,"confidence":0.88,"tookMs":3390,"gapMs":null}
+{"t":"2026-06-21T22:51:43.506Z","session":"test","id":"מאוד","grade":"good","peeked":false,"confidence":0.91,"tookMs":2040,"gapMs":4912}
+{"t":"2026-06-21T22:51:45.638Z","session":"test","id":"לפני","grade":"good","peeked":false,"confidence":0.91,"tookMs":1499,"gapMs":2097}
+{"t":"2026-06-21T22:51:52.592Z","session":"test","id":"עדיין","grade":"good","peeked":false,"confidence":0.65,"tookMs":4626,"gapMs":5259}
+{"t":"2026-06-21T22:52:01.730Z","session":"test","id":"שוב","grade":"good","peeked":false,"confidence":0.48,"tookMs":5714,"gapMs":8042}
