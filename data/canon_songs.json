@@ -1,0 +1,10 @@
+{
+  "note": "Public-domain Hebrew children's-song lines, verified. When a newly-glossed word appears here, attach the matching line as a `canon` example. Grow this list with more PD songs (authors d. before ~1956).",
+  "lines": [
+    {"he": "יונתן הקטן רץ בבוקר אל הגן", "en": "Little Jonathan ran to the garden in the morning", "src": "יונתן הקטן — Israel Dushman (d.1942)"},
+    {"he": "על העץ הוא טיפס, אפרוחים חיפש", "en": "He climbed the tree, looked for chicks", "src": "יונתן הקטן — Israel Dushman (d.1942)"},
+    {"he": "בוא אלי פרפר נחמד", "en": "Come to me, nice butterfly", "src": "פרפר נחמד — Fania Bergstein (d.1950)"},
+    {"he": "שב אצלי על כף היד", "en": "Sit by me on the palm of my hand", "src": "פרפר נחמד — Fania Bergstein (d.1950)"},
+    {"he": "שב תנוח, אל תירא, ותעוף בחזרה", "en": "Sit, rest, don't be afraid, and fly back", "src": "פרפר נחמד — Fania Bergstein (d.1950)"}
+  ]
+}

@@ -1,0 +1,3748 @@
+{
+  "meta": {
+    "corpus": "OpenSubtitles he (hermitdave/FrequencyWords 2018)",
+    "unit": "wordform (surface form, not lemma)",
+    "register": "colloquial / couch Hebrew",
+    "type_legend": {
+      "invariant": "one dominant reading; drill cold as a pure ideogram + revealable hint",
+      "ambiguous": "skeleton has multiple common readings; needs a disambiguating frame",
+      "derivable": "prefix + pronoun or preposition + suffix; mostly free given known affixes"
+    },
+    "fields": "rank=frequency rank; bare=drilled form; niqqud=hidden hint; translit=hint; gloss=meaning (verbs carry person/tense)"
+  },
+  "words": [
+    {
+      "rank": 1,
+      "bare": "לא",
+      "niqqud": "לֹא",
+      "translit": "lo",
+      "gloss": "no / not",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "particle (negation)"
+    },
+    {
+      "rank": 2,
+      "bare": "את",
+      "niqqud": "אֵת / אַתְּ",
+      "translit": "et / at",
+      "gloss": "[object marker] / you (f.)",
+      "type": "ambiguous",
+      "readings": [
+        "et = marks a definite object, precedes it",
+        "at = you (f.), stands alone as subject"
+      ],
+      "note": "Frequency #2; introduced early despite ambiguity — disambiguates trivially.",
+      "shoresh": null,
+      "grammar": "particle (object marker) / pronoun 'you' (f.)"
+    },
+    {
+      "rank": 3,
+      "bare": "אני",
+      "niqqud": "אֲנִי",
+      "translit": "ani",
+      "gloss": "I",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (1sg)"
+    },
+    {
+      "rank": 4,
+      "bare": "זה",
+      "niqqud": "זֶה",
+      "translit": "ze",
+      "gloss": "this / it (m.)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "demonstrative (m.sg)"
+    },
+    {
+      "rank": 5,
+      "bare": "אתה",
+      "niqqud": "אַתָּה",
+      "translit": "ata",
+      "gloss": "you (m.)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (m.2sg)"
+    },
+    {
+      "rank": 6,
+      "bare": "מה",
+      "niqqud": "מָה",
+      "translit": "ma",
+      "gloss": "what",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word"
+    },
+    {
+      "rank": 7,
+      "bare": "הוא",
+      "niqqud": "הוּא",
+      "translit": "hu",
+      "gloss": "he",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (m.3sg)"
+    },
+    {
+      "rank": 8,
+      "bare": "על",
+      "niqqud": "עַל",
+      "translit": "al",
+      "gloss": "on / about",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "preposition"
+    },
+    {
+      "rank": 9,
+      "bare": "לי",
+      "niqqud": "לִי",
+      "translit": "li",
+      "gloss": "to me",
+      "type": "derivable",
+      "from": "ל + י",
+      "shoresh": null,
+      "grammar": "preposition + pronoun (to-me)"
+    },
+    {
+      "rank": 10,
+      "bare": "של",
+      "niqqud": "שֶׁל",
+      "translit": "shel",
+      "gloss": "of",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "preposition (of)"
+    },
+    {
+      "rank": 11,
+      "bare": "כן",
+      "niqqud": "כֵּן",
+      "translit": "ken",
+      "gloss": "yes",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "particle (yes)"
+    },
+    {
+      "rank": 12,
+      "bare": "לך",
+      "niqqud": "לְךָ / לָךְ",
+      "translit": "lecha / lach",
+      "gloss": "to you (m./f.)",
+      "type": "derivable",
+      "from": "ל + ך",
+      "shoresh": null,
+      "grammar": "preposition + pronoun (to-you)"
+    },
+    {
+      "rank": 13,
+      "bare": "אבל",
+      "niqqud": "אֲבָל",
+      "translit": "aval",
+      "gloss": "but",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction"
+    },
+    {
+      "rank": 14,
+      "bare": "יש",
+      "niqqud": "יֵשׁ",
+      "translit": "yesh",
+      "gloss": "there is / there are",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "existential particle (there is)"
+    },
+    {
+      "rank": 15,
+      "bare": "שלי",
+      "niqqud": "שֶׁלִּי",
+      "translit": "sheli",
+      "gloss": "my / mine",
+      "type": "derivable",
+      "from": "של + י",
+      "shoresh": null,
+      "grammar": "possessive (my)"
+    },
+    {
+      "rank": 16,
+      "bare": "כל",
+      "niqqud": "כָּל / כֹּל",
+      "translit": "kol",
+      "gloss": "all / every",
+      "type": "invariant",
+      "shoresh": "כ־ל־ל",
+      "grammar": "quantifier (all/every)"
+    },
+    {
+      "rank": 17,
+      "bare": "בסדר",
+      "niqqud": "בְּסֵדֶר",
+      "translit": "beseder",
+      "gloss": "okay / fine",
+      "type": "invariant",
+      "shoresh": "ס־ד־ר",
+      "grammar": "adverb / interjection"
+    },
+    {
+      "rank": 18,
+      "bare": "עם",
+      "niqqud": "עִם / עַם",
+      "translit": "im / am",
+      "gloss": "with / a people",
+      "type": "ambiguous",
+      "readings": [
+        "im = with (preposition)",
+        "am = a people / nation (noun)"
+      ],
+      "shoresh": null,
+      "grammar": "preposition (with) / noun (people)"
+    },
+    {
+      "rank": 19,
+      "bare": "היא",
+      "niqqud": "הִיא",
+      "translit": "hi",
+      "gloss": "she",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (f.3sg)"
+    },
+    {
+      "rank": 20,
+      "bare": "שלך",
+      "niqqud": "שֶׁלְּךָ / שֶׁלָּךְ",
+      "translit": "shelcha / shelach",
+      "gloss": "your / yours (m./f.)",
+      "type": "derivable",
+      "from": "של + ך",
+      "shoresh": null,
+      "grammar": "possessive (your)"
+    },
+    {
+      "rank": 21,
+      "bare": "אם",
+      "niqqud": "אִם / אֵם",
+      "translit": "im / em",
+      "gloss": "if / mother",
+      "type": "ambiguous",
+      "readings": [
+        "im = if (conjunction)",
+        "em = mother (noun)"
+      ],
+      "shoresh": null,
+      "grammar": "conjunction (if) / noun (mother)"
+    },
+    {
+      "rank": 22,
+      "bare": "טוב",
+      "niqqud": "טוֹב",
+      "translit": "tov",
+      "gloss": "good",
+      "type": "invariant",
+      "shoresh": "ט־ו־ב",
+      "grammar": "adjective (m.sg) / adverb"
+    },
+    {
+      "rank": 23,
+      "bare": "היה",
+      "niqqud": "הָיָה",
+      "translit": "haya",
+      "gloss": "was (he) / there was",
+      "type": "invariant",
+      "shoresh": "ה־י־ה",
+      "grammar": "verb · past · m.3sg · pa'al"
+    },
+    {
+      "rank": 24,
+      "bare": "אנחנו",
+      "niqqud": "אֲנַחְנוּ",
+      "translit": "anachnu",
+      "gloss": "we",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (1pl)"
+    },
+    {
+      "rank": 25,
+      "bare": "רוצה",
+      "niqqud": "רוֹצֶה / רוֹצָה",
+      "translit": "rotze / rotza",
+      "gloss": "want (m./f. sg, present)",
+      "type": "invariant",
+      "shoresh": "ר־צ־ה",
+      "grammar": "verb · present · sg · pa'al"
+    },
+    {
+      "rank": 26,
+      "bare": "אז",
+      "niqqud": "אָז",
+      "translit": "az",
+      "gloss": "then / so",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (then/so)"
+    },
+    {
+      "rank": 27,
+      "bare": "יודע",
+      "niqqud": "יוֹדֵעַ",
+      "translit": "yodea",
+      "gloss": "know (m.sg, present)",
+      "type": "invariant",
+      "shoresh": "י־ד־ע",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al"
+    },
+    {
+      "rank": 28,
+      "bare": "רק",
+      "niqqud": "רַק",
+      "translit": "rak",
+      "gloss": "only / just",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (only)"
+    },
+    {
+      "rank": 29,
+      "bare": "הם",
+      "niqqud": "הֵם",
+      "translit": "hem",
+      "gloss": "they (m.)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (m.3pl)"
+    },
+    {
+      "rank": 30,
+      "bare": "יכול",
+      "niqqud": "יָכוֹל",
+      "translit": "yachol",
+      "gloss": "can / able (m.sg)",
+      "type": "invariant",
+      "shoresh": "י־כ־ל",
+      "grammar": "verb · present · m.sg · pa'al (modal 'can')"
+    },
+    {
+      "rank": 31,
+      "bare": "אותו",
+      "niqqud": "אוֹתוֹ",
+      "translit": "oto",
+      "gloss": "him (object)",
+      "type": "derivable",
+      "from": "את + ו",
+      "shoresh": null,
+      "grammar": "pronoun (object, him)"
+    },
+    {
+      "rank": 32,
+      "bare": "אותך",
+      "niqqud": "אוֹתְךָ / אוֹתָךְ",
+      "translit": "otcha / otach",
+      "gloss": "you (object, m./f.)",
+      "type": "derivable",
+      "from": "את + ך",
+      "shoresh": null,
+      "grammar": "pronoun (object, you)"
+    },
+    {
+      "rank": 33,
+      "bare": "יותר",
+      "niqqud": "יוֹתֵר",
+      "translit": "yoter",
+      "gloss": "more",
+      "type": "invariant",
+      "shoresh": "י־ת־ר",
+      "grammar": "adverb (more)"
+    },
+    {
+      "rank": 35,
+      "bare": "כאן",
+      "niqqud": "כָּאן",
+      "translit": "kan",
+      "gloss": "here",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (here)"
+    },
+    {
+      "rank": 36,
+      "bare": "אותי",
+      "niqqud": "אוֹתִי",
+      "translit": "oti",
+      "gloss": "me (object)",
+      "type": "derivable",
+      "from": "את + י",
+      "shoresh": null,
+      "grammar": "pronoun (object, me)"
+    },
+    {
+      "rank": 39,
+      "bare": "למה",
+      "niqqud": "לָמָּה",
+      "translit": "lama",
+      "gloss": "why",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word (why)"
+    },
+    {
+      "rank": 40,
+      "bare": "להיות",
+      "niqqud": "לִהְיוֹת",
+      "translit": "lihyot",
+      "gloss": "to be",
+      "type": "invariant",
+      "shoresh": "ה־י־ה",
+      "grammar": "verb · infinitive · pa'al"
+    },
+    {
+      "rank": 41,
+      "bare": "עכשיו",
+      "niqqud": "עַכְשָׁיו",
+      "translit": "achshav",
+      "gloss": "now",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (now)"
+    },
+    {
+      "rank": 42,
+      "bare": "או",
+      "niqqud": "אוֹ",
+      "translit": "o",
+      "gloss": "or",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction (or)"
+    },
+    {
+      "rank": 43,
+      "bare": "אחד",
+      "niqqud": "אֶחָד",
+      "translit": "echad",
+      "gloss": "one (m.)",
+      "type": "invariant",
+      "shoresh": "א־ח־ד",
+      "grammar": "number (one, m.)"
+    },
+    {
+      "rank": 44,
+      "bare": "משהו",
+      "niqqud": "מַשֶּׁהוּ",
+      "translit": "mashehu",
+      "gloss": "something",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (something)"
+    },
+    {
+      "rank": 47,
+      "bare": "צריך",
+      "niqqud": "צָרִיךְ",
+      "translit": "tzarich",
+      "gloss": "need / must (m.sg)",
+      "type": "invariant",
+      "shoresh": "צ־ר־ך",
+      "grammar": "verb · present · m.sg · pa'al (modal 'need')"
+    },
+    {
+      "rank": 48,
+      "bare": "כמו",
+      "niqqud": "כְּמוֹ",
+      "translit": "kmo",
+      "gloss": "like / as",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "preposition (like/as)"
+    },
+    {
+      "rank": 49,
+      "bare": "אל",
+      "niqqud": "אֶל / אַל",
+      "translit": "el / al",
+      "gloss": "to (toward) / don't",
+      "type": "ambiguous",
+      "readings": [
+        "el = to, toward (preposition)",
+        "al = don't (negative imperative)"
+      ],
+      "shoresh": null,
+      "grammar": "preposition (to) / particle (don't)"
+    },
+    {
+      "rank": 50,
+      "bare": "כך",
+      "niqqud": "כָּךְ",
+      "translit": "kach",
+      "gloss": "so / thus",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (so/thus)"
+    },
+    {
+      "rank": 51,
+      "bare": "אין",
+      "niqqud": "אֵין",
+      "translit": "ein",
+      "gloss": "there isn't / there's no",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "existential particle (there isn't)"
+    },
+    {
+      "rank": 52,
+      "bare": "נכון",
+      "niqqud": "נָכוֹן",
+      "translit": "nachon",
+      "gloss": "correct / right",
+      "type": "invariant",
+      "shoresh": "כ־ו־ן",
+      "grammar": "adjective (m.sg) — passive ptcp of כ־ו־ן"
+    },
+    {
+      "rank": 53,
+      "bare": "לעשות",
+      "niqqud": "לַעֲשׂוֹת",
+      "translit": "la'asot",
+      "gloss": "to do / to make",
+      "type": "invariant",
+      "shoresh": "ע־ש־ה",
+      "grammar": "verb · infinitive · pa'al"
+    },
+    {
+      "rank": 54,
+      "bare": "תודה",
+      "niqqud": "תּוֹדָה",
+      "translit": "toda",
+      "gloss": "thanks / thank you",
+      "type": "invariant",
+      "shoresh": "י־ד־ה",
+      "grammar": "noun (f.sg)"
+    },
+    {
+      "rank": 58,
+      "bare": "מי",
+      "niqqud": "מִי",
+      "translit": "mi",
+      "gloss": "who",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word (who)"
+    },
+    {
+      "rank": 59,
+      "bare": "זאת",
+      "niqqud": "זֹאת",
+      "translit": "zot",
+      "gloss": "this (f.)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "demonstrative (f.sg)"
+    },
+    {
+      "rank": 60,
+      "bare": "שם",
+      "niqqud": "שָׁם / שֵׁם",
+      "translit": "sham / shem",
+      "gloss": "there / a name",
+      "type": "ambiguous",
+      "readings": [
+        "sham = there (place)",
+        "shem = name (noun)"
+      ],
+      "shoresh": null,
+      "grammar": "adverb (there) / noun (name)"
+    },
+    {
+      "rank": 61,
+      "bare": "חושב",
+      "niqqud": "חוֹשֵׁב",
+      "translit": "choshev",
+      "gloss": "think (m.sg, present)",
+      "type": "invariant",
+      "shoresh": "ח־ש־ב",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al"
+    },
+    {
+      "rank": 62,
+      "bare": "כדי",
+      "niqqud": "כְּדֵי",
+      "translit": "kdei",
+      "gloss": "in order to",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "particle (in order to)"
+    },
+    {
+      "rank": 64,
+      "bare": "כמה",
+      "niqqud": "כַּמָּה",
+      "translit": "kama",
+      "gloss": "how many / some",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word / quantifier"
+    },
+    {
+      "rank": 65,
+      "bare": "פשוט",
+      "niqqud": "פָּשׁוּט",
+      "translit": "pashut",
+      "gloss": "simple / simply",
+      "type": "invariant",
+      "shoresh": "פ־ש־ט",
+      "grammar": "adjective (m.sg) / adverb"
+    },
+    {
+      "rank": 67,
+      "bare": "אולי",
+      "niqqud": "אוּלַי",
+      "translit": "ulai",
+      "gloss": "maybe / perhaps",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (maybe)"
+    },
+    {
+      "rank": 68,
+      "bare": "באמת",
+      "niqqud": "בֶּאֱמֶת",
+      "translit": "be'emet",
+      "gloss": "really / truly",
+      "type": "invariant",
+      "shoresh": "א־מ־ן",
+      "grammar": "adverb (really)"
+    },
+    {
+      "rank": 69,
+      "bare": "כי",
+      "niqqud": "כִּי",
+      "translit": "ki",
+      "gloss": "because",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction (because)"
+    },
+    {
+      "rank": 72,
+      "bare": "גם",
+      "niqqud": "גַּם",
+      "translit": "gam",
+      "gloss": "also / too",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (also)"
+    },
+    {
+      "rank": 74,
+      "bare": "זו",
+      "niqqud": "זוֹ",
+      "translit": "zo",
+      "gloss": "this (f.) / this one",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "demonstrative (f.sg)"
+    },
+    {
+      "rank": 78,
+      "bare": "דבר",
+      "niqqud": "דָּבָר / דִּבֵּר",
+      "translit": "davar / diber",
+      "gloss": "thing / word — he spoke",
+      "type": "ambiguous",
+      "readings": [
+        "davar = thing / word (noun)",
+        "diber = he spoke (verb)"
+      ],
+      "shoresh": "ד־ב־ר",
+      "grammar": "noun (m.sg) 'thing' — or verb · past · pi'el 'spoke'"
+    },
+    {
+      "rank": 79,
+      "bare": "שלו",
+      "niqqud": "שֶׁלּוֹ",
+      "translit": "shelo",
+      "gloss": "his / its",
+      "type": "derivable",
+      "from": "של + ו",
+      "shoresh": null,
+      "grammar": "possessive (his)"
+    },
+    {
+      "rank": 80,
+      "bare": "עוד",
+      "niqqud": "עוֹד",
+      "translit": "od",
+      "gloss": "more / still / another",
+      "type": "invariant",
+      "shoresh": "ע־ו־ד",
+      "grammar": "adverb (more/still)"
+    },
+    {
+      "rank": 81,
+      "bare": "כבר",
+      "niqqud": "כְּבָר",
+      "translit": "kvar",
+      "gloss": "already",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (already)",
+      "examples": [
+        {
+          "he": "ראיתי את זה *כבר*.",
+          "en": "I've seen this already."
+        }
+      ]
+    },
+    {
+      "rank": 85,
+      "bare": "מאוד",
+      "niqqud": "מְאוֹד",
+      "translit": "me'od",
+      "gloss": "very",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (very)",
+      "examples": [
+        {
+          "he": "נעים *מאוד*, המפקד.",
+          "en": "Very nice to meet you, sir."
+        }
+      ]
+    },
+    {
+      "rank": 86,
+      "bare": "לפני",
+      "niqqud": "לִפְנֵי",
+      "translit": "lifnei",
+      "gloss": "before / ago",
+      "type": "invariant",
+      "shoresh": "פ־נ־ה",
+      "grammar": "preposition (before/ago)",
+      "examples": [
+        {
+          "he": "*לפני* שאמות, אני רוצה לעשות אותו הדבר איתך.",
+          "en": "Before I die, I want to do the same with you."
+        }
+      ]
+    },
+    {
+      "rank": 87,
+      "bare": "הרבה",
+      "niqqud": "הַרְבֵּה",
+      "translit": "harbe",
+      "gloss": "a lot / many",
+      "type": "invariant",
+      "shoresh": "ר־ב־ה",
+      "grammar": "quantifier / adverb (a lot)",
+      "examples": [
+        {
+          "he": "המפקד, אין לנו *הרבה* זמן.",
+          "en": "Sir, we don't have much time."
+        }
+      ]
+    },
+    {
+      "rank": 88,
+      "bare": "בבקשה",
+      "niqqud": "בְּבַקָּשָׁה",
+      "translit": "bevakasha",
+      "gloss": "please / here you go",
+      "type": "invariant",
+      "shoresh": "ב־ק־שׁ",
+      "grammar": "interjection / adverb (please)",
+      "examples": [
+        {
+          "he": "בוא הנה, *בבקשה*.",
+          "en": "Come here, please."
+        }
+      ]
+    },
+    {
+      "rank": 90,
+      "bare": "קדימה",
+      "niqqud": "קָדִימָה",
+      "translit": "kadima",
+      "gloss": "forward / come on",
+      "type": "invariant",
+      "shoresh": "ק־ד־ם",
+      "grammar": "adverb (forward) / interjection",
+      "examples": [
+        {
+          "he": "*קדימה*, אמור זאת.",
+          "en": "Go on, say it."
+        }
+      ]
+    },
+    {
+      "rank": 95,
+      "bare": "זמן",
+      "niqqud": "זְמַן",
+      "translit": "zman",
+      "gloss": "time",
+      "type": "invariant",
+      "shoresh": "ז־מ־ן",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "כל כך הרבה *זמן*?",
+          "en": "That much time?"
+        }
+      ]
+    },
+    {
+      "rank": 97,
+      "bare": "עדיין",
+      "niqqud": "עֲדַיִן",
+      "translit": "adayin",
+      "gloss": "still / yet",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (still/yet)",
+      "examples": [
+        {
+          "he": "היא *עדיין* לא הלכה לעבודה.",
+          "en": "She still hasn't gone to work."
+        }
+      ]
+    },
+    {
+      "rank": 99,
+      "bare": "ממש",
+      "niqqud": "מַמָּשׁ",
+      "translit": "mamash",
+      "gloss": "really / literally",
+      "type": "invariant",
+      "shoresh": "מ־שׁ־שׁ",
+      "grammar": "adverb (really/literally)",
+      "examples": [
+        {
+          "he": "*ממש* איש המסיבה.",
+          "en": "Really the life of the party."
+        }
+      ]
+    },
+    {
+      "rank": 100,
+      "bare": "אלוהים",
+      "niqqud": "אֱלוֹהִים",
+      "translit": "elohim",
+      "gloss": "God",
+      "type": "invariant",
+      "shoresh": "א־ל־ה",
+      "grammar": "noun (m., God)",
+      "examples": [
+        {
+          "he": "*אלוהים*, אלוהים גדול.",
+          "en": "God, great God."
+        }
+      ]
+    },
+    {
+      "rank": 102,
+      "bare": "איפה",
+      "niqqud": "אֵיפֹה",
+      "translit": "eifo",
+      "gloss": "where",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word (where)",
+      "examples": [
+        {
+          "he": "הבעיה היא *איפה* להסתיר אותו.",
+          "en": "The problem is where to hide it."
+        }
+      ]
+    },
+    {
+      "rank": 104,
+      "bare": "קצת",
+      "niqqud": "קְצָת",
+      "translit": "ktzat",
+      "gloss": "a little / a bit",
+      "type": "invariant",
+      "shoresh": "ק־צ־ה",
+      "grammar": "adverb / quantifier (a little)",
+      "examples": [
+        {
+          "he": "ראשי כואב *קצת*.",
+          "en": "My head hurts a little."
+        }
+      ]
+    },
+    {
+      "rank": 105,
+      "bare": "מישהו",
+      "niqqud": "מִישֶׁהוּ",
+      "translit": "mishehu",
+      "gloss": "someone (m)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (someone, m.)",
+      "examples": [
+        {
+          "he": "האם *מישהו* ראה אותך?",
+          "en": "Did anyone see you?"
+        }
+      ]
+    },
+    {
+      "rank": 107,
+      "bare": "לעזאזל",
+      "niqqud": "לַעֲזָאזֵל",
+      "translit": "la'azazel",
+      "gloss": "damn / to hell",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "interjection (damn)",
+      "examples": [
+        {
+          "he": "*לעזאזל*, בן אדם!",
+          "en": "Damn it, man!"
+        }
+      ]
+    },
+    {
+      "rank": 110,
+      "bare": "הנה",
+      "niqqud": "הִנֵּה",
+      "translit": "hine",
+      "gloss": "here (it is) / behold",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "presentative adverb (here is)",
+      "examples": [
+        {
+          "he": "*הנה* מתחילים שוב.",
+          "en": "Here we go again."
+        }
+      ]
+    },
+    {
+      "rank": 112,
+      "bare": "פה",
+      "niqqud": "פֹּה",
+      "translit": "po",
+      "gloss": "here",
+      "type": "ambiguous",
+      "readings": [
+        "po = here (place)",
+        "pe = mouth (פֶּה)"
+      ],
+      "shoresh": null,
+      "grammar": "adverb (here) / noun (mouth)",
+      "examples": [
+        {
+          "he": "באמת קורה *פה* משהו.",
+          "en": "Something's really happening here."
+        }
+      ]
+    },
+    {
+      "rank": 113,
+      "bare": "אבא",
+      "niqqud": "אַבָּא",
+      "translit": "aba",
+      "gloss": "dad",
+      "type": "invariant",
+      "shoresh": "א־ב",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "זה כתב ידו של *אבא* שלך?",
+          "en": "Is this your dad's handwriting?"
+        }
+      ]
+    },
+    {
+      "rank": 114,
+      "bare": "הכל",
+      "niqqud": "הַכֹּל",
+      "translit": "hakol",
+      "gloss": "everything / all",
+      "type": "invariant",
+      "shoresh": "כ־ל־ל",
+      "grammar": "quantifier / pronoun (everything)",
+      "examples": [
+        {
+          "he": "את זאת *הכל* יודעים.",
+          "en": "Everyone knows that."
+        }
+      ]
+    },
+    {
+      "rank": 119,
+      "bare": "בדיוק",
+      "niqqud": "בְּדִיּוּק",
+      "translit": "bedyuk",
+      "gloss": "exactly",
+      "type": "invariant",
+      "shoresh": "ד־י־ק",
+      "grammar": "adverb (exactly)",
+      "examples": [
+        {
+          "he": "מה *בדיוק* עשית?",
+          "en": "What exactly did you do?"
+        }
+      ]
+    },
+    {
+      "rank": 120,
+      "bare": "אנשים",
+      "niqqud": "אֲנָשִׁים",
+      "translit": "anashim",
+      "gloss": "people / men",
+      "type": "invariant",
+      "shoresh": "א־נ־שׁ",
+      "grammar": "noun (m.pl) 'people'",
+      "examples": [
+        {
+          "he": "כמה *אנשים* הוא מביא?",
+          "en": "How many people is he bringing?"
+        }
+      ]
+    },
+    {
+      "rank": 124,
+      "bare": "שוב",
+      "niqqud": "שׁוּב",
+      "translit": "shuv",
+      "gloss": "again",
+      "type": "invariant",
+      "shoresh": "שׁ־ו־ב",
+      "grammar": "adverb (again)",
+      "examples": [
+        {
+          "he": "מחר נתחיל *שוב*.",
+          "en": "Tomorrow we'll start again."
+        }
+      ]
+    },
+    {
+      "rank": 127,
+      "bare": "היום",
+      "niqqud": "הַיּוֹם",
+      "translit": "hayom",
+      "gloss": "today",
+      "type": "invariant",
+      "shoresh": "י־ו־ם",
+      "grammar": "adverb (today) / noun (the day)",
+      "examples": [
+        {
+          "he": "*היום*, אתה כבר יכול להופיע בפני כולם.",
+          "en": "Today you can already appear before everyone."
+        }
+      ]
+    },
+    {
+      "rank": 129,
+      "bare": "מצטער",
+      "niqqud": "מִצְטַעֵר",
+      "translit": "mitzta'er",
+      "gloss": "sorry (m)",
+      "type": "invariant",
+      "shoresh": "צ־ע־ר",
+      "grammar": "verb · present (beinoni) · m.sg · hitpa'el",
+      "examples": [
+        {
+          "he": "אני *מצטער*, אדוני.",
+          "en": "I'm sorry, sir."
+        }
+      ]
+    },
+    {
+      "rank": 136,
+      "bare": "קרה",
+      "niqqud": "קָרָה",
+      "translit": "kara",
+      "gloss": "happened",
+      "type": "ambiguous",
+      "readings": [
+        "kara = happened (verb)",
+        "kara = cold (f. adj.)"
+      ],
+      "shoresh": "ק־ר־ה",
+      "grammar": "verb · past · m.3sg · pa'al",
+      "examples": [
+        {
+          "he": "ומה *קרה* אחר כך?",
+          "en": "And what happened next?"
+        }
+      ]
+    },
+    {
+      "rank": 140,
+      "bare": "אמא",
+      "niqqud": "אִמָּא",
+      "translit": "ima",
+      "gloss": "mom",
+      "type": "invariant",
+      "shoresh": "א־ם",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "אבל, *אמא*, הייתי חייב.",
+          "en": "But, Mom, I had to."
+        }
+      ]
+    },
+    {
+      "rank": 147,
+      "bare": "תמיד",
+      "niqqud": "תָּמִיד",
+      "translit": "tamid",
+      "gloss": "always",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (always)",
+      "examples": [
+        {
+          "he": "זה *תמיד* קורה ביום הראשון של המשפט.",
+          "en": "It always happens on the first day of the trial."
+        }
+      ]
+    },
+    {
+      "rank": 149,
+      "bare": "יום",
+      "niqqud": "יוֹם",
+      "translit": "yom",
+      "gloss": "day",
+      "type": "invariant",
+      "shoresh": "י־ו־ם",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "איזה *יום* נפלא.",
+          "en": "What a wonderful day."
+        }
+      ]
+    },
+    {
+      "rank": 150,
+      "bare": "חבר",
+      "niqqud": "חָבֵר",
+      "translit": "chaver",
+      "gloss": "friend / boyfriend",
+      "type": "ambiguous",
+      "readings": [
+        "chaver = friend / member",
+        "chaber = connect (verb)"
+      ],
+      "shoresh": "ח־ב־ר",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "*חבר*, אתה במקום שלי.",
+          "en": "Friend, you're in my spot."
+        },
+        {
+          "he": "שלום, *חבר*",
+          "en": "goodbye, friend",
+          "canon": "Clinton at Rabin's funeral, 1995"
+        }
+      ]
+    },
+    {
+      "rank": 152,
+      "bare": "בטוח",
+      "niqqud": "בָּטוּחַ",
+      "translit": "batuach",
+      "gloss": "sure / certain (m)",
+      "type": "invariant",
+      "shoresh": "ב־ט־ח",
+      "grammar": "adjective (m.sg) — passive ptcp of ב־ט־ח",
+      "examples": [
+        {
+          "he": "מלבד זאת, אתה *בטוח* שזו חבלה?",
+          "en": "Besides, are you sure it's sabotage?"
+        }
+      ]
+    },
+    {
+      "rank": 153,
+      "bare": "בגלל",
+      "niqqud": "בִּגְלַל",
+      "translit": "biglal",
+      "gloss": "because of",
+      "type": "invariant",
+      "shoresh": "ג־ל־ל",
+      "grammar": "preposition (because of)",
+      "examples": [
+        {
+          "he": "*בגלל* שאתה מרגיש אותו הדבר.",
+          "en": "Because you feel the same."
+        }
+      ]
+    },
+    {
+      "bare": "שלום",
+      "niqqud": "שָׁלוֹם",
+      "translit": "shalom",
+      "gloss": "hello / goodbye / peace",
+      "type": "invariant",
+      "shoresh": "שׁ־ל־ם",
+      "grammar": "noun (m.sg) / greeting",
+      "rank": 154,
+      "examples": [
+        {
+          "he": "*שלום*, אנשי הבית!",
+          "en": "Hello, people of the house!"
+        }
+      ]
+    },
+    {
+      "rank": 161,
+      "bare": "מדי",
+      "niqqud": "מִדַּי",
+      "translit": "miday",
+      "gloss": "too (much) / overly",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (too much)",
+      "examples": [
+        {
+          "he": "היה מאוחר *מדי*.",
+          "en": "It was too late."
+        }
+      ]
+    },
+    {
+      "rank": 162,
+      "bare": "רואה",
+      "niqqud": "רוֹאֶה",
+      "translit": "ro'e",
+      "gloss": "see / sees (m)",
+      "type": "invariant",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al",
+      "examples": [
+        {
+          "he": "כן, אני *רואה*.",
+          "en": "Yes, I see."
+        }
+      ]
+    },
+    {
+      "rank": 165,
+      "bare": "כולם",
+      "niqqud": "כֻּלָּם",
+      "translit": "kulam",
+      "gloss": "everyone / all of them",
+      "type": "invariant",
+      "shoresh": "כ־ל־ל",
+      "grammar": "quantifier / pronoun (everyone)",
+      "examples": [
+        {
+          "he": "*כולם* לחזור לעבודה.",
+          "en": "Everyone, back to work."
+        }
+      ]
+    },
+    {
+      "rank": 167,
+      "bare": "אמר",
+      "niqqud": "אָמַר",
+      "translit": "amar",
+      "gloss": "said (he)",
+      "type": "invariant",
+      "shoresh": "א־מ־ר",
+      "grammar": "verb · past · m.3sg · pa'al",
+      "examples": [
+        {
+          "he": "זה פשוט היה משהו שהוא *אמר*.",
+          "en": "It was just something he said."
+        }
+      ]
+    },
+    {
+      "rank": 168,
+      "bare": "רגע",
+      "niqqud": "רֶגַע",
+      "translit": "rega",
+      "gloss": "moment / hold on a sec",
+      "type": "invariant",
+      "shoresh": "ר־ג־ע",
+      "grammar": "noun (m.sg) 'moment' / interjection",
+      "examples": [
+        {
+          "he": "אוכל יגיע עוד *רגע*.",
+          "en": "Food will be here in a moment."
+        }
+      ]
+    },
+    {
+      "rank": 170,
+      "bare": "בן",
+      "niqqud": "בֵּן",
+      "translit": "ben",
+      "gloss": "son / …-year-old",
+      "type": "ambiguous",
+      "readings": [
+        "ben = son",
+        "ben = member/aged (בן 30 = 30 years old)"
+      ],
+      "shoresh": "ב־נ־ה",
+      "grammar": "noun (m.sg) 'son'",
+      "examples": [
+        {
+          "he": "ככה מדבר גבר, *בן*.",
+          "en": "That's how a man talks, son."
+        }
+      ]
+    },
+    {
+      "rank": 174,
+      "bare": "איזה",
+      "niqqud": "אֵיזֶה",
+      "translit": "eize",
+      "gloss": "which / what a…",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word / determiner (which)",
+      "examples": [
+        {
+          "he": "*איזה* יום נפלא.",
+          "en": "What a wonderful day."
+        }
+      ]
+    },
+    {
+      "rank": 176,
+      "bare": "אדם",
+      "niqqud": "אָדָם",
+      "translit": "adam",
+      "gloss": "person / man",
+      "type": "invariant",
+      "shoresh": "א־ד־ם",
+      "grammar": "noun (m.sg) 'person'",
+      "examples": [
+        {
+          "he": "הוא נראה לי *אדם* הגיוני.",
+          "en": "He seems like a reasonable person to me."
+        }
+      ]
+    },
+    {
+      "rank": 178,
+      "bare": "דברים",
+      "niqqud": "דְּבָרִים",
+      "translit": "dvarim",
+      "gloss": "things",
+      "type": "invariant",
+      "shoresh": "ד־ב־ר",
+      "grammar": "noun (m.pl) 'things'",
+      "examples": [
+        {
+          "he": "הבאתי לך כמה *דברים*.",
+          "en": "I brought you a few things."
+        }
+      ]
+    },
+    {
+      "rank": 180,
+      "bare": "טובה",
+      "niqqud": "טוֹבָה",
+      "translit": "tova",
+      "gloss": "good (f) / a favor",
+      "type": "ambiguous",
+      "readings": [
+        "tova = good (f. adj.)",
+        "tova = a favor (noun)"
+      ],
+      "shoresh": "ט־ו־ב",
+      "grammar": "adjective (f.sg) 'good' / noun (f.) 'favor'",
+      "examples": [
+        {
+          "he": "אני רוצה להחזיר *טובה*.",
+          "en": "I want to return a favor."
+        }
+      ]
+    },
+    {
+      "rank": 181,
+      "bare": "בשביל",
+      "niqqud": "בִּשְׁבִיל",
+      "translit": "bishvil",
+      "gloss": "for / for the sake of",
+      "type": "invariant",
+      "shoresh": "שׁ־ב־ל",
+      "grammar": "preposition (for)",
+      "examples": [
+        {
+          "he": "*בשביל* יום ראשון זה היה די מסעיר.",
+          "en": "For a Sunday, it was pretty exciting."
+        }
+      ]
+    },
+    {
+      "rank": 183,
+      "bare": "דרך",
+      "niqqud": "דֶּרֶךְ",
+      "translit": "derech",
+      "gloss": "way / road / through",
+      "type": "ambiguous",
+      "readings": [
+        "derech = way, road (noun)",
+        "derech = via, through (prep)"
+      ],
+      "shoresh": "ד־ר־ך",
+      "grammar": "noun (f.sg) 'way' / preposition (through)",
+      "examples": [
+        {
+          "he": "*דרך* אגב, הנה משהו שאולי יעניין אותך.",
+          "en": "By the way, here's something that might interest you."
+        }
+      ]
+    },
+    {
+      "rank": 184,
+      "bare": "אוקיי",
+      "niqqud": "אוֹקֵיי",
+      "translit": "okay",
+      "gloss": "okay",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "interjection (okay)",
+      "examples": [
+        {
+          "he": "*אוקיי* בואו נתחיל.",
+          "en": "Okay, let's start."
+        }
+      ]
+    },
+    {
+      "rank": 185,
+      "bare": "לעזור",
+      "niqqud": "לַעֲזוֹר",
+      "translit": "la'azor",
+      "gloss": "to help",
+      "type": "invariant",
+      "shoresh": "ע־ז־ר",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "במה אוכל *לעזור* לך?",
+          "en": "How can I help you?"
+        }
+      ]
+    },
+    {
+      "rank": 187,
+      "bare": "בבית",
+      "niqqud": "בַּבַּיִת",
+      "translit": "babayit",
+      "gloss": "at home / in the house",
+      "type": "invariant",
+      "shoresh": "ב־י־ת",
+      "grammar": "preposition + noun (at home)",
+      "examples": [
+        {
+          "he": "שים אותנו *בבית* החולים.",
+          "en": "Put us in the hospital."
+        }
+      ]
+    },
+    {
+      "rank": 189,
+      "bare": "מספיק",
+      "niqqud": "מַסְפִּיק",
+      "translit": "maspik",
+      "gloss": "enough / that's enough",
+      "type": "invariant",
+      "shoresh": "ס־פ־ק",
+      "grammar": "verb · present · m.sg · hif'il / adverb (enough)",
+      "examples": [
+        {
+          "he": "בשבילי זה *מספיק*.",
+          "en": "For me, that's enough."
+        }
+      ]
+    },
+    {
+      "rank": 192,
+      "bare": "הכי",
+      "niqqud": "הֲכִי",
+      "translit": "hachi",
+      "gloss": "most (the …-est)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (superlative marker, 'most')",
+      "examples": [
+        {
+          "he": "*הכי* מצחיק בטלוויזיה!",
+          "en": "The funniest thing on TV!"
+        }
+      ]
+    },
+    {
+      "rank": 198,
+      "bare": "כלום",
+      "niqqud": "כְּלוּם",
+      "translit": "klum",
+      "gloss": "nothing / anything",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "pronoun (nothing)",
+      "examples": [
+        {
+          "he": "לא אומרים *כלום*.",
+          "en": "They don't say anything."
+        }
+      ]
+    },
+    {
+      "rank": 199,
+      "bare": "מקום",
+      "niqqud": "מָקוֹם",
+      "translit": "makom",
+      "gloss": "place",
+      "type": "invariant",
+      "shoresh": "ק־ו־ם",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "אין *מקום* בשבילך.",
+          "en": "There's no room for you."
+        }
+      ]
+    },
+    {
+      "rank": 201,
+      "bare": "לקחת",
+      "niqqud": "לָקַחַת",
+      "translit": "lakachat",
+      "gloss": "to take",
+      "type": "invariant",
+      "shoresh": "ל־ק־ח",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "אני צריך *לקחת* משהו.",
+          "en": "I need to take something."
+        }
+      ]
+    },
+    {
+      "rank": 205,
+      "bare": "ככה",
+      "niqqud": "כָּכָה",
+      "translit": "kacha",
+      "gloss": "like this / so",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (like this)",
+      "examples": [
+        {
+          "he": "לא, זה לא היה *ככה*.",
+          "en": "No, it wasn't like that."
+        }
+      ]
+    },
+    {
+      "rank": 210,
+      "bare": "אפשר",
+      "niqqud": "אֶפְשָׁר",
+      "translit": "efshar",
+      "gloss": "possible / can one…",
+      "type": "invariant",
+      "shoresh": "פ־שׁ־ר",
+      "grammar": "impersonal predicate (it's possible)",
+      "examples": [
+        {
+          "he": "*אפשר* לעשות זאת?",
+          "en": "Can it be done?"
+        }
+      ]
+    },
+    {
+      "rank": 215,
+      "bare": "כאילו",
+      "niqqud": "כְּאִילוּ",
+      "translit": "ke'ilu",
+      "gloss": "like / as if / kinda",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction / discourse particle (as if)",
+      "examples": [
+        {
+          "he": "*כאילו*, מה הדבר האחרון שהם חושבים עליו?",
+          "en": "Like, what's the last thing they think about?"
+        }
+      ]
+    },
+    {
+      "rank": 216,
+      "bare": "קשה",
+      "niqqud": "קָשֶׁה",
+      "translit": "kashe",
+      "gloss": "hard / difficult",
+      "type": "invariant",
+      "shoresh": "ק־שׁ־ה",
+      "grammar": "adjective (m.sg) / adverb 'hard'",
+      "examples": [
+        {
+          "he": "*קשה* לי להסביר, המפקד.",
+          "en": "It's hard for me to explain, sir."
+        }
+      ]
+    },
+    {
+      "rank": 220,
+      "bare": "להגיד",
+      "niqqud": "לְהַגִּיד",
+      "translit": "lehagid",
+      "gloss": "to say / to tell",
+      "type": "invariant",
+      "shoresh": "נ־ג־ד",
+      "grammar": "verb · infinitive · hif'il",
+      "examples": [
+        {
+          "he": "אני יכולה *להגיד*?",
+          "en": "May I say something?"
+        }
+      ]
+    },
+    {
+      "rank": 221,
+      "bare": "שנים",
+      "niqqud": "שָׁנִים",
+      "translit": "shanim",
+      "gloss": "years",
+      "type": "invariant",
+      "shoresh": "שׁ־נ־ה",
+      "grammar": "noun (f.pl) 'years'",
+      "examples": [
+        {
+          "he": "עשר *שנים* הן זמן רב.",
+          "en": "Ten years is a long time."
+        }
+      ]
+    },
+    {
+      "rank": 223,
+      "bare": "די",
+      "niqqud": "דַּי",
+      "translit": "dai",
+      "gloss": "enough / quite / stop it",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb (enough)",
+      "examples": [
+        {
+          "he": "זה *די* טיפשי, דווקא.",
+          "en": "That's pretty silly, actually."
+        }
+      ]
+    },
+    {
+      "rank": 224,
+      "bare": "למצוא",
+      "niqqud": "לִמְצֹא",
+      "translit": "limtzo",
+      "gloss": "to find",
+      "type": "invariant",
+      "shoresh": "מ־צ־א",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "איפה אתה מצפה *למצוא* אותו?",
+          "en": "Where do you expect to find him?"
+        }
+      ]
+    },
+    {
+      "rank": 225,
+      "bare": "גדול",
+      "niqqud": "גָּדוֹל",
+      "translit": "gadol",
+      "gloss": "big / large (m)",
+      "type": "invariant",
+      "shoresh": "ג־ד־ל",
+      "grammar": "adjective (m.sg) 'big'",
+      "examples": [
+        {
+          "he": "נכון שהוא *גדול*?",
+          "en": "Isn't it big?"
+        }
+      ]
+    },
+    {
+      "rank": 228,
+      "bare": "בלי",
+      "niqqud": "בְּלִי",
+      "translit": "bli",
+      "gloss": "without",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "preposition (without)",
+      "examples": [
+        {
+          "he": "אוי, *בלי* עוד שאלות!",
+          "en": "Oh, no more questions!"
+        }
+      ]
+    },
+    {
+      "rank": 229,
+      "bare": "מצטערת",
+      "niqqud": "מִצְטַעֶרֶת",
+      "translit": "mitzta'eret",
+      "gloss": "sorry (f)",
+      "type": "invariant",
+      "shoresh": "צ־ע־ר",
+      "grammar": "verb · present (beinoni) · f.sg · hitpa'el",
+      "examples": [
+        {
+          "he": "אני *מצטערת*, אינני יכולה.",
+          "en": "I'm sorry, I can't."
+        }
+      ]
+    },
+    {
+      "rank": 233,
+      "bare": "לקבל",
+      "niqqud": "לְקַבֵּל",
+      "translit": "lekabel",
+      "gloss": "to receive / to get",
+      "type": "invariant",
+      "shoresh": "ק־ב־ל",
+      "grammar": "verb · infinitive · pi'el",
+      "examples": [
+        {
+          "he": "אנחנו חייבים *לקבל* אחד.",
+          "en": "We have to get one."
+        }
+      ]
+    },
+    {
+      "rank": 235,
+      "bare": "יפה",
+      "niqqud": "יָפֶה",
+      "translit": "yafe",
+      "gloss": "beautiful / nice / fine",
+      "type": "invariant",
+      "shoresh": "י־פ־ה",
+      "grammar": "adjective (m.sg) 'beautiful'",
+      "examples": [
+        {
+          "he": "נכון שהיא *יפה*?",
+          "en": "Isn't she beautiful?"
+        }
+      ]
+    },
+    {
+      "rank": 236,
+      "bare": "ראיתי",
+      "niqqud": "רָאִיתִי",
+      "translit": "ra'iti",
+      "gloss": "I saw",
+      "type": "invariant",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb · past · 1sg · pa'al",
+      "examples": [
+        {
+          "he": "כן, *ראיתי* זאת.",
+          "en": "Yes, I saw it."
+        }
+      ]
+    },
+    {
+      "rank": 237,
+      "bare": "מנסה",
+      "niqqud": "מְנַסֶּה",
+      "translit": "menase",
+      "gloss": "trying (m)",
+      "type": "invariant",
+      "shoresh": "נ־ס־ה",
+      "grammar": "verb · present (beinoni) · sg · pi'el",
+      "examples": [
+        {
+          "he": "את *מנסה* לתפוס אותו.",
+          "en": "You're trying to catch him."
+        }
+      ]
+    },
+    {
+      "rank": 238,
+      "bare": "כמובן",
+      "niqqud": "כַּמּוּבָן",
+      "translit": "kamuvan",
+      "gloss": "of course",
+      "type": "invariant",
+      "shoresh": "ב־י־ן",
+      "grammar": "adverb (of course)",
+      "examples": [
+        {
+          "he": "הו, *כמובן*, כמובן.",
+          "en": "Oh, of course, of course."
+        }
+      ]
+    },
+    {
+      "rank": 239,
+      "bare": "מותק",
+      "niqqud": "מוֹתֶק",
+      "translit": "motek",
+      "gloss": "sweetie / honey",
+      "type": "invariant",
+      "shoresh": "מ־ת־ק",
+      "grammar": "noun (m.sg) — term of endearment",
+      "examples": [
+        {
+          "he": "אנחנו נחזור, *מותק*!",
+          "en": "We'll be back, sweetie!"
+        }
+      ]
+    },
+    {
+      "rank": 240,
+      "bare": "מדבר",
+      "niqqud": "מְדַבֵּר",
+      "translit": "medaber",
+      "gloss": "speaking / talks (m)",
+      "type": "ambiguous",
+      "readings": [
+        "medaber = speaking (verb)",
+        "midbar = desert (noun)"
+      ],
+      "shoresh": "ד־ב־ר",
+      "grammar": "verb · present (beinoni) · m.sg · pi'el — or noun 'desert'",
+      "examples": [
+        {
+          "he": "מי *מדבר* בבקשה?",
+          "en": "Who's speaking, please?"
+        }
+      ]
+    },
+    {
+      "rank": 242,
+      "bare": "נהדר",
+      "niqqud": "נֶהְדָּר",
+      "translit": "nehedar",
+      "gloss": "wonderful / great",
+      "type": "invariant",
+      "shoresh": "ה־ד־ר",
+      "grammar": "adjective (m.sg) — nif'al ptcp of ה־ד־ר",
+      "examples": [
+        {
+          "he": "המקום הזה היה *נהדר*.",
+          "en": "This place was wonderful."
+        }
+      ]
+    },
+    {
+      "rank": 244,
+      "bare": "סליחה",
+      "niqqud": "סְלִיחָה",
+      "translit": "slicha",
+      "gloss": "sorry / excuse me",
+      "type": "invariant",
+      "shoresh": "ס־ל־ח",
+      "grammar": "noun (f.sg) 'apology' / interjection (excuse me)",
+      "examples": [
+        {
+          "he": "*סליחה*, אדוני המנהל.",
+          "en": "Excuse me, Mr. Manager."
+        }
+      ]
+    },
+    {
+      "rank": 245,
+      "bare": "אוהבת",
+      "niqqud": "אוֹהֶבֶת",
+      "translit": "ohevet",
+      "gloss": "love / likes (f)",
+      "type": "invariant",
+      "shoresh": "א־ה־ב",
+      "grammar": "verb · present (beinoni) · f.sg · pa'al",
+      "examples": [
+        {
+          "he": "אני *אוהבת* אותו.",
+          "en": "I love him."
+        }
+      ]
+    },
+    {
+      "rank": 246,
+      "bare": "אך",
+      "niqqud": "אַךְ",
+      "translit": "ach",
+      "gloss": "but / only",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction (but/only)",
+      "examples": [
+        {
+          "he": "*אך* ישנה סיבה נוספת.",
+          "en": "But there's another reason."
+        }
+      ]
+    },
+    {
+      "rank": 247,
+      "bare": "אומרת",
+      "niqqud": "אוֹמֶרֶת",
+      "translit": "omeret",
+      "gloss": "says / saying (f)",
+      "type": "invariant",
+      "shoresh": "א־מ־ר",
+      "grammar": "verb · present (beinoni) · f.sg · pa'al",
+      "examples": [
+        {
+          "he": "ואני *אומרת* שלא!",
+          "en": "And I say no!"
+        }
+      ]
+    },
+    {
+      "rank": 249,
+      "bare": "לעולם",
+      "niqqud": "לְעוֹלָם",
+      "translit": "le'olam",
+      "gloss": "ever / forever",
+      "type": "invariant",
+      "shoresh": "ע־ל־ם",
+      "grammar": "adverb (ever/forever)",
+      "examples": [
+        {
+          "he": "ובכן, זה לא יהיה *לעולם*, נכון?",
+          "en": "Well, it'll never happen, right?"
+        }
+      ]
+    },
+    {
+      "rank": 251,
+      "bare": "רוצים",
+      "niqqud": "רוֹצִים",
+      "translit": "rotzim",
+      "gloss": "want (pl)",
+      "type": "invariant",
+      "shoresh": "ר־צ־ה",
+      "grammar": "verb · present (beinoni) · m.pl · pa'al",
+      "examples": [
+        {
+          "he": "אנחנו *רוצים* רגליים!",
+          "en": "We want legs!"
+        }
+      ]
+    },
+    {
+      "rank": 252,
+      "bare": "הלילה",
+      "niqqud": "הַלַּיְלָה",
+      "translit": "halayla",
+      "gloss": "tonight / the night",
+      "type": "invariant",
+      "shoresh": "ל־י־ל",
+      "grammar": "noun (m.sg) 'the night' / adverb (tonight)",
+      "examples": [
+        {
+          "he": "זה לא עבד טוב *הלילה*, לא?",
+          "en": "It didn't go well tonight, did it?"
+        }
+      ]
+    },
+    {
+      "rank": 254,
+      "bare": "הבחור",
+      "niqqud": "הַבָּחוּר",
+      "translit": "habachur",
+      "gloss": "the guy",
+      "type": "invariant",
+      "shoresh": "ב־ח־ר",
+      "grammar": "noun (m.sg) 'the guy'",
+      "examples": [
+        {
+          "he": "מי זה *הבחור* הזה?",
+          "en": "Who's this guy?"
+        }
+      ]
+    },
+    {
+      "rank": 255,
+      "bare": "לתת",
+      "niqqud": "לָתֵת",
+      "translit": "latet",
+      "gloss": "to give",
+      "type": "invariant",
+      "shoresh": "נ־ת־ן",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "זו הייתה טעות *לתת* לך לחזור הנה.",
+          "en": "It was a mistake to let you come back here."
+        }
+      ]
+    },
+    {
+      "rank": 256,
+      "bare": "האמת",
+      "niqqud": "הָאֱמֶת",
+      "translit": "ha'emet",
+      "gloss": "the truth",
+      "type": "invariant",
+      "shoresh": "א־מ־ן",
+      "grammar": "noun (f.sg) 'the truth'",
+      "examples": [
+        {
+          "he": "למען *האמת*, כן.",
+          "en": "To tell the truth, yes."
+        }
+      ]
+    },
+    {
+      "rank": 257,
+      "bare": "אחי",
+      "niqqud": "אָחִי",
+      "translit": "achi",
+      "gloss": "my brother / bro",
+      "type": "invariant",
+      "shoresh": "א־ח",
+      "grammar": "noun (m.sg) + poss. 'my brother'",
+      "examples": [
+        {
+          "he": "אתם מכירים את *אחי*.",
+          "en": "You know my brother."
+        }
+      ]
+    },
+    {
+      "bare": "בית",
+      "niqqud": "בַּיִת",
+      "translit": "bayit",
+      "gloss": "house / home",
+      "type": "invariant",
+      "shoresh": "ב־י־ת",
+      "grammar": "noun (m.sg)",
+      "rank": 262,
+      "examples": [
+        {
+          "he": "זהו *בית* חולים.",
+          "en": "This is a hospital."
+        }
+      ]
+    },
+    {
+      "rank": 269,
+      "bare": "כסף",
+      "niqqud": "כֶּסֶף",
+      "translit": "kesef",
+      "gloss": "money / silver",
+      "type": "invariant",
+      "shoresh": "כ־ס־ף",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "הבאת איזה *כסף*?",
+          "en": "Did you bring any money?"
+        }
+      ]
+    },
+    {
+      "rank": 270,
+      "bare": "עבודה",
+      "niqqud": "עֲבוֹדָה",
+      "translit": "avoda",
+      "gloss": "work / job",
+      "type": "invariant",
+      "shoresh": "ע־ב־ד",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "הבחורים עושים *עבודה* יפה.",
+          "en": "The guys are doing nice work."
+        }
+      ]
+    },
+    {
+      "rank": 272,
+      "bare": "מוכן",
+      "niqqud": "מוּכָן",
+      "translit": "muchan",
+      "gloss": "ready (m)",
+      "type": "invariant",
+      "shoresh": "כ־ו־ן",
+      "grammar": "adjective (m.sg) — huf'al ptcp of כ־ו־ן",
+      "examples": [
+        {
+          "he": "ובכן, אני *מוכן*.",
+          "en": "Well, I'm ready."
+        }
+      ]
+    },
+    {
+      "rank": 273,
+      "bare": "ילד",
+      "niqqud": "יֶלֶד",
+      "translit": "yeled",
+      "gloss": "kid / boy",
+      "type": "invariant",
+      "shoresh": "י־ל־ד",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "כל הכבוד לך, *ילד*!",
+          "en": "Good for you, kid!"
+        }
+      ]
+    },
+    {
+      "rank": 274,
+      "bare": "נחמד",
+      "niqqud": "נֶחְמָד",
+      "translit": "nechmad",
+      "gloss": "nice / pleasant",
+      "type": "invariant",
+      "shoresh": "ח־מ־ד",
+      "grammar": "adjective (m.sg) — nif'al ptcp of ח־מ־ד",
+      "examples": [
+        {
+          "he": "או שחשבתי שהיה *נחמד*.",
+          "en": "Or I thought it would be nice."
+        },
+        {
+          "he": "בוא אלי פרפר *נחמד*",
+          "en": "Come to me, nice butterfly",
+          "canon": "פרפר נחמד — Fania Bergstein"
+        }
+      ]
+    },
+    {
+      "rank": 278,
+      "bare": "מרגיש",
+      "niqqud": "מַרְגִּישׁ",
+      "translit": "margish",
+      "gloss": "feel / feels (m)",
+      "type": "invariant",
+      "shoresh": "ר־ג־שׁ",
+      "grammar": "verb · present (beinoni) · m.sg · hif'il",
+      "examples": [
+        {
+          "he": "*מרגיש* יותר טוב?",
+          "en": "Feeling better?"
+        }
+      ]
+    },
+    {
+      "rank": 285,
+      "bare": "לצאת",
+      "niqqud": "לָצֵאת",
+      "translit": "latzet",
+      "gloss": "to go out / to leave",
+      "type": "invariant",
+      "shoresh": "י־צ־א",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "תנו לי *לצאת* מכאן!",
+          "en": "Let me get out of here!"
+        }
+      ]
+    },
+    {
+      "rank": 286,
+      "bare": "כדאי",
+      "niqqud": "כְּדַאי",
+      "translit": "keday",
+      "gloss": "worth it / should",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "impersonal predicate (it's worth it)",
+      "examples": [
+        {
+          "he": "*כדאי* לכם שזה יהיה טוב.",
+          "en": "This had better be good."
+        }
+      ]
+    },
+    {
+      "rank": 287,
+      "bare": "עובד",
+      "niqqud": "עוֹבֵד",
+      "translit": "oved",
+      "gloss": "work / works (m) / employee",
+      "type": "ambiguous",
+      "readings": [
+        "oved = works (verb)",
+        "oved = employee (noun)"
+      ],
+      "shoresh": "ע־ב־ד",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al — or noun 'employee'",
+      "examples": [
+        {
+          "he": "אתה *עובד* כל חייך!",
+          "en": "You work your whole life!"
+        }
+      ]
+    },
+    {
+      "rank": 289,
+      "bare": "חכה",
+      "niqqud": "חַכֵּה",
+      "translit": "chake",
+      "gloss": "wait! (m, imperative)",
+      "type": "invariant",
+      "shoresh": "ח־כ־ה",
+      "grammar": "verb · imperative · m.sg · pi'el",
+      "examples": [
+        {
+          "he": "היי, טום, *חכה* דקה.",
+          "en": "Hey, Tom, wait a minute."
+        }
+      ]
+    },
+    {
+      "rank": 292,
+      "bare": "עשה",
+      "niqqud": "עָשָׂה",
+      "translit": "asa",
+      "gloss": "did / made",
+      "type": "invariant",
+      "shoresh": "ע־שׂ־ה",
+      "grammar": "verb · past · m.3sg · pa'al",
+      "examples": [
+        {
+          "he": "*עשה* זאת עכשיו!",
+          "en": "Do it now!"
+        }
+      ]
+    },
+    {
+      "rank": 295,
+      "bare": "מהר",
+      "niqqud": "מַהֵר",
+      "translit": "maher",
+      "gloss": "fast / quickly",
+      "type": "invariant",
+      "shoresh": "מ־ה־ר",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "תלכי מפה, *מהר*!",
+          "en": "Get out of here, fast!"
+        }
+      ]
+    },
+    {
+      "rank": 300,
+      "bare": "נשמע",
+      "niqqud": "נִשְׁמָע",
+      "translit": "nishma",
+      "gloss": "sounds (like) / it sounds",
+      "type": "invariant",
+      "shoresh": "שׁ־מ־ע",
+      "grammar": "verb · present · m.sg · nif'al",
+      "examples": [
+        {
+          "he": "כך זה *נשמע* הבוקר.",
+          "en": "That's how it sounded this morning."
+        }
+      ]
+    },
+    {
+      "rank": 303,
+      "bare": "בכלל",
+      "niqqud": "בִּכְלָל",
+      "translit": "bichlal",
+      "gloss": "at all / in general",
+      "type": "invariant",
+      "shoresh": "כ־ל־ל",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "או האם הם חושבים משהו *בכלל*?",
+          "en": "Or do they think anything at all?"
+        }
+      ]
+    },
+    {
+      "rank": 304,
+      "bare": "דקות",
+      "niqqud": "דַּקּוֹת",
+      "translit": "dakot",
+      "gloss": "minutes",
+      "type": "invariant",
+      "shoresh": "ד־ק־ק",
+      "grammar": "noun (f.pl)",
+      "examples": [
+        {
+          "he": "יש לך חמש *דקות*.",
+          "en": "You have five minutes."
+        }
+      ]
+    },
+    {
+      "rank": 308,
+      "bare": "אמור",
+      "niqqud": "אָמוּר",
+      "translit": "amur",
+      "gloss": "supposed to",
+      "type": "ambiguous",
+      "shoresh": "א־מ־ר",
+      "grammar": "adjective (m.sg) — passive ptcp of א־מ־ר",
+      "examples": [
+        {
+          "he": "אתה *אמור* לדעת",
+          "en": "you're supposed to know"
+        }
+      ],
+      "readings": [
+        "amur = supposed to (passive participle / adjective)",
+        "emor = say! / tell! (imperative, אֱמֹר)"
+      ]
+    },
+    {
+      "bare": "מספר",
+      "niqqud": "מִסְפָּר",
+      "translit": "mispar",
+      "gloss": "number",
+      "type": "ambiguous",
+      "shoresh": "ס־פ־ר",
+      "grammar": "noun (m.sg) — or verb מְסַפֵּר 'tells'",
+      "readings": [
+        "mispar = number (noun)",
+        "mesaper = tells/narrates (verb)"
+      ],
+      "rank": 309,
+      "examples": [
+        {
+          "he": "*מספר* חמש.",
+          "en": "Number five."
+        }
+      ]
+    },
+    {
+      "rank": 310,
+      "bare": "מכיר",
+      "niqqud": "מַכִּיר",
+      "translit": "makir",
+      "gloss": "know / am acquainted (m)",
+      "type": "invariant",
+      "shoresh": "נ־כ־ר",
+      "grammar": "verb · present (beinoni) · m.sg · hif'il",
+      "examples": [
+        {
+          "he": "אתה לא *מכיר* את הבן אדם בכלל.",
+          "en": "You don't know the guy at all."
+        }
+      ]
+    },
+    {
+      "rank": 312,
+      "bare": "מחר",
+      "niqqud": "מָחָר",
+      "translit": "machar",
+      "gloss": "tomorrow",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "*מחר* נתחיל שוב.",
+          "en": "Tomorrow we'll start again."
+        }
+      ]
+    },
+    {
+      "rank": 313,
+      "bare": "לספר",
+      "niqqud": "לְסַפֵּר",
+      "translit": "lesaper",
+      "gloss": "to tell / to recount",
+      "type": "invariant",
+      "shoresh": "ס־פ־ר",
+      "grammar": "verb · infinitive · pi'el",
+      "examples": [
+        {
+          "he": "ובכן, תן לי *לספר* לך משהו.",
+          "en": "Well, let me tell you something."
+        }
+      ]
+    },
+    {
+      "rank": 314,
+      "bare": "גברת",
+      "niqqud": "גְּבֶרֶת",
+      "translit": "gveret",
+      "gloss": "lady / Mrs.",
+      "type": "invariant",
+      "shoresh": "ג־ב־ר",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "ובכן, באמת, *גברת*!",
+          "en": "Well, really, madam!"
+        }
+      ]
+    },
+    {
+      "rank": 315,
+      "bare": "לחזור",
+      "niqqud": "לַחֲזוֹר",
+      "translit": "lachzor",
+      "gloss": "to come back / return",
+      "type": "invariant",
+      "shoresh": "ח־ז־ר",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "כולם *לחזור* לעבודה.",
+          "en": "Everyone, back to work."
+        }
+      ]
+    },
+    {
+      "rank": 316,
+      "bare": "בעיה",
+      "niqqud": "בְּעָיָה",
+      "translit": "be'aya",
+      "gloss": "problem",
+      "type": "invariant",
+      "shoresh": "ב־ע־ה",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "רבותיי, יש לנו *בעיה*.",
+          "en": "Gentlemen, we have a problem."
+        }
+      ]
+    },
+    {
+      "rank": 317,
+      "bare": "רע",
+      "niqqud": "רַע",
+      "translit": "ra",
+      "gloss": "bad / evil",
+      "type": "invariant",
+      "shoresh": "ר־ע־ע",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "הכול היה חלום *רע*.",
+          "en": "It was all a bad dream."
+        }
+      ]
+    },
+    {
+      "rank": 318,
+      "bare": "בא",
+      "niqqud": "בָּא",
+      "translit": "ba",
+      "gloss": "comes / coming (m)",
+      "type": "invariant",
+      "shoresh": "ב־ו־א",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al",
+      "examples": [
+        {
+          "he": "מצחיק, כשזה *בא* ממך.",
+          "en": "Funny, coming from you."
+        }
+      ]
+    },
+    {
+      "rank": 320,
+      "bare": "משנה",
+      "niqqud": "מְשַׁנֶּה",
+      "translit": "meshane",
+      "gloss": "matters / changes (לא משנה = doesn't matter)",
+      "type": "ambiguous",
+      "shoresh": "שׁ־נ־ה",
+      "grammar": "verb · present · m.sg · pi'el — or noun מִשְׁנָה 'Mishna'",
+      "readings": [
+        "meshane = changes / matters (verb)",
+        "mishna = the Mishnah (noun)"
+      ],
+      "examples": [
+        {
+          "he": "לא ממש *משנה* לי.",
+          "en": "It doesn't really matter to me."
+        }
+      ]
+    },
+    {
+      "rank": 321,
+      "bare": "ידעתי",
+      "niqqud": "יָדַעְתִּי",
+      "translit": "yadati",
+      "gloss": "I knew",
+      "type": "invariant",
+      "shoresh": "י־ד־ע",
+      "grammar": "verb · past · 1sg · pa'al",
+      "examples": [
+        {
+          "he": "לא *ידעתי* את זה.",
+          "en": "I didn't know that."
+        }
+      ]
+    },
+    {
+      "rank": 322,
+      "bare": "מתי",
+      "niqqud": "מָתַי",
+      "translit": "matai",
+      "gloss": "when",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "question word",
+      "examples": [
+        {
+          "he": "*מתי* אמרת שזה צריך להיות?",
+          "en": "When did you say it should be?"
+        }
+      ]
+    },
+    {
+      "rank": 324,
+      "bare": "סוף",
+      "niqqud": "סוֹף",
+      "translit": "sof",
+      "gloss": "end",
+      "type": "invariant",
+      "shoresh": "ס־ו־ף",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "*סוף* הדרך, כולם לצאת.",
+          "en": "End of the road, everybody out."
+        },
+        {
+          "he": "*סוף* טוב, הכל טוב",
+          "en": "all's well that ends well",
+          "canon": "proverb"
+        }
+      ]
+    },
+    {
+      "rank": 326,
+      "bare": "להרוג",
+      "niqqud": "לַהֲרוֹג",
+      "translit": "laharog",
+      "gloss": "to kill",
+      "type": "invariant",
+      "shoresh": "ה־ר־ג",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "אצטרך *להרוג* את עצמי.",
+          "en": "I'll have to kill myself."
+        }
+      ]
+    },
+    {
+      "rank": 329,
+      "bare": "חלק",
+      "niqqud": "חֵלֶק",
+      "translit": "chelek",
+      "gloss": "part / portion",
+      "type": "ambiguous",
+      "shoresh": "ח־ל־ק",
+      "grammar": "noun (m.sg) — or adj. חָלָק 'smooth'",
+      "readings": [
+        "chelek = part, portion (noun)",
+        "chalak = smooth (adj.)"
+      ],
+      "examples": [
+        {
+          "he": "ועכשיו היא *חלק* ממנו.",
+          "en": "And now she's part of it."
+        }
+      ]
+    },
+    {
+      "rank": 330,
+      "bare": "מאמין",
+      "niqqud": "מַאֲמִין",
+      "translit": "ma'amin",
+      "gloss": "believe / believes (m)",
+      "type": "invariant",
+      "shoresh": "א־מ־ן",
+      "grammar": "verb · present (beinoni) · m.sg · hif'il",
+      "examples": [
+        {
+          "he": "אף אחד לא *מאמין* לך.",
+          "en": "No one believes you."
+        }
+      ]
+    },
+    {
+      "rank": 333,
+      "bare": "במקום",
+      "niqqud": "בִּמְקוֹם",
+      "translit": "bimkom",
+      "gloss": "instead of / in place of",
+      "type": "invariant",
+      "shoresh": "ק־ו־ם",
+      "grammar": "preposition",
+      "examples": [
+        {
+          "he": "היא *במקום* טוב יותר.",
+          "en": "She's in a better place."
+        }
+      ]
+    },
+    {
+      "rank": 334,
+      "bare": "גבר",
+      "niqqud": "גֶּבֶר",
+      "translit": "gever",
+      "gloss": "man / male",
+      "type": "invariant",
+      "shoresh": "ג־ב־ר",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "להמשיך להיות *גבר*.",
+          "en": "To go on being a man."
+        }
+      ]
+    },
+    {
+      "rank": 335,
+      "bare": "זוכר",
+      "niqqud": "זוֹכֵר",
+      "translit": "zocher",
+      "gloss": "remember / remembers (m)",
+      "type": "invariant",
+      "shoresh": "ז־כ־ר",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al",
+      "examples": [
+        {
+          "he": "אינך *זוכר* אותי?",
+          "en": "Don't you remember me?"
+        }
+      ]
+    },
+    {
+      "rank": 337,
+      "bare": "הגיע",
+      "niqqud": "הִגִּיעַ",
+      "translit": "higia",
+      "gloss": "arrived (m)",
+      "type": "invariant",
+      "shoresh": "נ־ג־ע",
+      "grammar": "verb · past · m.3sg · hif'il",
+      "examples": [
+        {
+          "he": "מאיפה זה *הגיע*!",
+          "en": "Where did that come from!"
+        }
+      ]
+    },
+    {
+      "rank": 341,
+      "bare": "לב",
+      "niqqud": "לֵב",
+      "translit": "lev",
+      "gloss": "heart",
+      "type": "invariant",
+      "shoresh": "ל־ב־ב",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "שמתי *לב* לזה הרבה פעמים.",
+          "en": "I noticed it many times."
+        }
+      ]
+    },
+    {
+      "bare": "חיים",
+      "niqqud": "חַיִּים",
+      "translit": "chayim",
+      "gloss": "life",
+      "type": "invariant",
+      "shoresh": "ח־י־ה",
+      "grammar": "noun (m.pl form, sg sense)",
+      "rank": 346,
+      "examples": [
+        {
+          "he": "היו אלה *חיים* טובים.",
+          "en": "It was a good life."
+        }
+      ]
+    },
+    {
+      "bare": "איש",
+      "niqqud": "אִישׁ",
+      "translit": "ish",
+      "gloss": "man / person",
+      "type": "invariant",
+      "shoresh": "א־י־שׁ",
+      "grammar": "noun (m.sg)",
+      "rank": 348,
+      "examples": [
+        {
+          "he": "ממש *איש* המסיבה.",
+          "en": "Really the life of the party."
+        }
+      ]
+    },
+    {
+      "rank": 350,
+      "bare": "כנראה",
+      "niqqud": "כַּנִּרְאֶה",
+      "translit": "kanir'e",
+      "gloss": "apparently / probably",
+      "type": "invariant",
+      "shoresh": "ר־א־ה",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "אתה *כנראה* צודק.",
+          "en": "You're probably right."
+        }
+      ]
+    },
+    {
+      "rank": 352,
+      "bare": "כאשר",
+      "niqqud": "כַּאֲשֶׁר",
+      "translit": "ka'asher",
+      "gloss": "when / as",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "conjunction (formal)",
+      "examples": [
+        {
+          "he": "*כאשר* קרה לך משהו מתחת לבית?",
+          "en": "When did something happen to you under the house?"
+        }
+      ]
+    },
+    {
+      "rank": 355,
+      "bare": "כמעט",
+      "niqqud": "כִּמְעַט",
+      "translit": "kim'at",
+      "gloss": "almost",
+      "type": "invariant",
+      "shoresh": "מ־ע־ט",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "אנחנו *כמעט* שם.",
+          "en": "We're almost there."
+        }
+      ]
+    },
+    {
+      "bare": "לילה",
+      "niqqud": "לַיְלָה",
+      "translit": "layla",
+      "gloss": "night",
+      "type": "invariant",
+      "shoresh": "ל־י־ל",
+      "grammar": "noun (m.sg)",
+      "rank": 360,
+      "examples": [
+        {
+          "he": "זה היה *לילה* יפה.",
+          "en": "It was a beautiful night."
+        }
+      ]
+    },
+    {
+      "bare": "דולר",
+      "niqqud": "דּוֹלָר",
+      "translit": "dolar",
+      "gloss": "dollar",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun (m.sg)",
+      "rank": 363,
+      "examples": [
+        {
+          "he": "שמונה עשרה *דולר*.",
+          "en": "Eighteen dollars."
+        }
+      ]
+    },
+    {
+      "rank": 364,
+      "bare": "שנה",
+      "niqqud": "שָׁנָה",
+      "translit": "shana",
+      "gloss": "year",
+      "type": "invariant",
+      "shoresh": "שׁ־נ־ה",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "חמש עשרה *שנה*?",
+          "en": "Fifteen years?"
+        },
+        {
+          "he": "*שנה* טובה",
+          "en": "happy new year",
+          "canon": "Rosh Hashanah greeting"
+        }
+      ]
+    },
+    {
+      "rank": 365,
+      "bare": "שמעתי",
+      "niqqud": "שָׁמַעְתִּי",
+      "translit": "shamati",
+      "gloss": "I heard",
+      "type": "invariant",
+      "shoresh": "שׁ־מ־ע",
+      "grammar": "verb · past · 1sg · pa'al",
+      "examples": [
+        {
+          "he": "ולא ידעתי אם *שמעתי* אותו נכון.",
+          "en": "And I didn't know if I heard him right."
+        }
+      ]
+    },
+    {
+      "rank": 367,
+      "bare": "בטוחה",
+      "niqqud": "בְּטוּחָה",
+      "translit": "betucha",
+      "gloss": "sure / certain (f)",
+      "type": "invariant",
+      "shoresh": "ב־ט־ח",
+      "grammar": "adjective (f.sg) — passive ptcp of ב־ט־ח",
+      "examples": [
+        {
+          "he": "אני *בטוחה* בכך.",
+          "en": "I'm sure of it."
+        }
+      ]
+    },
+    {
+      "rank": 368,
+      "bare": "לגמרי",
+      "niqqud": "לְגַמְרֵי",
+      "translit": "legamrei",
+      "gloss": "completely / totally",
+      "type": "invariant",
+      "shoresh": "ג־מ־ר",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "הוא *לגמרי* מטורף.",
+          "en": "He's completely crazy."
+        }
+      ]
+    },
+    {
+      "rank": 369,
+      "bare": "החוצה",
+      "niqqud": "הַחוּצָה",
+      "translit": "hachutza",
+      "gloss": "out / outside (motion)",
+      "type": "invariant",
+      "shoresh": "ח־ו־ץ",
+      "grammar": "adverb (directional)",
+      "examples": [
+        {
+          "he": "בסדר, *החוצה* כולם.",
+          "en": "Okay, everybody out."
+        }
+      ]
+    },
+    {
+      "rank": 370,
+      "bare": "ילדים",
+      "niqqud": "יְלָדִים",
+      "translit": "yeladim",
+      "gloss": "kids / children",
+      "type": "invariant",
+      "shoresh": "י־ל־ד",
+      "grammar": "noun (m.pl)",
+      "examples": [
+        {
+          "he": "יש לך *ילדים* ?",
+          "en": "Do you have kids?"
+        }
+      ]
+    },
+    {
+      "rank": 371,
+      "bare": "קטן",
+      "niqqud": "קָטָן",
+      "translit": "katan",
+      "gloss": "small / little",
+      "type": "invariant",
+      "shoresh": "ק־ט־ן",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "היי, ילד *קטן*, תפסיק.",
+          "en": "Hey, little kid, stop."
+        },
+        {
+          "he": "יונתן *הקטן* רץ בבוקר אל הגן",
+          "en": "Little Jonathan ran to the garden in the morning",
+          "canon": "יונתן הקטן — kids song (Dushman)"
+        }
+      ]
+    },
+    {
+      "rank": 373,
+      "bare": "חשוב",
+      "niqqud": "חָשׁוּב",
+      "translit": "chashuv",
+      "gloss": "important",
+      "type": "invariant",
+      "shoresh": "ח־שׁ־ב",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "המפקד, שום דבר *חשוב* באמת.",
+          "en": "Sir, nothing really important."
+        }
+      ]
+    },
+    {
+      "rank": 374,
+      "bare": "בין",
+      "niqqud": "בֵּין",
+      "translit": "bein",
+      "gloss": "between / among",
+      "type": "invariant",
+      "shoresh": "ב־י־ן",
+      "grammar": "preposition",
+      "examples": [
+        {
+          "he": "אותי להישאר *בין* החיים.",
+          "en": "...for me to stay among the living."
+        }
+      ]
+    },
+    {
+      "rank": 375,
+      "bare": "שמח",
+      "niqqud": "שָׂמֵחַ",
+      "translit": "sameach",
+      "gloss": "happy / glad",
+      "type": "invariant",
+      "shoresh": "שׂ־מ־ח",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "אולי הוא *שמח* עכשיו.",
+          "en": "Maybe he's happy now."
+        },
+        {
+          "he": "חג *שמח*",
+          "en": "happy holiday",
+          "canon": "holiday greeting"
+        }
+      ]
+    },
+    {
+      "rank": 377,
+      "bare": "הראשון",
+      "niqqud": "הָרִאשׁוֹן",
+      "translit": "harishon",
+      "gloss": "the first",
+      "type": "invariant",
+      "shoresh": "ר־א־שׁ",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "משפט הרצח *הראשון* שלי.",
+          "en": "My first murder trial."
+        }
+      ]
+    },
+    {
+      "rank": 378,
+      "bare": "לבוא",
+      "niqqud": "לָבוֹא",
+      "translit": "lavo",
+      "gloss": "to come",
+      "type": "invariant",
+      "shoresh": "ב־ו־א",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "אוכל *לבוא* איתך?",
+          "en": "Can I come with you?"
+        }
+      ]
+    },
+    {
+      "rank": 379,
+      "bare": "לחשוב",
+      "niqqud": "לַחְשׁוֹב",
+      "translit": "lachshov",
+      "gloss": "to think",
+      "type": "invariant",
+      "shoresh": "ח־שׁ־ב",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "אצטרך *לחשוב* על כך.",
+          "en": "I'll have to think about it."
+        }
+      ]
+    },
+    {
+      "rank": 381,
+      "bare": "מאז",
+      "niqqud": "מֵאָז",
+      "translit": "me'az",
+      "gloss": "since / ever since",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "preposition / adverb",
+      "examples": [
+        {
+          "he": "פעם ראשונה *מאז* המלחמה.",
+          "en": "First time since the war."
+        }
+      ]
+    },
+    {
+      "rank": 382,
+      "bare": "בחזרה",
+      "niqqud": "בַּחֲזָרָה",
+      "translit": "bachazara",
+      "gloss": "back / in return",
+      "type": "invariant",
+      "shoresh": "ח־ז־ר",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "אני אתקשר *בחזרה*.",
+          "en": "I'll call back."
+        },
+        {
+          "he": "ותעוף *בחזרה*",
+          "en": "and fly back",
+          "canon": "פרפר נחמד — Fania Bergstein"
+        }
+      ]
+    },
+    {
+      "rank": 383,
+      "bare": "אמרה",
+      "niqqud": "אָמְרָה",
+      "translit": "amra",
+      "gloss": "she said",
+      "type": "invariant",
+      "shoresh": "א־מ־ר",
+      "grammar": "verb · past · f.3sg · pa'al",
+      "examples": [
+        {
+          "he": "אמא *אמרה* שאני יכולה!",
+          "en": "Mom said I can!"
+        }
+      ]
+    },
+    {
+      "rank": 384,
+      "bare": "מאוחר",
+      "niqqud": "מְאוּחָר",
+      "translit": "me'uchar",
+      "gloss": "late",
+      "type": "invariant",
+      "shoresh": "א־ח־ר",
+      "grammar": "adjective / adverb",
+      "examples": [
+        {
+          "he": "היה *מאוחר* מדי.",
+          "en": "It was too late."
+        }
+      ]
+    },
+    {
+      "rank": 385,
+      "bare": "קודם",
+      "niqqud": "קֹדֶם",
+      "translit": "kodem",
+      "gloss": "earlier / first / before",
+      "type": "invariant",
+      "shoresh": "ק־ד־ם",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "דבר אתה *קודם*.",
+          "en": "You speak first."
+        }
+      ]
+    },
+    {
+      "rank": 387,
+      "bare": "אחרת",
+      "niqqud": "אַחֶרֶת",
+      "translit": "acheret",
+      "gloss": "otherwise / differently / else",
+      "type": "invariant",
+      "shoresh": "א־ח־ר",
+      "grammar": "adverb / adjective (f.sg)",
+      "examples": [
+        {
+          "he": "נדבר בפעם *אחרת*.",
+          "en": "We'll talk another time."
+        }
+      ]
+    },
+    {
+      "rank": 389,
+      "bare": "להגיע",
+      "niqqud": "לְהַגִּיעַ",
+      "translit": "lehagia",
+      "gloss": "to arrive / to get to",
+      "type": "invariant",
+      "shoresh": "נ־ג־ע",
+      "grammar": "verb · infinitive · hif'il",
+      "examples": [
+        {
+          "he": "נוכל *להגיע* לשם בזמן, המפקד?",
+          "en": "Can we get there in time, sir?"
+        }
+      ]
+    },
+    {
+      "rank": 392,
+      "bare": "ברור",
+      "niqqud": "בָּרוּר",
+      "translit": "barur",
+      "gloss": "clear / obvious",
+      "type": "invariant",
+      "shoresh": "ב־ר־ר",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "אני חושב שהכל *ברור*.",
+          "en": "I think everything's clear."
+        }
+      ]
+    },
+    {
+      "rank": 394,
+      "bare": "בהחלט",
+      "niqqud": "בְּהֶחְלֵט",
+      "translit": "behechlet",
+      "gloss": "absolutely / definitely",
+      "type": "invariant",
+      "shoresh": "ח־ל־ט",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "זה מובן *בהחלט*.",
+          "en": "That's completely understandable."
+        }
+      ]
+    },
+    {
+      "rank": 396,
+      "bare": "כלומר",
+      "niqqud": "כְּלוֹמַר",
+      "translit": "klomar",
+      "gloss": "that is / meaning / i.e.",
+      "type": "invariant",
+      "shoresh": "א־מ־ר",
+      "grammar": "conjunction",
+      "examples": [
+        {
+          "he": "*כלומר*, כבר עברו שבועיים.",
+          "en": "I mean, it's already been two weeks."
+        }
+      ]
+    },
+    {
+      "rank": 398,
+      "bare": "יחד",
+      "niqqud": "יַחַד",
+      "translit": "yachad",
+      "gloss": "together",
+      "type": "invariant",
+      "shoresh": "י־ח־ד",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "אנו עובדים טוב *יחד*.",
+          "en": "We work well together."
+        }
+      ]
+    },
+    {
+      "rank": 401,
+      "bare": "לפחות",
+      "niqqud": "לְפָחוֹת",
+      "translit": "lefachot",
+      "gloss": "at least",
+      "type": "invariant",
+      "shoresh": "פ־ח־ת",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "*לפחות* שבע פעמים.",
+          "en": "At least seven times."
+        }
+      ]
+    },
+    {
+      "rank": 402,
+      "bare": "לשמוע",
+      "niqqud": "לִשְׁמוֹעַ",
+      "translit": "lishmoa",
+      "gloss": "to hear / to listen",
+      "type": "invariant",
+      "shoresh": "שׁ־מ־ע",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "אני רוצה *לשמוע* עוד.",
+          "en": "I want to hear more."
+        }
+      ]
+    },
+    {
+      "rank": 404,
+      "bare": "מוזר",
+      "niqqud": "מוּזָר",
+      "translit": "muzar",
+      "gloss": "strange / weird",
+      "type": "invariant",
+      "shoresh": "ז־ו־ר",
+      "grammar": "adjective (m.sg)",
+      "examples": [
+        {
+          "he": "זה *מוזר*, יקירי.",
+          "en": "That's strange, dear."
+        }
+      ]
+    },
+    {
+      "rank": 406,
+      "bare": "לעבוד",
+      "niqqud": "לַעֲבוֹד",
+      "translit": "la'avod",
+      "gloss": "to work",
+      "type": "invariant",
+      "shoresh": "ע־ב־ד",
+      "grammar": "verb · infinitive · pa'al",
+      "examples": [
+        {
+          "he": "נראה שזה עשוי *לעבוד*.",
+          "en": "Looks like it might work."
+        }
+      ]
+    },
+    {
+      "rank": 409,
+      "bare": "אישה",
+      "niqqud": "אִשָּׁה",
+      "translit": "isha",
+      "gloss": "woman / wife",
+      "type": "invariant",
+      "shoresh": "א־שׁ־ה",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "בקרב גבר או *אישה*?",
+          "en": "In a man or a woman?"
+        }
+      ]
+    },
+    {
+      "rank": 413,
+      "bare": "יופי",
+      "niqqud": "יוֹפִי",
+      "translit": "yofi",
+      "gloss": "beauty / 'awesome!'",
+      "type": "invariant",
+      "shoresh": "י־פ־ה",
+      "grammar": "noun (m.sg) / interjection",
+      "examples": [
+        {
+          "he": "או, איזה *יופי*.",
+          "en": "Oh, how lovely."
+        }
+      ]
+    },
+    {
+      "rank": 417,
+      "bare": "אתמול",
+      "niqqud": "אֶתְמוֹל",
+      "translit": "etmol",
+      "gloss": "yesterday",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "על *אתמול* בלילה .",
+          "en": "About last night."
+        }
+      ]
+    },
+    {
+      "bare": "ספר",
+      "niqqud": "סֵפֶר",
+      "translit": "sefer",
+      "gloss": "book",
+      "type": "ambiguous",
+      "shoresh": "ס־פ־ר",
+      "grammar": "noun (m.sg) — or verb סַפֵּר 'tell!'",
+      "readings": [
+        "sefer = book (noun)",
+        "saper = tell! / count! (imperative)"
+      ],
+      "rank": 422,
+      "examples": [
+        {
+          "he": "זה *ספר* טוב.",
+          "en": "It's a good book."
+        }
+      ]
+    },
+    {
+      "bare": "מושג",
+      "niqqud": "מוּשָׂג",
+      "translit": "musag",
+      "gloss": "concept / idea (אין לי מושג = no idea)",
+      "type": "invariant",
+      "shoresh": "נ־שׂ־ג",
+      "grammar": "noun (m.sg)",
+      "rank": 424,
+      "examples": [
+        {
+          "he": "לא היה לי שום *מושג* על הכסף.",
+          "en": "I had no idea about the money."
+        }
+      ]
+    },
+    {
+      "bare": "בוקר",
+      "niqqud": "בֹּקֶר",
+      "translit": "boker",
+      "gloss": "morning",
+      "type": "invariant",
+      "shoresh": "ב־ק־ר",
+      "grammar": "noun (m.sg)",
+      "rank": 425,
+      "examples": [
+        {
+          "he": "*בוקר* טוב.",
+          "en": "Good morning."
+        },
+        {
+          "he": "יונתן הקטן רץ *בבוקר* אל הגן",
+          "en": "Little Jonathan ran to the garden in the morning",
+          "canon": "יונתן הקטן — kids song"
+        }
+      ]
+    },
+    {
+      "bare": "שעות",
+      "niqqud": "שָׁעוֹת",
+      "translit": "sha'ot",
+      "gloss": "hours",
+      "type": "invariant",
+      "shoresh": "שׁ־ע־ה",
+      "grammar": "noun (f.pl)",
+      "rank": 426,
+      "examples": [
+        {
+          "he": "זה לקח *שעות*.",
+          "en": "It took hours."
+        }
+      ]
+    },
+    {
+      "bare": "מזל",
+      "niqqud": "מַזָּל",
+      "translit": "mazal",
+      "gloss": "luck / fortune",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun (m.sg)",
+      "rank": 428,
+      "examples": [
+        {
+          "he": "לכן אנחנו בני *מזל*.",
+          "en": "That's why we're lucky."
+        }
+      ]
+    },
+    {
+      "bare": "מקרה",
+      "niqqud": "מִקְרֶה",
+      "translit": "mikre",
+      "gloss": "case / incident / coincidence",
+      "type": "invariant",
+      "shoresh": "ק־ר־ה",
+      "grammar": "noun (m.sg)",
+      "rank": 440,
+      "examples": [
+        {
+          "he": "ראיתי אותה בכל *מקרה*.",
+          "en": "I saw her anyway."
+        }
+      ]
+    },
+    {
+      "bare": "ערב",
+      "niqqud": "עֶרֶב",
+      "translit": "erev",
+      "gloss": "evening",
+      "type": "invariant",
+      "shoresh": "ע־ר־ב",
+      "grammar": "noun (m.sg)",
+      "rank": 446,
+      "examples": [
+        {
+          "he": "*ערב* טוב, קולונל.",
+          "en": "Good evening, Colonel."
+        }
+      ]
+    },
+    {
+      "bare": "קשר",
+      "niqqud": "קֶשֶׁר",
+      "translit": "kesher",
+      "gloss": "connection / contact / relationship",
+      "type": "invariant",
+      "shoresh": "ק־שׁ־ר",
+      "grammar": "noun (m.sg)",
+      "rank": 453,
+      "examples": [
+        {
+          "he": "אין לי שום *קשר* אליה.",
+          "en": "I have no connection to her."
+        }
+      ]
+    },
+    {
+      "bare": "ימים",
+      "niqqud": "יָמִים",
+      "translit": "yamim",
+      "gloss": "days",
+      "type": "invariant",
+      "shoresh": "י־ו־ם",
+      "grammar": "noun (m.pl)",
+      "rank": 460,
+      "examples": [
+        {
+          "he": "אני מנסה לדבר איתך כבר שלושה *ימים*.",
+          "en": "I've been trying to talk to you for three days."
+        }
+      ]
+    },
+    {
+      "bare": "סוג",
+      "niqqud": "סוּג",
+      "translit": "sug",
+      "gloss": "type / kind / sort",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun (m.sg)",
+      "rank": 474,
+      "examples": [
+        {
+          "he": "איזה *סוג* זה היה?",
+          "en": "What kind was it?"
+        }
+      ]
+    },
+    {
+      "bare": "רעיון",
+      "niqqud": "רַעְיוֹן",
+      "translit": "ra'ayon",
+      "gloss": "idea",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun (m.sg)",
+      "rank": 487,
+      "examples": [
+        {
+          "he": "כן, זה *רעיון* מעולה.",
+          "en": "Yes, that's a great idea."
+        }
+      ]
+    },
+    {
+      "bare": "בנאדם",
+      "niqqud": "בֶּן־אָדָם",
+      "translit": "ben-adam",
+      "gloss": "person / human / dude (colloquial)",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun (m.sg, compound)",
+      "rank": 495,
+      "examples": [
+        {
+          "he": "*בנאדם*, זה טוב.",
+          "en": "Dude, this is good."
+        }
+      ]
+    },
+    {
+      "bare": "משחק",
+      "niqqud": "מִשְׂחָק",
+      "translit": "miscchak",
+      "gloss": "game / play",
+      "type": "ambiguous",
+      "shoresh": "שׂ־ח־ק",
+      "grammar": "noun (m.sg) — or verb מְשַׂחֵק 'plays'",
+      "readings": [
+        "miscchak = game (noun)",
+        "mesachek = plays (verb)"
+      ],
+      "rank": 500,
+      "examples": [
+        {
+          "he": "איזה סוג של *משחק*?",
+          "en": "What kind of game?"
+        }
+      ]
+    },
+    {
+      "bare": "ראש",
+      "niqqud": "רֹאשׁ",
+      "translit": "rosh",
+      "gloss": "head",
+      "type": "invariant",
+      "shoresh": "ר־א־שׁ",
+      "grammar": "noun (m.sg)",
+      "rank": 551,
+      "examples": [
+        {
+          "he": "אתה *ראש* העיר כאן.",
+          "en": "You're the mayor here."
+        }
+      ]
+    },
+    {
+      "bare": "פנים",
+      "niqqud": "פָּנִים",
+      "translit": "panim",
+      "gloss": "face",
+      "type": "invariant",
+      "shoresh": "פ־נ־ה",
+      "grammar": "noun (pl form, sg sense)",
+      "rank": 562,
+      "examples": [
+        {
+          "he": "למה אתה ממשיך להעמיד *פנים*?",
+          "en": "Why do you keep pretending?"
+        }
+      ]
+    },
+    {
+      "bare": "חברה",
+      "niqqud": "חֲבֵרָה",
+      "translit": "chavera",
+      "gloss": "girlfriend / female friend",
+      "type": "ambiguous",
+      "shoresh": "ח־ב־ר",
+      "grammar": "noun (f.sg) — or חֶבְרָה 'society/company'",
+      "readings": [
+        "chavera = girlfriend / female friend",
+        "chevra = society, company, the gang"
+      ],
+      "rank": 565,
+      "examples": [
+        {
+          "he": "היי *חברה*, מה קורה?",
+          "en": "Hey, what's up?"
+        }
+      ]
+    },
+    {
+      "bare": "ילדה",
+      "niqqud": "יַלְדָּה",
+      "translit": "yalda",
+      "gloss": "girl",
+      "type": "invariant",
+      "shoresh": "י־ל־ד",
+      "grammar": "noun (f.sg)",
+      "rank": 569,
+      "examples": [
+        {
+          "he": "היית *ילדה* רעה, נכון?",
+          "en": "You were a bad girl, right?"
+        }
+      ]
+    },
+    {
+      "bare": "חודשים",
+      "niqqud": "חֳדָשִׁים",
+      "translit": "chodashim",
+      "gloss": "months",
+      "type": "invariant",
+      "shoresh": "ח־ד־שׁ",
+      "grammar": "noun (m.pl)",
+      "rank": 609,
+      "examples": [
+        {
+          "he": "איבדתי תינוק לפני ארבעה *חודשים*.",
+          "en": "I lost a baby four months ago."
+        }
+      ]
+    },
+    {
+      "bare": "אהבה",
+      "niqqud": "אַהֲבָה",
+      "translit": "ahava",
+      "gloss": "love",
+      "type": "invariant",
+      "shoresh": "א־ה־ב",
+      "grammar": "noun (f.sg)",
+      "rank": 620,
+      "examples": [
+        {
+          "he": "זאת *אהבה* אמיתית.",
+          "en": "That's true love."
+        }
+      ]
+    },
+    {
+      "bare": "שעה",
+      "niqqud": "שָׁעָה",
+      "translit": "sha'a",
+      "gloss": "hour / o'clock",
+      "type": "invariant",
+      "shoresh": "שׁ־ע־ה",
+      "grammar": "noun (f.sg)",
+      "rank": 623,
+      "examples": [
+        {
+          "he": "אני הולכת כבר *שעה*.",
+          "en": "I've been walking for an hour."
+        }
+      ]
+    },
+    {
+      "bare": "חצי",
+      "niqqud": "חֲצִי",
+      "translit": "chatzi",
+      "gloss": "half",
+      "type": "invariant",
+      "shoresh": "ח־צ־ה",
+      "grammar": "noun (m.sg)",
+      "rank": 628,
+      "examples": [
+        {
+          "he": "הגעתי לשם לאחר *חצי* שעה.",
+          "en": "I got there after half an hour."
+        }
+      ]
+    },
+    {
+      "bare": "סיבה",
+      "niqqud": "סִבָּה",
+      "translit": "siba",
+      "gloss": "reason / cause",
+      "type": "invariant",
+      "shoresh": "ס־ב־ב",
+      "grammar": "noun (f.sg)",
+      "rank": 631,
+      "examples": [
+        {
+          "he": "אין *סיבה* לדאוג.",
+          "en": "There's no reason to worry."
+        }
+      ]
+    },
+    {
+      "bare": "נשים",
+      "niqqud": "נָשִׁים",
+      "translit": "nashim",
+      "gloss": "women",
+      "type": "invariant",
+      "shoresh": "א־שׁ־ה",
+      "grammar": "noun (f.pl, irregular of אישה)",
+      "rank": 635,
+      "examples": [
+        {
+          "he": "אין לך כבוד כלפי *נשים*.",
+          "en": "You have no respect for women."
+        }
+      ]
+    },
+    {
+      "bare": "פרק",
+      "niqqud": "פֶּרֶק",
+      "translit": "perek",
+      "gloss": "chapter / episode",
+      "type": "invariant",
+      "shoresh": "פ־ר־ק",
+      "grammar": "noun (m.sg)",
+      "rank": 645,
+      "examples": [
+        {
+          "he": "היה לו *פרק* קשה בחיים.",
+          "en": "He had a hard chapter in life."
+        }
+      ]
+    },
+    {
+      "bare": "שאלה",
+      "niqqud": "שְׁאֵלָה",
+      "translit": "she'ela",
+      "gloss": "question",
+      "type": "invariant",
+      "shoresh": "שׁ־א־ל",
+      "grammar": "noun (f.sg)",
+      "rank": 647,
+      "examples": [
+        {
+          "he": "יש לי עוד *שאלה* אחת.",
+          "en": "I have one more question."
+        }
+      ]
+    },
+    {
+      "bare": "חדשות",
+      "niqqud": "חֲדָשׁוֹת",
+      "translit": "chadashot",
+      "gloss": "news",
+      "type": "invariant",
+      "shoresh": "ח־ד־שׁ",
+      "grammar": "noun (f.pl)",
+      "rank": 659,
+      "examples": [
+        {
+          "he": "יש *חדשות* היום?",
+          "en": "Any news today?"
+        }
+      ]
+    },
+    {
+      "bare": "עולם",
+      "niqqud": "עוֹלָם",
+      "translit": "olam",
+      "gloss": "world",
+      "type": "invariant",
+      "shoresh": "ע־ל־ם",
+      "grammar": "noun (m.sg)",
+      "rank": 1370,
+      "examples": [
+        {
+          "he": "זה באמת *עולם* קטן.",
+          "en": "It really is a small world."
+        }
+      ]
+    },
+    {
+      "bare": "ארוחה",
+      "niqqud": "אֲרוּחָה",
+      "translit": "arucha",
+      "gloss": "meal",
+      "type": "invariant",
+      "shoresh": "א־ר־ח",
+      "grammar": "noun (f.sg)",
+      "rank": 3119,
+      "examples": [
+        {
+          "he": "בחור לא יכול להכין *ארוחה*?",
+          "en": "Can't a guy make a meal?"
+        }
+      ]
+    }
+  ]
+}

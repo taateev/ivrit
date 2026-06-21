@@ -1,0 +1,1500 @@
+{
+  "meta": {
+    "source": "OpenSubtitles he (1.2M-line sample), scripts/ngrams.mjs",
+    "unit": "bigram (n=2) / trigram (n=3) — concrete multi-word ideogram, drilled whole",
+    "freq": "raw count in the 5.36M-token sample",
+    "words": "component bare forms (for reference / optional unlock-when-known)"
+  },
+  "chunks": [
+    {
+      "text": "את זה",
+      "n": 2,
+      "niqqud": "אֶת זֶה",
+      "translit": "et ze",
+      "gloss": "it (as object)",
+      "words": [
+        "את",
+        "זה"
+      ],
+      "freq": 24863
+    },
+    {
+      "text": "אני לא",
+      "n": 2,
+      "niqqud": "אֲנִי לֹא",
+      "translit": "ani lo",
+      "gloss": "I don't / I'm not",
+      "words": [
+        "אני",
+        "לא"
+      ],
+      "freq": 23329
+    },
+    {
+      "text": "זה לא",
+      "n": 2,
+      "niqqud": "זֶה לֹא",
+      "translit": "ze lo",
+      "gloss": "it's not / this isn't",
+      "words": [
+        "זה",
+        "לא"
+      ],
+      "freq": 9934
+    },
+    {
+      "text": "אני רוצה",
+      "n": 2,
+      "niqqud": "אֲנִי רוֹצֶה",
+      "translit": "ani rotze",
+      "gloss": "I want",
+      "words": [
+        "אני",
+        "רוצה"
+      ],
+      "freq": 6518
+    },
+    {
+      "text": "אתה יודע",
+      "n": 2,
+      "niqqud": "אַתָּה יוֹדֵעַ",
+      "translit": "ata yodea",
+      "gloss": "you know / y'know",
+      "words": [
+        "אתה",
+        "יודע"
+      ],
+      "freq": 6456
+    },
+    {
+      "text": "כל כך",
+      "n": 2,
+      "niqqud": "כָּל כָּךְ",
+      "translit": "kol kach",
+      "gloss": "so (much) [intensifier]",
+      "words": [
+        "כל",
+        "כך"
+      ],
+      "freq": 6276
+    },
+    {
+      "text": "יש לי",
+      "n": 2,
+      "niqqud": "יֵשׁ לִי",
+      "translit": "yesh li",
+      "gloss": "I have",
+      "words": [
+        "יש",
+        "לי"
+      ],
+      "freq": 5644
+    },
+    {
+      "text": "לא יודע",
+      "n": 2,
+      "niqqud": "לֹא יוֹדֵעַ",
+      "translit": "lo yodea",
+      "gloss": "don't know",
+      "words": [
+        "לא",
+        "יודע"
+      ],
+      "freq": 5142
+    },
+    {
+      "text": "אני יודע",
+      "n": 2,
+      "niqqud": "אֲנִי יוֹדֵעַ",
+      "translit": "ani yodea",
+      "gloss": "I know",
+      "words": [
+        "אני",
+        "יודע"
+      ],
+      "freq": 4735
+    },
+    {
+      "text": "יש לך",
+      "n": 2,
+      "niqqud": "יֵשׁ לְךָ",
+      "translit": "yesh lecha",
+      "gloss": "you have",
+      "words": [
+        "יש",
+        "לך"
+      ],
+      "freq": 4790
+    },
+    {
+      "text": "מה זה",
+      "n": 2,
+      "niqqud": "מָה זֶה",
+      "translit": "ma ze",
+      "gloss": "what is this / what's that",
+      "words": [
+        "מה",
+        "זה"
+      ],
+      "freq": 4457
+    },
+    {
+      "text": "אני חושב",
+      "n": 2,
+      "niqqud": "אֲנִי חוֹשֵׁב",
+      "translit": "ani choshev",
+      "gloss": "I think",
+      "words": [
+        "אני",
+        "חושב"
+      ],
+      "freq": 3894
+    },
+    {
+      "text": "מה קורה",
+      "n": 2,
+      "niqqud": "מָה קוֹרֶה",
+      "translit": "ma kore",
+      "gloss": "what's up (what's happening)",
+      "words": [
+        "מה",
+        "קורה"
+      ],
+      "freq": 3208
+    },
+    {
+      "text": "מה קרה",
+      "n": 2,
+      "niqqud": "מָה קָרָה",
+      "translit": "ma kara",
+      "gloss": "what happened",
+      "words": [
+        "מה",
+        "קרה"
+      ],
+      "freq": 3065
+    },
+    {
+      "text": "אני יכול",
+      "n": 2,
+      "niqqud": "אֲנִי יָכוֹל",
+      "translit": "ani yachol",
+      "gloss": "I can",
+      "words": [
+        "אני",
+        "יכול"
+      ],
+      "freq": 3034
+    },
+    {
+      "text": "זה בסדר",
+      "n": 2,
+      "niqqud": "זֶה בְּסֵדֶר",
+      "translit": "ze beseder",
+      "gloss": "it's okay",
+      "words": [
+        "זה",
+        "בסדר"
+      ],
+      "freq": 2744
+    },
+    {
+      "text": "אני צריך",
+      "n": 2,
+      "niqqud": "אֲנִי צָרִיךְ",
+      "translit": "ani tzarich",
+      "gloss": "I need",
+      "words": [
+        "אני",
+        "צריך"
+      ],
+      "freq": 2717
+    },
+    {
+      "text": "אף אחד",
+      "n": 2,
+      "niqqud": "אַף אֶחָד",
+      "translit": "af echad",
+      "gloss": "nobody / no one",
+      "words": [
+        "אף",
+        "אחד"
+      ],
+      "freq": 2678
+    },
+    {
+      "text": "תן לי",
+      "n": 2,
+      "niqqud": "תֵּן לִי",
+      "translit": "ten li",
+      "gloss": "give me",
+      "words": [
+        "תן",
+        "לי"
+      ],
+      "freq": 2662
+    },
+    {
+      "text": "אני מצטער",
+      "n": 2,
+      "niqqud": "אֲנִי מִצְטַעֵר",
+      "translit": "ani mitzta'er",
+      "gloss": "I'm sorry (m)",
+      "words": [
+        "אני",
+        "מצטער"
+      ],
+      "freq": 2606
+    },
+    {
+      "text": "אני לא יודע",
+      "n": 3,
+      "niqqud": "אֲנִי לֹא יוֹדֵעַ",
+      "translit": "ani lo yodea",
+      "gloss": "I don't know",
+      "words": [
+        "אני",
+        "לא",
+        "יודע"
+      ],
+      "freq": 2923
+    },
+    {
+      "text": "אני לא יכול",
+      "n": 3,
+      "niqqud": "אֲנִי לֹא יָכוֹל",
+      "translit": "ani lo yachol",
+      "gloss": "I can't",
+      "words": [
+        "אני",
+        "לא",
+        "יכול"
+      ],
+      "freq": 2256
+    },
+    {
+      "text": "אני לא רוצה",
+      "n": 3,
+      "niqqud": "אֲנִי לֹא רוֹצֶה",
+      "translit": "ani lo rotze",
+      "gloss": "I don't want",
+      "words": [
+        "אני",
+        "לא",
+        "רוצה"
+      ],
+      "freq": 2047
+    },
+    {
+      "text": "לעשות את זה",
+      "n": 3,
+      "niqqud": "לַעֲשׂוֹת אֶת זֶה",
+      "translit": "la'asot et ze",
+      "gloss": "to do it",
+      "words": [
+        "לעשות",
+        "את",
+        "זה"
+      ],
+      "freq": 2027
+    },
+    {
+      "text": "מה אתה עושה",
+      "n": 3,
+      "niqqud": "מָה אַתָּה עוֹשֶׂה",
+      "translit": "ma ata ose",
+      "gloss": "what are you doing",
+      "words": [
+        "מה",
+        "אתה",
+        "עושה"
+      ],
+      "freq": 1862
+    },
+    {
+      "text": "אף פעם לא",
+      "n": 3,
+      "niqqud": "אַף פַּעַם לֹא",
+      "translit": "af pa'am lo",
+      "gloss": "never",
+      "words": [
+        "אף",
+        "פעם",
+        "לא"
+      ],
+      "freq": 1811
+    },
+    {
+      "text": "אתה יודע מה",
+      "n": 3,
+      "niqqud": "אַתָּה יוֹדֵעַ מָה",
+      "translit": "ata yodea ma",
+      "gloss": "you know what",
+      "words": [
+        "אתה",
+        "יודע",
+        "מה"
+      ],
+      "freq": 1105
+    },
+    {
+      "text": "כל כך הרבה",
+      "n": 3,
+      "niqqud": "כָּל כָּךְ הַרְבֵּה",
+      "translit": "kol kach harbe",
+      "gloss": "so much / so many",
+      "words": [
+        "כל",
+        "כך",
+        "הרבה"
+      ],
+      "freq": 762
+    },
+    {
+      "text": "אני אוהב אותך",
+      "n": 3,
+      "niqqud": "אֲנִי אוֹהֵב אוֹתְךָ",
+      "translit": "ani ohev otcha",
+      "gloss": "I love you",
+      "words": [
+        "אני",
+        "אוהב",
+        "אותך"
+      ],
+      "freq": 655
+    },
+    {
+      "text": "אני רק רוצה",
+      "n": 3,
+      "niqqud": "אֲנִי רַק רוֹצֶה",
+      "translit": "ani rak rotze",
+      "gloss": "I just want",
+      "words": [
+        "אני",
+        "רק",
+        "רוצה"
+      ],
+      "freq": 578
+    },
+    {
+      "text": "למה אתה מתכוון",
+      "n": 3,
+      "niqqud": "לָמָּה אַתָּה מִתְכַּוֵּן",
+      "translit": "lama ata mitkaven",
+      "gloss": "what do you mean",
+      "words": [
+        "למה",
+        "אתה",
+        "מתכוון"
+      ],
+      "freq": 522
+    },
+    {
+      "text": "אם אתה רוצה",
+      "n": 3,
+      "niqqud": "אִם אַתָּה רוֹצֶה",
+      "translit": "im ata rotze",
+      "gloss": "if you want",
+      "words": [
+        "אם",
+        "אתה",
+        "רוצה"
+      ],
+      "freq": 482
+    },
+    {
+      "text": "אני לא מבין",
+      "n": 3,
+      "niqqud": "אֲנִי לֹא מֵבִין",
+      "translit": "ani lo mevin",
+      "gloss": "I don't understand",
+      "words": [
+        "אני",
+        "לא",
+        "מבין"
+      ],
+      "freq": 478
+    },
+    {
+      "text": "אתה לא",
+      "n": 2,
+      "niqqud": "אַתָּה לֹא",
+      "translit": "ata lo",
+      "gloss": "you don't / you're not (m)",
+      "words": [
+        "אתה",
+        "לא"
+      ],
+      "freq": 6669
+    },
+    {
+      "text": "מה אתה",
+      "n": 2,
+      "niqqud": "מָה אַתָּה",
+      "translit": "ma ata",
+      "gloss": "what do you…? / what are you…?",
+      "words": [
+        "מה",
+        "אתה"
+      ],
+      "freq": 6056
+    },
+    {
+      "text": "לא יכול",
+      "n": 2,
+      "niqqud": "לֹא יָכוֹל",
+      "translit": "lo yachol",
+      "gloss": "can't",
+      "words": [
+        "לא",
+        "יכול"
+      ],
+      "freq": 5191
+    },
+    {
+      "text": "זה היה",
+      "n": 2,
+      "niqqud": "זֶה הָיָה",
+      "translit": "ze haya",
+      "gloss": "it was / this was",
+      "words": [
+        "זה",
+        "היה"
+      ],
+      "freq": 4900
+    },
+    {
+      "text": "על זה",
+      "n": 2,
+      "niqqud": "עַל זֶה",
+      "translit": "al ze",
+      "gloss": "about it / on it",
+      "words": [
+        "על",
+        "זה"
+      ],
+      "freq": 4803
+    },
+    {
+      "text": "הוא לא",
+      "n": 2,
+      "niqqud": "הוּא לֹא",
+      "translit": "hu lo",
+      "gloss": "he doesn't / he's not",
+      "words": [
+        "הוא",
+        "לא"
+      ],
+      "freq": 4509
+    },
+    {
+      "text": "לי את",
+      "n": 2,
+      "niqqud": "לִי אֶת",
+      "translit": "li et",
+      "gloss": "(give) me the… [+ object]",
+      "words": [
+        "לי",
+        "את"
+      ],
+      "freq": 4079
+    },
+    {
+      "text": "אתה רוצה",
+      "n": 2,
+      "niqqud": "אַתָּה רוֹצֶה",
+      "translit": "ata rotze",
+      "gloss": "you want (m)",
+      "words": [
+        "אתה",
+        "רוצה"
+      ],
+      "freq": 3851
+    },
+    {
+      "text": "אבל אני",
+      "n": 2,
+      "niqqud": "אֲבָל אֲנִי",
+      "translit": "aval ani",
+      "gloss": "but I",
+      "words": [
+        "אבל",
+        "אני"
+      ],
+      "freq": 3816
+    },
+    {
+      "text": "את כל",
+      "n": 2,
+      "niqqud": "אֶת כָּל",
+      "translit": "et kol",
+      "gloss": "all the / the whole [+ object]",
+      "words": [
+        "את",
+        "כל"
+      ],
+      "freq": 3612
+    },
+    {
+      "text": "לא רוצה",
+      "n": 2,
+      "niqqud": "לֹא רוֹצֶה",
+      "translit": "lo rotze",
+      "gloss": "don't want",
+      "words": [
+        "לא",
+        "רוצה"
+      ],
+      "freq": 3608
+    },
+    {
+      "text": "יש לנו",
+      "n": 2,
+      "niqqud": "יֵשׁ לָנוּ",
+      "translit": "yesh lanu",
+      "gloss": "we have",
+      "words": [
+        "יש",
+        "לנו"
+      ],
+      "freq": 3365
+    },
+    {
+      "text": "לא לא",
+      "n": 2,
+      "niqqud": "לֹא לֹא",
+      "translit": "lo lo",
+      "gloss": "no no",
+      "words": [
+        "לא",
+        "לא"
+      ],
+      "freq": 3080
+    },
+    {
+      "text": "כל מה",
+      "n": 2,
+      "niqqud": "כָּל מָה",
+      "translit": "kol ma",
+      "gloss": "everything that / all that",
+      "words": [
+        "כל",
+        "מה"
+      ],
+      "freq": 2878
+    },
+    {
+      "text": "אתה חושב",
+      "n": 2,
+      "niqqud": "אַתָּה חוֹשֵׁב",
+      "translit": "ata choshev",
+      "gloss": "you think (m)",
+      "words": [
+        "אתה",
+        "חושב"
+      ],
+      "freq": 2814
+    },
+    {
+      "text": "לך את",
+      "n": 2,
+      "niqqud": "לְךָ אֶת",
+      "translit": "lecha et",
+      "gloss": "you the… [+ object]",
+      "words": [
+        "לך",
+        "את"
+      ],
+      "freq": 2803
+    },
+    {
+      "text": "על מה",
+      "n": 2,
+      "niqqud": "עַל מָה",
+      "translit": "al ma",
+      "gloss": "about what / on what",
+      "words": [
+        "על",
+        "מה"
+      ],
+      "freq": 2749
+    },
+    {
+      "text": "יודע מה",
+      "n": 2,
+      "niqqud": "יוֹדֵעַ מָה",
+      "translit": "yodea ma",
+      "gloss": "know what",
+      "words": [
+        "יודע",
+        "מה"
+      ],
+      "freq": 2732
+    },
+    {
+      "text": "לא היה",
+      "n": 2,
+      "niqqud": "לֹא הָיָה",
+      "translit": "lo haya",
+      "gloss": "there wasn't / didn't",
+      "words": [
+        "לא",
+        "היה"
+      ],
+      "freq": 2677
+    },
+    {
+      "text": "אתה יכול",
+      "n": 2,
+      "niqqud": "אַתָּה יָכוֹל",
+      "translit": "ata yachol",
+      "gloss": "you can (m)",
+      "words": [
+        "אתה",
+        "יכול"
+      ],
+      "freq": 2648
+    },
+    {
+      "text": "את לא",
+      "n": 2,
+      "niqqud": "אַתְּ לֹא",
+      "translit": "at lo",
+      "gloss": "you don't / you're not (f)",
+      "words": [
+        "את",
+        "לא"
+      ],
+      "freq": 2624
+    },
+    {
+      "text": "לעשות את",
+      "n": 2,
+      "niqqud": "לַעֲשׂוֹת אֶת",
+      "translit": "la'asot et",
+      "gloss": "to do the… [+ object]",
+      "words": [
+        "לעשות",
+        "את"
+      ],
+      "freq": 2592
+    },
+    {
+      "text": "את יודעת",
+      "n": 2,
+      "niqqud": "אַתְּ יוֹדַעַת",
+      "translit": "at yodaat",
+      "gloss": "you know (f)",
+      "words": [
+        "את",
+        "יודעת"
+      ],
+      "freq": 2582
+    },
+    {
+      "text": "זה מה",
+      "n": 2,
+      "niqqud": "זֶה מָה",
+      "translit": "ze ma",
+      "gloss": "this is what / that's what",
+      "words": [
+        "זה",
+        "מה"
+      ],
+      "freq": 2483
+    },
+    {
+      "text": "לא אני",
+      "n": 2,
+      "niqqud": "לֹא אֲנִי",
+      "translit": "lo ani",
+      "gloss": "not me / no, I",
+      "words": [
+        "לא",
+        "אני"
+      ],
+      "freq": 2412
+    },
+    {
+      "text": "אתה עושה",
+      "n": 2,
+      "niqqud": "אַתָּה עוֹשֶׂה",
+      "translit": "ata ose",
+      "gloss": "you do / you're doing (m)",
+      "words": [
+        "אתה",
+        "עושה"
+      ],
+      "freq": 2379
+    },
+    {
+      "text": "אנחנו לא",
+      "n": 2,
+      "niqqud": "אֲנַחְנוּ לֹא",
+      "translit": "anachnu lo",
+      "gloss": "we don't / we're not",
+      "words": [
+        "אנחנו",
+        "לא"
+      ],
+      "freq": 2371
+    },
+    {
+      "text": "שום דבר",
+      "n": 2,
+      "niqqud": "שׁוּם דָּבָר",
+      "translit": "shum davar",
+      "gloss": "nothing",
+      "words": [
+        "שום",
+        "דבר"
+      ],
+      "freq": 2300
+    },
+    {
+      "text": "אף פעם",
+      "n": 2,
+      "niqqud": "אַף פַּעַם",
+      "translit": "af pa'am",
+      "gloss": "never (ever)",
+      "words": [
+        "אף",
+        "פעם"
+      ],
+      "freq": 2279
+    },
+    {
+      "text": "אני רק",
+      "n": 2,
+      "niqqud": "אֲנִי רַק",
+      "translit": "ani rak",
+      "gloss": "I just / I only",
+      "words": [
+        "אני",
+        "רק"
+      ],
+      "freq": 2171
+    },
+    {
+      "text": "אם אתה",
+      "n": 2,
+      "niqqud": "אִם אַתָּה",
+      "translit": "im ata",
+      "gloss": "if you (m)",
+      "words": [
+        "אם",
+        "אתה"
+      ],
+      "freq": 2167
+    },
+    {
+      "text": "הם לא",
+      "n": 2,
+      "niqqud": "הֵם לֹא",
+      "translit": "hem lo",
+      "gloss": "they don't / they're not (m)",
+      "words": [
+        "הם",
+        "לא"
+      ],
+      "freq": 2126
+    },
+    {
+      "text": "אבל זה",
+      "n": 2,
+      "niqqud": "אֲבָל זֶה",
+      "translit": "aval ze",
+      "gloss": "but it / but this",
+      "words": [
+        "אבל",
+        "זה"
+      ],
+      "freq": 2056
+    },
+    {
+      "text": "כן אני",
+      "n": 2,
+      "niqqud": "כֵּן אֲנִי",
+      "translit": "ken ani",
+      "gloss": "yes, I",
+      "words": [
+        "כן",
+        "אני"
+      ],
+      "freq": 2037
+    },
+    {
+      "text": "אין לי",
+      "n": 2,
+      "niqqud": "אֵין לִי",
+      "translit": "ein li",
+      "gloss": "I don't have",
+      "words": [
+        "אין",
+        "לי"
+      ],
+      "freq": 2026
+    },
+    {
+      "text": "למה אתה",
+      "n": 2,
+      "niqqud": "לָמָּה אַתָּה",
+      "translit": "lama ata",
+      "gloss": "why are you / why do you (m)",
+      "words": [
+        "למה",
+        "אתה"
+      ],
+      "freq": 2020
+    },
+    {
+      "text": "עם זה",
+      "n": 2,
+      "niqqud": "עִם זֶה",
+      "translit": "im ze",
+      "gloss": "with it / with this",
+      "words": [
+        "עם",
+        "זה"
+      ],
+      "freq": 1998
+    },
+    {
+      "text": "פעם לא",
+      "n": 2,
+      "niqqud": "פַּעַם לֹא",
+      "translit": "pa'am lo",
+      "gloss": "never (part of אף פעם לא)",
+      "words": [
+        "פעם",
+        "לא"
+      ],
+      "freq": 1988
+    },
+    {
+      "text": "הוא היה",
+      "n": 2,
+      "niqqud": "הוּא הָיָה",
+      "translit": "hu haya",
+      "gloss": "he was",
+      "words": [
+        "הוא",
+        "היה"
+      ],
+      "freq": 1979
+    },
+    {
+      "text": "אני יודעת",
+      "n": 2,
+      "niqqud": "אֲנִי יוֹדַעַת",
+      "translit": "ani yodaat",
+      "gloss": "I know (f)",
+      "words": [
+        "אני",
+        "יודעת"
+      ],
+      "freq": 1956
+    },
+    {
+      "text": "אני חייב",
+      "n": 2,
+      "niqqud": "אֲנִי חַיָּב",
+      "translit": "ani chayav",
+      "gloss": "I must / I have to (m)",
+      "words": [
+        "אני",
+        "חייב"
+      ],
+      "freq": 1876
+    },
+    {
+      "text": "היא לא",
+      "n": 2,
+      "niqqud": "הִיא לֹא",
+      "translit": "hi lo",
+      "gloss": "she doesn't / she's not",
+      "words": [
+        "היא",
+        "לא"
+      ],
+      "freq": 1869
+    },
+    {
+      "text": "אחד לא",
+      "n": 2,
+      "niqqud": "אֶחָד לֹא",
+      "translit": "echad lo",
+      "gloss": "no one (part of אף אחד לא)",
+      "words": [
+        "אחד",
+        "לא"
+      ],
+      "freq": 1838
+    },
+    {
+      "text": "יכול להיות",
+      "n": 2,
+      "niqqud": "יָכוֹל לִהְיוֹת",
+      "translit": "yachol lihyot",
+      "gloss": "maybe / could be (it can be)",
+      "words": [
+        "יכול",
+        "להיות"
+      ],
+      "freq": 1837
+    },
+    {
+      "text": "מה את",
+      "n": 2,
+      "niqqud": "מָה אַתְּ",
+      "translit": "ma at",
+      "gloss": "what do you (f)…?",
+      "words": [
+        "מה",
+        "את"
+      ],
+      "freq": 1828
+    },
+    {
+      "text": "לא יודעת",
+      "n": 2,
+      "niqqud": "לֹא יוֹדַעַת",
+      "translit": "lo yodaat",
+      "gloss": "don't know (f)",
+      "words": [
+        "לא",
+        "יודעת"
+      ],
+      "freq": 1809
+    },
+    {
+      "text": "לא יכולה",
+      "n": 2,
+      "niqqud": "לֹא יְכוֹלָה",
+      "translit": "lo yechola",
+      "gloss": "can't (f)",
+      "words": [
+        "לא",
+        "יכולה"
+      ],
+      "freq": 1770
+    },
+    {
+      "text": "אני אוהב",
+      "n": 2,
+      "niqqud": "אֲנִי אוֹהֵב",
+      "translit": "ani ohev",
+      "gloss": "I love (m)",
+      "words": [
+        "אני",
+        "אוהב"
+      ],
+      "freq": 1749
+    },
+    {
+      "text": "מה שאני",
+      "n": 2,
+      "niqqud": "מַה שֶּׁאֲנִי",
+      "translit": "ma she'ani",
+      "gloss": "what I… / that which I",
+      "words": [
+        "מה",
+        "שאני"
+      ],
+      "freq": 1713
+    },
+    {
+      "text": "אם לא",
+      "n": 2,
+      "niqqud": "אִם לֹא",
+      "translit": "im lo",
+      "gloss": "if not / otherwise",
+      "words": [
+        "אם",
+        "לא"
+      ],
+      "freq": 1672
+    },
+    {
+      "text": "אז מה",
+      "n": 2,
+      "niqqud": "אָז מָה",
+      "translit": "az ma",
+      "gloss": "so what",
+      "words": [
+        "אז",
+        "מה"
+      ],
+      "freq": 1663
+    },
+    {
+      "text": "לא הייתי",
+      "n": 2,
+      "niqqud": "לֹא הָיִיתִי",
+      "translit": "lo hayiti",
+      "gloss": "I wasn't / I didn't",
+      "words": [
+        "לא",
+        "הייתי"
+      ],
+      "freq": 1638
+    },
+    {
+      "text": "גם אני",
+      "n": 2,
+      "niqqud": "גַּם אֲנִי",
+      "translit": "gam ani",
+      "gloss": "me too / I also",
+      "words": [
+        "גם",
+        "אני"
+      ],
+      "freq": 1620
+    },
+    {
+      "text": "אני הולך",
+      "n": 2,
+      "niqqud": "אֲנִי הוֹלֵךְ",
+      "translit": "ani holech",
+      "gloss": "I'm going (m)",
+      "words": [
+        "אני",
+        "הולך"
+      ],
+      "freq": 1607
+    },
+    {
+      "text": "לראות את",
+      "n": 2,
+      "niqqud": "לִרְאוֹת אֶת",
+      "translit": "lir'ot et",
+      "gloss": "to see the… [+ object]",
+      "words": [
+        "לראות",
+        "את"
+      ],
+      "freq": 1588
+    },
+    {
+      "text": "מה אני",
+      "n": 2,
+      "niqqud": "מָה אֲנִי",
+      "translit": "ma ani",
+      "gloss": "what (do) I…?",
+      "words": [
+        "מה",
+        "אני"
+      ],
+      "freq": 1582
+    },
+    {
+      "text": "אתה צריך",
+      "n": 2,
+      "niqqud": "אַתָּה צָרִיךְ",
+      "translit": "ata tzarich",
+      "gloss": "you need / you must (m)",
+      "words": [
+        "אתה",
+        "צריך"
+      ],
+      "freq": 1552
+    },
+    {
+      "text": "אנחנו צריכים",
+      "n": 2,
+      "niqqud": "אֲנַחְנוּ צְרִיכִים",
+      "translit": "anachnu tzrichim",
+      "gloss": "we need (m)",
+      "words": [
+        "אנחנו",
+        "צריכים"
+      ],
+      "freq": 1544
+    },
+    {
+      "text": "אבל לא",
+      "n": 2,
+      "niqqud": "אֲבָל לֹא",
+      "translit": "aval lo",
+      "gloss": "but not / but don't",
+      "words": [
+        "אבל",
+        "לא"
+      ],
+      "freq": 1484
+    },
+    {
+      "text": "מעולם לא",
+      "n": 2,
+      "niqqud": "מֵעוֹלָם לֹא",
+      "translit": "me'olam lo",
+      "gloss": "never (in the past)",
+      "words": [
+        "מעולם",
+        "לא"
+      ],
+      "freq": 1474
+    },
+    {
+      "text": "אמרתי לך",
+      "n": 2,
+      "niqqud": "אָמַרְתִּי לְךָ",
+      "translit": "amarti lecha",
+      "gloss": "I told you (m)",
+      "words": [
+        "אמרתי",
+        "לך"
+      ],
+      "freq": 1465
+    },
+    {
+      "text": "אתה בסדר",
+      "n": 2,
+      "niqqud": "אַתָּה בְּסֵדֶר",
+      "translit": "ata beseder",
+      "gloss": "are you okay (m)",
+      "words": [
+        "אתה",
+        "בסדר"
+      ],
+      "freq": 1449
+    },
+    {
+      "text": "לעולם לא",
+      "n": 2,
+      "niqqud": "לְעוֹלָם לֹא",
+      "translit": "le'olam lo",
+      "gloss": "never (will / ever)",
+      "words": [
+        "לעולם",
+        "לא"
+      ],
+      "freq": 1424
+    },
+    {
+      "text": "אתה חייב",
+      "n": 2,
+      "niqqud": "אַתָּה חַיָּב",
+      "translit": "ata chayav",
+      "gloss": "you must / you have to (m)",
+      "words": [
+        "אתה",
+        "חייב"
+      ],
+      "freq": 1412
+    },
+    {
+      "text": "אני מקווה",
+      "n": 2,
+      "niqqud": "אֲנִי מְקַוֶּה",
+      "translit": "ani mekave",
+      "gloss": "I hope",
+      "words": [
+        "אני",
+        "מקווה"
+      ],
+      "freq": 1410
+    },
+    {
+      "text": "אף אחד לא",
+      "n": 3,
+      "niqqud": "אַף אֶחָד לֹא",
+      "translit": "af echad lo",
+      "gloss": "no one / nobody",
+      "words": [
+        "אף",
+        "אחד",
+        "לא"
+      ],
+      "freq": 1410
+    },
+    {
+      "text": "מי זה",
+      "n": 2,
+      "niqqud": "מִי זֶה",
+      "translit": "mi ze",
+      "gloss": "who is it / who's this",
+      "words": [
+        "מי",
+        "זה"
+      ],
+      "freq": 1406
+    },
+    {
+      "text": "זה יהיה",
+      "n": 2,
+      "niqqud": "זֶה יִהְיֶה",
+      "translit": "ze yihye",
+      "gloss": "it will be",
+      "words": [
+        "זה",
+        "יהיה"
+      ],
+      "freq": 1397
+    },
+    {
+      "text": "לא זה",
+      "n": 2,
+      "niqqud": "לֹא זֶה",
+      "translit": "lo ze",
+      "gloss": "not this one",
+      "words": [
+        "לא",
+        "זה"
+      ],
+      "freq": 1387
+    },
+    {
+      "text": "אני חושבת",
+      "n": 2,
+      "niqqud": "אֲנִי חוֹשֶׁבֶת",
+      "translit": "ani choshevet",
+      "gloss": "I think (f)",
+      "words": [
+        "אני",
+        "חושבת"
+      ],
+      "freq": 1364
+    },
+    {
+      "text": "את הכסף",
+      "n": 2,
+      "niqqud": "אֶת הַכֶּסֶף",
+      "translit": "et ha-kesef",
+      "gloss": "the money (as object)",
+      "words": [
+        "את",
+        "הכסף"
+      ],
+      "freq": 1349
+    },
+    {
+      "text": "על ידי",
+      "n": 2,
+      "niqqud": "עַל יְדֵי",
+      "translit": "al yedei",
+      "gloss": "by / by means of",
+      "words": [
+        "על",
+        "ידי"
+      ],
+      "freq": 1345
+    },
+    {
+      "text": "מה הוא",
+      "n": 2,
+      "niqqud": "מָה הוּא",
+      "translit": "ma hu",
+      "gloss": "what is he / what he…",
+      "words": [
+        "מה",
+        "הוא"
+      ],
+      "freq": 1329
+    },
+    {
+      "text": "איך אתה",
+      "n": 2,
+      "niqqud": "אֵיךְ אַתָּה",
+      "translit": "eich ata",
+      "gloss": "how are you / how do you (m)",
+      "words": [
+        "איך",
+        "אתה"
+      ],
+      "freq": 1328
+    },
+    {
+      "text": "למה לא",
+      "n": 2,
+      "niqqud": "לָמָּה לֹא",
+      "translit": "lama lo",
+      "gloss": "why not",
+      "words": [
+        "למה",
+        "לא"
+      ],
+      "freq": 1323
+    },
+    {
+      "text": "אני מבין",
+      "n": 2,
+      "niqqud": "אֲנִי מֵבִין",
+      "translit": "ani mevin",
+      "gloss": "I understand (m)",
+      "words": [
+        "אני",
+        "מבין"
+      ],
+      "freq": 1320
+    },
+    {
+      "text": "שאני לא",
+      "n": 2,
+      "niqqud": "שֶׁאֲנִי לֹא",
+      "translit": "she'ani lo",
+      "gloss": "that I'm not / that I don't",
+      "words": [
+        "שאני",
+        "לא"
+      ],
+      "freq": 1303
+    },
+    {
+      "text": "אני מתכוון",
+      "n": 2,
+      "niqqud": "אֲנִי מִתְכַּוֵּן",
+      "translit": "ani mitkaven",
+      "gloss": "I mean (m)",
+      "words": [
+        "אני",
+        "מתכוון"
+      ],
+      "freq": 1292
+    },
+    {
+      "text": "זה נכון",
+      "n": 2,
+      "niqqud": "זֶה נָכוֹן",
+      "translit": "ze nachon",
+      "gloss": "that's right / correct",
+      "words": [
+        "זה",
+        "נכון"
+      ],
+      "freq": 1292
+    },
+    {
+      "text": "זה כל",
+      "n": 2,
+      "niqqud": "זֶה כָּל",
+      "translit": "ze kol",
+      "gloss": "that's all / it's the whole…",
+      "words": [
+        "זה",
+        "כל"
+      ],
+      "freq": 1270
+    },
+    {
+      "text": "אם אני",
+      "n": 2,
+      "niqqud": "אִם אֲנִי",
+      "translit": "im ani",
+      "gloss": "if I",
+      "words": [
+        "אם",
+        "אני"
+      ],
+      "freq": 1262
+    },
+    {
+      "text": "אתה מדבר",
+      "n": 2,
+      "niqqud": "אַתָּה מְדַבֵּר",
+      "translit": "ata medaber",
+      "gloss": "you're speaking / you talk (m)",
+      "words": [
+        "אתה",
+        "מדבר"
+      ],
+      "freq": 1260
+    },
+    {
+      "text": "אפילו לא",
+      "n": 2,
+      "niqqud": "אֲפִילוּ לֹא",
+      "translit": "afilu lo",
+      "gloss": "not even",
+      "words": [
+        "אפילו",
+        "לא"
+      ],
+      "freq": 1259
+    },
+    {
+      "text": "אם זה",
+      "n": 2,
+      "niqqud": "אִם זֶה",
+      "translit": "im ze",
+      "gloss": "if it / if this",
+      "words": [
+        "אם",
+        "זה"
+      ],
+      "freq": 1255
+    },
+    {
+      "text": "נראה לי",
+      "n": 2,
+      "niqqud": "נִרְאֶה לִי",
+      "translit": "nir'a li",
+      "gloss": "I think / it seems to me",
+      "words": [
+        "נראה",
+        "לי"
+      ],
+      "freq": 1232
+    },
+    {
+      "text": "איך זה",
+      "n": 2,
+      "niqqud": "אֵיךְ זֶה",
+      "translit": "eich ze",
+      "gloss": "how is it / how come",
+      "words": [
+        "איך",
+        "זה"
+      ],
+      "freq": 1231
+    },
+    {
+      "text": "אני מניח",
+      "n": 2,
+      "niqqud": "אֲנִי מֵנִיחַ",
+      "translit": "ani meniach",
+      "gloss": "I suppose / I assume (m)",
+      "words": [
+        "אני",
+        "מניח"
+      ],
+      "freq": 1231
+    },
+    {
+      "text": "אבל הוא",
+      "n": 2,
+      "niqqud": "אֲבָל הוּא",
+      "translit": "aval hu",
+      "gloss": "but he",
+      "words": [
+        "אבל",
+        "הוא"
+      ],
+      "freq": 1230
+    },
+    {
+      "text": "לא חושב",
+      "n": 2,
+      "niqqud": "לֹא חוֹשֵׁב",
+      "translit": "lo choshev",
+      "gloss": "don't think (m)",
+      "words": [
+        "לא",
+        "חושב"
+      ],
+      "freq": 1223
+    },
+    {
+      "text": "אם הוא",
+      "n": 2,
+      "niqqud": "אִם הוּא",
+      "translit": "im hu",
+      "gloss": "if he",
+      "words": [
+        "אם",
+        "הוא"
+      ],
+      "freq": 1217
+    }
+  ]
+}

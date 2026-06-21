@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: #0f1117; color: #e8eaf0;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #hud { position: fixed; top: 18px; left: 0; right: 0; text-align: center; color: #6b7387; font-size: 14px; letter-spacing: .4px; }
+  #app { text-align: center; width: min(560px, 92vw); }
+  .badge { display: inline-block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #79d18c; border: 1px solid #2e5a3a; border-radius: 999px; padding: 2px 10px; margin-bottom: 14px; }
+  .word { font-family: 'Heebo', system-ui, sans-serif; font-weight: 800; font-size: 120px; line-height: 1.15; direction: rtl; margin: 0; }
+  .niqqud { font-family: 'Heebo', system-ui, sans-serif; font-weight: 500; font-size: 64px; color: #8ab4ff; direction: rtl; margin: 10px 0 0; }
+  .word.phrase { font-size: 60px; line-height: 1.3; }
+  .niqqud.phrase { font-size: 42px; }
+  .translit { font-size: 22px; color: #8b93a7; letter-spacing: .6px; margin-top: 4px; }
+  .shoresh { font-size: 26px; margin-top: 8px; color: #c8a96a; direction: rtl; }
+  .shoresh .root-mark { font-size: 12px; color: #6b7387; letter-spacing: 1px; vertical-align: middle; margin-left: 8px; }
+  .shoresh [lang="he"] { font-family: 'Heebo', system-ui, sans-serif; font-weight: 500; letter-spacing: 2px; }
+  .grammar { font-size: 15px; color: #7e869a; font-style: italic; margin-top: 6px; }
+  .examples { margin-top: 16px; }
+  .example { margin: 9px 0; }
+  .ex-he { font-family: 'Heebo', system-ui, sans-serif; font-size: 25px; color: #d4dae6; display: block; direction: rtl; line-height: 1.4; }
+  .ex-he b { color: #ffd479; font-weight: 700; }
+  .ex-en { font-size: 15px; color: #8b93a7; display: block; margin-top: 2px; }
+  .ex-src { color: #6b7387; font-style: italic; }
+  .axis { display: flex; justify-content: space-between; font-size: 12px; color: #5a6173; letter-spacing: .3px; margin: 30px 4px -6px; }
+  .axis span:nth-child(2) { color: #444b5c; }
+  .options { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    position: relative; overflow: hidden;
+    font: inherit; font-size: 20px; text-align: left; padding: 14px 18px; border-radius: 11px;
+    border: 1px solid #2a2f3d; color: #e8eaf0; cursor: crosshair;
+    background: linear-gradient(90deg, #211a22 0%, #1a1e29 48%, #16241b 100%);
+    display: flex; align-items: center; gap: 12px; transition: filter .08s, border-color .08s;
+  }
+  .opt:hover:not(:disabled) { filter: brightness(1.18); }
+  .opt:disabled { cursor: default; }
+  .opt .mark { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; opacity: .85; transform: translateX(-1px); }
+  .opt.right { border-color: #3aa564; background: #16321f; color: #c9f4d6; }
+  .opt.wrong { border-color: #a5443a; background: #361a17; color: #f4c9c4; }
+  .opt.dim { opacity: .45; }
+  kbd { font: 13px ui-monospace, monospace; color: #8b93a7; border: 1px solid #333a49; border-radius: 5px; padding: 1px 7px; background: #11141c; }
+  .muted { color: #6b7387; font-size: 15px; margin-top: 26px; line-height: 1.6; }
+  .done .word { font-size: 60px; }
+  .notes { margin-top: 18px; text-align: left; }
+  .notes-saved { margin-bottom: 10px; }
+  .note { padding: 7px 11px; border-left: 2px solid #2e3a52; margin: 6px 0; background: #141823; border-radius: 6px; font-size: 15px; color: #c2c9d8; line-height: 1.5; }
+  .note .who { font-size: 10px; text-transform: uppercase; letter-spacing: .6px; margin-right: 7px; }
+  .note .who.user { color: #79d18c; } .note .who.coach { color: #8ab4ff; }
+  .note [lang="he"] { font-size: 17px; }
+  #noteInput { width: 100%; box-sizing: border-box; min-height: 60px; resize: vertical; background: #11141c; color: #e8eaf0; border: 1px solid #2a2f3d; border-radius: 9px; padding: 10px 12px; font: inherit; font-size: 17px; }
+  #noteInput:focus { outline: none; border-color: #4a72c4; }
+  .notes-hint { margin-top: 12px; font-size: 13px; color: #5a6173; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="hud"></div>
+<div id="app"></div>
+<script src="data/session.js"></script>
+<script>
+(function () {
+  const app = document.getElementById('app');
+  const hud = document.getElementById('hud');
+
+  const DEFAULT_SESSION = {
+    sessionId: 'standalone', generatedAt: new Date().toISOString(),
+    cards: [{ id:'עם', frame:'עם אבא', niqqud:'עִם אַבָּא', translit:'im aba', gloss:'with dad',
+              distractors:['with mom','without dad','and dad'], isNew:true }]
+  };
+  const session = (window.__SESSION && window.__SESSION.cards && window.__SESSION.cards.length)
+    ? window.__SESSION : DEFAULT_SESSION;
+
+  const total = session.cards.length;
+  let q = session.cards.map(c => ({ ...c, tries: 0 }));
+  const doneIds = new Set();
+  const events = [];
+  let answered, options, correctGloss, shownAt, lastClickAt = null;
+
+  const nowISO = () => new Date().toISOString();
+  const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const renderHud = () => { hud.textContent = `${doneIds.size} / ${total}` + (q.length ? `   ·   ${q.length} left` : ''); };
+
+  const esc = (s) => String(s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const exHe = (s) => esc(s).replace(/\*([^*]+)\*/g, '<b>$1</b>');   // *target* -> highlighted
+  const hasHebrew = (s) => /[֐-׿]/.test(s);
+  function renderSavedNotes(c) {
+    const notes = (c.notes || []);
+    if (!notes.length) return '<div class="muted" style="margin:0">No notes yet — jot one below; it shows up here next time.</div>';
+    return notes.map(n => {
+      const heb = hasHebrew(n.text);
+      return `<div class="note"><span class="who ${n.by === 'coach' ? 'coach' : 'user'}">${n.by === 'coach' ? 'coach' : 'you'}</span>` +
+        `<span${heb ? ' lang="he" dir="rtl"' : ''}>${esc(n.text)}</span></div>`;
+    }).join('');
+  }
+  const notesHint = (c) => { const n = (c.notes || []).length; return `<kbd>n</kbd> notes${n ? ` (${n})` : ''}`; };
+
+  function toggleNotes() {
+    const panel = document.getElementById('notes'); if (!panel) return;
+    const show = panel.hidden;
+    panel.hidden = !show;
+    if (show) { const t = document.getElementById('noteInput'); t.focus(); }
+  }
+
+  function render() {
+    const c = q[0];
+    answered = false;
+    correctGloss = c.gloss;
+    options = shuffle([c.gloss, ...(c.distractors || [])]);
+    app.className = '';
+    app.innerHTML = `
+      ${c.isNew ? '<div class="badge">new</div>' : ''}
+      <div class="word${c.phrase ? ' phrase' : ''} notranslate" translate="no" lang="he">${c.frame || c.bare || c.id}</div>
+      <div class="niqqud${c.phrase ? ' phrase' : ''} notranslate" translate="no" lang="he" id="niqqud" hidden>${c.niqqud || ''}</div>
+      <div class="translit" id="translit" hidden>${c.translit || ''}</div>
+      ${c.shoresh ? `<div class="shoresh notranslate" translate="no" id="shoresh" hidden><span class="root-mark">שורש</span> <span lang="he" dir="rtl">${c.shoresh}</span></div>` : ''}
+      ${c.grammar ? `<div class="grammar" id="grammar" hidden>${c.grammar}</div>` : ''}
+      ${(c.examples && c.examples.length) ? `<div class="examples notranslate" translate="no" id="examples" hidden>${c.examples.map(ex => `<div class="example"><span class="ex-he" lang="he" dir="rtl">${exHe(ex.he)}</span><span class="ex-en">${esc(ex.en)}${ex.canon ? ` <span class="ex-src">— ${esc(ex.canon)}</span>` : ''}</span></div>`).join('')}</div>` : ''}
+      <div class="axis" id="axis"><span>guessing</span><span>click position = confidence</span><span>certain</span></div>
+      <div class="options" id="options"></div>
+      <div class="muted" id="cont" hidden>space → next</div>
+      <div class="notes" id="notes" hidden>
+        <div class="notes-saved" id="notesSaved">${renderSavedNotes(c)}</div>
+        <textarea id="noteInput" dir="auto" placeholder="type the word, its shoresh, a connotation, a quote… (saved to your notes)"></textarea>
+      </div>
+      <div class="notes-hint" id="notesHint">${notesHint(c)}</div>`;
+    const box = document.getElementById('options');
+    options.forEach((opt, idx) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.dataset.gloss = opt;
+      b.innerHTML = `<kbd>${idx + 1}</kbd> <span>${opt}</span>`;
+      b.onclick = (ev) => answer(opt, ev, b);
+      box.appendChild(b);
+    });
+    shownAt = Date.now();
+    renderHud();
+  }
+
+  // confidence from horizontal click position on the wide button: 0 = far left, 1 = far right.
+  function clickConfidence(ev, btn) {
+    if (!ev || ev.clientX == null || !btn) return null; // keyboard answer -> no spatial signal
+    const r = btn.getBoundingClientRect();
+    return Math.round(Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width)) * 100) / 100;
+  }
+
+  function answer(opt, ev, btn) {
+    if (answered) return;
+    answered = true;
+    const c = q[0];
+    const clickAt = Date.now();
+    const correct = opt === correctGloss;
+    c._confidence = clickConfidence(ev, btn);  // 0 (left/least) .. 1 (right/most)
+    document.querySelectorAll('.opt').forEach(b => {
+      b.disabled = true;
+      if (b.dataset.gloss === correctGloss) b.classList.add('right');
+      else if (b.dataset.gloss === opt) b.classList.add('wrong');
+      else b.classList.add('dim');
+    });
+    // mark where on the button it was clicked
+    if (c._confidence != null) {
+      const dot = document.createElement('span');
+      dot.className = 'mark'; dot.style.left = (c._confidence * 100) + '%';
+      btn.appendChild(dot);
+    }
+    document.getElementById('niqqud').hidden = false;
+    document.getElementById('translit').hidden = false;
+    const sh = document.getElementById('shoresh'); if (sh) sh.hidden = false;
+    const gr = document.getElementById('grammar'); if (gr) gr.hidden = false;
+    const ex = document.getElementById('examples'); if (ex) ex.hidden = false;
+    document.getElementById('axis').hidden = true;
+    document.getElementById('cont').hidden = false;
+    c._grade = correct ? 'good' : 'again';  // MC: recognition earns "good"
+    c._tookMs = clickAt - shownAt;                                   // phrase shown -> click
+    c._gapMs = lastClickAt === null ? null : clickAt - lastClickAt;  // click-to-click, phrase to phrase
+    lastClickAt = clickAt;
+  }
+
+  function proceed() {
+    if (!answered) return;
+    const c = q.shift();
+    const noteEl = document.getElementById('noteInput');
+    const note = noteEl && noteEl.value.trim() ? noteEl.value.trim() : undefined;
+    events.push({
+      t: nowISO(), session: session.sessionId, id: c.id, grade: c._grade, peeked: false,
+      confidence: c._confidence, tookMs: c._tookMs, gapMs: c._gapMs, note,
+    });
+    if (c._grade === 'again' && c.tries < 2) { c.tries++; q.splice(Math.min(3, q.length), 0, c); }
+    else doneIds.add(c.id);
+    if (q.length) render(); else finish();
+  }
+
+  function finish() {
+    const name = downloadResults(events);
+    app.className = 'done';
+    app.innerHTML = `
+      <div class="word notranslate" translate="no" lang="he">✓ תודה</div>
+      <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>
+        saved <code>${name}</code> → data/inbox.<br>Back to the terminal — say “done”.</div>`;
+    hud.textContent = '';
+    window.__results = { name, events };
+  }
+
+  function downloadResults(evs) {
+    const name = `hebrew-results-${nowISO().replace(/[:.]/g, '-')}.jsonl`;
+    const body = evs.map(e => JSON.stringify(e)).join('\n') + '\n';
+    const url = URL.createObjectURL(new Blob([body], { type: 'application/x-ndjson' }));
+    const a = document.createElement('a'); a.href = url; a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1500);
+    return name;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (app.className === 'done') return;
+    // typing a note: let the textarea have all keys; Esc closes it.
+    if (e.target && e.target.tagName === 'TEXTAREA') {
+      if (e.key === 'Escape') { e.preventDefault(); e.target.blur(); document.getElementById('notes').hidden = true; }
+      return;
+    }
+    const k = e.key.toLowerCase();
+    if (k === 'n') { e.preventDefault(); toggleNotes(); return; }   // bonus: notes panel, any time
+    if (!answered) {
+      const i = parseInt(k, 10);
+      if (i >= 1 && i <= options.length) { e.preventDefault(); answer(options[i - 1]); }
+    } else if (k === ' ' || k === 'enter') {
+      e.preventDefault(); proceed();
+    }
+  });
+
+  if (q.length) render();
+  else app.innerHTML = '<div class="muted">No cards in this session.</div>';
+})();
+</script>
+</body>
+</html>

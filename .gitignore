@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Credentials — NEVER commit (Azure TTS key/region, GitHub PAT, etc.)
+.tts_key
+*.key
+*.pat
+.env
+
+# Raw corpus dump (50MB OpenSubtitles sample, used only for ad-hoc example mining).
+# Reproducible; keep it local rather than bloating the repo. Derived examples live in words.json.
+data/os_sample.txt
+
+# Drill result files in transit. The canonical append-only log is data/reviews.jsonl;
+# merge-results.sh folds inbox files into it, so these are throwaway.
+data/inbox/
+
+# Generated audio (TTS output)
+data/audio/*.mp3

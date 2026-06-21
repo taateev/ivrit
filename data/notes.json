@@ -1,0 +1,34 @@
+{
+  "notes": {
+    "לצאת": [
+      { "text": "Your 'o o' landed — the loop works. שורש י־צ־א ('go out'): same root as יְצִיאָה (yetzi'a, the EXIT sign on every Israeli door) and מוֹצָא (motza, origin / way out). Infinitive of pa'al.", "t": "2026-06-20T22:40:00Z" }
+    ],
+    "כדאי": [
+      { "text": "TRAP: don't read this as כְּדֵי (kdei, 'in order to'). כְּדַאי (keday) = 'it's worth it / you should'. Impersonal — no subject: כדאי לך ללכת = 'you should go' (lit. 'it's worthwhile to-you to-go'). You missed it at 95% sure — pure shape-collision with כדי.", "t": "2026-06-20T22:41:00Z" }
+    ],
+    "אך": [
+      { "text": "The formal/literary 'but' — אֲבָל's bookish cousin. Also means 'only / just' (= רק): אך ורק = 'only and exclusively'. One syllable, ach. You read it as אבל at 93% sure; in casual texting אבל is far more common, so seeing אך usually signals a more written register.", "t": "2026-06-20T22:42:00Z" }
+    ],
+    "מחר": [
+      { "text": "MINIMAL PAIR: מָחָר machar = 'tomorrow' vs מַהֵר maher = 'fast/quickly'. Same three slots, only ח↔ה swapped. Tell them apart by the middle letter: ח = tomorroW (time), ה = Hurry. שורש of מחר is opaque; מהר is מ־ה־ר.", "t": "2026-06-20T22:50:00Z" }
+    ],
+    "מהר": [
+      { "text": "MINIMAL PAIR with מָחָר machar 'tomorrow' — only the middle letter differs (ה vs ח). מַהֵר maher = 'fast/quickly', שורש מ־ה־ר ('to hurry', as in מיהר 'he hurried').", "t": "2026-06-20T22:50:00Z" }
+    ],
+    "משנה": [
+      { "text": "You missed this at 89% sure. Casual use is almost always the idiom לֹא מְשַׁנֶּה lo meshane = 'it doesn't matter / whatever' — meshane is the pi'el present of שׁ־נ־ה ('to change'), so literally 'doesn't change (anything)'. Don't confuse the unvoweled spelling with מִשְׁנָה (Mishna).", "t": "2026-06-20T22:51:00Z" }
+    ],
+    "החוצה": [
+      { "text": "Your lowest-confidence word (23%). The ־ָה ending here is the DIRECTIONAL suffix = 'toward': חוץ (outside) → הַחוּצָה (to-outside). Same pattern you already know in הַבַּיְתָה habayta 'homeward' (בית) and קָדִימָה kadima 'forward' (קדם). Spotting that ־ָה tells you motion-toward is happening.", "t": "2026-06-20T23:15:00Z" }
+    ],
+    "כלומר": [
+      { "text": "You missed this twice. כְּלוֹמַר klomar = 'that is / meaning / i.e.' — a discourse connector you use to restate or clarify: 'אני עייף, כלומר אני הולך לישון' = 'I'm tired, meaning I'm going to sleep'. Literally כְּלוֹ-מַר = 'as-if to-say'. On its own, 'כלומר?' = 'so? / meaning what?'", "t": "2026-06-20T23:16:00Z" }
+    ],
+    "סיבה": [
+      { "text": "Missed 3× — your stickiest noun so far. סִבָּה siba = 'reason / cause', שורש ס־ב־ב ('to go around', so a reason is what a thing 'revolves around'). Everyday frames: אין סיבה ('no reason / no need'), מאיזו סיבה? ('for what reason?'), הסיבה היא ש… ('the reason is that…'). Don't confuse with סַבָּא saba 'grandpa'.", "t": "2026-06-21T01:35:00Z" }
+    ],
+    "אמור": [
+      { "text": "Two words, same unvoweled spelling — niqqud splits them: אָמוּר amur = 'supposed to / said' (passive participle, the card's sense), but אֱמֹר emor = 'say! / tell!' (imperative of א־מ־ר). 'אמור להם ללכת' = 'Tell them to go' is the imperative; 'אתה אמור לדעת' = 'you're supposed to know' is amur.", "t": "2026-06-21T01:50:00Z" }
+    ]
+  }
+}
