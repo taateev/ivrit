@@ -15,6 +15,8 @@
     background: #0f1117; color: #e8eaf0;
     font-family: system-ui, -apple-system, sans-serif;
     display: flex; align-items: center; justify-content: center;
+    touch-action: manipulation;            /* no double-tap zoom; snappier taps */
+    -webkit-tap-highlight-color: transparent;
   }
   #hud { position: fixed; top: 18px; left: 0; right: 0; text-align: center; color: #6b7387; font-size: 14px; letter-spacing: .4px; }
   #app { text-align: center; width: min(560px, 92vw); }
@@ -90,9 +92,13 @@
               distractors:['with mom','without dad','and dad'], isNew:true }]
   };
 
+  // touch devices have no spacebar/keys: advance + notes work by tapping instead.
+  const TOUCH = (window.matchMedia && matchMedia('(pointer: coarse)').matches) || ('ontouchstart' in window);
+  const CONT_HINT = TOUCH ? 'tap anywhere to continue →' : 'space → next';
+
   // session + run state (assigned in boot, after session.js loads)
   let session, total, q, doneIds, events;
-  let answered, options, correctGloss, shownAt, lastClickAt = null;
+  let answered, answeredAt, options, correctGloss, shownAt, lastClickAt = null;
 
   const nowISO = () => new Date().toISOString();
   const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -110,7 +116,7 @@
         `<span${heb ? ' lang="he" dir="rtl"' : ''}>${esc(n.text)}</span></div>`;
     }).join('');
   }
-  const notesHint = (c) => { const n = (c.notes || []).length; return `<kbd>n</kbd> notes${n ? ` (${n})` : ''}`; };
+  const notesHint = (c) => { const n = (c.notes || []).length; const label = `notes${n ? ` (${n})` : ''}`; return TOUCH ? `✎ ${label}` : `<kbd>n</kbd> ${label}`; };
 
   function toggleNotes() {
     const panel = document.getElementById('notes'); if (!panel) return;
@@ -135,7 +141,7 @@
       ${(c.examples && c.examples.length) ? `<div class="examples notranslate" translate="no" id="examples" hidden>${c.examples.map(ex => `<div class="example"><span class="ex-he" lang="he" dir="rtl">${exHe(ex.he)}</span><span class="ex-en">${esc(ex.en)}${ex.canon ? ` <span class="ex-src">— ${esc(ex.canon)}</span>` : ''}</span></div>`).join('')}</div>` : ''}
       <div class="axis" id="axis"><span>guessing</span><span>click position = confidence</span><span>certain</span></div>
       <div class="options" id="options"></div>
-      <div class="muted" id="cont" hidden>space → next</div>
+      <div class="muted" id="cont" hidden>${CONT_HINT}</div>
       <div class="notes" id="notes" hidden>
         <div class="notes-saved" id="notesSaved">${renderSavedNotes(c)}</div>
         <textarea id="noteInput" dir="auto" placeholder="type the word, its shoresh, a connotation, a quote… (saved to your notes)"></textarea>
@@ -149,6 +155,8 @@
       b.onclick = (ev) => answer(opt, ev, b);
       box.appendChild(b);
     });
+    const nh = document.getElementById('notesHint');   // tappable notes toggle (mobile has no 'n' key)
+    if (nh) { nh.style.cursor = 'pointer'; nh.onclick = (ev) => { ev.stopPropagation(); toggleNotes(); }; }
     shownAt = Date.now();
     renderHud();
   }
@@ -163,6 +171,7 @@
   function answer(opt, ev, btn) {
     if (answered) return;
     answered = true;
+    answeredAt = Date.now();   // guard window so this same tap can't also advance past the reveal
     const c = q[0];
     const clickAt = Date.now();
     const correct = opt === correctGloss;
@@ -318,6 +327,15 @@
     } else if (k === ' ' || k === 'enter') {
       e.preventDefault(); proceed();
     }
+  });
+
+  // Tap anywhere to advance (mobile replacement for the spacebar). Excludes the notes panel/toggle
+  // so you can write notes, and the 350ms guard stops the answering tap from skipping the reveal.
+  app.addEventListener('click', (ev) => {
+    if (!answered || app.className === 'done') return;
+    if (ev.target.closest && ev.target.closest('#notes, #notesHint')) return;
+    if (Date.now() - answeredAt < 350) return;
+    proceed();
   });
 
   function boot() {
