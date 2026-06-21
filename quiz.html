@@ -62,7 +62,7 @@
   .note .who.user { color: #79d18c; } .note .who.coach { color: #8ab4ff; }
   .note [lang="he"] { font-size: 17px; }
   #noteInput, .tokfield { width: 100%; box-sizing: border-box; min-height: 60px; resize: vertical; background: #11141c; color: #e8eaf0; border: 1px solid #2a2f3d; border-radius: 9px; padding: 10px 12px; font: inherit; font-size: 17px; }
-  .tokfield { min-height: 0; }
+  .tokfield { min-height: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .3px; }
   #noteInput:focus, .tokfield:focus { outline: none; border-color: #4a72c4; }
   .notes-hint { margin-top: 12px; font-size: 13px; color: #5a6173; line-height: 1.5; }
   .btnrow { margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
@@ -278,7 +278,7 @@
       `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
        <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>${esc(intro)}</div>
        <div class="notes">
-         <input id="ghtok" class="tokfield" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
+         <input id="ghtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
          <div class="btnrow">
            <button class="opt" id="ghsave"><span>save &amp; upload</span></button>
            <button class="opt" id="ghdl"><span>download instead</span></button>
@@ -372,7 +372,7 @@
          <h3>GitHub token</h3>
          <p>Lets this device save your drill results to the repo. Stored only here (localStorage) and sent only to GitHub. Paste the <code>github_pat_…</code> you created.</p>
          <div class="status">${has ? '<span class="ok">✓ a token is saved on this device</span>' : '<span style="color:#c8a96a">no token saved yet</span>'}</div>
-         <input id="mtok" class="tokfield" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
+         <input id="mtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
          <div class="btnrow">
            <button class="opt" id="msave"><span>save</span></button>
            ${has ? '<button class="opt" id="mclear"><span>clear</span></button>' : ''}
