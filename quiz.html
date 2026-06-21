@@ -68,11 +68,21 @@
   .btnrow { margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .btnrow .opt { cursor: pointer; justify-content: center; flex: 0 1 auto; }
   .ok { color: #79d18c; } .bad { color: #f4c9c4; }
+  #gear { position: fixed; top: 11px; right: 14px; z-index: 5; background: none; border: 0; color: #4a5163; font-size: 21px; cursor: pointer; padding: 7px; line-height: 1; }
+  #gear:hover { color: #8b93a7; }
+  #gear.unset { color: #c8a96a; }            /* amber when no token is saved yet */
+  .modal-bg { position: fixed; inset: 0; background: rgba(8,10,15,.74); display: flex; align-items: center; justify-content: center; z-index: 10; padding: 20px; }
+  .modal { background: #141823; border: 1px solid #2a2f3d; border-radius: 14px; padding: 22px; width: min(430px, 100%); text-align: left; }
+  .modal h3 { margin: 0 0 6px; font-size: 17px; }
+  .modal p { color: #8b93a7; font-size: 13px; line-height: 1.55; margin: 4px 0 12px; }
+  .modal code { color: #c8a96a; }
+  .modal .status { font-size: 13px; margin-bottom: 12px; }
   [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <div id="hud"></div>
+<button id="gear" title="GitHub token" aria-label="GitHub token">⚙</button>
 <div id="app"></div>
 <script>
 (function () {
@@ -349,6 +359,38 @@
     if (q.length) render();
     else app.innerHTML = '<div class="muted">No cards in this session.</div>';
   }
+
+  // Always-available token setup (the gear, top-right). Lets you paste/replace/clear the token
+  // any time — not just at the end-of-session prompt.
+  const gear = document.getElementById('gear');
+  const refreshGear = () => { if (gear) gear.classList.toggle('unset', !getToken()); };
+  function showTokenModal() {
+    const has = !!getToken();
+    const bg = document.createElement('div'); bg.className = 'modal-bg';
+    bg.innerHTML =
+      `<div class="modal">
+         <h3>GitHub token</h3>
+         <p>Lets this device save your drill results to the repo. Stored only here (localStorage) and sent only to GitHub. Paste the <code>github_pat_…</code> you created.</p>
+         <div class="status">${has ? '<span class="ok">✓ a token is saved on this device</span>' : '<span style="color:#c8a96a">no token saved yet</span>'}</div>
+         <input id="mtok" class="tokfield" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
+         <div class="btnrow">
+           <button class="opt" id="msave"><span>save</span></button>
+           ${has ? '<button class="opt" id="mclear"><span>clear</span></button>' : ''}
+           <button class="opt" id="mclose"><span>close</span></button>
+         </div>
+       </div>`;
+    document.body.appendChild(bg);
+    const close = () => bg.remove();
+    const inp = bg.querySelector('#mtok');
+    bg.addEventListener('click', (e) => { if (e.target === bg) close(); });
+    bg.querySelector('#msave').onclick = () => { const v = inp.value.trim(); if (!v) { inp.focus(); return; } setToken(v); refreshGear(); close(); };
+    const clr = bg.querySelector('#mclear'); if (clr) clr.onclick = () => { clearToken(); refreshGear(); close(); };
+    bg.querySelector('#mclose').onclick = close;
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') bg.querySelector('#msave').click(); else if (e.key === 'Escape') close(); });
+    setTimeout(() => inp.focus(), 30);
+  }
+  if (gear) gear.onclick = showTokenModal;
+  refreshGear();
 
   // Load the session with a cache-buster so the phone always gets the latest pushed session
   // (GitHub Pages caches assets ~10min). Falls back to DEFAULT_SESSION if it can't load.
