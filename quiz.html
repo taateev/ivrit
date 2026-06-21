@@ -59,33 +59,39 @@
   .note .who { font-size: 10px; text-transform: uppercase; letter-spacing: .6px; margin-right: 7px; }
   .note .who.user { color: #79d18c; } .note .who.coach { color: #8ab4ff; }
   .note [lang="he"] { font-size: 17px; }
-  #noteInput { width: 100%; box-sizing: border-box; min-height: 60px; resize: vertical; background: #11141c; color: #e8eaf0; border: 1px solid #2a2f3d; border-radius: 9px; padding: 10px 12px; font: inherit; font-size: 17px; }
-  #noteInput:focus { outline: none; border-color: #4a72c4; }
-  .notes-hint { margin-top: 12px; font-size: 13px; color: #5a6173; }
+  #noteInput, .tokfield { width: 100%; box-sizing: border-box; min-height: 60px; resize: vertical; background: #11141c; color: #e8eaf0; border: 1px solid #2a2f3d; border-radius: 9px; padding: 10px 12px; font: inherit; font-size: 17px; }
+  .tokfield { min-height: 0; }
+  #noteInput:focus, .tokfield:focus { outline: none; border-color: #4a72c4; }
+  .notes-hint { margin-top: 12px; font-size: 13px; color: #5a6173; line-height: 1.5; }
+  .btnrow { margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btnrow .opt { cursor: pointer; justify-content: center; flex: 0 1 auto; }
+  .ok { color: #79d18c; } .bad { color: #f4c9c4; }
   [hidden] { display: none !important; }
 </style>
 </head>
 <body>
 <div id="hud"></div>
 <div id="app"></div>
-<script src="data/session.js"></script>
 <script>
 (function () {
   const app = document.getElementById('app');
   const hud = document.getElementById('hud');
+
+  // --- write-back target (NOT secret; the token is supplied at runtime from localStorage) ---
+  const GH = { owner: 'taateev', repo: 'ivrit', branch: 'main', dir: 'data/results' };
+  const TOKEN_KEY = 'gh_token';
+  const getToken = () => { try { return (localStorage.getItem(TOKEN_KEY) || '').trim(); } catch (e) { return ''; } };
+  const setToken = (t) => { try { localStorage.setItem(TOKEN_KEY, t); } catch (e) {} };
+  const clearToken = () => { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {} };
 
   const DEFAULT_SESSION = {
     sessionId: 'standalone', generatedAt: new Date().toISOString(),
     cards: [{ id:'עם', frame:'עם אבא', niqqud:'עִם אַבָּא', translit:'im aba', gloss:'with dad',
               distractors:['with mom','without dad','and dad'], isNew:true }]
   };
-  const session = (window.__SESSION && window.__SESSION.cards && window.__SESSION.cards.length)
-    ? window.__SESSION : DEFAULT_SESSION;
 
-  const total = session.cards.length;
-  let q = session.cards.map(c => ({ ...c, tries: 0 }));
-  const doneIds = new Set();
-  const events = [];
+  // session + run state (assigned in boot, after session.js loads)
+  let session, total, q, doneIds, events;
   let answered, options, correctGloss, shownAt, lastClickAt = null;
 
   const nowISO = () => new Date().toISOString();
@@ -168,7 +174,7 @@
       else b.classList.add('dim');
     });
     // mark where on the button it was clicked
-    if (c._confidence != null) {
+    if (c._confidence != null && btn) {
       const dot = document.createElement('span');
       dot.className = 'mark'; dot.style.left = (c._confidence * 100) + '%';
       btn.appendChild(dot);
@@ -200,32 +206,108 @@
     if (q.length) render(); else finish();
   }
 
-  function finish() {
-    const name = downloadResults(events);
+  // ---------- finish + write-back ----------
+  const resultsName = () => `${session.sessionId}-${nowISO().replace(/[:.]/g, '-')}.jsonl`;
+  const resultsBody = (evs) => evs.map(e => JSON.stringify(e)).join('\n') + '\n';
+
+  function b64utf8(s) {
+    const bytes = new TextEncoder().encode(s);
+    let bin = ''; const CH = 0x8000;
+    for (let i = 0; i < bytes.length; i += CH) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
+    return btoa(bin);
+  }
+
+  async function commitResults(evs) {
+    const token = getToken();
+    if (!token) throw new Error('no-token');
+    const name = resultsName();
+    const path = `${GH.dir}/${name}`;
+    const res = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `drill: ${session.sessionId} · ${evs.length} reviews`, content: b64utf8(resultsBody(evs)), branch: GH.branch }),
+    });
+    if (res.status === 401 || res.status === 403) throw new Error('bad-token');
+    if (!res.ok) throw new Error(`GitHub ${res.status}: ${(await res.text()).slice(0, 160)}`);
+    const j = await res.json();
+    return { name, sha: (j.commit && j.commit.sha) || '' };
+  }
+
+  function doneShell(inner) {
     app.className = 'done';
-    app.innerHTML = `
-      <div class="word notranslate" translate="no" lang="he">✓ תודה</div>
-      <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>
-        saved <code>${name}</code> → data/inbox.<br>Back to the terminal — say “done”.</div>`;
+    app.innerHTML =
+      `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
+       <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>${inner}</div>`;
+  }
+
+  function renderUploaded(name, sha) {
+    doneShell(`<span class="ok">✓ committed</span> <code>${esc(name)}</code>${sha ? ` · ${esc(sha.slice(0, 7))}` : ''}<br>Back to the terminal — say “done”.`);
+  }
+  function renderUploading() { doneShell('uploading to GitHub…'); }
+  function renderFailed(msg) {
+    doneShell(`<span class="bad">upload failed:</span> ${esc(msg)}`);
+    const row = document.createElement('div'); row.className = 'btnrow';
+    row.innerHTML = `<button class="opt" id="retry"><span>retry</span></button><button class="opt" id="dl"><span>download instead</span></button>`;
+    app.appendChild(row);
+    document.getElementById('retry').onclick = uploadFlow;
+    document.getElementById('dl').onclick = () => downloadResults(events);
+  }
+
+  function renderTokenPrompt(intro) {
+    app.className = 'done';
+    app.innerHTML =
+      `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
+       <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>${esc(intro)}</div>
+       <div class="notes">
+         <input id="ghtok" class="tokfield" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
+         <div class="btnrow">
+           <button class="opt" id="ghsave"><span>save &amp; upload</span></button>
+           <button class="opt" id="ghdl"><span>download instead</span></button>
+         </div>
+         <div class="notes-hint">Stored only in this browser (localStorage) and sent only to GitHub. Paste it once; it persists on this device.</div>
+       </div>`;
+    const inp = document.getElementById('ghtok');
+    document.getElementById('ghsave').onclick = () => {
+      const v = inp.value.trim(); if (!v) { inp.focus(); return; }
+      setToken(v); uploadFlow();
+    };
+    document.getElementById('ghdl').onclick = () => downloadResults(events);
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('ghsave').click(); });
+  }
+
+  async function uploadFlow() {
+    if (!getToken()) { renderTokenPrompt('Paste your GitHub token to save this session to the repo:'); return; }
+    renderUploading();
+    try {
+      const { name, sha } = await commitResults(events);
+      renderUploaded(name, sha);
+    } catch (e) {
+      if (e.message === 'bad-token') { clearToken(); renderTokenPrompt('That token was rejected (401/403). Paste a valid one:'); }
+      else renderFailed(e.message);
+    }
+  }
+
+  function finish() {
     hud.textContent = '';
-    window.__results = { name, events };
+    window.__results = { events };
+    uploadFlow();
   }
 
   function downloadResults(evs) {
-    const name = `hebrew-results-${nowISO().replace(/[:.]/g, '-')}.jsonl`;
-    const body = evs.map(e => JSON.stringify(e)).join('\n') + '\n';
-    const url = URL.createObjectURL(new Blob([body], { type: 'application/x-ndjson' }));
+    const name = resultsName();
+    const url = URL.createObjectURL(new Blob([resultsBody(evs)], { type: 'application/x-ndjson' }));
     const a = document.createElement('a'); a.href = url; a.download = name;
     document.body.appendChild(a); a.click();
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1500);
+    doneShell(`saved <code>${esc(name)}</code> via download.<br>Back to the terminal — say “done”.`);
     return name;
   }
 
   document.addEventListener('keydown', (e) => {
     if (app.className === 'done') return;
-    // typing a note: let the textarea have all keys; Esc closes it.
-    if (e.target && e.target.tagName === 'TEXTAREA') {
-      if (e.key === 'Escape') { e.preventDefault(); e.target.blur(); document.getElementById('notes').hidden = true; }
+    // typing in a field (note or token): let it have all keys; Esc closes the notes panel.
+    if (e.target && (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT')) {
+      if (e.key === 'Escape') { e.preventDefault(); e.target.blur(); const n = document.getElementById('notes'); if (n) n.hidden = true; }
       return;
     }
     const k = e.key.toLowerCase();
@@ -238,8 +320,25 @@
     }
   });
 
-  if (q.length) render();
-  else app.innerHTML = '<div class="muted">No cards in this session.</div>';
+  function boot() {
+    session = (window.__SESSION && window.__SESSION.cards && window.__SESSION.cards.length)
+      ? window.__SESSION : DEFAULT_SESSION;
+    total = session.cards.length;
+    q = session.cards.map(c => ({ ...c, tries: 0 }));
+    doneIds = new Set();
+    events = [];
+    lastClickAt = null;
+    if (q.length) render();
+    else app.innerHTML = '<div class="muted">No cards in this session.</div>';
+  }
+
+  // Load the session with a cache-buster so the phone always gets the latest pushed session
+  // (GitHub Pages caches assets ~10min). Falls back to DEFAULT_SESSION if it can't load.
+  const s = document.createElement('script');
+  s.src = 'data/session.js?t=' + Date.now();
+  s.onload = boot;
+  s.onerror = boot;
+  document.head.appendChild(s);
 })();
 </script>
 </body>
