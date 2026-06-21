@@ -23,10 +23,16 @@ for f in "$INBOX"/hebrew-results-*.jsonl; do
   n=$((n + 1))
 done
 
-# 2. Phone commits — append then remove (tracked; deletion committed by coach).
+# 2. Phone commits — append member runs to the SR log, remove after. GUEST runs (filename
+#    contains --guest--) are game-only: left in place for the matchup, never merged into the log.
 for f in "$RESULTS"/*.jsonl; do
+  base=$(basename "$f")
+  if [[ "$base" == *--guest--* ]]; then
+    echo "kept   $base  (guest run — game only, not merged into SR log)"
+    continue
+  fi
   cat "$f" >> "$LOG"
-  echo "merged $(basename "$f")  (+$(grep -c . "$f" || true) events)  [phone]"
+  echo "merged $base  (+$(grep -c . "$f" || true) events)  [phone]"
   rm "$f"
   n=$((n + 1))
 done

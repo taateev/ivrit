@@ -96,6 +96,24 @@
   const setToken = (t) => { try { localStorage.setItem(TOKEN_KEY, t); } catch (e) {} };
   const clearToken = () => { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {} };
 
+  // --- players + wager scoring ---------------------------------------------------------------
+  // Your tap position is your BET (0 far-left … 1 far-right). Right earns the bet, wrong costs it.
+  // Scored on first look only; guest runs are tagged so they stay out of the member's SR log.
+  const PLAYER_KEY = 'player_id';
+  const SCORE_BASE = 1000;   // points for a fully-confident card
+  let ROSTER = [{ id: 'dan', name: 'Dan' }, { id: 'guest', name: 'Guest' }];
+  const getPlayerId = () => { try { return localStorage.getItem(PLAYER_KEY) || ''; } catch (e) { return ''; } };
+  const setPlayerId = (id) => { try { localStorage.setItem(PLAYER_KEY, id); } catch (e) {} };
+  const currentPlayer = () => ROSTER.find(p => p.id === getPlayerId()) || null;
+  const playerId = () => (currentPlayer() || {}).id || 'anon';
+  const betOf = (conf) => (conf == null ? 0.5 : conf);                          // keyboard answer = neutral bet
+  const cardPoints = (grade, conf) => Math.round(betOf(conf) * SCORE_BASE) * (grade === 'good' ? 1 : -1);
+  const fmtScore = (n) => (n < 0 ? '−' : '') + Math.abs(n).toLocaleString('en-US');
+  async function loadRoster() {
+    try { const r = await fetch('data/players.json?t=' + Date.now()); if (r.ok) { const j = await r.json(); if (j.players && j.players.length) return j.players; } } catch (e) {}
+    return ROSTER;
+  }
+
   const DEFAULT_SESSION = {
     sessionId: 'standalone', generatedAt: new Date().toISOString(),
     cards: [{ id:'עם', frame:'עם אבא', niqqud:'עִם אַבָּא', translit:'im aba', gloss:'with dad',
@@ -107,12 +125,12 @@
   const CONT_HINT = TOUCH ? 'tap anywhere to continue →' : 'space → next';
 
   // session + run state (assigned in boot, after session.js loads)
-  let session, total, q, doneIds, events;
+  let session, total, q, doneIds, events, score, scoredIds;
   let answered, answeredAt, options, correctGloss, shownAt, lastClickAt = null;
 
   const nowISO = () => new Date().toISOString();
   const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const renderHud = () => { hud.textContent = `${doneIds.size} / ${total}` + (q.length ? `   ·   ${q.length} left` : ''); };
+  const renderHud = () => { hud.textContent = `${doneIds.size} / ${total}` + (q.length ? `   ·   ${q.length} left` : '') + `   ·   ★ ${fmtScore(score)}`; };
 
   const esc = (s) => String(s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
   const exHe = (s) => esc(s).replace(/\*([^*]+)\*/g, '<b>$1</b>');   // *target* -> highlighted
@@ -216,9 +234,12 @@
     const c = q.shift();
     const noteEl = document.getElementById('noteInput');
     const note = noteEl && noteEl.value.trim() ? noteEl.value.trim() : undefined;
+    const firstLook = !scoredIds.has(c.id);   // wager scores once, on the first attempt
+    let points;
+    if (firstLook) { scoredIds.add(c.id); points = cardPoints(c._grade, c._confidence); score += points; }
     events.push({
-      t: nowISO(), session: session.sessionId, id: c.id, grade: c._grade, peeked: false,
-      confidence: c._confidence, tookMs: c._tookMs, gapMs: c._gapMs, note,
+      t: nowISO(), session: session.sessionId, player: playerId(), id: c.id, grade: c._grade, peeked: false,
+      confidence: c._confidence, tookMs: c._tookMs, gapMs: c._gapMs, points: firstLook ? points : undefined, note,
     });
     if (c._grade === 'again' && c.tries < 2) { c.tries++; q.splice(Math.min(3, q.length), 0, c); }
     else doneIds.add(c.id);
@@ -226,7 +247,7 @@
   }
 
   // ---------- finish + write-back ----------
-  const resultsName = () => `${session.sessionId}-${nowISO().replace(/[:.]/g, '-')}.jsonl`;
+  const resultsName = () => `${session.sessionId}--${playerId()}--${nowISO().replace(/[:.]/g, '-')}.jsonl`;
   const resultsBody = (evs) => evs.map(e => JSON.stringify(e)).join('\n') + '\n';
 
   function b64utf8(s) {
@@ -244,7 +265,7 @@
     const res = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${path}`, {
       method: 'PUT',
       headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `drill: ${session.sessionId} · ${evs.length} reviews`, content: b64utf8(resultsBody(evs)), branch: GH.branch }),
+      body: JSON.stringify({ message: `${playerId()} · ${session.sessionId} · ${score} pts · ${evs.length} reviews`, content: b64utf8(resultsBody(evs)), branch: GH.branch }),
     });
     if (res.status === 401 || res.status === 403) throw new Error('bad-token');
     if (!res.ok) throw new Error(`GitHub ${res.status}: ${(await res.text()).slice(0, 160)}`);
@@ -256,7 +277,7 @@
     app.className = 'done';
     app.innerHTML =
       `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
-       <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>${inner}</div>`;
+       <div class="muted">★ <b>${fmtScore(score)}</b> points · ${doneIds.size} cards<br>${inner}</div>`;
   }
 
   function renderUploaded(name, sha) {
@@ -276,7 +297,7 @@
     app.className = 'done';
     app.innerHTML =
       `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
-       <div class="muted">${doneIds.size} cards · ${events.length} reviews<br>${esc(intro)}</div>
+       <div class="muted">★ ${fmtScore(score)} points · ${doneIds.size} cards<br>${esc(intro)}</div>
        <div class="notes">
          <input id="ghtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
          <div class="btnrow">
@@ -348,16 +369,42 @@
     proceed();
   });
 
-  function boot() {
+  async function boot() {
     session = (window.__SESSION && window.__SESSION.cards && window.__SESSION.cards.length)
       ? window.__SESSION : DEFAULT_SESSION;
     total = session.cards.length;
     q = session.cards.map(c => ({ ...c, tries: 0 }));
     doneIds = new Set();
     events = [];
+    score = 0;
+    scoredIds = new Set();
     lastClickAt = null;
+    ROSTER = await loadRoster();
+    if (currentPlayer()) startDrill();
+    else renderPicker();
+  }
+
+  function startDrill() {
     if (q.length) render();
     else app.innerHTML = '<div class="muted">No cards in this session.</div>';
+  }
+
+  function renderPicker() {
+    app.className = ''; hud.textContent = '';
+    app.innerHTML =
+      `<div class="badge">match</div>
+       <div style="font-size:24px;margin:6px 0 4px">Who's drilling?</div>
+       <div class="muted" style="margin:6px 0 18px">Wager with your tap — far-left = unsure, far-right = certain. Right earns your bet, wrong costs it.</div>
+       <div class="options" id="roster"></div>
+       <div class="notes-hint">saved on this device · switch any time from ⚙</div>`;
+    const box = document.getElementById('roster');
+    ROSTER.forEach((p) => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.style.cursor = 'pointer'; b.style.justifyContent = 'center';
+      b.innerHTML = `<span>${esc(p.name)}</span>`;
+      b.onclick = () => { setPlayerId(p.id); startDrill(); };
+      box.appendChild(b);
+    });
   }
 
   // Always-available token setup (the gear, top-right). Lets you paste/replace/clear the token
@@ -369,6 +416,7 @@
     const bg = document.createElement('div'); bg.className = 'modal-bg';
     bg.innerHTML =
       `<div class="modal">
+         <div class="status" style="margin-bottom:16px">Playing as <b>${esc((currentPlayer() || { name: '—' }).name)}</b> · <a href="#" id="mswitch" style="color:#8ab4ff">switch player</a></div>
          <h3>GitHub token</h3>
          <p>Lets this device save your drill results to the repo. Stored only here (localStorage) and sent only to GitHub. Paste the <code>github_pat_…</code> you created.</p>
          <div class="status">${has ? '<span class="ok">✓ a token is saved on this device</span>' : '<span style="color:#c8a96a">no token saved yet</span>'}</div>
@@ -383,6 +431,7 @@
     const close = () => bg.remove();
     const inp = bg.querySelector('#mtok');
     bg.addEventListener('click', (e) => { if (e.target === bg) close(); });
+    const sw = bg.querySelector('#mswitch'); if (sw) sw.onclick = (e) => { e.preventDefault(); close(); setPlayerId(''); boot(); };
     bg.querySelector('#msave').onclick = () => { const v = inp.value.trim(); if (!v) { inp.focus(); return; } setToken(v); refreshGear(); close(); };
     const clr = bg.querySelector('#mclear'); if (clr) clr.onclick = () => { clearToken(); refreshGear(); close(); };
     bg.querySelector('#mclose').onclick = close;

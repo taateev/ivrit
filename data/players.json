@@ -1,0 +1,6 @@
+{
+  "players": [
+    { "id": "dan", "name": "Dan" },
+    { "id": "guest", "name": "Guest" }
+  ]
+}
