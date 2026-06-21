@@ -23,11 +23,11 @@ for f in "$INBOX"/hebrew-results-*.jsonl; do
   n=$((n + 1))
 done
 
-# 2. Phone commits — append member runs to the SR log, remove after. GUEST runs (filename
-#    contains --guest--) are game-only: left in place for the matchup, never merged into the log.
+# 2. Phone commits — append the member's runs (--dan--) to the SR log, remove after. Any other
+#    player's runs (guests, e.g. --sean--) are game-only: left in place for the matchup, never merged.
 for f in "$RESULTS"/*.jsonl; do
   base=$(basename "$f")
-  if [[ "$base" == *--guest--* ]]; then
+  if [[ "$base" != *--dan--* ]]; then
     echo "kept   $base  (guest run — game only, not merged into SR log)"
     continue
   fi

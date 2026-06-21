@@ -68,6 +68,9 @@
   .btnrow { margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .btnrow .opt { cursor: pointer; justify-content: center; flex: 0 1 auto; }
   .ok { color: #79d18c; } .bad { color: #f4c9c4; }
+  .intro { text-align: left; margin: 0 auto 16px; max-width: 470px; }
+  .intro p { color: #c2c9d8; font-size: 15px; line-height: 1.55; margin: 0 0 11px; }
+  .intro b { color: #e8eaf0; }
   #gear { position: fixed; top: 11px; right: 14px; z-index: 5; background: none; border: 0; color: #4a5163; font-size: 21px; cursor: pointer; padding: 7px; line-height: 1; }
   #gear:hover { color: #8b93a7; }
   #gear.unset { color: #c8a96a; }            /* amber when no token is saved yet */
@@ -101,7 +104,7 @@
   // Scored on first look only; guest runs are tagged so they stay out of the member's SR log.
   const PLAYER_KEY = 'player_id';
   const SCORE_BASE = 1000;   // points for a fully-confident card
-  let ROSTER = [{ id: 'dan', name: 'Dan' }, { id: 'guest', name: 'Guest' }];
+  let ROSTER = [{ id: 'dan', name: 'דניאל' }, { id: 'sean', name: 'שון', guest: true }];
   const getPlayerId = () => { try { return localStorage.getItem(PLAYER_KEY) || ''; } catch (e) { return ''; } };
   const setPlayerId = (id) => { try { localStorage.setItem(PLAYER_KEY, id); } catch (e) {} };
   const currentPlayer = () => ROSTER.find(p => p.id === getPlayerId()) || null;
@@ -401,10 +404,34 @@
     ROSTER.forEach((p) => {
       const b = document.createElement('button');
       b.className = 'opt'; b.style.cursor = 'pointer'; b.style.justifyContent = 'center';
-      b.innerHTML = `<span>${esc(p.name)}</span>`;
-      b.onclick = () => { setPlayerId(p.id); startDrill(); };
+      b.innerHTML = `<span lang="he" dir="rtl" style="font-family:'Heebo',system-ui,sans-serif;font-size:27px">${esc(p.name)}</span>`;
+      b.onclick = () => { setPlayerId(p.id); if (p.guest) renderGuestIntro(); else startDrill(); };
       box.appendChild(b);
     });
+  }
+
+  // First-time onboarding for a drop-in guest: the confidence mechanic (tap location + timing)
+  // and the access token. Shown once, when a guest is picked; reachable again via ⚙ → switch.
+  function renderGuestIntro() {
+    app.className = ''; hud.textContent = '';
+    const name = (currentPlayer() || { name: 'שון' }).name;
+    app.innerHTML =
+      `<div class="badge">how it works</div>
+       <div style="font-size:26px;margin:6px 0 16px" lang="he" dir="rtl">שלום, ${esc(name)} 👋</div>
+       <div class="intro">
+         <p><b>Read &amp; choose.</b> You'll see a Hebrew word and tap its English meaning from four options.</p>
+         <p><b>Where you tap = how sure you are.</b> The buttons are wide on purpose: tap toward the <b>left</b> if you're guessing, toward the <b>right</b> if you're confident. (We also quietly time how long you take.)</p>
+         <p><b>Right earns your bet, wrong costs it.</b> So go far-right only when you're certain — a confident miss stings most, while an honest left-side guess barely costs you.</p>
+         <p><b>To save your score</b>, paste the access code Dan sent you (just once). You can also do it later from the ⚙ up top.</p>
+       </div>
+       <input id="gtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="paste the code Dan sent (github_pat_…)">
+       <div class="btnrow">
+         <button class="opt" id="gstart"><span>start drilling →</span></button>
+       </div>`;
+    const inp = document.getElementById('gtok');
+    const start = () => { const v = inp.value.trim(); if (v) setToken(v); refreshGear(); startDrill(); };
+    document.getElementById('gstart').onclick = start;
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
   }
 
   // Always-available token setup (the gear, top-right). Lets you paste/replace/clear the token

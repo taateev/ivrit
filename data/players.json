@@ -1,6 +1,6 @@
 {
   "players": [
-    { "id": "dan", "name": "Dan" },
-    { "id": "guest", "name": "Guest" }
+    { "id": "dan", "name": "דניאל" },
+    { "id": "sean", "name": "שון", "guest": true }
   ]
 }
