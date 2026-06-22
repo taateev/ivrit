@@ -1,248 +1,254 @@
 window.__SESSION = {
-  "sessionId": "batch-7",
-  "generatedAt": "2026-06-22T04:33:32.224Z",
-  "mode": "match",
-  "newCount": 10,
-  "dueCount": 0,
+  "sessionId": "batch-8",
+  "generatedAt": "2026-06-22T04:40:00.179Z",
+  "mode": "review",
+  "newCount": 0,
+  "dueCount": 10,
   "cards": [
     {
-      "id": "טלפון",
-      "bare": "טלפון",
-      "niqqud": "טֶלֶפוֹן",
-      "translit": "telefon",
-      "gloss": "telephone / phone",
-      "shoresh": null,
-      "grammar": "noun (m.sg) — loanword (no Hebrew root); pl. טֶלֶפוֹנִים.",
+      "id": "מנסה",
+      "bare": "מנסה",
+      "niqqud": "מְנַסֶּה",
+      "translit": "menase",
+      "gloss": "trying (m)",
+      "shoresh": "נ־ס־ה",
+      "grammar": "verb · present (beinoni) · sg · pi'el",
       "examples": [
         {
-          "he": "תן לי את *הטלפון*.",
-          "en": "Give me the phone."
+          "he": "את *מנסה* לתפוס אותו.",
+          "en": "You're trying to catch him."
         }
       ],
       "distractors": [
-        "to me",
-        "there / a name",
-        "like / as"
+        "friend / boyfriend",
+        "like / as",
+        "family"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
-      "id": "שבוע",
-      "bare": "שבוע",
-      "niqqud": "שָׁבוּעַ",
-      "translit": "shavua",
-      "gloss": "week",
-      "shoresh": "ש־ב־ע",
-      "grammar": "noun (m.sg) — from שֶׁבַע 'seven' (a week = seven days); pl. שָׁבוּעוֹת. שָׁבוּעַיִם 'two weeks'.",
+      "id": "אמור",
+      "bare": "אמור",
+      "niqqud": "אָמוּר",
+      "translit": "amur",
+      "gloss": "supposed to",
+      "shoresh": "א־מ־ר",
+      "grammar": "adjective (m.sg) — passive ptcp of א־מ־ר",
       "examples": [
         {
-          "he": "רק לפני *שבוע*...",
-          "en": "just a week ago..."
+          "he": "אתה *אמור* לדעת",
+          "en": "you're supposed to know"
         }
       ],
       "distractors": [
+        "good",
+        "like this / so",
+        "a lot / many"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": [
+        {
+          "by": "coach",
+          "text": "Two words, same unvoweled spelling — niqqud splits them: אָמוּר amur = 'supposed to / said' (passive participle, the card's sense), but אֱמֹר emor = 'say! / tell!' (imperative of א־מ־ר). 'אמור להם ללכת' = 'Tell them to go' is the imperative; 'אתה אמור לדעת' = 'you're supposed to know' is amur.",
+          "t": "2026-06-21T01:50:00Z"
+        }
+      ]
+    },
+    {
+      "id": "כמעט",
+      "bare": "כמעט",
+      "niqqud": "כִּמְעַט",
+      "translit": "kim'at",
+      "gloss": "almost",
+      "shoresh": "מ־ע־ט",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "אנחנו *כמעט* שם.",
+          "en": "We're almost there."
+        }
+      ],
+      "distractors": [
+        "happy / glad",
+        "back / in return",
+        "sorry / excuse me"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": []
+    },
+    {
+      "id": "לפחות",
+      "bare": "לפחות",
+      "niqqud": "לְפָחוֹת",
+      "translit": "lefachot",
+      "gloss": "at least",
+      "shoresh": "פ־ח־ת",
+      "grammar": "adverb",
+      "examples": [
+        {
+          "he": "*לפחות* שבע פעמים.",
+          "en": "At least seven times."
+        }
+      ],
+      "distractors": [
+        "house / home",
+        "already",
+        "feel / feels (m)"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": []
+    },
+    {
+      "id": "בחור",
+      "bare": "בחור",
+      "niqqud": "בָּחוּר",
+      "translit": "bachur",
+      "gloss": "guy / young man",
+      "shoresh": "ב־ח־ר",
+      "grammar": "noun (m.sg); f. בַּחוּרָה 'young woman'. Same root as לִבְחֹר 'to choose', בְּחִירוֹת 'elections'.",
+      "examples": [
+        {
+          "he": "אתה *בחור* חכם, אה?",
+          "en": "You're a smart guy, huh?"
+        }
+      ],
+      "distractors": [
+        "too (much) / overly",
         "end",
-        "big / large (m)",
-        "really / literally"
+        "door"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
-      "id": "כוח",
-      "bare": "כוח",
-      "niqqud": "כּוֹחַ",
-      "translit": "koach",
-      "gloss": "strength / power / force",
-      "shoresh": null,
-      "grammar": "noun (m.sg); pl. כּוֹחוֹת kochot. Final ח sounds 'koach' (furtive patach). Don't confuse with שָׁכַח 'forgot'.",
+      "id": "עניין",
+      "bare": "עניין",
+      "niqqud": "עִנְיָן",
+      "translit": "inyan",
+      "gloss": "matter / issue / interest",
+      "shoresh": "ע־נ־י־ן",
+      "grammar": "noun (m.sg); pl. עִנְיָנִים. Related מְעֻנְיָן 'interested'; distinct from מְעַנְיֵן 'interesting'.",
       "examples": [
         {
-          "he": "יש לך את *הכוח*!",
-          "en": "You've got the power!"
-        }
-      ],
-      "distractors": [
-        "apparently / probably",
-        "beautiful / nice / fine",
-        "the guy"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "קפה",
-      "bare": "קפה",
-      "niqqud": "קָפֶה",
-      "translit": "kafe",
-      "gloss": "coffee",
-      "shoresh": null,
-      "grammar": "noun (m.sg) — loanword. בֵּית קָפֶה = 'cafe'.",
-      "examples": [
-        {
-          "he": "מה בדבר כוס *קפה*?",
-          "en": "How about a cup of coffee?"
-        }
-      ],
-      "distractors": [
-        "wait! (m, imperative)",
-        "thing / word — he spoke",
-        "head"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "מילה",
-      "bare": "מילה",
-      "niqqud": "מִילָה",
-      "translit": "mila",
-      "gloss": "word",
-      "shoresh": "מ־ל־ל",
-      "grammar": "noun (f.sg); pl. מִילִים milim. Near-homograph מִילָה also = 'circumcision' — context decides.",
-      "examples": [
-        {
-          "he": "אל תגיד *מילה* בטלפון.",
-          "en": "Don't say a word on the phone."
-        }
-      ],
-      "distractors": [
-        "almost",
-        "months",
-        "that is / meaning / i.e."
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "ארץ",
-      "bare": "ארץ",
-      "niqqud": "אֶרֶץ",
-      "translit": "eretz",
-      "gloss": "land / country / earth",
-      "shoresh": "א־ר־ץ",
-      "grammar": "noun (f.sg); pl. אֲרָצוֹת. הָאָרֶץ = 'the Land' (Israel) or 'the Earth'; כַּדּוּר הָאָרֶץ = 'the globe'.",
-      "examples": [
-        {
-          "he": "לראות את כל *הארץ*.",
-          "en": "To see the whole land."
-        }
-      ],
-      "distractors": [
-        "mom",
-        "she said",
-        "most (the …-est)"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "כלב",
-      "bare": "כלב",
-      "niqqud": "כֶּלֶב",
-      "translit": "kelev",
-      "gloss": "dog",
-      "shoresh": "כ־ל־ב",
-      "grammar": "noun (m.sg); f. כַּלְבָּה; pl. כְּלָבִים klavim.",
-      "examples": [
-        {
-          "he": "נראה כמו *כלב* גדול!",
-          "en": "Looks like a big dog!"
-        }
-      ],
-      "distractors": [
-        "[object marker] / you (f.)",
-        "very",
-        "way / road / through"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "דקה",
-      "bare": "דקה",
-      "niqqud": "דַּקָּה",
-      "translit": "daka",
-      "gloss": "minute",
-      "shoresh": "ד־ק־ק",
-      "grammar": "noun (f.sg); pl. דַּקּוֹת dakot. Same spelling as דַּקָּה 'thin (f.)' — context decides.",
-      "examples": [
-        {
-          "he": "נראה אותך עוד *דקה*.",
-          "en": "See you in a minute."
+          "he": "זה *עניין* של כבוד.",
+          "en": "It's a matter of honor."
         }
       ],
       "distractors": [
         "to find",
-        "forward / come on",
-        "yes"
+        "actually / in fact",
+        "but"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
-      "id": "מדינה",
-      "bare": "מדינה",
-      "niqqud": "מְדִינָה",
-      "translit": "medina",
-      "gloss": "country / state",
-      "shoresh": "ד־י־ן",
-      "grammar": "noun (f.sg); pl. מְדִינוֹת. From דִּין 'law/judgment' — a realm of jurisdiction.",
+      "id": "משפחה",
+      "bare": "משפחה",
+      "niqqud": "מִשְׁפָּחָה",
+      "translit": "mishpacha",
+      "gloss": "family",
+      "shoresh": "ש־פ־ח",
+      "grammar": "noun (f.sg); pl. מִשְׁפָּחוֹת. שֵׁם מִשְׁפָּחָה = 'surname'.",
       "examples": [
         {
-          "he": "ובכן, זו *מדינה* גדולה.",
-          "en": "Well, it's a big country."
+          "he": "הם עם *המשפחה* שלך.",
+          "en": "They're with your family."
         }
       ],
       "distractors": [
-        "girl",
-        "there isn't / there's no",
-        "sorry / excuse me"
+        "ready (m)",
+        "to go out / to leave",
+        "fast / quickly"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
-      "id": "מלך",
-      "bare": "מלך",
-      "niqqud": "מֶלֶךְ",
-      "translit": "melech",
-      "gloss": "king",
-      "shoresh": "מ־ל־ך",
-      "grammar": "noun (m.sg); f. מַלְכָּה 'queen'; pl. מְלָכִים. Same letters as מָלַךְ 'he reigned' (verb).",
+      "id": "פרק",
+      "bare": "פרק",
+      "niqqud": "פֶּרֶק",
+      "translit": "perek",
+      "gloss": "chapter / episode",
+      "shoresh": "פ־ר־ק",
+      "grammar": "noun (m.sg)",
       "examples": [
         {
-          "he": "הוא באמת היה *המלך*.",
-          "en": "He really was the king."
+          "he": "היה לו *פרק* קשה בחיים.",
+          "en": "He had a hard chapter in life."
         }
       ],
       "distractors": [
-        "kid / boy",
-        "goes / is going",
-        "or"
+        "come! (m.sg)",
+        "yes",
+        "strength / power / force"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
+      "notes": []
+    },
+    {
+      "id": "נראה",
+      "bare": "נראה",
+      "niqqud": "נִרְאֶה",
+      "translit": "nir'e",
+      "gloss": "looks / seems",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb — nif'al present m.sg of ר־א־ה 'see': 'looks / seems / appears'. נראה לי = 'it seems to me'. Same spelling as נִרְאֶה 'we will see' (future).",
+      "examples": [
+        {
+          "he": "הוא *נראה* בסדר גמור.",
+          "en": "He looks completely fine."
+        }
+      ],
+      "distractors": [
+        "person / man",
+        "to you (m./f.)",
+        "like / as"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": []
+    },
+    {
+      "id": "הולך",
+      "bare": "הולך",
+      "niqqud": "הוֹלֵךְ",
+      "translit": "holech",
+      "gloss": "goes / is going",
+      "shoresh": "ה־ל־ך",
+      "grammar": "verb — pa'al present m.sg of ה־ל־ך 'go/walk'; f. הוֹלֶכֶת. הולך + infinitive = 'going to' (near future).",
+      "examples": [
+        {
+          "he": "מה *הולך* לקרות לי?",
+          "en": "What's going to happen to me?"
+        }
+      ],
+      "distractors": [
+        "the first",
+        "means / intends",
+        "kids / children"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
       "notes": []
     }
   ]

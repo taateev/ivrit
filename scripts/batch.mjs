@@ -6,6 +6,7 @@ import fs from 'node:fs';
 const ROOT = '/Users/dlesky/hebrew';
 const SIZE = parseInt(process.argv[2] || '10', 10);
 const SID = process.argv[3] || 'batch';
+const MODE = (process.argv[4] || 'new').toLowerCase();   // 'new' = fresh first; 'review' = due/shaky first
 
 const words = JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words;
 const events = fs.existsSync(`${ROOT}/data/reviews.jsonl`)
@@ -51,8 +52,8 @@ const review = frontier.filter(w => state.get(w.bare).seen && state.get(w.bare).
     || Date.parse(state.get(a.bare).lastSeen) - Date.parse(state.get(b.bare).lastSeen));
 
 const pick = [];
-for (const w of fresh) { if (pick.length >= SIZE) break; pick.push(w); }
-for (const w of review) { if (pick.length >= SIZE) break; if (!pick.includes(w)) pick.push(w); }
+const order = MODE === 'review' ? [review, fresh] : [fresh, review];   // review mode: shaky words first
+for (const grp of order) for (const w of grp) { if (pick.length >= SIZE) break; if (!pick.includes(w)) pick.push(w); }
 if (pick.length < SIZE)  // still short: light review of any seen frontier word, by rank
   for (const w of frontier.filter(w => state.get(w.bare).seen).sort((a, b) => a.rank - b.rank)) {
     if (pick.length >= SIZE) break; if (!pick.includes(w)) pick.push(w);
@@ -65,7 +66,7 @@ const cards = pick.map(w => ({
   notes: notesFor(w.bare),
 }));
 const session = {
-  sessionId: SID, generatedAt: new Date().toISOString(), mode: 'match',
+  sessionId: SID, generatedAt: new Date().toISOString(), mode: MODE === 'review' ? 'review' : 'match',
   newCount: cards.filter(c => c.isNew).length, dueCount: cards.filter(c => !c.isNew).length, cards,
 };
 fs.writeFileSync(`${ROOT}/data/session.js`, `window.__SESSION = ${JSON.stringify(session, null, 2)};\n`);
