@@ -1,0 +1,293 @@
+{
+  "id": "xw-1",
+  "rows": 6,
+  "cols": 8,
+  "entries": [
+    {
+      "num": 1,
+      "dir": "across",
+      "answer": [
+        "מ",
+        "ל",
+        "ך"
+      ],
+      "len": 3,
+      "cells": [
+        {
+          "r": 0,
+          "c": 2
+        },
+        {
+          "r": 0,
+          "c": 1
+        },
+        {
+          "r": 0,
+          "c": 0
+        }
+      ],
+      "clue": "king",
+      "niqqud": "מֶלֶךְ",
+      "translit": "melech",
+      "hint": "root מ־ל־ך",
+      "points": 35
+    },
+    {
+      "num": 1,
+      "dir": "down",
+      "answer": [
+        "מ",
+        "ע",
+        "ו",
+        "ל",
+        "ם"
+      ],
+      "len": 5,
+      "cells": [
+        {
+          "r": 0,
+          "c": 2
+        },
+        {
+          "r": 1,
+          "c": 2
+        },
+        {
+          "r": 2,
+          "c": 2
+        },
+        {
+          "r": 3,
+          "c": 2
+        },
+        {
+          "r": 4,
+          "c": 2
+        }
+      ],
+      "clue": "never (in the past)",
+      "niqqud": "מֵעוֹלָם",
+      "translit": "me'olam",
+      "hint": "from עוֹלָם \"world/eternity\" — lit. \"from [the start of] time\"",
+      "points": 20
+    },
+    {
+      "num": 2,
+      "dir": "down",
+      "answer": [
+        "מ",
+        "י",
+        "ד"
+      ],
+      "len": 3,
+      "cells": [
+        {
+          "r": 0,
+          "c": 4
+        },
+        {
+          "r": 1,
+          "c": 4
+        },
+        {
+          "r": 2,
+          "c": 4
+        }
+      ],
+      "clue": "immediately / right away",
+      "niqqud": "מִיָּד",
+      "translit": "miyad",
+      "hint": "מ + יָד \"hand\" → \"from hand\", i.e. at once",
+      "points": 20
+    },
+    {
+      "num": 3,
+      "dir": "down",
+      "answer": [
+        "י",
+        "ד"
+      ],
+      "len": 2,
+      "cells": [
+        {
+          "r": 1,
+          "c": 4
+        },
+        {
+          "r": 2,
+          "c": 4
+        }
+      ],
+      "clue": "hand",
+      "niqqud": "יָד",
+      "translit": "yad",
+      "hint": "root י־ד",
+      "points": 15
+    },
+    {
+      "num": 4,
+      "dir": "across",
+      "answer": [
+        "ל",
+        "פ",
+        "נ",
+        "י"
+      ],
+      "len": 4,
+      "cells": [
+        {
+          "r": 1,
+          "c": 7
+        },
+        {
+          "r": 1,
+          "c": 6
+        },
+        {
+          "r": 1,
+          "c": 5
+        },
+        {
+          "r": 1,
+          "c": 4
+        }
+      ],
+      "clue": "before / ago",
+      "niqqud": "לִפְנֵי",
+      "translit": "lifnei",
+      "hint": "root פ־נ־ה",
+      "points": 15
+    },
+    {
+      "num": 4,
+      "dir": "down",
+      "answer": [
+        "ל",
+        "א",
+        "ט"
+      ],
+      "len": 3,
+      "cells": [
+        {
+          "r": 1,
+          "c": 7
+        },
+        {
+          "r": 2,
+          "c": 7
+        },
+        {
+          "r": 3,
+          "c": 7
+        }
+      ],
+      "clue": "slowly",
+      "niqqud": "לְאַט",
+      "translit": "le'at",
+      "hint": "adverb \"slowly\"; לְאַט-לְאַט = \"gradually\"",
+      "points": 30
+    },
+    {
+      "num": 5,
+      "dir": "down",
+      "answer": [
+        "א",
+        "ו",
+        "כ",
+        "ל"
+      ],
+      "len": 4,
+      "cells": [
+        {
+          "r": 2,
+          "c": 0
+        },
+        {
+          "r": 3,
+          "c": 0
+        },
+        {
+          "r": 4,
+          "c": 0
+        },
+        {
+          "r": 5,
+          "c": 0
+        }
+      ],
+      "clue": "food",
+      "niqqud": "אוֹכֶל",
+      "translit": "okhel",
+      "hint": "root א־כ־ל",
+      "points": 15
+    },
+    {
+      "num": 6,
+      "dir": "across",
+      "answer": [
+        "ד",
+        "ו",
+        "ו",
+        "ק",
+        "א"
+      ],
+      "len": 5,
+      "cells": [
+        {
+          "r": 2,
+          "c": 4
+        },
+        {
+          "r": 2,
+          "c": 3
+        },
+        {
+          "r": 2,
+          "c": 2
+        },
+        {
+          "r": 2,
+          "c": 1
+        },
+        {
+          "r": 2,
+          "c": 0
+        }
+      ],
+      "clue": "actually / of all things / precisely",
+      "niqqud": "דַּווְקָא",
+      "translit": "davka",
+      "hint": "Aramaic — root ד־ו־ק, \"exactness\"",
+      "points": 65
+    },
+    {
+      "num": 7,
+      "dir": "across",
+      "answer": [
+        "מ",
+        "י",
+        "ם"
+      ],
+      "len": 3,
+      "cells": [
+        {
+          "r": 4,
+          "c": 4
+        },
+        {
+          "r": 4,
+          "c": 3
+        },
+        {
+          "r": 4,
+          "c": 2
+        }
+      ],
+      "clue": "water",
+      "niqqud": "מַיִם",
+      "translit": "mayim",
+      "hint": "root מ־י־ם",
+      "points": 25
+    }
+  ]
+}

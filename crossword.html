@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — crossword</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    display: flex; flex-direction: column; align-items: center; padding: 12px 10px 24px;
+  }
+  #hud { width: min(640px, 96vw); display: flex; justify-content: space-between; align-items: baseline; color: #8b93a7; font-size: 14px; margin-bottom: 10px; }
+  #hud .score { color: #ffd479; font-weight: 700; font-size: 18px; }
+  #grid { display: grid; gap: 3px; margin: 0 auto 14px; }
+  .cell { position: relative; background: #11141c; border: 1px solid #2a2f3d; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Heebo', sans-serif; font-weight: 700; color: #e8eaf0; cursor: pointer; user-select: none; }
+  .cell.blank { background: transparent; border: 0; cursor: default; }
+  .cell.sel { border-color: #ffd479; box-shadow: 0 0 0 1px #ffd479 inset; }
+  .cell.word { background: #1a2230; }
+  .cell.solved { background: #16321f; border-color: #3aa564; color: #c9f4d6; }
+  .cell .num { position: absolute; top: 1px; right: 3px; font-size: 9px; font-weight: 500; color: #6b7387; }
+  #palette { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; width: min(440px, 96vw); margin-bottom: 8px; }
+  .key { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #e8eaf0;
+    font: 600 19px 'Heebo', sans-serif; padding: 9px 0; text-align: center; cursor: pointer; }
+  .key:active { background: #2a3142; }
+  .key.bk { grid-column: span 2; color: #8b93a7; font-size: 15px; }
+  #clues { width: min(640px, 96vw); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+  @media (max-width: 460px) { #clues { grid-template-columns: 1fr; } }
+  .col h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin: 0 0 6px; }
+  .clue { padding: 6px 8px; border-left: 2px solid #2e3a52; margin: 4px 0; background: #141823; border-radius: 6px; font-size: 14px; line-height: 1.4; cursor: pointer; }
+  .clue.active { border-left-color: #ffd479; background: #1a2230; }
+  .clue.solved { border-left-color: #3aa564; opacity: .7; }
+  .clue .n { color: #8b93a7; font-weight: 700; margin-left: 6px; }
+  .clue .pts { color: #ffd479; font-size: 12px; float: right; }
+  .clue .he { font-family: 'Heebo', sans-serif; color: #c9f4d6; direction: rtl; }
+  .clue .tr { color: #8b93a7; font-size: 12px; }
+  .hintbtn { display: inline-block; margin-top: 4px; font-size: 12px; color: #8ab4ff; }
+  .hint { margin-top: 5px; font-size: 12.5px; color: #c8a96a; line-height: 1.45; direction: ltr; }
+  .hint [dir="rtl"] { font-family: 'Heebo', sans-serif; }
+  #done { width: min(640px, 96vw); text-align: center; margin-top: 16px; font-size: 16px; color: #79d18c; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="hud"><div id="prog">loading…</div><div class="score" id="score">★ 0</div></div>
+<div id="grid"></div>
+<div id="palette"></div>
+<div id="clues"></div>
+<div id="done" hidden></div>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const FINALS = { 'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ' };
+  const norm = (ch) => FINALS[ch] || ch;                  // forgiving check: final == base form
+  const ALEFBET = [...'אבגדהוזחטיכלמנסעפצקרשת','ך','ם','ן','ף','ץ'];
+
+  let P, cellmap, sel = null, dir = 'across', solved = new Set(), hintsUsed = new Set(), score = 0;
+
+  const ckey = (r, c) => r + ',' + c;
+  const ekey = (e) => e.num + e.dir[0];
+
+  function entriesAt(r, c) { return P.entries.filter(e => e.cells.some(k => k.r === r && k.c === c)); }
+  function curWord() { return P.entries.find(e => e.dir === dir && e.cells.some(k => sel && k.r === sel.r && k.c === sel.c)); }
+
+  function buildMaps() {
+    cellmap = {};
+    for (const e of P.entries) for (let i = 0; i < e.cells.length; i++) {
+      const { r, c } = e.cells[i]; const k = ckey(r, c);
+      cellmap[k] = cellmap[k] || { r, c, answer: e.answer[i], input: '', el: null };
+    }
+    // numbering for the corner badges
+    for (const e of P.entries) { const s = e.cells[0]; const m = cellmap[ckey(s.r, s.c)]; m.num = m.num || e.num; }
+  }
+
+  function render() {
+    const g = $('grid');
+    g.style.gridTemplateColumns = `repeat(${P.cols}, 1fr)`;
+    const size = Math.min(40, Math.floor((Math.min(640, window.innerWidth * 0.96)) / P.cols) - 3);
+    g.innerHTML = '';
+    for (let r = 0; r < P.rows; r++) for (let c = 0; c < P.cols; c++) {
+      const k = ckey(r, c), m = cellmap[k];
+      const d = document.createElement('div');
+      d.className = 'cell' + (m ? '' : ' blank');
+      d.style.width = d.style.height = size + 'px';
+      d.style.fontSize = Math.round(size * 0.52) + 'px';
+      if (m) {
+        m.el = d;
+        if (m.num) { const n = document.createElement('span'); n.className = 'num'; n.textContent = m.num; d.appendChild(n); }
+        const sp = document.createElement('span'); sp.className = 'ch'; sp.textContent = m.input; d.appendChild(sp);
+        d.onclick = () => selectCell(r, c);
+      }
+      g.appendChild(d);
+    }
+    renderPalette();
+    renderClues();
+    paint();
+  }
+
+  function renderPalette() {
+    const p = $('palette'); p.innerHTML = '';
+    for (const ch of ALEFBET) { const b = document.createElement('button'); b.className = 'key'; b.textContent = ch; b.onclick = () => type(ch); p.appendChild(b); }
+    const bk = document.createElement('button'); bk.className = 'key bk'; bk.textContent = '⌫'; bk.onclick = backspace; p.appendChild(bk);
+  }
+
+  function renderClues() {
+    const wrap = $('clues'); wrap.innerHTML = '';
+    for (const d of ['across', 'down']) {
+      const col = document.createElement('div'); col.className = 'col';
+      col.innerHTML = `<h3>${d === 'across' ? 'Across ←' : 'Down ↓'}</h3>`;
+      for (const e of P.entries.filter(x => x.dir === d)) {
+        const div = document.createElement('div'); div.className = 'clue'; div.dataset.k = ekey(e);
+        const sv = solved.has(ekey(e));
+        div.innerHTML =
+          `<span class="pts">${hintsUsed.has(ekey(e)) ? Math.round(e.points / 2) : e.points}pt</span>` +
+          `<span class="n">${e.num}.</span>${esc(e.clue)}` +
+          (sv ? ` <span class="he">${esc(e.niqqud)}</span> <span class="tr">${esc(e.translit)}</span>` : '') +
+          (e.hint && !sv ? `<div class="hintbtn" data-hint="${ekey(e)}">💡 etymology hint (−½ pts)</div>` : '') +
+          (e.hint && (hintsUsed.has(ekey(e)) || sv) ? `<div class="hint">${heb(e.hint)}</div>` : '');
+        if (sv) div.classList.add('solved');
+        div.onclick = (ev) => {
+          const h = ev.target.closest('[data-hint]');
+          if (h) { ev.stopPropagation(); hintsUsed.add(h.dataset.hint); renderClues(); return; }
+          dir = e.dir; selectCell(e.cells[0].r, e.cells[0].c);
+        };
+        col.appendChild(div);
+      }
+      wrap.appendChild(col);
+    }
+  }
+
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿֐-׿ ־'-]*)/g, '<span dir="rtl">$1</span>'); // wrap Hebrew runs rtl
+
+  function selectCell(r, c) {
+    const here = entriesAt(r, c); if (!here.length) return;
+    if (sel && sel.r === r && sel.c === c && here.length > 1) dir = (dir === 'across' ? 'down' : 'across'); // toggle at crossings
+    if (!here.some(e => e.dir === dir)) dir = here[0].dir;
+    sel = { r, c }; paint();
+  }
+
+  function paint() {
+    const cw = curWord();
+    const wordKeys = new Set(cw ? cw.cells.map(k => ckey(k.r, k.c)) : []);
+    for (const k in cellmap) {
+      const m = cellmap[k]; if (!m.el) continue;
+      const inWord = wordKeys.has(k), isSel = sel && k === ckey(sel.r, sel.c);
+      const sv = m.solvedCell;
+      m.el.className = 'cell' + (sv ? ' solved' : '') + (inWord && !sv ? ' word' : '') + (isSel ? ' sel' : '');
+      m.el.querySelector('.ch').textContent = m.input;
+    }
+    document.querySelectorAll('.clue').forEach(d => d.classList.toggle('active', cw && d.dataset.k === ekey(cw)));
+    $('prog').textContent = `${solved.size} / ${P.entries.length} words`;
+    $('score').textContent = '★ ' + score.toLocaleString('en-US');
+  }
+
+  function type(ch) {
+    if (!sel) return; const m = cellmap[ckey(sel.r, sel.c)]; if (!m || m.solvedCell) return;
+    m.input = ch; advance(); checkWord(); paint();
+  }
+  function backspace() {
+    if (!sel) return; let m = cellmap[ckey(sel.r, sel.c)];
+    if (m && !m.input) retreat(), m = cellmap[ckey(sel.r, sel.c)];
+    if (m && !m.solvedCell) m.input = '';
+    paint();
+  }
+  function step(delta) {
+    const cw = curWord(); if (!cw) return;
+    const idx = cw.cells.findIndex(k => k.r === sel.r && k.c === sel.c);
+    const ni = idx + delta; if (ni >= 0 && ni < cw.cells.length) sel = { r: cw.cells[ni].r, c: cw.cells[ni].c };
+  }
+  const advance = () => step(1);
+  const retreat = () => step(-1);
+
+  function checkWord() {
+    const cw = curWord(); if (!cw || solved.has(ekey(cw))) return;
+    const ok = cw.cells.every((k, i) => { const m = cellmap[ckey(k.r, k.c)]; return m.input && norm(m.input) === norm(cw.answer[i]); });
+    if (!ok) return;
+    solved.add(ekey(cw));
+    cw.cells.forEach((k, i) => { const m = cellmap[ckey(k.r, k.c)]; m.input = cw.answer[i]; m.solvedCell = true; }); // snap to canonical letters
+    score += hintsUsed.has(ekey(cw)) ? Math.round(cw.points / 2) : cw.points;
+    renderClues();
+    if (solved.size === P.entries.length) win();
+  }
+
+  function win() {
+    $('done').hidden = false;
+    $('done').innerHTML = `✓ solved all ${P.entries.length} — <b>★ ${score.toLocaleString('en-US')}</b> points.<br><span style="color:#8b93a7;font-size:14px">Back to the terminal — say “done”.</span>`;
+  }
+
+  // load puzzle (cache-busted so a freshly-pushed puzzle always arrives)
+  fetch('data/crossword.json?t=' + Date.now()).then(r => r.json()).then(p => {
+    P = p; buildMaps(); render();
+    const first = P.entries[0]; dir = first.dir; selectCell(first.cells[0].r, first.cells[0].c);
+  }).catch(e => { $('prog').textContent = 'failed to load puzzle: ' + e.message; });
+
+  // physical Hebrew keyboard support (desktop)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace') { e.preventDefault(); backspace(); }
+    else if (/^[֐-׿]$/.test(e.key)) { e.preventDefault(); type(e.key); }
+  });
+  window.addEventListener('resize', () => { if (P) render(); });
+})();
+</script>
+</body>
+</html>
