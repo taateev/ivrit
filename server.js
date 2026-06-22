@@ -52,6 +52,7 @@ const getRoom = (id) => {
   if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null });
   return rooms.get(id);
 };
+const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; };
 
 function checkAll(room) {
   if (!PUZZLE) return;
@@ -105,11 +106,14 @@ server.on('upgrade', (req, socket, head) => {
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req));
 });
 wss.on('connection', (ws) => {
+  ws.isAlive = true;
+  ws.on('pong', () => { ws.isAlive = true; });
   ws.on('message', (data) => {
     let m; try { m = JSON.parse(data); } catch { return; }
     if (m.t === 'join') {
       ws.room = String(m.room || 'main').slice(0, 40); ws.player = String(m.player || 'guest').slice(0, 40);
-      const room = getRoom(ws.room); if (!room.startedAt) room.startedAt = Date.now();
+      const room = getRoom(ws.room);
+      if (room.conns.size === 0) resetRoom(room);   // arriving to an idle room → fresh board (no session bleed)
       room.conns.add(ws); ws.send(stateMsg(room)); broadcast(room);
     } else if (m.t === 'fill' && ws.room) {
       const room = getRoom(ws.room); const key = `${m.r},${m.c}`;
@@ -117,9 +121,15 @@ wss.on('connection', (ws) => {
       const ch = typeof m.ch === 'string' ? [...m.ch][0] || '' : '';
       if (ch) room.cells.set(key, ch); else room.cells.delete(key);
       checkAll(room); broadcast(room);
+    } else if (m.t === 'reset' && ws.room) {
+      const room = getRoom(ws.room); resetRoom(room); broadcast(room);
     }
   });
   ws.on('close', () => { if (ws.room && rooms.has(ws.room)) { const room = rooms.get(ws.room); room.conns.delete(ws); broadcast(room); } });
 });
+// heartbeat: reap dead/ghost connections so presence is accurate and rooms truly empty (→ reset)
+setInterval(() => {
+  for (const ws of wss.clients) { if (ws.isAlive === false) { ws.terminate(); continue; } ws.isAlive = false; try { ws.ping(); } catch (e) {} }
+}, 30000);
 
 server.listen(PORT, () => console.log(`couch-hebrew listening on :${PORT}`));
