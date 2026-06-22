@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — live foyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 40px; }
+  h1 { font-size: 24px; margin: 0 0 2px; }
+  .sub { color: #6b7387; font-size: 13px; margin-bottom: 20px; }
+  #list { width: min(560px, 96vw); }
+  .game { display: flex; align-items: center; gap: 12px; background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 13px 15px; margin-bottom: 9px; }
+  .game .main { flex: 1; min-width: 0; }
+  .game .name { font-weight: 700; font-size: 17px; }
+  .game .name .he { font-family: 'Heebo', sans-serif; direction: rtl; }
+  .game .meta { color: #8b93a7; font-size: 13px; margin-top: 3px; }
+  .game .meta .live { color: #79d18c; } .game .meta .idle { color: #6b7387; }
+  .game .prog { color: #ffd479; font-size: 13px; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+  .dot.on { background: #3aa564; box-shadow: 0 0 6px #3aa564; } .dot.off { background: #3a3f4d; }
+  .join { background: #1a2230; border: 1px solid #3a4760; border-radius: 9px; color: #cfe0ff; text-decoration: none; padding: 9px 15px; font-size: 14px; white-space: nowrap; }
+  .join:hover { border-color: #4a72c4; }
+  .empty { color: #6b7387; text-align: center; padding: 22px 0; }
+  #new { width: min(560px, 96vw); display: flex; gap: 8px; margin-top: 16px; }
+  #room { flex: 1; background: #11141c; border: 1px solid #2a2f3d; border-radius: 9px; color: #e8eaf0; padding: 11px 13px; font: inherit; font-size: 16px; }
+  #room:focus { outline: none; border-color: #4a72c4; }
+  #create { background: #16321f; border: 1px solid #3aa564; border-radius: 9px; color: #c9f4d6; padding: 0 18px; font: inherit; font-size: 15px; cursor: pointer; }
+  a.back { color: #6b7387; margin-top: 22px; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>live crossword — foyer</h1>
+<div class="sub">join a game in progress, or start a new one</div>
+<div id="list">loading…</div>
+<div id="new">
+  <input id="room" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="new game name (e.g. family, sean)">
+  <button id="create">start →</button>
+</div>
+<a class="back" href="index.html">← menu</a>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'-]*)/g, '<span class="he">$1</span>');
+  function ago(ms) {
+    const s = Math.max(0, Math.round((Date.now() - ms) / 1000));
+    if (s < 45) return 'just now';
+    const m = Math.round(s / 60); if (m < 60) return m + 'm ago';
+    const h = Math.round(m / 60); if (h < 24) return h + 'h ago';
+    return Math.round(h / 24) + 'd ago';
+  }
+  const go = (id) => { location.href = 'crossword.html?room=' + encodeURIComponent(id); };
+
+  function render(rooms) {
+    const el = $('list');
+    if (!rooms.length) { el.innerHTML = '<div class="empty">No live games yet — start one below.</div>'; return; }
+    el.innerHTML = rooms.map(r => {
+      const live = r.count > 0;
+      const who = live ? `<span class="dot on"></span>👥 ${r.players.map(esc).join(', ')}` : `<span class="dot off"></span>no one here now`;
+      return `<div class="game">
+        <div class="main">
+          <div class="name">${heb(r.id)}</div>
+          <div class="meta"><span class="${live ? 'live' : 'idle'}">${who}</span> · ${r.done ? '✓ done' : ago(r.lastMove)}</div>
+        </div>
+        <div class="prog">${r.solved}/${r.total}</div>
+        <a class="join" href="crossword.html?room=${encodeURIComponent(r.id)}">${live ? 'join' : 'resume'} →</a>
+      </div>`;
+    }).join('');
+  }
+
+  async function refresh() {
+    try { const res = await fetch('/api/rooms?t=' + Date.now()); const j = await res.json(); render(j.rooms || []); }
+    catch (e) { $('list').innerHTML = '<div class="empty">can’t reach the server.</div>'; }
+  }
+  $('create').onclick = () => { const id = ($('room').value || '').trim() || 'ivrit'; go(id); };
+  $('room').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('create').click(); });
+  refresh(); setInterval(refresh, 5000);
+})();
+</script>
+</body>
+</html>

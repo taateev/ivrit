@@ -18,6 +18,16 @@ const server = http.createServer((req, res) => {
   let pathname;
   try { pathname = decodeURIComponent(new URL(req.url, 'http://x').pathname); } catch { res.writeHead(400); res.end('bad request'); return; }
   if (pathname === '/healthz') { res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end('ok'); return; }
+  if (pathname === '/api/rooms') {                  // foyer: live + recently-active games
+    const now = Date.now();
+    const list = [...rooms.values()]
+      .filter(r => r.conns.size > 0 || now - r.lastMove < 24 * 3600 * 1000)
+      .sort((a, b) => b.lastMove - a.lastMove)
+      .map(r => ({ id: r.id, players: [...r.conns].map(c => c.player || '?'), count: r.conns.size, solved: r.solved.size, total: PUZZLE ? PUZZLE.entries.length : 0, lastMove: r.lastMove, done: !!r.finishedAt }));
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
+    res.end(JSON.stringify({ rooms: list, puzzle: PUZZLE && PUZZLE.id }));
+    return;
+  }
   if (pathname === '/') pathname = '/index.html';
   const filePath = path.normalize(path.join(ROOT, pathname));
   if (!filePath.startsWith(ROOT + path.sep) || pathname.split('/').some(s => s.startsWith('.'))) { res.writeHead(403); res.end('forbidden'); return; }
@@ -49,10 +59,10 @@ const ekey = (e) => e.num + e.dir[0];
 
 const rooms = new Map();
 const getRoom = (id) => {
-  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null });
+  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null, lastMove: Date.now() });
   return rooms.get(id);
 };
-const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; };
+const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; room.lastMove = Date.now(); };
 
 function checkAll(room) {
   if (!PUZZLE) return;
@@ -112,14 +122,16 @@ wss.on('connection', (ws) => {
     let m; try { m = JSON.parse(data); } catch { return; }
     if (m.t === 'join') {
       ws.room = String(m.room || 'main').slice(0, 40); ws.player = String(m.player || 'guest').slice(0, 40);
-      const room = getRoom(ws.room);
-      if (room.conns.size === 0) resetRoom(room);   // arriving to an idle room → fresh board (no session bleed)
+      const room = getRoom(ws.room);                // games persist now (browse/rejoin via the foyer)
+      if (!room.startedAt) room.startedAt = Date.now();
+      room.lastMove = Date.now();
       room.conns.add(ws); ws.send(stateMsg(room)); broadcast(room);
     } else if (m.t === 'fill' && ws.room) {
       const room = getRoom(ws.room); const key = `${m.r},${m.c}`;
       if (!validCells.has(key) || room.solvedCells.has(key)) return;
       const ch = typeof m.ch === 'string' ? [...m.ch][0] || '' : '';
       if (ch) room.cells.set(key, ch); else room.cells.delete(key);
+      room.lastMove = Date.now();
       checkAll(room); broadcast(room);
     } else if (m.t === 'reset' && ws.room) {
       const room = getRoom(ws.room); resetRoom(room); broadcast(room);
@@ -130,6 +142,8 @@ wss.on('connection', (ws) => {
 // heartbeat: reap dead/ghost connections so presence is accurate and rooms truly empty (→ reset)
 setInterval(() => {
   for (const ws of wss.clients) { if (ws.isAlive === false) { ws.terminate(); continue; } ws.isAlive = false; try { ws.ping(); } catch (e) {} }
+  const now = Date.now();   // prune empty rooms idle > 24h so the foyer stays clean
+  for (const [id, r] of rooms) if (r.conns.size === 0 && now - r.lastMove > 24 * 3600 * 1000) rooms.delete(id);
 }, 30000);
 
 server.listen(PORT, () => console.log(`couch-hebrew listening on :${PORT}`));
