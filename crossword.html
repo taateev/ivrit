@@ -87,7 +87,7 @@
   const KEYROWS = ['קראטוןםפ', 'שדגכעיחלךף', 'זסבהנמצתץ'].map(r => [...r]);
 
   let P, cellmap, sel = null, dir = 'across', solved = new Set(), hintsUsed = new Set(), score = 0;
-  let LIVE = false, ws = null, ROOM = null, ME = 'guest', players = [];   // co-op live state
+  let LIVE = false, ws = null, ROOM = null, ME = 'guest', players = [], PUZID = null;   // co-op live state
   const wordCorrect = (e) => e.cells.every((k, i) => { const m = cellmap[ckey(k.r, k.c)]; return m.input && norm(m.input) === norm(e.answer[i]); });
 
   const ckey = (r, c) => r + ',' + c;
@@ -218,7 +218,7 @@
     ME = (localStorage.getItem('player_id') || '').trim();
     if (!ME) { ME = ((prompt('Your name for co-op?') || 'guest').trim() || 'guest').slice(0, 20); try { localStorage.setItem('player_id', ME); } catch (e) {} }
     ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`);
-    ws.onopen = () => send({ t: 'join', room: ROOM, player: ME });
+    ws.onopen = () => send({ t: 'join', room: ROOM, player: ME, puzzle: PUZID });
     ws.onmessage = (ev) => {
       let m; try { m = JSON.parse(ev.data); } catch (e) { return; }
       if (m.t === 'state') applyServerState(m);
@@ -228,6 +228,7 @@
     ws.onclose = () => { $('prog').textContent = 'disconnected — reload to rejoin'; };
   }
   function applyServerState(m) {
+    if (m.puzzle && PUZID && m.puzzle !== PUZID) { location.search = 'room=' + encodeURIComponent(ROOM) + '&puzzle=' + encodeURIComponent(m.puzzle); return; }   // room uses a different theme → reload with it
     players = m.players || []; solved = new Set(m.solved || []); score = m.score || 0;
     const sc = new Set(m.solvedCells || []);
     for (const k in cellmap) { const cell = cellmap[k]; cell.input = (m.cells && m.cells[k]) || ''; cell.solvedCell = sc.has(k); }
@@ -290,9 +291,14 @@
   }
 
   // load puzzle (cache-busted so a freshly-pushed puzzle always arrives)
-  ROOM = new URLSearchParams(location.search).get('room'); LIVE = !!ROOM;
-  fetch('data/crossword.json?t=' + Date.now()).then(r => r.json()).then(p => {
-    P = p; buildMaps(); render();
+  const params = new URLSearchParams(location.search);
+  ROOM = params.get('room'); LIVE = !!ROOM; PUZID = params.get('puzzle');
+  fetch('data/crosswords.json?t=' + Date.now()).then(r => r.json()).then(data => {
+    PUZID = (PUZID && data.puzzles[PUZID]) ? PUZID : (data.index[0] && data.index[0].id);
+    P = data.puzzles[PUZID];
+    if (!P) { $('prog').textContent = 'puzzle not found'; return; }
+    document.title = 'Couch Hebrew — ' + (P.title || 'crossword');
+    buildMaps(); render();
     const first = P.entries[0]; dir = first.dir; selectCell(first.cells[0].r, first.cells[0].c);
     if (LIVE) {
       connectLive(); setupChat();

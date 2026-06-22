@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google" content="notranslate">
-<title>Couch Hebrew — live foyer</title>
+<title>Couch Hebrew — crosswords</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -12,83 +12,90 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; min-height: 100%; }
   body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
-    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 40px; }
+    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 44px; }
   h1 { font-size: 24px; margin: 0 0 2px; }
-  .sub { color: #6b7387; font-size: 13px; margin-bottom: 20px; }
-  #list { width: min(560px, 96vw); }
-  .game { display: flex; align-items: center; gap: 12px; background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 13px 15px; margin-bottom: 9px; }
+  .sub { color: #6b7387; font-size: 13px; margin-bottom: 18px; }
+  h2 { width: min(560px, 96vw); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin: 18px 0 8px; }
+  .wrap { width: min(560px, 96vw); }
+  .theme { display: flex; align-items: center; gap: 10px; background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 12px 14px; margin-bottom: 8px; }
+  .theme .t { flex: 1; font-weight: 700; font-size: 16px; }
+  .theme .t .he { font-family: 'Heebo', sans-serif; direction: rtl; }
+  .theme .t .n { display: block; color: #6b7387; font-size: 12px; font-weight: 400; margin-top: 2px; }
+  .btn { text-decoration: none; border-radius: 8px; padding: 8px 13px; font-size: 13px; white-space: nowrap; }
+  .btn.solo { background: #1a1e29; border: 1px solid #2a2f3d; color: #cfd6e4; }
+  .btn.live { background: #16321f; border: 1px solid #3aa564; color: #c9f4d6; }
+  .game { display: flex; align-items: center; gap: 12px; background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 12px 15px; margin-bottom: 9px; }
   .game .main { flex: 1; min-width: 0; }
-  .game .name { font-weight: 700; font-size: 17px; }
-  .game .name .he { font-family: 'Heebo', sans-serif; direction: rtl; }
-  .game .meta { color: #8b93a7; font-size: 13px; margin-top: 3px; }
-  .game .meta .live { color: #79d18c; } .game .meta .idle { color: #6b7387; }
-  .game .prog { color: #ffd479; font-size: 13px; }
+  .game .name { font-weight: 700; font-size: 16px; } .game .name .he { font-family: 'Heebo', sans-serif; direction: rtl; }
+  .game .name .room { color: #8b93a7; font-weight: 400; font-size: 13px; }
+  .game .people { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
+  .p { font-size: 13px; color: #c2c9d8; } .p.off { color: #6b7387; }
+  .p .he { font-family: 'Heebo', sans-serif; } .p em { font-style: normal; color: #5a6173; font-size: 11px; margin-left: 3px; }
   .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
   .dot.on { background: #3aa564; box-shadow: 0 0 6px #3aa564; } .dot.off { background: #3a3f4d; }
-  .game .people { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
-  .p { font-size: 13px; color: #c2c9d8; } .p.off { color: #6b7387; }
-  .p .he { font-family: 'Heebo', sans-serif; direction: rtl; }
-  .p em { font-style: normal; color: #5a6173; font-size: 11px; margin-left: 3px; }
+  .game .meta { color: #6b7387; font-size: 12px; margin-top: 4px; }
+  .game .prog { color: #ffd479; font-size: 13px; }
   .join { background: #1a2230; border: 1px solid #3a4760; border-radius: 9px; color: #cfe0ff; text-decoration: none; padding: 9px 15px; font-size: 14px; white-space: nowrap; }
-  .join:hover { border-color: #4a72c4; }
-  .empty { color: #6b7387; text-align: center; padding: 22px 0; }
-  #new { width: min(560px, 96vw); display: flex; gap: 8px; margin-top: 16px; }
-  #room { flex: 1; background: #11141c; border: 1px solid #2a2f3d; border-radius: 9px; color: #e8eaf0; padding: 11px 13px; font: inherit; font-size: 16px; }
-  #room:focus { outline: none; border-color: #4a72c4; }
-  #create { background: #16321f; border: 1px solid #3aa564; border-radius: 9px; color: #c9f4d6; padding: 0 18px; font: inherit; font-size: 15px; cursor: pointer; }
+  .empty { color: #6b7387; padding: 6px 2px 12px; font-size: 14px; }
   a.back { color: #6b7387; margin-top: 22px; font-size: 14px; text-decoration: none; }
 </style>
 </head>
 <body>
-<h1>live crossword — foyer</h1>
-<div class="sub">join a game in progress, or start a new one</div>
-<div id="list">loading…</div>
-<div id="new">
-  <input id="room" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="new game name (e.g. family, sean)">
-  <button id="create">start →</button>
-</div>
+<h1>crosswords</h1>
+<div class="sub">pick a theme — play solo, or start a live game with friends</div>
+<h2>themes</h2>
+<div class="wrap" id="themes">loading…</div>
+<h2>live games now</h2>
+<div class="wrap" id="games"><div class="empty">…</div></div>
 <a class="back" href="index.html">← menu</a>
 <script>
 (function () {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
   const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'-]*)/g, '<span class="he">$1</span>');
-  function ago(ms) {
-    const s = Math.max(0, Math.round((Date.now() - ms) / 1000));
-    if (s < 45) return 'just now';
-    const m = Math.round(s / 60); if (m < 60) return m + 'm ago';
-    const h = Math.round(m / 60); if (h < 24) return h + 'h ago';
-    return Math.round(h / 24) + 'd ago';
-  }
-  const go = (id) => { location.href = 'crossword.html?room=' + encodeURIComponent(id); };
+  function ago(ms) { const s = Math.max(0, Math.round((Date.now() - ms) / 1000)); if (s < 45) return 'just now'; const m = Math.round(s / 60); if (m < 60) return m + 'm ago'; const h = Math.round(m / 60); if (h < 24) return h + 'h ago'; return Math.round(h / 24) + 'd ago'; }
+  // "time · זמן" → {en, he}
+  const split = (title) => { const [en, he] = String(title).split(' · '); return { en: en || title, he: he || '' }; };
+  const titleHTML = (title) => { const { en, he } = split(title); return `${esc(en)}${he ? ` <span class="he">${esc(he)}</span>` : ''}`; };
 
-  function render(rooms) {
-    const el = $('list');
-    if (!rooms.length) { el.innerHTML = '<div class="empty">No live games yet — start one below.</div>'; return; }
+  let INDEX = [];
+  async function loadThemes() {
+    const data = await (await fetch('data/crosswords.json?t=' + Date.now())).json();
+    INDEX = data.index || [];
+    $('themes').innerHTML = INDEX.map(t => `
+      <div class="theme">
+        <div class="t">${titleHTML(t.title)}<span class="n">${t.words} words</span></div>
+        <a class="btn solo" href="crossword.html?puzzle=${encodeURIComponent(t.id)}">solo</a>
+        <a class="btn live" href="crossword.html?room=${encodeURIComponent(t.id)}&puzzle=${encodeURIComponent(t.id)}">live →</a>
+      </div>`).join('');
+  }
+
+  function renderGames(rooms) {
+    const el = $('games');
+    if (!rooms.length) { el.innerHTML = '<div class="empty">No live games right now — start one from a theme above.</div>'; return; }
     el.innerHTML = rooms.map(r => {
       const live = r.count > 0;
       const peeps = (r.people && r.people.length)
         ? r.people.map(p => `<span class="p ${p.active ? '' : 'off'}"><span class="dot ${p.active ? 'on' : 'off'}"></span>${heb(p.name)}${!p.active && p.lastMove ? `<em>${ago(p.lastMove)}</em>` : ''}</span>`).join('')
         : '<span class="p off">no one yet</span>';
+      const href = `crossword.html?room=${encodeURIComponent(r.id)}` + (r.puzzle ? `&puzzle=${encodeURIComponent(r.puzzle)}` : '');
       return `<div class="game">
         <div class="main">
-          <div class="name">${heb(r.id)}</div>
+          <div class="name">${r.title ? titleHTML(r.title) : ''} <span class="room">· ${heb(r.id)}</span></div>
           <div class="people">${peeps}</div>
           <div class="meta">${r.done ? '✓ completed' : 'last move ' + ago(r.lastMove)}</div>
         </div>
         <div class="prog">${r.solved}/${r.total}</div>
-        <a class="join" href="crossword.html?room=${encodeURIComponent(r.id)}">${live ? 'join' : 'resume'} →</a>
+        <a class="join" href="${href}">${live ? 'join' : 'resume'} →</a>
       </div>`;
     }).join('');
   }
-
-  async function refresh() {
-    try { const res = await fetch('/api/rooms?t=' + Date.now()); const j = await res.json(); render(j.rooms || []); }
-    catch (e) { $('list').innerHTML = '<div class="empty">can’t reach the server.</div>'; }
+  async function refreshGames() {
+    try { const j = await (await fetch('/api/rooms?t=' + Date.now())).json(); renderGames(j.rooms || []); }
+    catch (e) { $('games').innerHTML = '<div class="empty">can’t reach the server.</div>'; }
   }
-  $('create').onclick = () => { const id = ($('room').value || '').trim() || 'ivrit'; go(id); };
-  $('room').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('create').click(); });
-  refresh(); setInterval(refresh, 5000);
+  loadThemes().catch(() => $('themes').innerHTML = '<div class="empty">couldn’t load themes.</div>');
+  refreshGames(); setInterval(refreshGames, 5000);
 })();
 </script>
 </body>
