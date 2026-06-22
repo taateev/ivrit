@@ -781,6 +781,22 @@
       ]
     },
     {
+      "rank": 94,
+      "bare": "פעם",
+      "niqqud": "פַּעַם",
+      "translit": "pa'am",
+      "gloss": "time / once",
+      "type": "noun",
+      "shoresh": "פ־ע־ם",
+      "grammar": "noun (f.sg) 'a time / occasion'; pl. פְּעָמִים. Also adverbial: פעם = 'once / formerly'.",
+      "examples": [
+        {
+          "he": "שמעת על זה *פעם*?",
+          "en": "Have you ever heard of this?"
+        }
+      ]
+    },
+    {
       "rank": 95,
       "bare": "זמן",
       "niqqud": "זְמַן",
@@ -1546,6 +1562,39 @@
       ]
     },
     {
+      "rank": 207,
+      "bare": "אוכל",
+      "niqqud": "אוֹכֶל",
+      "translit": "okhel",
+      "gloss": "food",
+      "type": "ambiguous",
+      "shoresh": "א־כ־ל",
+      "grammar": "noun (m.sg) 'food'. Same spelling as אוּכַל ukhal 'I'll be able' and אוֹכֵל okhel 'eating' — context decides.",
+      "readings": [
+        {
+          "niqqud": "אוֹכֶל",
+          "translit": "okhel",
+          "gloss": "food (noun)"
+        },
+        {
+          "niqqud": "אוֹכֵל",
+          "translit": "okhel",
+          "gloss": "eating (verb)"
+        },
+        {
+          "niqqud": "אוּכַל",
+          "translit": "ukhal",
+          "gloss": "I will be able"
+        }
+      ],
+      "examples": [
+        {
+          "he": "*אוכל* יגיע עוד רגע.",
+          "en": "Food will be here in a moment."
+        }
+      ]
+    },
+    {
       "rank": 210,
       "bare": "אפשר",
       "niqqud": "אֶפְשָׁר",
@@ -1962,6 +2011,22 @@
         {
           "he": "מי זה *הבחור* הזה?",
           "en": "Who's this guy?"
+        }
+      ]
+    },
+    {
+      "rank": 254,
+      "bare": "בחור",
+      "niqqud": "בָּחוּר",
+      "translit": "bachur",
+      "gloss": "guy / young man",
+      "type": "noun",
+      "shoresh": "ב־ח־ר",
+      "grammar": "noun (m.sg); f. בַּחוּרָה 'young woman'. Same root as לִבְחֹר 'to choose', בְּחִירוֹת 'elections'.",
+      "examples": [
+        {
+          "he": "אתה *בחור* חכם, אה?",
+          "en": "You're a smart guy, huh?"
         }
       ]
     },
@@ -3449,6 +3514,38 @@
       ]
     },
     {
+      "rank": 477,
+      "bare": "עיר",
+      "niqqud": "עִיר",
+      "translit": "ir",
+      "gloss": "city",
+      "type": "noun",
+      "shoresh": "ע־י־ר",
+      "grammar": "noun (f.sg) — feminine despite no ־ה ending; pl. עָרִים arim. Homograph: הֵעִיר 'woke (someone)'.",
+      "examples": [
+        {
+          "he": "אין חוק *בעיר* הזאת.",
+          "en": "There's no law in this city."
+        }
+      ]
+    },
+    {
+      "rank": 478,
+      "bare": "עניין",
+      "niqqud": "עִנְיָן",
+      "translit": "inyan",
+      "gloss": "matter / issue / interest",
+      "type": "noun",
+      "shoresh": "ע־נ־י־ן",
+      "grammar": "noun (m.sg); pl. עִנְיָנִים. Related מְעֻנְיָן 'interested'; distinct from מְעַנְיֵן 'interesting'.",
+      "examples": [
+        {
+          "he": "זה *עניין* של כבוד.",
+          "en": "It's a matter of honor."
+        }
+      ]
+    },
+    {
       "bare": "רעיון",
       "niqqud": "רַעְיוֹן",
       "translit": "ra'ayon",
@@ -3481,6 +3578,22 @@
       ]
     },
     {
+      "rank": 499,
+      "bare": "יד",
+      "niqqud": "יָד",
+      "translit": "yad",
+      "gloss": "hand",
+      "type": "noun",
+      "shoresh": "י־ד",
+      "grammar": "noun (f.sg) — feminine; dual יָדַיִם yadayim 'hands'. Don't confuse with מִיָּד 'immediately' or לְיַד 'next to'.",
+      "examples": [
+        {
+          "he": "תראה את *היד* שלך...",
+          "en": "Look at your hand..."
+        }
+      ]
+    },
+    {
       "bare": "משחק",
       "niqqud": "מִשְׂחָק",
       "translit": "miscchak",
@@ -3497,6 +3610,38 @@
         {
           "he": "איזה סוג של *משחק*?",
           "en": "What kind of game?"
+        }
+      ]
+    },
+    {
+      "rank": 524,
+      "bare": "דלת",
+      "niqqud": "דֶּלֶת",
+      "translit": "delet",
+      "gloss": "door",
+      "type": "noun",
+      "shoresh": "ד־ל־ת",
+      "grammar": "noun (f.sg); pl. דְּלָתוֹת delatot.",
+      "examples": [
+        {
+          "he": "סגור את *הדלת*.",
+          "en": "Close the door."
+        }
+      ]
+    },
+    {
+      "rank": 528,
+      "bare": "חדר",
+      "niqqud": "חֶדֶר",
+      "translit": "cheder",
+      "gloss": "room",
+      "type": "noun",
+      "shoresh": "ח־ד־ר",
+      "grammar": "noun (m.sg); pl. חֲדָרִים chadarim.",
+      "examples": [
+        {
+          "he": "תסתכל על *החדר* הזה.",
+          "en": "Look at this room."
         }
       ]
     },
@@ -3565,6 +3710,22 @@
         {
           "he": "היית *ילדה* רעה, נכון?",
           "en": "You were a bad girl, right?"
+        }
+      ]
+    },
+    {
+      "rank": 570,
+      "bare": "משפחה",
+      "niqqud": "מִשְׁפָּחָה",
+      "translit": "mishpacha",
+      "gloss": "family",
+      "type": "noun",
+      "shoresh": "ש־פ־ח",
+      "grammar": "noun (f.sg); pl. מִשְׁפָּחוֹת. שֵׁם מִשְׁפָּחָה = 'surname'.",
+      "examples": [
+        {
+          "he": "הם עם *המשפחה* שלך.",
+          "en": "They're with your family."
         }
       ]
     },
@@ -3709,6 +3870,262 @@
         {
           "he": "יש *חדשות* היום?",
           "en": "Any news today?"
+        }
+      ]
+    },
+    {
+      "rank": 676,
+      "bare": "סיפור",
+      "niqqud": "סִיפּוּר",
+      "translit": "sipur",
+      "gloss": "story",
+      "type": "noun",
+      "shoresh": "ס־פ־ר",
+      "grammar": "noun (m.sg) — verbal noun of לְסַפֵּר 'to tell'; same root as סֵפֶר 'book'. pl. סִיפּוּרִים.",
+      "examples": [
+        {
+          "he": "יש לי *סיפור* נהדר.",
+          "en": "I have a wonderful story."
+        }
+      ]
+    },
+    {
+      "rank": 678,
+      "bare": "מים",
+      "niqqud": "מַיִם",
+      "translit": "mayim",
+      "gloss": "water",
+      "type": "noun",
+      "shoresh": "מ־י־ם",
+      "grammar": "noun — always plural in form (מַיִם), takes plural agreement; no singular.",
+      "examples": [
+        {
+          "he": "תן לי קצת *מים*.",
+          "en": "Give me some water."
+        }
+      ]
+    },
+    {
+      "rank": 725,
+      "bare": "מצב",
+      "niqqud": "מַצָּב",
+      "translit": "matzav",
+      "gloss": "situation / state",
+      "type": "noun",
+      "shoresh": "נ־צ־ב",
+      "grammar": "noun (m.sg); pl. מַצָּבִים. מַצַּב רוּחַ (lit. 'state of spirit') = 'mood'.",
+      "examples": [
+        {
+          "he": "ב*מצב* רוח טוב, לא?",
+          "en": "In a good mood, huh?"
+        }
+      ]
+    },
+    {
+      "rank": 742,
+      "bare": "טלפון",
+      "niqqud": "טֶלֶפוֹן",
+      "translit": "telefon",
+      "gloss": "telephone / phone",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (m.sg) — loanword (no Hebrew root); pl. טֶלֶפוֹנִים.",
+      "examples": [
+        {
+          "he": "תן לי את *הטלפון*.",
+          "en": "Give me the phone."
+        }
+      ]
+    },
+    {
+      "rank": 759,
+      "bare": "שבוע",
+      "niqqud": "שָׁבוּעַ",
+      "translit": "shavua",
+      "gloss": "week",
+      "type": "noun",
+      "shoresh": "ש־ב־ע",
+      "grammar": "noun (m.sg) — from שֶׁבַע 'seven' (a week = seven days); pl. שָׁבוּעוֹת. שָׁבוּעַיִם 'two weeks'.",
+      "examples": [
+        {
+          "he": "רק לפני *שבוע*...",
+          "en": "just a week ago..."
+        }
+      ]
+    },
+    {
+      "rank": 766,
+      "bare": "כוח",
+      "niqqud": "כּוֹחַ",
+      "translit": "koach",
+      "gloss": "strength / power / force",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (m.sg); pl. כּוֹחוֹת kochot. Final ח sounds 'koach' (furtive patach). Don't confuse with שָׁכַח 'forgot'.",
+      "examples": [
+        {
+          "he": "יש לך את *הכוח*!",
+          "en": "You've got the power!"
+        }
+      ]
+    },
+    {
+      "rank": 833,
+      "bare": "קפה",
+      "niqqud": "קָפֶה",
+      "translit": "kafe",
+      "gloss": "coffee",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (m.sg) — loanword. בֵּית קָפֶה = 'cafe'.",
+      "examples": [
+        {
+          "he": "מה בדבר כוס *קפה*?",
+          "en": "How about a cup of coffee?"
+        }
+      ]
+    },
+    {
+      "rank": 893,
+      "bare": "מילה",
+      "niqqud": "מִילָה",
+      "translit": "mila",
+      "gloss": "word",
+      "type": "noun",
+      "shoresh": "מ־ל־ל",
+      "grammar": "noun (f.sg); pl. מִילִים milim. Near-homograph מִילָה also = 'circumcision' — context decides.",
+      "examples": [
+        {
+          "he": "אל תגיד *מילה* בטלפון.",
+          "en": "Don't say a word on the phone."
+        }
+      ]
+    },
+    {
+      "rank": 948,
+      "bare": "ארץ",
+      "niqqud": "אֶרֶץ",
+      "translit": "eretz",
+      "gloss": "land / country / earth",
+      "type": "noun",
+      "shoresh": "א־ר־ץ",
+      "grammar": "noun (f.sg); pl. אֲרָצוֹת. הָאָרֶץ = 'the Land' (Israel) or 'the Earth'; כַּדּוּר הָאָרֶץ = 'the globe'.",
+      "examples": [
+        {
+          "he": "לראות את כל *הארץ*.",
+          "en": "To see the whole land."
+        }
+      ]
+    },
+    {
+      "rank": 1000,
+      "bare": "כלב",
+      "niqqud": "כֶּלֶב",
+      "translit": "kelev",
+      "gloss": "dog",
+      "type": "noun",
+      "shoresh": "כ־ל־ב",
+      "grammar": "noun (m.sg); f. כַּלְבָּה; pl. כְּלָבִים klavim.",
+      "examples": [
+        {
+          "he": "נראה כמו *כלב* גדול!",
+          "en": "Looks like a big dog!"
+        }
+      ]
+    },
+    {
+      "rank": 1009,
+      "bare": "דקה",
+      "niqqud": "דַּקָּה",
+      "translit": "daka",
+      "gloss": "minute",
+      "type": "noun",
+      "shoresh": "ד־ק־ק",
+      "grammar": "noun (f.sg); pl. דַּקּוֹת dakot. Same spelling as דַּקָּה 'thin (f.)' — context decides.",
+      "examples": [
+        {
+          "he": "נראה אותך עוד *דקה*.",
+          "en": "See you in a minute."
+        }
+      ]
+    },
+    {
+      "rank": 1052,
+      "bare": "מדינה",
+      "niqqud": "מְדִינָה",
+      "translit": "medina",
+      "gloss": "country / state",
+      "type": "noun",
+      "shoresh": "ד־י־ן",
+      "grammar": "noun (f.sg); pl. מְדִינוֹת. From דִּין 'law/judgment' — a realm of jurisdiction.",
+      "examples": [
+        {
+          "he": "ובכן, זו *מדינה* גדולה.",
+          "en": "Well, it's a big country."
+        }
+      ]
+    },
+    {
+      "rank": 1143,
+      "bare": "מלך",
+      "niqqud": "מֶלֶךְ",
+      "translit": "melech",
+      "gloss": "king",
+      "type": "noun",
+      "shoresh": "מ־ל־ך",
+      "grammar": "noun (m.sg); f. מַלְכָּה 'queen'; pl. מְלָכִים. Same letters as מָלַךְ 'he reigned' (verb).",
+      "examples": [
+        {
+          "he": "הוא באמת היה *המלך*.",
+          "en": "He really was the king."
+        }
+      ]
+    },
+    {
+      "rank": 1149,
+      "bare": "פחד",
+      "niqqud": "פַּחַד",
+      "translit": "pachad",
+      "gloss": "fear / dread",
+      "type": "noun",
+      "shoresh": "פ־ח־ד",
+      "grammar": "noun (m.sg). Same letters as the verb פָּחַד 'feared' / מְפַחֵד 'afraid'. פַּחַד מָוֶת = 'mortal terror'.",
+      "examples": [
+        {
+          "he": "זה היה *פחד* מוות.",
+          "en": "It was mortal terror."
+        }
+      ]
+    },
+    {
+      "rank": 1222,
+      "bare": "גוף",
+      "niqqud": "גּוּף",
+      "translit": "guf",
+      "gloss": "body",
+      "type": "noun",
+      "shoresh": "ג־ו־ף",
+      "grammar": "noun (m.sg); pl. גּוּפוֹת/גּוּפִים. In grammar, גּוּף also = grammatical 'person'.",
+      "examples": [
+        {
+          "he": "כן, זה *הגוף* שלי.",
+          "en": "Yes, this is my body."
+        }
+      ]
+    },
+    {
+      "rank": 1243,
+      "bare": "סרט",
+      "niqqud": "סֶרֶט",
+      "translit": "seret",
+      "gloss": "movie / film",
+      "type": "noun",
+      "shoresh": "ס־ר־ט",
+      "grammar": "noun (m.sg) 'film' (also 'ribbon / tape'); pl. סְרָטִים sratim.",
+      "examples": [
+        {
+          "he": "איזה *סרט* הכי אהבת?",
+          "en": "Which movie did you like best?"
         }
       ]
     },
