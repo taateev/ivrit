@@ -701,6 +701,22 @@
       ]
     },
     {
+      "rank": 83,
+      "bare": "נראה",
+      "niqqud": "נִרְאֶה",
+      "translit": "nir'e",
+      "gloss": "looks / seems",
+      "type": "verb",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb — nif'al present m.sg of ר־א־ה 'see': 'looks / seems / appears'. נראה לי = 'it seems to me'. Same spelling as נִרְאֶה 'we will see' (future).",
+      "examples": [
+        {
+          "he": "הוא *נראה* בסדר גמור.",
+          "en": "He looks completely fine."
+        }
+      ]
+    },
+    {
       "rank": 85,
       "bare": "מאוד",
       "niqqud": "מְאוֹד",
@@ -765,6 +781,22 @@
       ]
     },
     {
+      "rank": 89,
+      "bare": "הולך",
+      "niqqud": "הוֹלֵךְ",
+      "translit": "holech",
+      "gloss": "goes / is going",
+      "type": "verb",
+      "shoresh": "ה־ל־ך",
+      "grammar": "verb — pa'al present m.sg of ה־ל־ך 'go/walk'; f. הוֹלֶכֶת. הולך + infinitive = 'going to' (near future).",
+      "examples": [
+        {
+          "he": "מה *הולך* לקרות לי?",
+          "en": "What's going to happen to me?"
+        }
+      ]
+    },
+    {
       "rank": 90,
       "bare": "קדימה",
       "niqqud": "קָדִימָה",
@@ -777,6 +809,22 @@
         {
           "he": "*קדימה*, אמור זאת.",
           "en": "Go on, say it."
+        }
+      ]
+    },
+    {
+      "rank": 91,
+      "bare": "אומר",
+      "niqqud": "אוֹמֵר",
+      "translit": "omer",
+      "gloss": "says",
+      "type": "verb",
+      "shoresh": "א־מ־ר",
+      "grammar": "verb — pa'al present m.sg of א־מ־ר 'say'; f. אוֹמֶרֶת. Also 'means': זה אומר = 'that means'.",
+      "examples": [
+        {
+          "he": "זה מה שאני *אומר*.",
+          "en": "That's what I'm saying."
         }
       ]
     },
@@ -925,6 +973,22 @@
       ]
     },
     {
+      "rank": 109,
+      "bare": "לראות",
+      "niqqud": "לִרְאוֹת",
+      "translit": "lir'ot",
+      "gloss": "to see",
+      "type": "verb",
+      "shoresh": "ר־א־ה",
+      "grammar": "infinitive of ר־א־ה 'see' (pa'al). רוצה לראות = 'want to see'.",
+      "examples": [
+        {
+          "he": "*לראות* את כל הארץ.",
+          "en": "To see the whole country."
+        }
+      ]
+    },
+    {
       "rank": 110,
       "bare": "הנה",
       "niqqud": "הִנֵּה",
@@ -1025,6 +1089,22 @@
       ]
     },
     {
+      "rank": 122,
+      "bare": "לדבר",
+      "niqqud": "לְדַבֵּר",
+      "translit": "ledaber",
+      "gloss": "to speak / to talk",
+      "type": "verb",
+      "shoresh": "ד־ב־ר",
+      "grammar": "infinitive, pi'el of ד־ב־ר 'speak'; same root as מְדַבֵּר 'speaking', דָּבָר 'thing/word'.",
+      "examples": [
+        {
+          "he": "אני חייבת *לדבר* איתך.",
+          "en": "I have to talk to you."
+        }
+      ]
+    },
+    {
       "rank": 124,
       "bare": "שוב",
       "niqqud": "שׁוּב",
@@ -1073,6 +1153,22 @@
       ]
     },
     {
+      "rank": 132,
+      "bare": "בוא",
+      "niqqud": "בּוֹא",
+      "translit": "bo",
+      "gloss": "come! (m.sg)",
+      "type": "verb",
+      "shoresh": "ב־ו־א",
+      "grammar": "imperative m.sg of בּוֹא 'come' (pa'al); f. בּוֹאִי, pl. בּוֹאוּ. בוא נ... = 'let's...' (בוא נלך 'let's go').",
+      "examples": [
+        {
+          "he": "*בוא* נלך מכאן!",
+          "en": "Come on, let's get out of here!"
+        }
+      ]
+    },
+    {
       "rank": 136,
       "bare": "קרה",
       "niqqud": "קָרָה",
@@ -1105,6 +1201,54 @@
         {
           "he": "אבל, *אמא*, הייתי חייב.",
           "en": "But, Mom, I had to."
+        }
+      ]
+    },
+    {
+      "rank": 141,
+      "bare": "אוהב",
+      "niqqud": "אוֹהֵב",
+      "translit": "ohev",
+      "gloss": "loves / likes",
+      "type": "verb",
+      "shoresh": "א־ה־ב",
+      "grammar": "verb — pa'al present m.sg of א־ה־ב 'love/like'; f. אוֹהֶבֶת. Covers both 'love' and casual 'like'.",
+      "examples": [
+        {
+          "he": "אני באמת *אוהב* אותו.",
+          "en": "I really like him."
+        }
+      ]
+    },
+    {
+      "rank": 143,
+      "bare": "אחר",
+      "niqqud": "אַחֵר",
+      "translit": "acher",
+      "gloss": "other / another",
+      "type": "adj",
+      "shoresh": "א־ח־ר",
+      "grammar": "adjective 'other/another' (m.sg); f. אַחֶרֶת. Idioms: אַחַר כָּךְ 'afterwards', אַחַר הַצָּהֳרַיִם 'afternoon'.",
+      "examples": [
+        {
+          "he": "אני רוצה חדר *אחר*.",
+          "en": "I want a different room."
+        }
+      ]
+    },
+    {
+      "rank": 144,
+      "bare": "אפילו",
+      "niqqud": "אֲפִילוּ",
+      "translit": "afilu",
+      "gloss": "even",
+      "type": "adv",
+      "shoresh": null,
+      "grammar": "adverb 'even' (emphasis): אפילו לא = 'not even'.",
+      "examples": [
+        {
+          "he": "הוא *אפילו* הראה לך.",
+          "en": "He even showed you."
         }
       ]
     },
@@ -1210,6 +1354,54 @@
         {
           "he": "*שלום*, אנשי הבית!",
           "en": "Hello, people of the house!"
+        }
+      ]
+    },
+    {
+      "rank": 156,
+      "bare": "בטח",
+      "niqqud": "בֶּטַח",
+      "translit": "betach",
+      "gloss": "sure / probably / of course",
+      "type": "adv",
+      "shoresh": "ב־ט־ח",
+      "grammar": "adverb — 'surely / probably'; colloquial agreement 'sure!'. From ב־ט־ח 'trust' (בִּטָּחוֹן 'security').",
+      "examples": [
+        {
+          "he": "כן, זה *בטח* קשה.",
+          "en": "Yeah, that's probably hard."
+        }
+      ]
+    },
+    {
+      "rank": 157,
+      "bare": "קורה",
+      "niqqud": "קוֹרֶה",
+      "translit": "kore",
+      "gloss": "happens",
+      "type": "verb",
+      "shoresh": "ק־ר־ה",
+      "grammar": "verb — pa'al present m.sg of ק־ר־ה 'happen/occur'. מה קורה? = 'what's up?'. Homograph: קוֹרָה 'beam' (noun).",
+      "examples": [
+        {
+          "he": "זה *קורה* כל הזמן.",
+          "en": "It happens all the time."
+        }
+      ]
+    },
+    {
+      "rank": 159,
+      "bare": "אחרי",
+      "niqqud": "אַחֲרֵי",
+      "translit": "acharei",
+      "gloss": "after",
+      "type": "prep",
+      "shoresh": "א־ח־ר",
+      "grammar": "preposition 'after' (time/place); אחרי ש... = 'after (that)...'. Related to אַחֵר 'other', אַחֲרוֹן 'last'.",
+      "examples": [
+        {
+          "he": "שנייה אחת *אחרי* זה.",
+          "en": "One second after that."
         }
       ]
     },
@@ -1362,6 +1554,22 @@
       ]
     },
     {
+      "rank": 179,
+      "bare": "מבין",
+      "niqqud": "מֵבִין",
+      "translit": "mevin",
+      "gloss": "understands",
+      "type": "verb",
+      "shoresh": "ב־י־ן",
+      "grammar": "verb — hif'il present m.sg of ב־י־ן 'understand'; f. מְבִינָה. Same root as הֵבִין 'understood', בֵּין 'between'.",
+      "examples": [
+        {
+          "he": "אני לא *מבין*.",
+          "en": "I don't understand."
+        }
+      ]
+    },
+    {
       "rank": 180,
       "bare": "טובה",
       "niqqud": "טוֹבָה",
@@ -1498,6 +1706,22 @@
       ]
     },
     {
+      "rank": 197,
+      "bare": "לדעת",
+      "niqqud": "לָדַעַת",
+      "translit": "lada'at",
+      "gloss": "to know",
+      "type": "verb",
+      "shoresh": "י־ד־ע",
+      "grammar": "infinitive of י־ד־ע 'know' (pa'al). רוצה לדעת = 'want to know'; same root as יוֹדֵעַ 'knows', יֶדַע 'knowledge'.",
+      "examples": [
+        {
+          "he": "אתה באמת רוצה *לדעת*?",
+          "en": "Do you really want to know?"
+        }
+      ]
+    },
+    {
       "rank": 198,
       "bare": "כלום",
       "niqqud": "כְּלוּם",
@@ -1530,6 +1754,22 @@
       ]
     },
     {
+      "rank": 200,
+      "bare": "כזה",
+      "niqqud": "כָּזֶה",
+      "translit": "kaze",
+      "gloss": "such / like this",
+      "type": "adj",
+      "shoresh": null,
+      "grammar": "'such / like this' (m.sg); f. כָּזֹאת kazot. = כְּ + זֶה ('like this').",
+      "examples": [
+        {
+          "he": "לא עשיתי דבר *כזה*!",
+          "en": "I didn't do such a thing!"
+        }
+      ]
+    },
+    {
       "rank": 201,
       "bare": "לקחת",
       "niqqud": "לָקַחַת",
@@ -1542,6 +1782,22 @@
         {
           "he": "אני צריך *לקחת* משהו.",
           "en": "I need to take something."
+        }
+      ]
+    },
+    {
+      "rank": 204,
+      "bare": "מתכוון",
+      "niqqud": "מִתְכַּוֵּן",
+      "translit": "mitkaven",
+      "gloss": "means / intends",
+      "type": "verb",
+      "shoresh": "כ־ו־ן",
+      "grammar": "verb — hitpa'el present m.sg of כ־ו־ן: 'mean / intend'; f. מִתְכַּוֶּנֶת. למה אתה מתכוון? = 'what do you mean?'.",
+      "examples": [
+        {
+          "he": "רואה למה אני *מתכוון*.",
+          "en": "You see what I mean."
         }
       ]
     },
@@ -1611,6 +1867,22 @@
       ]
     },
     {
+      "rank": 213,
+      "bare": "לומר",
+      "niqqud": "לוֹמַר",
+      "translit": "lomar",
+      "gloss": "to say",
+      "type": "verb",
+      "shoresh": "א־מ־ר",
+      "grammar": "infinitive of א־מ־ר 'say' (pa'al) — bookish twin of לְהַגִּיד. כְּלוֹמַר = 'that is / i.e.'.",
+      "examples": [
+        {
+          "he": "מה את רוצה *לומר*?",
+          "en": "What do you want to say?"
+        }
+      ]
+    },
+    {
       "rank": 215,
       "bare": "כאילו",
       "niqqud": "כְּאִילוּ",
@@ -1671,6 +1943,22 @@
         {
           "he": "עשר *שנים* הן זמן רב.",
           "en": "Ten years is a long time."
+        }
+      ]
+    },
+    {
+      "rank": 222,
+      "bare": "מת",
+      "niqqud": "מֵת",
+      "translit": "met",
+      "gloss": "dead / dies / dying (for)",
+      "type": "verb",
+      "shoresh": "מ־ו־ת",
+      "grammar": "adjective/verb 'dead' / 'dies' (pa'al, root מ־ו־ת); f. מֵתָה. Colloquial: מֵת עַל / מֵת לְ = 'crazy about / dying for'.",
+      "examples": [
+        {
+          "he": "אני *מת* לכוס תה.",
+          "en": "I'm dying for a cup of tea."
         }
       ]
     },
@@ -2095,6 +2383,22 @@
       ]
     },
     {
+      "rank": 267,
+      "bare": "מעולם",
+      "niqqud": "מֵעוֹלָם",
+      "translit": "me'olam",
+      "gloss": "never (in the past)",
+      "type": "adv",
+      "shoresh": "ע־ל־ם",
+      "grammar": "adverb 'never' — past tense only, with לא: מעולם לא = 'never (have I)'. Lit. 'from eternity'. (Future 'never' = אַף פַּעַם / לְעוֹלָם לֹא.)",
+      "examples": [
+        {
+          "he": "*מעולם* לא ראיתי אותו.",
+          "en": "I've never seen him."
+        }
+      ]
+    },
+    {
       "rank": 269,
       "bare": "כסף",
       "niqqud": "כֶּסֶף",
@@ -2192,6 +2496,22 @@
         {
           "he": "*מרגיש* יותר טוב?",
           "en": "Feeling better?"
+        }
+      ]
+    },
+    {
+      "rank": 281,
+      "bare": "נמצא",
+      "niqqud": "נִמְצָא",
+      "translit": "nimtza",
+      "gloss": "is located / is found",
+      "type": "verb",
+      "shoresh": "מ־צ־א",
+      "grammar": "verb — nif'al present m.sg of מ־צ־א 'find': 'is found / located / present'; f. נִמְצֵאת.",
+      "examples": [
+        {
+          "he": "איפה *נמצא* חדר השינה?",
+          "en": "Where is the bedroom?"
         }
       ]
     },
@@ -2396,6 +2716,22 @@
         {
           "he": "אתה לא *מכיר* את הבן אדם בכלל.",
           "en": "You don't know the guy at all."
+        }
+      ]
+    },
+    {
+      "rank": 311,
+      "bare": "ללא",
+      "niqqud": "לְלֹא",
+      "translit": "lelo",
+      "gloss": "without",
+      "type": "prep",
+      "shoresh": null,
+      "grammar": "preposition 'without' (formal twin of בְּלִי). ללא ספק = 'without a doubt'.",
+      "examples": [
+        {
+          "he": "*ללא* מים, אין חיים.",
+          "en": "Without water, there's no life."
         }
       ]
     },
@@ -2701,6 +3037,22 @@
       ]
     },
     {
+      "rank": 340,
+      "bare": "מקווה",
+      "niqqud": "מְקַוֶּה",
+      "translit": "mekave",
+      "gloss": "hopes",
+      "type": "verb",
+      "shoresh": "ק־ו־ה",
+      "grammar": "verb — pi'el present m.sg of ק־ו־ה 'hope': אני מקווה ש... = 'I hope that...'; f. מְקַוָּה. Homograph: מִקְוֶה mikve (ritual bath).",
+      "examples": [
+        {
+          "he": "אני *מקווה* שכן.",
+          "en": "I hope so."
+        }
+      ]
+    },
+    {
       "rank": 341,
       "bare": "לב",
       "niqqud": "לֵב",
@@ -2781,6 +3133,22 @@
       ]
     },
     {
+      "rank": 354,
+      "bare": "לבד",
+      "niqqud": "לְבַד",
+      "translit": "levad",
+      "gloss": "alone / by oneself",
+      "type": "adv",
+      "shoresh": "ב־ד־ד",
+      "grammar": "adverb 'alone'; with suffix: לְבַדִּי 'by myself', לְבַדּוֹ 'by himself'. Distinct from מִלְּבַד 'apart from'.",
+      "examples": [
+        {
+          "he": "לא עשית זאת *לבד*.",
+          "en": "You didn't do it alone."
+        }
+      ]
+    },
+    {
       "rank": 355,
       "bare": "כמעט",
       "niqqud": "כִּמְעַט",
@@ -2809,6 +3177,22 @@
         {
           "he": "זה היה *לילה* יפה.",
           "en": "It was a beautiful night."
+        }
+      ]
+    },
+    {
+      "rank": 362,
+      "bare": "למעשה",
+      "niqqud": "לְמַעֲשֶׂה",
+      "translit": "lema'aseh",
+      "gloss": "actually / in fact",
+      "type": "adv",
+      "shoresh": "ע־ש־ה",
+      "grammar": "discourse adverb 'actually / in practice / in fact'. From מַעֲשֶׂה 'deed/act' (root ע־ש־ה 'do').",
+      "examples": [
+        {
+          "he": "*למעשה*, חשבתי על כך.",
+          "en": "Actually, I thought about it."
         }
       ]
     },
@@ -3149,6 +3533,22 @@
         {
           "he": "נדבר בפעם *אחרת*.",
           "en": "We'll talk another time."
+        }
+      ]
+    },
+    {
+      "rank": 388,
+      "bare": "מגיע",
+      "niqqud": "מַגִּיעַ",
+      "translit": "magia",
+      "gloss": "arrives / is deserved",
+      "type": "verb",
+      "shoresh": "נ־ג־ע",
+      "grammar": "verb — hif'il present m.sg of נ־ג־ע ('reach'): 'arrives' AND 'is deserved': זה מגיע לי = 'I deserve this'; f. מַגִּיעָה.",
+      "examples": [
+        {
+          "he": "זה לא *מגיע* לי.",
+          "en": "I don't deserve this."
         }
       ]
     },

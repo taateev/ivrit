@@ -1,28 +1,28 @@
 window.__SESSION = {
-  "sessionId": "batch-3",
-  "generatedAt": "2026-06-22T03:56:24.390Z",
+  "sessionId": "batch-4",
+  "generatedAt": "2026-06-22T04:07:46.462Z",
   "mode": "match",
   "newCount": 10,
   "dueCount": 0,
   "cards": [
     {
-      "id": "פעם",
-      "bare": "פעם",
-      "niqqud": "פַּעַם",
-      "translit": "pa'am",
-      "gloss": "time / once",
-      "shoresh": "פ־ע־ם",
-      "grammar": "noun (f.sg) 'a time / occasion'; pl. פְּעָמִים. Also adverbial: פעם = 'once / formerly'.",
+      "id": "נראה",
+      "bare": "נראה",
+      "niqqud": "נִרְאֶה",
+      "translit": "nir'e",
+      "gloss": "looks / seems",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb — nif'al present m.sg of ר־א־ה 'see': 'looks / seems / appears'. נראה לי = 'it seems to me'. Same spelling as נִרְאֶה 'we will see' (future).",
       "examples": [
         {
-          "he": "שמעת על זה *פעם*?",
-          "en": "Have you ever heard of this?"
+          "he": "הוא *נראה* בסדר גמור.",
+          "en": "He looks completely fine."
         }
       ],
       "distractors": [
-        "or",
-        "want (m./f. sg, present)",
-        "maybe / perhaps"
+        "then / so",
+        "everything / all",
+        "says / saying (f)"
       ],
       "phrase": false,
       "box": 1,
@@ -30,23 +30,23 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "אוכל",
-      "bare": "אוכל",
-      "niqqud": "אוֹכֶל",
-      "translit": "okhel",
-      "gloss": "food",
-      "shoresh": "א־כ־ל",
-      "grammar": "noun (m.sg) 'food'. Same spelling as אוּכַל ukhal 'I'll be able' and אוֹכֵל okhel 'eating' — context decides.",
+      "id": "הולך",
+      "bare": "הולך",
+      "niqqud": "הוֹלֵךְ",
+      "translit": "holech",
+      "gloss": "goes / is going",
+      "shoresh": "ה־ל־ך",
+      "grammar": "verb — pa'al present m.sg of ה־ל־ך 'go/walk'; f. הוֹלֶכֶת. הולך + infinitive = 'going to' (near future).",
       "examples": [
         {
-          "he": "*אוכל* יגיע עוד רגע.",
-          "en": "Food will be here in a moment."
+          "he": "מה *הולך* לקרות לי?",
+          "en": "What's going to happen to me?"
         }
       ],
       "distractors": [
-        "days",
-        "there / a name",
-        "hello / goodbye / peace"
+        "thanks / thank you",
+        "to see",
+        "she said"
       ],
       "phrase": false,
       "box": 1,
@@ -54,23 +54,23 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "בחור",
-      "bare": "בחור",
-      "niqqud": "בָּחוּר",
-      "translit": "bachur",
-      "gloss": "guy / young man",
-      "shoresh": "ב־ח־ר",
-      "grammar": "noun (m.sg); f. בַּחוּרָה 'young woman'. Same root as לִבְחֹר 'to choose', בְּחִירוֹת 'elections'.",
+      "id": "אומר",
+      "bare": "אומר",
+      "niqqud": "אוֹמֵר",
+      "translit": "omer",
+      "gloss": "says",
+      "shoresh": "א־מ־ר",
+      "grammar": "verb — pa'al present m.sg of א־מ־ר 'say'; f. אוֹמֶרֶת. Also 'means': זה אומר = 'that means'.",
       "examples": [
         {
-          "he": "אתה *בחור* חכם, אה?",
-          "en": "You're a smart guy, huh?"
+          "he": "זה מה שאני *אומר*.",
+          "en": "That's what I'm saying."
         }
       ],
       "distractors": [
-        "day",
-        "believe / believes (m)",
-        "to tell / to recount"
+        "come! (m.sg)",
+        "see / sees (m)",
+        "life"
       ],
       "phrase": false,
       "box": 1,
@@ -78,23 +78,23 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "עיר",
-      "bare": "עיר",
-      "niqqud": "עִיר",
-      "translit": "ir",
-      "gloss": "city",
-      "shoresh": "ע־י־ר",
-      "grammar": "noun (f.sg) — feminine despite no ־ה ending; pl. עָרִים arim. Homograph: הֵעִיר 'woke (someone)'.",
+      "id": "לראות",
+      "bare": "לראות",
+      "niqqud": "לִרְאוֹת",
+      "translit": "lir'ot",
+      "gloss": "to see",
+      "shoresh": "ר־א־ה",
+      "grammar": "infinitive of ר־א־ה 'see' (pa'al). רוצה לראות = 'want to see'.",
       "examples": [
         {
-          "he": "אין חוק *בעיר* הזאת.",
-          "en": "There's no law in this city."
+          "he": "*לראות* את כל הארץ.",
+          "en": "To see the whole country."
         }
       ],
       "distractors": [
-        "world",
-        "end",
-        "between / among"
+        "at least",
+        "at home / in the house",
+        "happy / glad"
       ],
       "phrase": false,
       "box": 1,
@@ -102,118 +102,22 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "עניין",
-      "bare": "עניין",
-      "niqqud": "עִנְיָן",
-      "translit": "inyan",
-      "gloss": "matter / issue / interest",
-      "shoresh": "ע־נ־י־ן",
-      "grammar": "noun (m.sg); pl. עִנְיָנִים. Related מְעֻנְיָן 'interested'; distinct from מְעַנְיֵן 'interesting'.",
+      "id": "לדבר",
+      "bare": "לדבר",
+      "niqqud": "לְדַבֵּר",
+      "translit": "ledaber",
+      "gloss": "to speak / to talk",
+      "shoresh": "ד־ב־ר",
+      "grammar": "infinitive, pi'el of ד־ב־ר 'speak'; same root as מְדַבֵּר 'speaking', דָּבָר 'thing/word'.",
       "examples": [
         {
-          "he": "זה *עניין* של כבוד.",
-          "en": "It's a matter of honor."
+          "he": "אני חייבת *לדבר* איתך.",
+          "en": "I have to talk to you."
         }
       ],
       "distractors": [
-        "to help",
-        "water",
-        "believe / believes (m)"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "יד",
-      "bare": "יד",
-      "niqqud": "יָד",
-      "translit": "yad",
-      "gloss": "hand",
-      "shoresh": "י־ד",
-      "grammar": "noun (f.sg) — feminine; dual יָדַיִם yadayim 'hands'. Don't confuse with מִיָּד 'immediately' or לְיַד 'next to'.",
-      "examples": [
-        {
-          "he": "תראה את *היד* שלך...",
-          "en": "Look at your hand..."
-        }
-      ],
-      "distractors": [
-        "land / country / earth",
-        "want (m./f. sg, present)",
-        "to come"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "דלת",
-      "bare": "דלת",
-      "niqqud": "דֶּלֶת",
-      "translit": "delet",
-      "gloss": "door",
-      "shoresh": "ד־ל־ת",
-      "grammar": "noun (f.sg); pl. דְּלָתוֹת delatot.",
-      "examples": [
-        {
-          "he": "סגור את *הדלת*.",
-          "en": "Close the door."
-        }
-      ],
-      "distractors": [
-        "or",
-        "without",
-        "my / mine"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "חדר",
-      "bare": "חדר",
-      "niqqud": "חֶדֶר",
-      "translit": "cheder",
-      "gloss": "room",
-      "shoresh": "ח־ד־ר",
-      "grammar": "noun (m.sg); pl. חֲדָרִים chadarim.",
-      "examples": [
-        {
-          "he": "תסתכל על *החדר* הזה.",
-          "en": "Look at this room."
-        }
-      ],
-      "distractors": [
-        "like / as",
-        "to arrive / to get to",
-        "big / large (m)"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "משפחה",
-      "bare": "משפחה",
-      "niqqud": "מִשְׁפָּחָה",
-      "translit": "mishpacha",
-      "gloss": "family",
-      "shoresh": "ש־פ־ח",
-      "grammar": "noun (f.sg); pl. מִשְׁפָּחוֹת. שֵׁם מִשְׁפָּחָה = 'surname'.",
-      "examples": [
-        {
-          "he": "הם עם *המשפחה* שלך.",
-          "en": "They're with your family."
-        }
-      ],
-      "distractors": [
-        "to hear / to listen",
-        "work / works (m) / employee",
+        "dollar",
+        "I saw",
         "can / able (m.sg)"
       ],
       "phrase": false,
@@ -222,23 +126,119 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "פרק",
-      "bare": "פרק",
-      "niqqud": "פֶּרֶק",
-      "translit": "perek",
-      "gloss": "chapter / episode",
-      "shoresh": "פ־ר־ק",
-      "grammar": "noun (m.sg)",
+      "id": "בוא",
+      "bare": "בוא",
+      "niqqud": "בּוֹא",
+      "translit": "bo",
+      "gloss": "come! (m.sg)",
+      "shoresh": "ב־ו־א",
+      "grammar": "imperative m.sg of בּוֹא 'come' (pa'al); f. בּוֹאִי, pl. בּוֹאוּ. בוא נ... = 'let's...' (בוא נלך 'let's go').",
       "examples": [
         {
-          "he": "היה לו *פרק* קשה בחיים.",
-          "en": "He had a hard chapter in life."
+          "he": "*בוא* נלך מכאן!",
+          "en": "Come on, let's get out of here!"
         }
       ],
       "distractors": [
-        "door",
-        "correct / right",
-        "beautiful / nice / fine"
+        "always",
+        "to say / to tell",
+        "book"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "אוהב",
+      "bare": "אוהב",
+      "niqqud": "אוֹהֵב",
+      "translit": "ohev",
+      "gloss": "loves / likes",
+      "shoresh": "א־ה־ב",
+      "grammar": "verb — pa'al present m.sg of א־ה־ב 'love/like'; f. אוֹהֶבֶת. Covers both 'love' and casual 'like'.",
+      "examples": [
+        {
+          "he": "אני באמת *אוהב* אותו.",
+          "en": "I really like him."
+        }
+      ],
+      "distractors": [
+        "again",
+        "to know",
+        "bad / evil"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "אחר",
+      "bare": "אחר",
+      "niqqud": "אַחֵר",
+      "translit": "acher",
+      "gloss": "other / another",
+      "shoresh": "א־ח־ר",
+      "grammar": "adjective 'other/another' (m.sg); f. אַחֶרֶת. Idioms: אַחַר כָּךְ 'afterwards', אַחַר הַצָּהֳרַיִם 'afternoon'.",
+      "examples": [
+        {
+          "he": "אני רוצה חדר *אחר*.",
+          "en": "I want a different room."
+        }
+      ],
+      "distractors": [
+        "sounds (like) / it sounds",
+        "with / a people",
+        "life"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "אפילו",
+      "bare": "אפילו",
+      "niqqud": "אֲפִילוּ",
+      "translit": "afilu",
+      "gloss": "even",
+      "shoresh": null,
+      "grammar": "adverb 'even' (emphasis): אפילו לא = 'not even'.",
+      "examples": [
+        {
+          "he": "הוא *אפילו* הראה לך.",
+          "en": "He even showed you."
+        }
+      ],
+      "distractors": [
+        "life",
+        "completely / totally",
+        "also / too"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "בטח",
+      "bare": "בטח",
+      "niqqud": "בֶּטַח",
+      "translit": "betach",
+      "gloss": "sure / probably / of course",
+      "shoresh": "ב־ט־ח",
+      "grammar": "adverb — 'surely / probably'; colloquial agreement 'sure!'. From ב־ט־ח 'trust' (בִּטָּחוֹן 'security').",
+      "examples": [
+        {
+          "he": "כן, זה *בטח* קשה.",
+          "en": "Yeah, that's probably hard."
+        }
+      ],
+      "distractors": [
+        "sure / certain (f)",
+        "was (he) / there was",
+        "or"
       ],
       "phrase": false,
       "box": 1,
