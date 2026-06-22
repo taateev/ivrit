@@ -483,3 +483,14 @@
 {"t":"2026-06-22T04:13:53.673Z","session":"batch-4","player":"dan","id":"אפילו","grade":"good","peeked":false,"confidence":0.76,"tookMs":3989,"gapMs":4706,"points":760}
 {"t":"2026-06-22T04:14:07.783Z","session":"batch-4","player":"dan","id":"בטח","grade":"again","peeked":false,"confidence":0.77,"tookMs":5138,"gapMs":11784,"points":-770}
 {"t":"2026-06-22T04:14:13.655Z","session":"batch-4","player":"dan","id":"בטח","grade":"good","peeked":false,"confidence":0.75,"tookMs":5028,"gapMs":13996}
+{"t":"2026-06-22T04:18:41.238Z","session":"batch-5","player":"dan","id":"קורה","grade":"good","peeked":false,"confidence":0.69,"tookMs":3709,"gapMs":null,"points":690}
+{"t":"2026-06-22T04:18:45.615Z","session":"batch-5","player":"dan","id":"אחרי","grade":"good","peeked":false,"confidence":0.78,"tookMs":3577,"gapMs":7865,"points":780}
+{"t":"2026-06-22T04:18:49.541Z","session":"batch-5","player":"dan","id":"מבין","grade":"good","peeked":false,"confidence":0.81,"tookMs":3261,"gapMs":4061,"points":810}
+{"t":"2026-06-22T04:18:54.817Z","session":"batch-5","player":"dan","id":"לדעת","grade":"good","peeked":false,"confidence":0.79,"tookMs":3409,"gapMs":4074,"points":790}
+{"t":"2026-06-22T04:19:08.827Z","session":"batch-5","player":"dan","id":"כזה","grade":"good","peeked":false,"confidence":0.56,"tookMs":10233,"gapMs":12100,"points":560}
+{"t":"2026-06-22T04:19:27.398Z","session":"batch-5","player":"dan","id":"מתכוון","grade":"good","peeked":false,"confidence":0.3,"tookMs":8904,"gapMs":12681,"points":300}
+{"t":"2026-06-22T04:19:31.786Z","session":"batch-5","player":"dan","id":"לומר","grade":"good","peeked":false,"confidence":0.78,"tookMs":3611,"gapMs":13278,"points":780}
+{"t":"2026-06-22T04:19:39.943Z","session":"batch-5","player":"dan","id":"מת","grade":"good","peeked":false,"confidence":0.82,"tookMs":3466,"gapMs":4243,"points":820}
+{"t":"2026-06-22T04:19:55.520Z","session":"batch-5","player":"dan","id":"מעולם","grade":"again","peeked":false,"confidence":0.26,"tookMs":10714,"gapMs":15404,"points":-260}
+{"t":"2026-06-22T04:20:14.690Z","session":"batch-5","player":"dan","id":"נמצא","grade":"good","peeked":false,"confidence":0.24,"tookMs":6572,"gapMs":11435,"points":240}
+{"t":"2026-06-22T04:20:18.134Z","session":"batch-5","player":"dan","id":"מעולם","grade":"good","peeked":false,"confidence":0.38,"tookMs":2639,"gapMs":15244}
