@@ -71,7 +71,7 @@
     shuffle(it.options).forEach(w => {
       const b = document.createElement('button');
       b.className = 'opt'; b.dataset.w = w;
-      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(w)}</span><span class="g">${esc(GLOSS[w] || '')}</span>`;
+      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(w)}</span><span class="g" hidden>${esc(GLOSS[w] || '')}</span>`;
       b.onclick = () => answer(w);
       box.appendChild(b);
     });
@@ -89,6 +89,7 @@
       else if (b.dataset.w === w) b.classList.add('wrong');
       else b.classList.add('dim');
     });
+    document.querySelectorAll('.opt .g').forEach(g => g.hidden = false);   // glosses revealed only after the choice
     $('frame').innerHTML = frameHTML(it.frame, it.answer);   // fill the blank with the right word
     $('en').hidden = false;                                   // English revealed only after the choice
     const why = $('why'); why.hidden = false;
