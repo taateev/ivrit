@@ -1,140 +1,152 @@
 window.__SESSION = {
-  "sessionId": "batch-10",
-  "generatedAt": "2026-06-22T04:50:41.879Z",
-  "mode": "review",
-  "newCount": 5,
-  "dueCount": 5,
+  "sessionId": "batch-11",
+  "generatedAt": "2026-06-22T10:59:03.219Z",
+  "mode": "match",
+  "newCount": 6,
+  "dueCount": 4,
   "cards": [
     {
-      "id": "אפילו",
-      "bare": "אפילו",
-      "niqqud": "אֲפִילוּ",
-      "translit": "afilu",
-      "gloss": "even",
+      "id": "בעצם",
+      "bare": "בעצם",
+      "niqqud": "בְּעֶצֶם",
+      "translit": "be'etzem",
+      "gloss": "actually / in fact / basically",
+      "shoresh": "ע־צ־ם",
+      "grammar": "discourse adverb 'actually / in fact' (lit. 'in essence'). From עֶצֶם 'essence / bone / object'. Softens or corrects: 'actually, …'.",
+      "examples": [
+        {
+          "he": "מה אתה *בעצם* אומר?",
+          "en": "What are you actually saying?"
+        }
+      ],
+      "distractors": [
+        "big / large (m)",
+        "dad",
+        "looks / seems"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "לאט",
+      "bare": "לאט",
+      "niqqud": "לְאַט",
+      "translit": "le'at",
+      "gloss": "slowly",
       "shoresh": null,
-      "grammar": "adverb 'even' (emphasis): אפילו לא = 'not even'.",
+      "grammar": "adverb 'slowly'. לְאַט-לְאַט = 'gradually / little by little'. Opposite of מַהֵר 'fast'.",
       "examples": [
         {
-          "he": "הוא *אפילו* הראה לך.",
-          "en": "He even showed you."
+          "he": "קח את זה *לאט*.",
+          "en": "Take it slow."
         }
       ],
       "distractors": [
-        "why",
-        "food",
-        "this / it (m.)"
+        "I heard",
+        "days",
+        "face"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     },
     {
-      "id": "בטח",
-      "bare": "בטח",
-      "niqqud": "בֶּטַח",
-      "translit": "betach",
-      "gloss": "sure / probably / of course",
-      "shoresh": "ב־ט־ח",
-      "grammar": "adverb — 'surely / probably'; colloquial agreement 'sure!'. From ב־ט־ח 'trust' (בִּטָּחוֹן 'security').",
+      "id": "בוודאי",
+      "bare": "בוודאי",
+      "niqqud": "בְּוַודַּאי",
+      "translit": "bevadai",
+      "gloss": "certainly / surely",
+      "shoresh": null,
+      "grammar": "adverb 'certainly / surely / of course' — a touch more formal than בֶּטַח. From וַדַּאי 'certain'.",
       "examples": [
         {
-          "he": "כן, זה *בטח* קשה.",
-          "en": "Yeah, that's probably hard."
+          "he": "*בוודאי* יש יותר מזה.",
+          "en": "Surely there's more than this."
         }
       ],
       "distractors": [
-        "time",
-        "the truth",
-        "never (in the past)"
+        "on / about",
+        "situation / state",
+        "dad"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": [
-        {
-          "by": "coach",
-          "text": "Your first confident miss — 77% sure, wrong. בֶּטַח betach = 'sure / of course / probably' (colloquial). Two everyday uses: agreement, 'בטח!' = 'Sure! / Of course!'; and probability, 'הוא בטח שכח' = 'He probably forgot.' Same root ב־ט־ח as בָּטוּחַ batuach 'safe / certain' and בִּטָּחוֹן bitachon 'security' — the thread is 'with confidence'. Don't read standalone בטח as 'safe'; it's the casual 'sure / probably'.",
-          "t": "2026-06-22T04:30:00Z"
-        }
-      ]
-    },
-    {
-      "id": "מעולם",
-      "bare": "מעולם",
-      "niqqud": "מֵעוֹלָם",
-      "translit": "me'olam",
-      "gloss": "never (in the past)",
-      "shoresh": "ע־ל־ם",
-      "grammar": "adverb 'never' — past tense only, with לא: מעולם לא = 'never (have I)'. Lit. 'from eternity'. (Future 'never' = אַף פַּעַם / לְעוֹלָם לֹא.)",
-      "examples": [
-        {
-          "he": "*מעולם* לא ראיתי אותו.",
-          "en": "I've never seen him."
-        }
-      ],
-      "distractors": [
-        "yes",
-        "happens",
-        "the guy"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": [
-        {
-          "by": "coach",
-          "text": "Missed it but bet only 26% — good instinct, it barely cost you. מֵעוֹלָם me'olam = 'never', but ONLY for the PAST, and it needs לא: 'מעולם לא הייתי שם' = 'I've never been there.' Literally 'from [the beginning of] the world'. For future/present 'never' use אַף פַּעַם af pa'am or לְעוֹלָם לֹא: 'לעולם לא אסכים' = 'I'll never agree.' Quick test — past → מעולם לא; future → לעולם לא / אף פעם.",
-          "t": "2026-06-22T04:35:00Z"
-        }
-      ]
-    },
-    {
-      "id": "לבד",
-      "bare": "לבד",
-      "niqqud": "לְבַד",
-      "translit": "levad",
-      "gloss": "alone / by oneself",
-      "shoresh": "ב־ד־ד",
-      "grammar": "adverb 'alone'; with suffix: לְבַדִּי 'by myself', לְבַדּוֹ 'by himself'. Distinct from מִלְּבַד 'apart from'.",
-      "examples": [
-        {
-          "he": "לא עשית זאת *לבד*.",
-          "en": "You didn't do it alone."
-        }
-      ],
-      "distractors": [
-        "he",
-        "you (object, m./f.)",
-        "before / ago"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     },
     {
-      "id": "למעשה",
-      "bare": "למעשה",
-      "niqqud": "לְמַעֲשֶׂה",
-      "translit": "lema'aseh",
-      "gloss": "actually / in fact",
-      "shoresh": "ע־ש־ה",
-      "grammar": "discourse adverb 'actually / in practice / in fact'. From מַעֲשֶׂה 'deed/act' (root ע־ש־ה 'do').",
+      "id": "פתאום",
+      "bare": "פתאום",
+      "niqqud": "פִּתְאוֹם",
+      "translit": "pit'om",
+      "gloss": "suddenly / all of a sudden",
+      "shoresh": "פ־ת־ע",
+      "grammar": "adverb 'suddenly'. Colloquial מָה פִּתְאוֹם? = 'no way! / what makes you think that?'. From פֶּתַע 'sudden'.",
       "examples": [
         {
-          "he": "*למעשה*, חשבתי על כך.",
-          "en": "Actually, I thought about it."
+          "he": "*פתאום* יש לי אחות!",
+          "en": "Suddenly I have a sister!"
         }
       ],
       "distractors": [
-        "actually / of all things / precisely",
-        "I",
-        "to me"
+        "everything / all",
+        "maybe / perhaps",
+        "fear / dread"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "מזמן",
+      "bare": "מזמן",
+      "niqqud": "מִזְּמַן",
+      "translit": "mizman",
+      "gloss": "long ago / for a long time",
+      "shoresh": "ז־מ־ן",
+      "grammar": "adverb 'long ago / for ages' (lit. 'from [a long] time'). From זְמַן 'time'. 'לא ראיתי אותך מזמן' = 'long time no see'.",
+      "examples": [
+        {
+          "he": "לא ראיתי אותך *מזמן*.",
+          "en": "I haven't seen you in a long time."
+        }
+      ],
+      "distractors": [
+        "tomorrow",
+        "can / able (m.sg)",
+        "sure / certain (f)"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "דווקא",
+      "bare": "דווקא",
+      "niqqud": "דַּווְקָא",
+      "translit": "davka",
+      "gloss": "actually / of all things / precisely",
+      "shoresh": null,
+      "grammar": "the contrary-to-expectation adverb (Aramaic): 'actually / precisely / of all things'. 'דווקא אהבתי' = 'I actually DID like it'; 'דווקא היום?' = 'today of all days?'. Signals a twist against what's expected.",
+      "examples": [
+        {
+          "he": "אני *דווקא* אהבתי אותה.",
+          "en": "I actually did like her."
+        }
+      ],
+      "distractors": [
+        "body",
+        "see / sees (m)",
+        "wait! (m, imperative)"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     },
     {
@@ -152,37 +164,13 @@ window.__SESSION = {
         }
       ],
       "distractors": [
-        "things",
-        "damn / to hell",
-        "there is / there are"
+        "absolutely / definitely",
+        "yes",
+        "food"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "לכן",
-      "bare": "לכן",
-      "niqqud": "לָכֵן",
-      "translit": "lachen",
-      "gloss": "therefore / so",
-      "shoresh": null,
-      "grammar": "discourse connector 'therefore / that's why'; וְלָכֵן = 'and so'. Distinct from לָכֶן 'to you (f.pl)'.",
-      "examples": [
-        {
-          "he": "*לכן* הוא כתב מכתב.",
-          "en": "So he wrote a letter."
-        }
-      ],
-      "distractors": [
-        "coffee",
-        "face",
-        "completely / totally"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
@@ -200,37 +188,13 @@ window.__SESSION = {
         }
       ],
       "distractors": [
-        "because",
-        "okay / fine",
-        "but"
+        "still / yet",
+        "very",
+        "loves / likes"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
-    },
-    {
-      "id": "בערך",
-      "bare": "בערך",
-      "niqqud": "בְּעֵרֶךְ",
-      "translit": "be'erech",
-      "gloss": "approximately / about",
-      "shoresh": "ע־ר־ך",
-      "grammar": "adverb 'approximately / roughly' (lit. 'in [the] value of'). From עֵרֶךְ 'value'.",
-      "examples": [
-        {
-          "he": "אנחנו *בערך* באמצע הדרך.",
-          "en": "We're about halfway there."
-        }
-      ],
-      "distractors": [
-        "supposed to",
-        "strange / weird",
-        "ready (m)"
-      ],
-      "phrase": false,
-      "box": 1,
-      "isNew": true,
+      "box": 2,
+      "isNew": false,
       "notes": []
     },
     {
@@ -248,14 +212,50 @@ window.__SESSION = {
         }
       ],
       "distractors": [
-        "approximately / about",
-        "at least",
-        "city"
+        "the guy",
+        "to hear / to listen",
+        "type / kind / sort"
       ],
       "phrase": false,
-      "box": 1,
-      "isNew": true,
-      "notes": []
+      "box": 2,
+      "isNew": false,
+      "notes": [
+        {
+          "by": "coach",
+          "text": "Missed on first contact. בִּמְיוּחָד bimyuchad = 'especially / particularly'. Most common in the soft-no hedge: 'לא במיוחד' = 'not especially / not really'; 'אני לא עייף במיוחד' = 'I'm not particularly tired.' From מְיוּחָד 'special' (root י־ח־ד) — but as one word it's the adverb 'especially', not the adjective 'special'.",
+          "t": "2026-06-22T11:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "בערך",
+      "bare": "בערך",
+      "niqqud": "בְּעֵרֶךְ",
+      "translit": "be'erech",
+      "gloss": "approximately / about",
+      "shoresh": "ע־ר־ך",
+      "grammar": "adverb 'approximately / roughly' (lit. 'in [the] value of'). From עֵרֶךְ 'value'.",
+      "examples": [
+        {
+          "he": "אנחנו *בערך* באמצע הדרך.",
+          "en": "We're about halfway there."
+        }
+      ],
+      "distractors": [
+        "this (f.) / this one",
+        "case / incident / coincidence",
+        "sweetie / honey"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": [
+        {
+          "by": "coach",
+          "text": "Missed on first contact. בְּעֵרֶךְ be'erech = 'approximately / about / roughly' — a hedge, lit. 'in [the] value of' (from עֵרֶךְ 'value'). Lives in front of quantities: 'בערך עשר דקות' = 'about ten minutes'; on its own, 'more or less / sort of'. Don't read it as the bare noun עֵרֶךְ 'value'.",
+          "t": "2026-06-22T11:00:00Z"
+        }
+      ]
     }
   ]
 };
