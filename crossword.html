@@ -28,11 +28,12 @@
   .cell.solved { background: #16321f; border-color: #3aa564; color: #c9f4d6; }
   .cell.bad { background: #361a17 !important; border-color: #a5443a !important; color: #f4c9c4 !important; }
   .cell .num { position: absolute; top: 1px; right: 3px; font-size: 9px; font-weight: 500; color: #6b7387; }
-  #palette { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; width: min(440px, 96vw); margin-bottom: 8px; }
-  .key { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #e8eaf0;
-    font: 600 19px 'Heebo', sans-serif; padding: 9px 0; text-align: center; cursor: pointer; }
+  #palette { width: min(500px, 99vw); margin-bottom: 8px; }
+  .prow { display: flex; gap: 4px; justify-content: center; margin-bottom: 4px; }
+  .key { flex: 1 1 0; max-width: 46px; background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #e8eaf0;
+    font: 600 19px 'Heebo', sans-serif; padding: 10px 0; text-align: center; cursor: pointer; }
   .key:active { background: #2a3142; }
-  .key.bk { grid-column: span 2; color: #8b93a7; font-size: 15px; }
+  .key.bk { color: #8b93a7; font-size: 15px; max-width: 130px; }
   #clues { width: min(640px, 96vw); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
   @media (max-width: 460px) { #clues { grid-template-columns: 1fr; } }
   .col h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin: 0 0 6px; }
@@ -61,7 +62,8 @@
   const $ = (id) => document.getElementById(id);
   const FINALS = { 'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ' };
   const norm = (ch) => FINALS[ch] || ch;                  // forgiving check: final == base form
-  const ALEFBET = [...'אבגדהוזחטיכלמנסעפצקרשת','ך','ם','ן','ף','ץ'];
+  // standard Israeli (SI-1452) Hebrew keyboard rows, so the palette matches muscle memory
+  const KEYROWS = ['קראטוןםפ', 'שדגכעיחלךף', 'זסבהנמצתץ'].map(r => [...r]);
 
   let P, cellmap, sel = null, dir = 'across', solved = new Set(), hintsUsed = new Set(), score = 0;
   let LIVE = false, ws = null, ROOM = null, ME = 'guest', players = [];   // co-op live state
@@ -109,8 +111,14 @@
 
   function renderPalette() {
     const p = $('palette'); p.innerHTML = '';
-    for (const ch of ALEFBET) { const b = document.createElement('button'); b.className = 'key'; b.textContent = ch; b.onclick = () => type(ch); p.appendChild(b); }
-    const bk = document.createElement('button'); bk.className = 'key bk'; bk.textContent = '⌫'; bk.onclick = backspace; p.appendChild(bk);
+    for (const row of KEYROWS) {
+      const r = document.createElement('div'); r.className = 'prow';
+      for (const ch of row) { const b = document.createElement('button'); b.className = 'key'; b.textContent = ch; b.onclick = () => type(ch); r.appendChild(b); }
+      p.appendChild(r);
+    }
+    const r = document.createElement('div'); r.className = 'prow';
+    const bk = document.createElement('button'); bk.className = 'key bk'; bk.textContent = '⌫'; bk.onclick = backspace; r.appendChild(bk);
+    p.appendChild(r);
   }
 
   function renderClues() {
