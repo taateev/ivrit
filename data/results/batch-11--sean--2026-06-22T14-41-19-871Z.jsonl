@@ -1,0 +1,12 @@
+{"t":"2026-06-22T14:38:52.573Z","session":"batch-11","player":"sean","id":"בעצם","grade":"good","peeked":false,"confidence":0.58,"tookMs":5645,"gapMs":null,"points":580}
+{"t":"2026-06-22T14:39:06.236Z","session":"batch-11","player":"sean","id":"לאט","grade":"good","peeked":false,"confidence":0.66,"tookMs":7768,"gapMs":14211,"points":660}
+{"t":"2026-06-22T14:39:25.177Z","session":"batch-11","player":"sean","id":"בוודאי","grade":"good","peeked":false,"confidence":0.73,"tookMs":13711,"gapMs":19605,"points":730}
+{"t":"2026-06-22T14:39:38.441Z","session":"batch-11","player":"sean","id":"פתאום","grade":"again","peeked":false,"confidence":0.73,"tookMs":11044,"gapMs":16274,"points":-730}
+{"t":"2026-06-22T14:39:44.629Z","session":"batch-11","player":"sean","id":"מזמן","grade":"good","peeked":false,"confidence":0.74,"tookMs":5255,"gapMs":7475,"points":740}
+{"t":"2026-06-22T14:40:01.870Z","session":"batch-11","player":"sean","id":"דווקא","grade":"again","peeked":false,"confidence":0.74,"tookMs":10613,"gapMs":11546,"points":-740}
+{"t":"2026-06-22T14:40:09.311Z","session":"batch-11","player":"sean","id":"מיד","grade":"good","peeked":false,"confidence":0.74,"tookMs":5659,"gapMs":12287,"points":740}
+{"t":"2026-06-22T14:40:31.060Z","session":"batch-11","player":"sean","id":"פתאום","grade":"good","peeked":false,"confidence":0.47,"tookMs":17088,"gapMs":18870}
+{"t":"2026-06-22T14:40:45.206Z","session":"batch-11","player":"sean","id":"בקרוב","grade":"good","peeked":false,"confidence":0.53,"tookMs":11660,"gapMs":16321,"points":530}
+{"t":"2026-06-22T14:40:50.547Z","session":"batch-11","player":"sean","id":"דווקא","grade":"good","peeked":false,"confidence":0.61,"tookMs":4010,"gapMs":6496}
+{"t":"2026-06-22T14:41:09.506Z","session":"batch-11","player":"sean","id":"במיוחד","grade":"good","peeked":false,"confidence":0.64,"tookMs":14742,"gapMs":16075,"points":640}
+{"t":"2026-06-22T14:41:19.869Z","session":"batch-11","player":"sean","id":"בערך","grade":"good","peeked":false,"confidence":0.74,"tookMs":8500,"gapMs":12715,"points":740}
