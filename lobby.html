@@ -25,6 +25,10 @@
   .game .prog { color: #ffd479; font-size: 13px; }
   .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
   .dot.on { background: #3aa564; box-shadow: 0 0 6px #3aa564; } .dot.off { background: #3a3f4d; }
+  .game .people { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
+  .p { font-size: 13px; color: #c2c9d8; } .p.off { color: #6b7387; }
+  .p .he { font-family: 'Heebo', sans-serif; direction: rtl; }
+  .p em { font-style: normal; color: #5a6173; font-size: 11px; margin-left: 3px; }
   .join { background: #1a2230; border: 1px solid #3a4760; border-radius: 9px; color: #cfe0ff; text-decoration: none; padding: 9px 15px; font-size: 14px; white-space: nowrap; }
   .join:hover { border-color: #4a72c4; }
   .empty { color: #6b7387; text-align: center; padding: 22px 0; }
@@ -63,11 +67,14 @@
     if (!rooms.length) { el.innerHTML = '<div class="empty">No live games yet — start one below.</div>'; return; }
     el.innerHTML = rooms.map(r => {
       const live = r.count > 0;
-      const who = live ? `<span class="dot on"></span>👥 ${r.players.map(esc).join(', ')}` : `<span class="dot off"></span>no one here now`;
+      const peeps = (r.people && r.people.length)
+        ? r.people.map(p => `<span class="p ${p.active ? '' : 'off'}"><span class="dot ${p.active ? 'on' : 'off'}"></span>${heb(p.name)}${!p.active && p.lastMove ? `<em>${ago(p.lastMove)}</em>` : ''}</span>`).join('')
+        : '<span class="p off">no one yet</span>';
       return `<div class="game">
         <div class="main">
           <div class="name">${heb(r.id)}</div>
-          <div class="meta"><span class="${live ? 'live' : 'idle'}">${who}</span> · ${r.done ? '✓ done' : ago(r.lastMove)}</div>
+          <div class="people">${peeps}</div>
+          <div class="meta">${r.done ? '✓ completed' : 'last move ' + ago(r.lastMove)}</div>
         </div>
         <div class="prog">${r.solved}/${r.total}</div>
         <a class="join" href="crossword.html?room=${encodeURIComponent(r.id)}">${live ? 'join' : 'resume'} →</a>

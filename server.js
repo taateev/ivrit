@@ -23,7 +23,14 @@ const server = http.createServer((req, res) => {
     const list = [...rooms.values()]
       .filter(r => r.conns.size > 0 || now - r.lastMove < 24 * 3600 * 1000)
       .sort((a, b) => b.lastMove - a.lastMove)
-      .map(r => ({ id: r.id, players: [...r.conns].map(c => c.player || '?'), count: r.conns.size, solved: r.solved.size, total: PUZZLE ? PUZZLE.entries.length : 0, lastMove: r.lastMove, done: !!r.finishedAt }));
+      .map(r => {
+        const active = new Set([...r.conns].map(c => c.player || '?'));
+        const people = new Map();   // union of contributors + currently-active → { name, active, lastMove }
+        for (const [name, t] of r.contributors) people.set(name, { name, active: active.has(name), lastMove: t });
+        for (const name of active) if (!people.has(name)) people.set(name, { name, active: true, lastMove: null });
+        const peopleArr = [...people.values()].sort((a, b) => (b.active ? 1 : 0) - (a.active ? 1 : 0) || (b.lastMove || 0) - (a.lastMove || 0));
+        return { id: r.id, count: active.size, people: peopleArr, solved: r.solved.size, total: PUZZLE ? PUZZLE.entries.length : 0, lastMove: r.lastMove, done: !!r.finishedAt };
+      });
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
     res.end(JSON.stringify({ rooms: list, puzzle: PUZZLE && PUZZLE.id }));
     return;
@@ -59,10 +66,10 @@ const ekey = (e) => e.num + e.dir[0];
 
 const rooms = new Map();
 const getRoom = (id) => {
-  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null, lastMove: Date.now() });
+  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null, lastMove: Date.now(), contributors: new Map() });
   return rooms.get(id);
 };
-const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; room.lastMove = Date.now(); };
+const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; room.lastMove = Date.now(); room.contributors.clear(); };
 
 function checkAll(room) {
   if (!PUZZLE) return;
@@ -130,7 +137,7 @@ wss.on('connection', (ws) => {
       const room = getRoom(ws.room); const key = `${m.r},${m.c}`;
       if (!validCells.has(key) || room.solvedCells.has(key)) return;
       const ch = typeof m.ch === 'string' ? [...m.ch][0] || '' : '';
-      if (ch) room.cells.set(key, ch); else room.cells.delete(key);
+      if (ch) { room.cells.set(key, ch); room.contributors.set(ws.player, Date.now()); } else room.cells.delete(key);
       room.lastMove = Date.now();
       checkAll(room); broadcast(room);
     } else if (m.t === 'reset' && ws.room) {
