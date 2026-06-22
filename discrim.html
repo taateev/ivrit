@@ -63,7 +63,7 @@
     app.innerHTML =
       `<div class="cluster">${esc(it.cluster)} — which fits?</div>
        <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(it.frame, null)}</div>
-       <div class="en">${enHTML(it.en)}</div>
+       <div class="en" id="en" hidden>${enHTML(it.en)}</div>
        <div class="opts" id="opts"></div>
        <div class="why" id="why" hidden></div>
        <div class="cont" id="cont" hidden>tap / space → next</div>`;
@@ -90,6 +90,7 @@
       else b.classList.add('dim');
     });
     $('frame').innerHTML = frameHTML(it.frame, it.answer);   // fill the blank with the right word
+    $('en').hidden = false;                                   // English revealed only after the choice
     const why = $('why'); why.hidden = false;
     why.innerHTML = (correct ? '' : '') + heb(it.why);
     $('cont').hidden = false;
