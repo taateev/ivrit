@@ -1,0 +1,11 @@
+{"t":"2026-06-22T04:41:58.875Z","session":"batch-8","player":"dan","id":"מנסה","grade":"good","peeked":false,"confidence":0.33,"tookMs":11688,"gapMs":null,"points":330}
+{"t":"2026-06-22T04:42:11.522Z","session":"batch-8","player":"dan","id":"אמור","grade":"good","peeked":false,"confidence":0.78,"tookMs":8336,"gapMs":23412,"points":780}
+{"t":"2026-06-22T04:42:32.952Z","session":"batch-8","player":"dan","id":"כמעט","grade":"good","peeked":false,"confidence":0.3,"tookMs":14164,"gapMs":18475,"points":300}
+{"t":"2026-06-22T04:42:53.988Z","session":"batch-8","player":"dan","id":"לפחות","grade":"again","peeked":false,"confidence":0.34,"tookMs":17192,"gapMs":24458,"points":-340}
+{"t":"2026-06-22T04:42:57.800Z","session":"batch-8","player":"dan","id":"בחור","grade":"good","peeked":false,"confidence":0.95,"tookMs":2631,"gapMs":6474,"points":950}
+{"t":"2026-06-22T04:43:23.874Z","session":"batch-8","player":"dan","id":"עניין","grade":"good","peeked":false,"confidence":0.61,"tookMs":12249,"gapMs":13430,"points":610}
+{"t":"2026-06-22T04:43:26.252Z","session":"batch-8","player":"dan","id":"משפחה","grade":"good","peeked":false,"confidence":0.88,"tookMs":1811,"gapMs":15637,"points":880}
+{"t":"2026-06-22T04:43:36.187Z","session":"batch-8","player":"dan","id":"לפחות","grade":"good","peeked":false,"confidence":0.43,"tookMs":5291,"gapMs":5858}
+{"t":"2026-06-22T04:43:38.683Z","session":"batch-8","player":"dan","id":"פרק","grade":"good","peeked":false,"confidence":0.97,"tookMs":1765,"gapMs":6409,"points":970}
+{"t":"2026-06-22T04:43:42.358Z","session":"batch-8","player":"dan","id":"נראה","grade":"good","peeked":false,"confidence":0.74,"tookMs":3029,"gapMs":3760,"points":740}
+{"t":"2026-06-22T04:43:45.887Z","session":"batch-8","player":"dan","id":"הולך","grade":"good","peeked":false,"confidence":0.81,"tookMs":2983,"gapMs":3628,"points":810}
