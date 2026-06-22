@@ -18,6 +18,7 @@
   }
   #hud { width: min(640px, 96vw); display: flex; justify-content: space-between; align-items: baseline; color: #8b93a7; font-size: 14px; margin-bottom: 10px; }
   #hud .score { color: #ffd479; font-weight: 700; font-size: 18px; }
+  #back { color: #6b7387; text-decoration: none; font-size: 13px; } #back:hover { color: #8b93a7; }
   #newgame { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #8b93a7; font-size: 12px; padding: 4px 9px; cursor: pointer; }
   #newgame:active { background: #2a3142; }
   #grid { display: grid; gap: 3px; margin: 0 auto 14px; }
@@ -67,7 +68,7 @@
 </style>
 </head>
 <body>
-<div id="hud"><div id="prog">loading…</div><button id="newgame" hidden>↻ new game</button><div class="score" id="score">★ 0</div></div>
+<div id="hud"><a id="back" hidden>←</a><div id="prog">loading…</div><button id="newgame" hidden>↻ new game</button><div class="score" id="score">★ 0</div></div>
 <div id="grid"></div>
 <div id="palette"></div>
 <div id="clues"></div>
@@ -298,6 +299,9 @@
       const ng = $('newgame'); ng.hidden = false;
       ng.onclick = () => { if (confirm('Start a fresh board for everyone in the room?')) send({ t: 'reset' }); };
     }
+    const back = $('back'); back.hidden = false;
+    back.href = LIVE ? 'lobby.html' : 'index.html';
+    back.textContent = LIVE ? '← foyer' : '← menu';
   }).catch(e => { $('prog').textContent = 'failed to load puzzle: ' + e.message; });
 
   // physical Hebrew keyboard support (desktop)
