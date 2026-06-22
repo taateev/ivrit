@@ -1,130 +1,202 @@
 window.__SESSION = {
-  "sessionId": "batch-2026-06-21",
-  "generatedAt": "2026-06-21",
+  "sessionId": "batch-2",
+  "generatedAt": "2026-06-22T03:41:19.930Z",
   "mode": "match",
-  "newCount": 0,
-  "dueCount": 10,
+  "newCount": 5,
+  "dueCount": 5,
   "cards": [
     {
-      "id": "סיבה",
-      "bare": "סיבה",
-      "niqqud": "סִבָּה",
-      "translit": "siba",
-      "gloss": "reason / cause",
-      "shoresh": "ס־ב־ב",
-      "grammar": "noun (f.sg)",
+      "id": "פרק",
+      "bare": "פרק",
+      "niqqud": "פֶּרֶק",
+      "translit": "perek",
+      "gloss": "chapter / episode",
+      "shoresh": "פ־ר־ק",
+      "grammar": "noun (m.sg)",
       "examples": [
         {
-          "he": "אין *סיבה* לדאוג.",
-          "en": "There's no reason to worry."
+          "he": "היה לו *פרק* קשה בחיים.",
+          "en": "He had a hard chapter in life."
         }
       ],
       "distractors": [
-        "where",
-        "nothing / anything",
-        "here (it is) / behold"
+        "what",
+        "at all / in general",
+        "beauty / 'awesome!'"
       ],
       "phrase": false,
       "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "שאלה",
+      "bare": "שאלה",
+      "niqqud": "שְׁאֵלָה",
+      "translit": "she'ela",
+      "gloss": "question",
+      "shoresh": "שׁ־א־ל",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "יש לי עוד *שאלה* אחת.",
+          "en": "I have one more question."
+        }
+      ],
+      "distractors": [
+        "see / sees (m)",
+        "my brother / bro",
+        "but"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "חדשות",
+      "bare": "חדשות",
+      "niqqud": "חֲדָשׁוֹת",
+      "translit": "chadashot",
+      "gloss": "news",
+      "shoresh": "ח־ד־שׁ",
+      "grammar": "noun (f.pl)",
+      "examples": [
+        {
+          "he": "יש *חדשות* היום?",
+          "en": "Any news today?"
+        }
+      ],
+      "distractors": [
+        "since / ever since",
+        "like this / so",
+        "love / likes (f)"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "עולם",
+      "bare": "עולם",
+      "niqqud": "עוֹלָם",
+      "translit": "olam",
+      "gloss": "world",
+      "shoresh": "ע־ל־ם",
+      "grammar": "noun (m.sg)",
+      "examples": [
+        {
+          "he": "זה באמת *עולם* קטן.",
+          "en": "It really is a small world."
+        }
+      ],
+      "distractors": [
+        "person / man",
+        "strange / weird",
+        "really / literally"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "ארוחה",
+      "bare": "ארוחה",
+      "niqqud": "אֲרוּחָה",
+      "translit": "arucha",
+      "gloss": "meal",
+      "shoresh": "א־ר־ח",
+      "grammar": "noun (f.sg)",
+      "examples": [
+        {
+          "he": "בחור לא יכול להכין *ארוחה*?",
+          "en": "Can't a guy make a meal?"
+        }
+      ],
+      "distractors": [
+        "exactly",
+        "between / among",
+        "hello / goodbye / peace"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "מנסה",
+      "bare": "מנסה",
+      "niqqud": "מְנַסֶּה",
+      "translit": "menase",
+      "gloss": "trying (m)",
+      "shoresh": "נ־ס־ה",
+      "grammar": "verb · present (beinoni) · sg · pi'el",
+      "examples": [
+        {
+          "he": "את *מנסה* לתפוס אותו.",
+          "en": "You're trying to catch him."
+        }
+      ],
+      "distractors": [
+        "sorry / excuse me",
+        "good",
+        "correct / right"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": []
+    },
+    {
+      "id": "אמור",
+      "bare": "אמור",
+      "niqqud": "אָמוּר",
+      "translit": "amur",
+      "gloss": "supposed to",
+      "shoresh": "א־מ־ר",
+      "grammar": "adjective (m.sg) — passive ptcp of א־מ־ר",
+      "examples": [
+        {
+          "he": "אתה *אמור* לדעת",
+          "en": "you're supposed to know"
+        }
+      ],
+      "distractors": [
+        "to go out / to leave",
+        "morning",
+        "with / a people"
+      ],
+      "phrase": false,
+      "box": 2,
       "isNew": false,
       "notes": [
         {
           "by": "coach",
-          "text": "Missed 3× — your stickiest noun so far. סִבָּה siba = 'reason / cause', שורש ס־ב־ב ('to go around', so a reason is what a thing 'revolves around'). Everyday frames: אין סיבה ('no reason / no need'), מאיזו סיבה? ('for what reason?'), הסיבה היא ש… ('the reason is that…'). Don't confuse with סַבָּא saba 'grandpa'.",
-          "t": "2026-06-21T01:35:00Z"
+          "text": "Two words, same unvoweled spelling — niqqud splits them: אָמוּר amur = 'supposed to / said' (passive participle, the card's sense), but אֱמֹר emor = 'say! / tell!' (imperative of א־מ־ר). 'אמור להם ללכת' = 'Tell them to go' is the imperative; 'אתה אמור לדעת' = 'you're supposed to know' is amur.",
+          "t": "2026-06-21T01:50:00Z"
         }
       ]
     },
     {
-      "id": "מאוד",
-      "bare": "מאוד",
-      "niqqud": "מְאוֹד",
-      "translit": "me'od",
-      "gloss": "very",
-      "shoresh": null,
-      "grammar": "adverb (very)",
+      "id": "כמעט",
+      "bare": "כמעט",
+      "niqqud": "כִּמְעַט",
+      "translit": "kim'at",
+      "gloss": "almost",
+      "shoresh": "מ־ע־ט",
+      "grammar": "adverb",
       "examples": [
         {
-          "he": "נעים *מאוד*, המפקד.",
-          "en": "Very nice to meet you, sir."
-        }
-      ],
-      "distractors": [
-        "type / kind / sort",
-        "of",
-        "number"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "לפני",
-      "bare": "לפני",
-      "niqqud": "לִפְנֵי",
-      "translit": "lifnei",
-      "gloss": "before / ago",
-      "shoresh": "פ־נ־ה",
-      "grammar": "preposition (before/ago)",
-      "examples": [
-        {
-          "he": "*לפני* שאמות, אני רוצה לעשות אותו הדבר איתך.",
-          "en": "Before I die, I want to do the same with you."
-        }
-      ],
-      "distractors": [
-        "one (m.)",
-        "place",
-        "to tell / to recount"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "עדיין",
-      "bare": "עדיין",
-      "niqqud": "עֲדַיִן",
-      "translit": "adayin",
-      "gloss": "still / yet",
-      "shoresh": null,
-      "grammar": "adverb (still/yet)",
-      "examples": [
-        {
-          "he": "היא *עדיין* לא הלכה לעבודה.",
-          "en": "She still hasn't gone to work."
-        }
-      ],
-      "distractors": [
-        "God",
-        "kids / children",
-        "case / incident / coincidence"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "שוב",
-      "bare": "שוב",
-      "niqqud": "שׁוּב",
-      "translit": "shuv",
-      "gloss": "again",
-      "shoresh": "שׁ־ו־ב",
-      "grammar": "adverb (again)",
-      "examples": [
-        {
-          "he": "מחר נתחיל *שוב*.",
-          "en": "Tomorrow we'll start again."
+          "he": "אנחנו *כמעט* שם.",
+          "en": "We're almost there."
         }
       ],
       "distractors": [
         "this (f.)",
-        "earlier / first / before",
-        "your / yours (m./f.)"
+        "I saw",
+        "the truth"
       ],
       "phrase": false,
       "box": 2,
@@ -132,23 +204,23 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "היום",
-      "bare": "היום",
-      "niqqud": "הַיּוֹם",
-      "translit": "hayom",
-      "gloss": "today",
-      "shoresh": "י־ו־ם",
-      "grammar": "adverb (today) / noun (the day)",
+      "id": "לפחות",
+      "bare": "לפחות",
+      "niqqud": "לְפָחוֹת",
+      "translit": "lefachot",
+      "gloss": "at least",
+      "shoresh": "פ־ח־ת",
+      "grammar": "adverb",
       "examples": [
         {
-          "he": "*היום*, אתה כבר יכול להופיע בפני כולם.",
-          "en": "Today you can already appear before everyone."
+          "he": "*לפחות* שבע פעמים.",
+          "en": "At least seven times."
         }
       ],
       "distractors": [
-        "idea",
-        "the first",
-        "time"
+        "absolutely / definitely",
+        "strange / weird",
+        "completely / totally"
       ],
       "phrase": false,
       "box": 2,
@@ -156,98 +228,26 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "תמיד",
-      "bare": "תמיד",
-      "niqqud": "תָּמִיד",
-      "translit": "tamid",
-      "gloss": "always",
-      "shoresh": null,
-      "grammar": "adverb (always)",
+      "id": "רואה",
+      "bare": "רואה",
+      "niqqud": "רוֹאֶה",
+      "translit": "ro'e",
+      "gloss": "see / sees (m)",
+      "shoresh": "ר־א־ה",
+      "grammar": "verb · present (beinoni) · m.sg · pa'al",
       "examples": [
         {
-          "he": "זה *תמיד* קורה ביום הראשון של המשפט.",
-          "en": "It always happens on the first day of the trial."
+          "he": "כן, אני *רואה*.",
+          "en": "Yes, I see."
         }
       ],
       "distractors": [
-        "months",
-        "apparently / probably",
-        "but"
+        "now",
+        "forward / come on",
+        "concept / idea (אין לי מושג = no idea)"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "יום",
-      "bare": "יום",
-      "niqqud": "יוֹם",
-      "translit": "yom",
-      "gloss": "day",
-      "shoresh": "י־ו־ם",
-      "grammar": "noun (m.sg)",
-      "examples": [
-        {
-          "he": "איזה *יום* נפלא.",
-          "en": "What a wonderful day."
-        }
-      ],
-      "distractors": [
-        "God",
-        "sounds (like) / it sounds",
-        "trying (m)"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "בגלל",
-      "bare": "בגלל",
-      "niqqud": "בִּגְלַל",
-      "translit": "biglal",
-      "gloss": "because of",
-      "shoresh": "ג־ל־ל",
-      "grammar": "preposition (because of)",
-      "examples": [
-        {
-          "he": "*בגלל* שאתה מרגיש אותו הדבר.",
-          "en": "Because you feel the same."
-        }
-      ],
-      "distractors": [
-        "reason / cause",
-        "at least",
-        "person / man"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "מדי",
-      "bare": "מדי",
-      "niqqud": "מִדַּי",
-      "translit": "miday",
-      "gloss": "too (much) / overly",
-      "shoresh": null,
-      "grammar": "adverb (too much)",
-      "examples": [
-        {
-          "he": "היה מאוחר *מדי*.",
-          "en": "It was too late."
-        }
-      ],
-      "distractors": [
-        "mom",
-        "you (m.)",
-        "friend / boyfriend"
-      ],
-      "phrase": false,
-      "box": 2,
+      "box": 3,
       "isNew": false,
       "notes": []
     }
