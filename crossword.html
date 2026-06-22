@@ -26,6 +26,7 @@
   .cell.sel { border-color: #ffd479; box-shadow: 0 0 0 1px #ffd479 inset; }
   .cell.word { background: #1a2230; }
   .cell.solved { background: #16321f; border-color: #3aa564; color: #c9f4d6; }
+  .cell.bad { background: #361a17 !important; border-color: #a5443a !important; color: #f4c9c4 !important; }
   .cell .num { position: absolute; top: 1px; right: 3px; font-size: 9px; font-weight: 500; color: #6b7387; }
   #palette { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; width: min(440px, 96vw); margin-bottom: 8px; }
   .key { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #e8eaf0;
@@ -163,7 +164,13 @@
 
   function type(ch) {
     if (!sel) return; const m = cellmap[ckey(sel.r, sel.c)]; if (!m || m.solvedCell) return;
-    m.input = ch; advance(); checkWord(); paint();
+    m.input = ch; advance(); checkAll();
+    const cw = curWord();   // full but still wrong → flash red so you know it's the spelling, not a glitch
+    if (cw && !solved.has(ekey(cw)) && cw.cells.every(k => cellmap[ckey(k.r, k.c)].input)) flashWrong(cw);
+    paint();
+  }
+  function flashWrong(e) {
+    for (const k of e.cells) { const el = cellmap[ckey(k.r, k.c)].el; if (el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 480); } }
   }
   function backspace() {
     if (!sel) return; let m = cellmap[ckey(sel.r, sel.c)];
@@ -179,13 +186,22 @@
   const advance = () => step(1);
   const retreat = () => step(-1);
 
-  function checkWord() {
-    const cw = curWord(); if (!cw || solved.has(ekey(cw))) return;
-    const ok = cw.cells.every((k, i) => { const m = cellmap[ckey(k.r, k.c)]; return m.input && norm(m.input) === norm(cw.answer[i]); });
-    if (!ok) return;
-    solved.add(ekey(cw));
-    cw.cells.forEach((k, i) => { const m = cellmap[ckey(k.r, k.c)]; m.input = cw.answer[i]; m.solvedCell = true; }); // snap to canonical letters
-    score += hintsUsed.has(ekey(cw)) ? Math.round(cw.points / 2) : cw.points;
+  // Re-scan EVERY word (not just the selected one), looping so a solve that locks a shared cell
+  // can cascade into completing crossing words. Fixes a word completed via an intersection.
+  function checkAll() {
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const e of P.entries) {
+        if (solved.has(ekey(e))) continue;
+        const ok = e.cells.every((k, i) => { const m = cellmap[ckey(k.r, k.c)]; return m.input && norm(m.input) === norm(e.answer[i]); });
+        if (!ok) continue;
+        solved.add(ekey(e));
+        e.cells.forEach((k, i) => { const m = cellmap[ckey(k.r, k.c)]; m.input = e.answer[i]; m.solvedCell = true; }); // snap to canonical
+        score += hintsUsed.has(ekey(e)) ? Math.round(e.points / 2) : e.points;
+        changed = true;
+      }
+    }
     renderClues();
     if (solved.size === P.entries.length) win();
   }
