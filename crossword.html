@@ -64,6 +64,8 @@
   const ALEFBET = [...'אבגדהוזחטיכלמנסעפצקרשת','ך','ם','ן','ף','ץ'];
 
   let P, cellmap, sel = null, dir = 'across', solved = new Set(), hintsUsed = new Set(), score = 0;
+  let LIVE = false, ws = null, ROOM = null, ME = 'guest', players = [];   // co-op live state
+  const wordCorrect = (e) => e.cells.every((k, i) => { const m = cellmap[ckey(k.r, k.c)]; return m.input && norm(m.input) === norm(e.answer[i]); });
 
   const ckey = (r, c) => r + ',' + c;
   const ekey = (e) => e.num + e.dir[0];
@@ -158,25 +160,45 @@
       m.el.querySelector('.ch').textContent = m.input;
     }
     document.querySelectorAll('.clue').forEach(d => d.classList.toggle('active', cw && d.dataset.k === ekey(cw)));
-    $('prog').textContent = `${solved.size} / ${P.entries.length} words`;
+    $('prog').textContent = `${solved.size} / ${P.entries.length} words` + (LIVE ? `   ·   👥 ${players.join(', ') || '…'}` : '');
     $('score').textContent = '★ ' + score.toLocaleString('en-US');
   }
 
   function type(ch) {
     if (!sel) return; const m = cellmap[ckey(sel.r, sel.c)]; if (!m || m.solvedCell) return;
-    m.input = ch; advance(); checkAll();
-    const cw = curWord();   // full but still wrong → flash red so you know it's the spelling, not a glitch
-    if (cw && !solved.has(ekey(cw)) && cw.cells.every(k => cellmap[ckey(k.r, k.c)].input)) flashWrong(cw);
-    paint();
+    m.input = ch;
+    const cw = curWord();
+    if (LIVE) send({ t: 'fill', r: sel.r, c: sel.c, ch });   // server is authoritative for solving/scoring
+    else checkAll();
+    // full but still wrong → flash red so you know it's the spelling, not a glitch (works in both modes)
+    if (cw && !solved.has(ekey(cw)) && cw.cells.every(k => cellmap[ckey(k.r, k.c)].input) && !wordCorrect(cw)) flashWrong(cw);
+    advance(); paint();
   }
   function flashWrong(e) {
     for (const k of e.cells) { const el = cellmap[ckey(k.r, k.c)].el; if (el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 480); } }
   }
   function backspace() {
     if (!sel) return; let m = cellmap[ckey(sel.r, sel.c)];
-    if (m && !m.input) retreat(), m = cellmap[ckey(sel.r, sel.c)];
-    if (m && !m.solvedCell) m.input = '';
+    if (m && !m.input) { retreat(); m = cellmap[ckey(sel.r, sel.c)]; }
+    if (m && !m.solvedCell) { m.input = ''; if (LIVE) send({ t: 'fill', r: sel.r, c: sel.c, ch: '' }); }
     paint();
+  }
+  // ---- live co-op ----
+  function send(o) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(o)); }
+  function connectLive() {
+    ME = (localStorage.getItem('player_id') || '').trim();
+    if (!ME) { ME = ((prompt('Your name for co-op?') || 'guest').trim() || 'guest').slice(0, 20); try { localStorage.setItem('player_id', ME); } catch (e) {} }
+    ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`);
+    ws.onopen = () => send({ t: 'join', room: ROOM, player: ME });
+    ws.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch (e) { return; } if (m.t === 'state') applyServerState(m); };
+    ws.onclose = () => { $('prog').textContent = 'disconnected — reload to rejoin'; };
+  }
+  function applyServerState(m) {
+    players = m.players || []; solved = new Set(m.solved || []); score = m.score || 0;
+    const sc = new Set(m.solvedCells || []);
+    for (const k in cellmap) { const cell = cellmap[k]; cell.input = (m.cells && m.cells[k]) || ''; cell.solvedCell = sc.has(k); }
+    renderClues(); paint();
+    if (m.done) win();
   }
   function step(delta) {
     const cw = curWord(); if (!cw) return;
@@ -212,9 +234,11 @@
   }
 
   // load puzzle (cache-busted so a freshly-pushed puzzle always arrives)
+  ROOM = new URLSearchParams(location.search).get('room'); LIVE = !!ROOM;
   fetch('data/crossword.json?t=' + Date.now()).then(r => r.json()).then(p => {
     P = p; buildMaps(); render();
     const first = P.entries[0]; dir = first.dir; selectCell(first.cells[0].r, first.cells[0].c);
+    if (LIVE) connectLive();
   }).catch(e => { $('prog').textContent = 'failed to load puzzle: ' + e.message; });
 
   // physical Hebrew keyboard support (desktop)

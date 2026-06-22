@@ -21,3 +21,6 @@ data/audio/*.mp3
 
 # GitHub PAT (laptop-side, seeds the keychain; never committed)
 .ghtoken
+
+# Node deps (Railway installs from package.json/lock)
+node_modules/
