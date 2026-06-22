@@ -66,7 +66,7 @@ const ekey = (e) => e.num + e.dir[0];
 
 const rooms = new Map();
 const getRoom = (id) => {
-  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null, lastMove: Date.now(), contributors: new Map() });
+  if (!rooms.has(id)) rooms.set(id, { id, cells: new Map(), solvedCells: new Set(), solved: new Set(), score: 0, conns: new Set(), startedAt: null, finishedAt: null, lastMove: Date.now(), contributors: new Map(), chat: [] });
   return rooms.get(id);
 };
 const resetRoom = (room) => { room.cells.clear(); room.solvedCells.clear(); room.solved.clear(); room.score = 0; room.startedAt = Date.now(); room.finishedAt = null; room.lastMove = Date.now(); room.contributors.clear(); };
@@ -133,6 +133,7 @@ wss.on('connection', (ws) => {
       if (!room.startedAt) room.startedAt = Date.now();
       room.lastMove = Date.now();
       room.conns.add(ws); ws.send(stateMsg(room)); broadcast(room);
+      ws.send(JSON.stringify({ t: 'chathist', messages: room.chat }));   // catch the joiner up on the convo
     } else if (m.t === 'fill' && ws.room) {
       const room = getRoom(ws.room); const key = `${m.r},${m.c}`;
       if (!validCells.has(key) || room.solvedCells.has(key)) return;
@@ -142,6 +143,14 @@ wss.on('connection', (ws) => {
       checkAll(room); broadcast(room);
     } else if (m.t === 'reset' && ws.room) {
       const room = getRoom(ws.room); resetRoom(room); broadcast(room);
+    } else if (m.t === 'chat' && ws.room) {
+      const text = String(m.text || '').trim().slice(0, 280);
+      if (!text) return;
+      const room = getRoom(ws.room);
+      const msg = { from: ws.player || 'guest', text, ts: Date.now() };
+      room.chat.push(msg); if (room.chat.length > 60) room.chat.shift();
+      const out = JSON.stringify({ t: 'chat', msg });
+      for (const c of room.conns) if (c.readyState === 1) c.send(out);
     }
   });
   ws.on('close', () => { if (ws.room && rooms.has(ws.room)) { const room = rooms.get(ws.room); room.conns.delete(ws); broadcast(room); } });

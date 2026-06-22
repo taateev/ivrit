@@ -50,6 +50,19 @@
   .hint { margin-top: 5px; font-size: 12.5px; color: #c8a96a; line-height: 1.45; direction: ltr; }
   .hint [dir="rtl"] { font-family: 'Heebo', sans-serif; }
   #done { width: min(640px, 96vw); text-align: center; margin-top: 16px; font-size: 16px; color: #79d18c; }
+  /* live chat (chess-style) */
+  #chat { position: fixed; right: 10px; bottom: 10px; width: min(330px, 92vw); background: #141823; border: 1px solid #2a2f3d; border-radius: 12px; overflow: hidden; z-index: 20; box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+  #chathead { padding: 9px 13px; font-size: 14px; color: #cfe0ff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #1a2230; }
+  #chathead .un { background: #a5443a; color: #fff; border-radius: 999px; font-size: 11px; padding: 0 7px; margin-left: 6px; }
+  #chatlog { max-height: 210px; overflow-y: auto; padding: 9px 12px; display: flex; flex-direction: column; gap: 5px; }
+  .cmsg { font-size: 13.5px; line-height: 1.35; color: #c2c9d8; word-break: break-word; }
+  .cmsg .who { color: #8ab4ff; font-weight: 600; margin-right: 5px; } .cmsg.me .who { color: #79d18c; }
+  .cmsg .he { font-family: 'Heebo', sans-serif; }
+  #chatbar { display: flex; gap: 6px; padding: 8px; border-top: 1px solid #2a2f3d; }
+  #chatin { flex: 1; min-width: 0; background: #11141c; border: 1px solid #2a2f3d; border-radius: 8px; color: #e8eaf0; padding: 9px 11px; font: inherit; font-size: 15px; }
+  #chatin:focus { outline: none; border-color: #4a72c4; }
+  #chatsend { background: #1a2230; border: 1px solid #3a4760; border-radius: 8px; color: #cfe0ff; padding: 0 14px; cursor: pointer; font-size: 16px; }
+  #chat.collapsed #chatlog, #chat.collapsed #chatbar { display: none; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -59,6 +72,11 @@
 <div id="palette"></div>
 <div id="clues"></div>
 <div id="done" hidden></div>
+<div id="chat" class="collapsed" hidden>
+  <div id="chathead">💬 chat<span id="chatun" class="un" hidden></span></div>
+  <div id="chatlog"></div>
+  <div id="chatbar"><input id="chatin" autocomplete="off" placeholder="message…"><button id="chatsend">→</button></div>
+</div>
 <script>
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -200,7 +218,12 @@
     if (!ME) { ME = ((prompt('Your name for co-op?') || 'guest').trim() || 'guest').slice(0, 20); try { localStorage.setItem('player_id', ME); } catch (e) {} }
     ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`);
     ws.onopen = () => send({ t: 'join', room: ROOM, player: ME });
-    ws.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch (e) { return; } if (m.t === 'state') applyServerState(m); };
+    ws.onmessage = (ev) => {
+      let m; try { m = JSON.parse(ev.data); } catch (e) { return; }
+      if (m.t === 'state') applyServerState(m);
+      else if (m.t === 'chathist') (m.messages || []).forEach(x => addChat(x, false));
+      else if (m.t === 'chat') addChat(m.msg, true);
+    };
     ws.onclose = () => { $('prog').textContent = 'disconnected — reload to rejoin'; };
   }
   function applyServerState(m) {
@@ -209,6 +232,28 @@
     for (const k in cellmap) { const cell = cellmap[k]; cell.input = (m.cells && m.cells[k]) || ''; cell.solvedCell = sc.has(k); }
     renderClues(); paint();
     if (m.done) win();
+  }
+  // ---- chat (live only) ----
+  let unread = 0;
+  const scrollChat = () => { const l = $('chatlog'); if (l) l.scrollTop = l.scrollHeight; };
+  function setupChat() {
+    const chat = $('chat'); chat.hidden = false;
+    $('chathead').onclick = () => {
+      chat.classList.toggle('collapsed');
+      if (!chat.classList.contains('collapsed')) { unread = 0; $('chatun').hidden = true; $('chatun').textContent = ''; scrollChat(); }
+    };
+    const submit = () => { const v = $('chatin').value.trim(); if (!v) return; send({ t: 'chat', text: v }); $('chatin').value = ''; };
+    $('chatsend').onclick = submit;
+    $('chatin').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
+  }
+  function addChat(msg, isNew) {
+    const l = $('chatlog'); if (!l || !msg) return;
+    const d = document.createElement('div'); d.className = 'cmsg' + (msg.from === ME ? ' me' : '');
+    d.innerHTML = `<span class="who">${esc(msg.from)}</span>${heb(msg.text)}`;
+    l.appendChild(d);
+    const chat = $('chat');
+    if (isNew && chat && chat.classList.contains('collapsed')) { unread++; $('chatun').hidden = false; $('chatun').textContent = unread; }
+    else scrollChat();
   }
   function step(delta) {
     const cw = curWord(); if (!cw) return;
@@ -249,7 +294,7 @@
     P = p; buildMaps(); render();
     const first = P.entries[0]; dir = first.dir; selectCell(first.cells[0].r, first.cells[0].c);
     if (LIVE) {
-      connectLive();
+      connectLive(); setupChat();
       const ng = $('newgame'); ng.hidden = false;
       ng.onclick = () => { if (confirm('Start a fresh board for everyone in the room?')) send({ t: 'reset' }); };
     }
@@ -257,6 +302,7 @@
 
   // physical Hebrew keyboard support (desktop)
   document.addEventListener('keydown', (e) => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;  // don't steal chat typing
     if (e.key === 'Backspace') { e.preventDefault(); backspace(); }
     else if (/^[֐-׿]$/.test(e.key)) { e.preventDefault(); type(e.key); }
   });
