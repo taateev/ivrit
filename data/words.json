@@ -3994,6 +3994,22 @@
       ]
     },
     {
+      "rank": 499,
+      "bare": "מיד",
+      "niqqud": "מִיָּד",
+      "translit": "miyad",
+      "gloss": "immediately / right away",
+      "type": "adv",
+      "shoresh": "י־ד",
+      "grammar": "adverb 'immediately / at once'. Written מ+יד ('from hand') but lexicalized. Don't confuse with the noun יָד 'hand' or לְיַד 'next to'.",
+      "examples": [
+        {
+          "he": "לך *מיד* לחדר שלך!",
+          "en": "Go to your room immediately!"
+        }
+      ]
+    },
+    {
       "bare": "משחק",
       "niqqud": "מִשְׂחָק",
       "translit": "miscchak",
@@ -4042,6 +4058,22 @@
         {
           "he": "תסתכל על *החדר* הזה.",
           "en": "Look at this room."
+        }
+      ]
+    },
+    {
+      "rank": 538,
+      "bare": "לכן",
+      "niqqud": "לָכֵן",
+      "translit": "lachen",
+      "gloss": "therefore / so",
+      "type": "adv",
+      "shoresh": null,
+      "grammar": "discourse connector 'therefore / that's why'; וְלָכֵן = 'and so'. Distinct from לָכֶן 'to you (f.pl)'.",
+      "examples": [
+        {
+          "he": "*לכן* הוא כתב מכתב.",
+          "en": "So he wrote a letter."
         }
       ]
     },
@@ -4194,6 +4226,22 @@
       ]
     },
     {
+      "rank": 629,
+      "bare": "בקרוב",
+      "niqqud": "בְּקָרוֹב",
+      "translit": "bekarov",
+      "gloss": "soon",
+      "type": "adv",
+      "shoresh": "ק־ר־ב",
+      "grammar": "adverb 'soon' (lit. 'in [the] near'). From ק־ר־ב 'be near'; קָרוֹב = 'close / a relative'.",
+      "examples": [
+        {
+          "he": "אנחנו לא נתראה *בקרוב*.",
+          "en": "We won't see each other soon."
+        }
+      ]
+    },
+    {
       "bare": "סיבה",
       "niqqud": "סִבָּה",
       "translit": "siba",
@@ -4290,6 +4338,22 @@
       ]
     },
     {
+      "rank": 677,
+      "bare": "בערך",
+      "niqqud": "בְּעֵרֶךְ",
+      "translit": "be'erech",
+      "gloss": "approximately / about",
+      "type": "adv",
+      "shoresh": "ע־ר־ך",
+      "grammar": "adverb 'approximately / roughly' (lit. 'in [the] value of'). From עֵרֶךְ 'value'.",
+      "examples": [
+        {
+          "he": "אנחנו *בערך* באמצע הדרך.",
+          "en": "We're about halfway there."
+        }
+      ]
+    },
+    {
       "rank": 678,
       "bare": "מים",
       "niqqud": "מַיִם",
@@ -4370,6 +4434,22 @@
       ]
     },
     {
+      "rank": 802,
+      "bare": "במיוחד",
+      "niqqud": "בִּמְיוּחָד",
+      "translit": "bimyuchad",
+      "gloss": "especially / particularly",
+      "type": "adv",
+      "shoresh": "י־ח־ד",
+      "grammar": "adverb 'especially' (lit. 'in special'). From מְיוּחָד 'special', root י־ח־ד 'single out'.",
+      "examples": [
+        {
+          "he": "לא, לא קר *במיוחד*.",
+          "en": "No, not especially cold."
+        }
+      ]
+    },
+    {
       "rank": 833,
       "bare": "קפה",
       "niqqud": "קָפֶה",
@@ -4418,6 +4498,22 @@
       ]
     },
     {
+      "rank": 988,
+      "bare": "בעצם",
+      "niqqud": "בְּעֶצֶם",
+      "translit": "be'etzem",
+      "gloss": "actually / in fact / basically",
+      "type": "adv",
+      "shoresh": "ע־צ־ם",
+      "grammar": "discourse adverb 'actually / in fact' (lit. 'in essence'). From עֶצֶם 'essence / bone / object'. Softens or corrects: 'actually, …'.",
+      "examples": [
+        {
+          "he": "מה אתה *בעצם* אומר?",
+          "en": "What are you actually saying?"
+        }
+      ]
+    },
+    {
       "rank": 1000,
       "bare": "כלב",
       "niqqud": "כֶּלֶב",
@@ -4450,6 +4546,22 @@
       ]
     },
     {
+      "rank": 1011,
+      "bare": "לאט",
+      "niqqud": "לְאַט",
+      "translit": "le'at",
+      "gloss": "slowly",
+      "type": "adv",
+      "shoresh": null,
+      "grammar": "adverb 'slowly'. לְאַט-לְאַט = 'gradually / little by little'. Opposite of מַהֵר 'fast'.",
+      "examples": [
+        {
+          "he": "קח את זה *לאט*.",
+          "en": "Take it slow."
+        }
+      ]
+    },
+    {
       "rank": 1052,
       "bare": "מדינה",
       "niqqud": "מְדִינָה",
@@ -4462,6 +4574,22 @@
         {
           "he": "ובכן, זו *מדינה* גדולה.",
           "en": "Well, it's a big country."
+        }
+      ]
+    },
+    {
+      "rank": 1133,
+      "bare": "בוודאי",
+      "niqqud": "בְּוַודַּאי",
+      "translit": "bevadai",
+      "gloss": "certainly / surely",
+      "type": "adv",
+      "shoresh": null,
+      "grammar": "adverb 'certainly / surely / of course' — a touch more formal than בֶּטַח. From וַדַּאי 'certain'.",
+      "examples": [
+        {
+          "he": "*בוודאי* יש יותר מזה.",
+          "en": "Surely there's more than this."
         }
       ]
     },
@@ -4542,6 +4670,54 @@
         {
           "he": "זה באמת *עולם* קטן.",
           "en": "It really is a small world."
+        }
+      ]
+    },
+    {
+      "rank": 1414,
+      "bare": "פתאום",
+      "niqqud": "פִּתְאוֹם",
+      "translit": "pit'om",
+      "gloss": "suddenly / all of a sudden",
+      "type": "adv",
+      "shoresh": "פ־ת־ע",
+      "grammar": "adverb 'suddenly'. Colloquial מָה פִּתְאוֹם? = 'no way! / what makes you think that?'. From פֶּתַע 'sudden'.",
+      "examples": [
+        {
+          "he": "*פתאום* יש לי אחות!",
+          "en": "Suddenly I have a sister!"
+        }
+      ]
+    },
+    {
+      "rank": 1755,
+      "bare": "מזמן",
+      "niqqud": "מִזְּמַן",
+      "translit": "mizman",
+      "gloss": "long ago / for a long time",
+      "type": "adv",
+      "shoresh": "ז־מ־ן",
+      "grammar": "adverb 'long ago / for ages' (lit. 'from [a long] time'). From זְמַן 'time'. 'לא ראיתי אותך מזמן' = 'long time no see'.",
+      "examples": [
+        {
+          "he": "לא ראיתי אותך *מזמן*.",
+          "en": "I haven't seen you in a long time."
+        }
+      ]
+    },
+    {
+      "rank": 2330,
+      "bare": "דווקא",
+      "niqqud": "דַּווְקָא",
+      "translit": "davka",
+      "gloss": "actually / of all things / precisely",
+      "type": "adv",
+      "shoresh": null,
+      "grammar": "the contrary-to-expectation adverb (Aramaic): 'actually / precisely / of all things'. 'דווקא אהבתי' = 'I actually DID like it'; 'דווקא היום?' = 'today of all days?'. Signals a twist against what's expected.",
+      "examples": [
+        {
+          "he": "אני *דווקא* אהבתי אותה.",
+          "en": "I actually did like her."
         }
       ]
     },

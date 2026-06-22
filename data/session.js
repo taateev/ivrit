@@ -1,58 +1,10 @@
 window.__SESSION = {
-  "sessionId": "batch-9",
-  "generatedAt": "2026-06-22T04:45:10.126Z",
+  "sessionId": "batch-10",
+  "generatedAt": "2026-06-22T04:50:41.879Z",
   "mode": "review",
-  "newCount": 0,
-  "dueCount": 10,
+  "newCount": 5,
+  "dueCount": 5,
   "cards": [
-    {
-      "id": "אומר",
-      "bare": "אומר",
-      "niqqud": "אוֹמֵר",
-      "translit": "omer",
-      "gloss": "says",
-      "shoresh": "א־מ־ר",
-      "grammar": "verb — pa'al present m.sg of א־מ־ר 'say'; f. אוֹמֶרֶת. Also 'means': זה אומר = 'that means'.",
-      "examples": [
-        {
-          "he": "זה מה שאני *אומר*.",
-          "en": "That's what I'm saying."
-        }
-      ],
-      "distractors": [
-        "now",
-        "your / yours (m./f.)",
-        "I heard"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "לראות",
-      "bare": "לראות",
-      "niqqud": "לִרְאוֹת",
-      "translit": "lir'ot",
-      "gloss": "to see",
-      "shoresh": "ר־א־ה",
-      "grammar": "infinitive of ר־א־ה 'see' (pa'al). רוצה לראות = 'want to see'.",
-      "examples": [
-        {
-          "he": "*לראות* את כל הארץ.",
-          "en": "To see the whole country."
-        }
-      ],
-      "distractors": [
-        "nice / pleasant",
-        "correct / right",
-        "worth it / should"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
     {
       "id": "אפילו",
       "bare": "אפילו",
@@ -68,9 +20,9 @@ window.__SESSION = {
         }
       ],
       "distractors": [
-        "good",
-        "now",
-        "to (toward) / don't"
+        "why",
+        "food",
+        "this / it (m.)"
       ],
       "phrase": false,
       "box": 2,
@@ -92,9 +44,9 @@ window.__SESSION = {
         }
       ],
       "distractors": [
-        "did / made",
-        "minutes",
-        "land / country / earth"
+        "time",
+        "the truth",
+        "never (in the past)"
       ],
       "phrase": false,
       "box": 2,
@@ -108,23 +60,53 @@ window.__SESSION = {
       ]
     },
     {
-      "id": "קורה",
-      "bare": "קורה",
-      "niqqud": "קוֹרֶה",
-      "translit": "kore",
-      "gloss": "happens",
-      "shoresh": "ק־ר־ה",
-      "grammar": "verb — pa'al present m.sg of ק־ר־ה 'happen/occur'. מה קורה? = 'what's up?'. Homograph: קוֹרָה 'beam' (noun).",
+      "id": "מעולם",
+      "bare": "מעולם",
+      "niqqud": "מֵעוֹלָם",
+      "translit": "me'olam",
+      "gloss": "never (in the past)",
+      "shoresh": "ע־ל־ם",
+      "grammar": "adverb 'never' — past tense only, with לא: מעולם לא = 'never (have I)'. Lit. 'from eternity'. (Future 'never' = אַף פַּעַם / לְעוֹלָם לֹא.)",
       "examples": [
         {
-          "he": "זה *קורה* כל הזמן.",
-          "en": "It happens all the time."
+          "he": "*מעולם* לא ראיתי אותו.",
+          "en": "I've never seen him."
         }
       ],
       "distractors": [
-        "food",
-        "meal",
-        "money / silver"
+        "yes",
+        "happens",
+        "the guy"
+      ],
+      "phrase": false,
+      "box": 2,
+      "isNew": false,
+      "notes": [
+        {
+          "by": "coach",
+          "text": "Missed it but bet only 26% — good instinct, it barely cost you. מֵעוֹלָם me'olam = 'never', but ONLY for the PAST, and it needs לא: 'מעולם לא הייתי שם' = 'I've never been there.' Literally 'from [the beginning of] the world'. For future/present 'never' use אַף פַּעַם af pa'am or לְעוֹלָם לֹא: 'לעולם לא אסכים' = 'I'll never agree.' Quick test — past → מעולם לא; future → לעולם לא / אף פעם.",
+          "t": "2026-06-22T04:35:00Z"
+        }
+      ]
+    },
+    {
+      "id": "לבד",
+      "bare": "לבד",
+      "niqqud": "לְבַד",
+      "translit": "levad",
+      "gloss": "alone / by oneself",
+      "shoresh": "ב־ד־ד",
+      "grammar": "adverb 'alone'; with suffix: לְבַדִּי 'by myself', לְבַדּוֹ 'by himself'. Distinct from מִלְּבַד 'apart from'.",
+      "examples": [
+        {
+          "he": "לא עשית זאת *לבד*.",
+          "en": "You didn't do it alone."
+        }
+      ],
+      "distractors": [
+        "he",
+        "you (object, m./f.)",
+        "before / ago"
       ],
       "phrase": false,
       "box": 2,
@@ -132,23 +114,23 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "אחרי",
-      "bare": "אחרי",
-      "niqqud": "אַחֲרֵי",
-      "translit": "acharei",
-      "gloss": "after",
-      "shoresh": "א־ח־ר",
-      "grammar": "preposition 'after' (time/place); אחרי ש... = 'after (that)...'. Related to אַחֵר 'other', אַחֲרוֹן 'last'.",
+      "id": "למעשה",
+      "bare": "למעשה",
+      "niqqud": "לְמַעֲשֶׂה",
+      "translit": "lema'aseh",
+      "gloss": "actually / in fact",
+      "shoresh": "ע־ש־ה",
+      "grammar": "discourse adverb 'actually / in practice / in fact'. From מַעֲשֶׂה 'deed/act' (root ע־ש־ה 'do').",
       "examples": [
         {
-          "he": "שנייה אחת *אחרי* זה.",
-          "en": "One second after that."
+          "he": "*למעשה*, חשבתי על כך.",
+          "en": "Actually, I thought about it."
         }
       ],
       "distractors": [
-        "but",
-        "I knew",
-        "matters / changes (לא משנה = doesn't matter)"
+        "actually / of all things / precisely",
+        "I",
+        "to me"
       ],
       "phrase": false,
       "box": 2,
@@ -156,99 +138,123 @@ window.__SESSION = {
       "notes": []
     },
     {
-      "id": "לדעת",
-      "bare": "לדעת",
-      "niqqud": "לָדַעַת",
-      "translit": "lada'at",
-      "gloss": "to know",
-      "shoresh": "י־ד־ע",
-      "grammar": "infinitive of י־ד־ע 'know' (pa'al). רוצה לדעת = 'want to know'; same root as יוֹדֵעַ 'knows', יֶדַע 'knowledge'.",
+      "id": "מיד",
+      "bare": "מיד",
+      "niqqud": "מִיָּד",
+      "translit": "miyad",
+      "gloss": "immediately / right away",
+      "shoresh": "י־ד",
+      "grammar": "adverb 'immediately / at once'. Written מ+יד ('from hand') but lexicalized. Don't confuse with the noun יָד 'hand' or לְיַד 'next to'.",
       "examples": [
         {
-          "he": "אתה באמת רוצה *לדעת*?",
-          "en": "Do you really want to know?"
+          "he": "לך *מיד* לחדר שלך!",
+          "en": "Go to your room immediately!"
         }
       ],
       "distractors": [
-        "family",
-        "worth it / should",
-        "son / …-year-old"
+        "things",
+        "damn / to hell",
+        "there is / there are"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     },
     {
-      "id": "כזה",
-      "bare": "כזה",
-      "niqqud": "כָּזֶה",
-      "translit": "kaze",
-      "gloss": "such / like this",
+      "id": "לכן",
+      "bare": "לכן",
+      "niqqud": "לָכֵן",
+      "translit": "lachen",
+      "gloss": "therefore / so",
       "shoresh": null,
-      "grammar": "'such / like this' (m.sg); f. כָּזֹאת kazot. = כְּ + זֶה ('like this').",
+      "grammar": "discourse connector 'therefore / that's why'; וְלָכֵן = 'and so'. Distinct from לָכֶן 'to you (f.pl)'.",
       "examples": [
         {
-          "he": "לא עשיתי דבר *כזה*!",
-          "en": "I didn't do such a thing!"
+          "he": "*לכן* הוא כתב מכתב.",
+          "en": "So he wrote a letter."
         }
       ],
       "distractors": [
-        "late",
-        "at least",
-        "since / ever since"
-      ],
-      "phrase": false,
-      "box": 2,
-      "isNew": false,
-      "notes": []
-    },
-    {
-      "id": "מתכוון",
-      "bare": "מתכוון",
-      "niqqud": "מִתְכַּוֵּן",
-      "translit": "mitkaven",
-      "gloss": "means / intends",
-      "shoresh": "כ־ו־ן",
-      "grammar": "verb — hitpa'el present m.sg of כ־ו־ן: 'mean / intend'; f. מִתְכַּוֶּנֶת. למה אתה מתכוון? = 'what do you mean?'.",
-      "examples": [
-        {
-          "he": "רואה למה אני *מתכוון*.",
-          "en": "You see what I mean."
-        }
-      ],
-      "distractors": [
-        "time / once",
         "coffee",
-        "know / am acquainted (m)"
+        "face",
+        "completely / totally"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     },
     {
-      "id": "לומר",
-      "bare": "לומר",
-      "niqqud": "לוֹמַר",
-      "translit": "lomar",
-      "gloss": "to say",
-      "shoresh": "א־מ־ר",
-      "grammar": "infinitive of א־מ־ר 'say' (pa'al) — bookish twin of לְהַגִּיד. כְּלוֹמַר = 'that is / i.e.'.",
+      "id": "בקרוב",
+      "bare": "בקרוב",
+      "niqqud": "בְּקָרוֹב",
+      "translit": "bekarov",
+      "gloss": "soon",
+      "shoresh": "ק־ר־ב",
+      "grammar": "adverb 'soon' (lit. 'in [the] near'). From ק־ר־ב 'be near'; קָרוֹב = 'close / a relative'.",
       "examples": [
         {
-          "he": "מה את רוצה *לומר*?",
-          "en": "What do you want to say?"
+          "he": "אנחנו לא נתראה *בקרוב*.",
+          "en": "We won't see each other soon."
         }
       ],
       "distractors": [
-        "man / person",
-        "nice / pleasant",
-        "coffee"
+        "because",
+        "okay / fine",
+        "but"
       ],
       "phrase": false,
-      "box": 2,
-      "isNew": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "בערך",
+      "bare": "בערך",
+      "niqqud": "בְּעֵרֶךְ",
+      "translit": "be'erech",
+      "gloss": "approximately / about",
+      "shoresh": "ע־ר־ך",
+      "grammar": "adverb 'approximately / roughly' (lit. 'in [the] value of'). From עֵרֶךְ 'value'.",
+      "examples": [
+        {
+          "he": "אנחנו *בערך* באמצע הדרך.",
+          "en": "We're about halfway there."
+        }
+      ],
+      "distractors": [
+        "supposed to",
+        "strange / weird",
+        "ready (m)"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
+      "notes": []
+    },
+    {
+      "id": "במיוחד",
+      "bare": "במיוחד",
+      "niqqud": "בִּמְיוּחָד",
+      "translit": "bimyuchad",
+      "gloss": "especially / particularly",
+      "shoresh": "י־ח־ד",
+      "grammar": "adverb 'especially' (lit. 'in special'). From מְיוּחָד 'special', root י־ח־ד 'single out'.",
+      "examples": [
+        {
+          "he": "לא, לא קר *במיוחד*.",
+          "en": "No, not especially cold."
+        }
+      ],
+      "distractors": [
+        "approximately / about",
+        "at least",
+        "city"
+      ],
+      "phrase": false,
+      "box": 1,
+      "isNew": true,
       "notes": []
     }
   ]

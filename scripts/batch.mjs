@@ -7,6 +7,7 @@ const ROOT = '/Users/dlesky/hebrew';
 const SIZE = parseInt(process.argv[2] || '10', 10);
 const SID = process.argv[3] || 'batch';
 const MODE = (process.argv[4] || 'new').toLowerCase();   // 'new' = fresh first; 'review' = due/shaky first
+const TYPE = process.argv[5] || null;                     // optional POS filter, e.g. 'adv' for an adverb batch
 
 const words = JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words;
 const events = fs.existsSync(`${ROOT}/data/reviews.jsonl`)
@@ -45,7 +46,7 @@ function distractors(w, n = 3) {
   return out;
 }
 
-const frontier = words.filter(w => w.rank >= FRONTIER_MIN);
+const frontier = words.filter(w => w.rank >= FRONTIER_MIN && (!TYPE || w.type === TYPE));
 const fresh = frontier.filter(w => !state.get(w.bare).seen).sort((a, b) => a.rank - b.rank);
 const review = frontier.filter(w => state.get(w.bare).seen && state.get(w.bare).box < 5)
   .sort((a, b) => state.get(a.bare).box - state.get(b.bare).box
