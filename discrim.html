@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — which word fits?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    display: flex; align-items: center; justify-content: center; }
+  #hud { position: fixed; top: 14px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 16px; color: #6b7387; font-size: 14px; }
+  #hud a { color: #6b7387; text-decoration: none; } #hud .score { color: #ffd479; font-weight: 700; }
+  #app { width: min(620px, 92vw); text-align: center; }
+  .cluster { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin-bottom: 14px; }
+  .frame { font-family: 'Heebo', sans-serif; font-size: 30px; line-height: 1.5; direction: rtl; }
+  .frame b { color: #ffd479; }
+  .blank { display: inline-block; min-width: 70px; border-bottom: 2px solid #4a72c4; margin: 0 6px; }
+  .en { color: #8b93a7; font-size: 16px; margin-top: 12px; line-height: 1.4; }
+  .opts { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+  .opt { font: inherit; padding: 13px 16px; border-radius: 11px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; display: flex; align-items: baseline; gap: 12px; }
+  .opt:hover:not(:disabled) { border-color: #4a72c4; }
+  .opt .w { font-family: 'Heebo', sans-serif; font-size: 24px; font-weight: 700; direction: rtl; }
+  .opt .g { color: #8b93a7; font-size: 14px; }
+  .opt.right { border-color: #3aa564; background: #16321f; } .opt.right .g { color: #c9f4d6; }
+  .opt.wrong { border-color: #a5443a; background: #361a17; } .opt.wrong .g { color: #f4c9c4; }
+  .opt.dim { opacity: .5; }
+  .why { margin-top: 20px; font-size: 16px; line-height: 1.55; color: #c8d3e6; background: #141823; border-left: 2px solid #c8a96a; border-radius: 6px; padding: 12px 14px; text-align: left; }
+  .why .he { font-family: 'Heebo', sans-serif; }
+  .cont { margin-top: 18px; color: #6b7387; font-size: 14px; }
+  .done .frame { font-size: 56px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="hud"><a href="index.html">← menu</a><div><span id="prog"></span> · <span class="score" id="score">0</span></div></div>
+<div id="app"></div>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const app = $('app');
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"’-]*)/g, '<span class="he">$1</span>');
+  const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  let GLOSS = {}, items = [], i = 0, score = 0, answered = false, answeredAt = 0;
+
+  const frameHTML = (frame, fill) => {
+    const parts = esc(frame).split('___');
+    const mid = fill ? `<b>${esc(fill)}</b>` : '<span class="blank"></span>';
+    return parts.join(mid);
+  };
+  const enHTML = (en) => esc(en).replace('___', '<span style="opacity:.6">___</span>');
+
+  function render() {
+    const it = items[i]; answered = false;
+    app.className = '';
+    app.innerHTML =
+      `<div class="cluster">${esc(it.cluster)} — which fits?</div>
+       <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(it.frame, null)}</div>
+       <div class="en">${enHTML(it.en)}</div>
+       <div class="opts" id="opts"></div>
+       <div class="why" id="why" hidden></div>
+       <div class="cont" id="cont" hidden>tap / space → next</div>`;
+    const box = $('opts');
+    shuffle(it.options).forEach(w => {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.dataset.w = w;
+      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(w)}</span><span class="g">${esc(GLOSS[w] || '')}</span>`;
+      b.onclick = () => answer(w);
+      box.appendChild(b);
+    });
+    $('prog').textContent = `${i + 1} / ${items.length}`;
+    $('score').textContent = score;
+  }
+
+  function answer(w) {
+    if (answered) return; answered = true; answeredAt = Date.now();
+    const it = items[i], correct = w === it.answer;
+    if (correct) score += 1;
+    document.querySelectorAll('.opt').forEach(b => {
+      b.disabled = true;
+      if (b.dataset.w === it.answer) b.classList.add('right');
+      else if (b.dataset.w === w) b.classList.add('wrong');
+      else b.classList.add('dim');
+    });
+    $('frame').innerHTML = frameHTML(it.frame, it.answer);   // fill the blank with the right word
+    const why = $('why'); why.hidden = false;
+    why.innerHTML = (correct ? '' : '') + heb(it.why);
+    $('cont').hidden = false;
+    $('score').textContent = score;
+  }
+
+  function next() {
+    if (!answered) return;
+    if (i + 1 >= items.length) return finish();
+    i += 1; render();
+  }
+
+  function finish() {
+    app.className = 'done';
+    app.innerHTML = `<div class="frame" lang="he" dir="rtl">✓ כל הכבוד</div>
+      <div class="en" style="font-size:18px;margin-top:14px">${score} / ${items.length} right — the nuance is sinking in.<br><a href="index.html" style="color:#8ab4ff">← menu</a></div>`;
+    $('prog').textContent = ''; $('score').textContent = score;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!items.length) return;
+    if (!answered) { const n = parseInt(e.key, 10); const opts = document.querySelectorAll('.opt'); if (n >= 1 && n <= opts.length) { e.preventDefault(); opts[n - 1].click(); } }
+    else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); next(); }
+  });
+  app.addEventListener('click', (e) => {
+    if (!answered || app.className === 'done') return;
+    if (e.target.closest('.opt')) return;
+    if (Date.now() - answeredAt < 250) return;
+    next();
+  });
+
+  fetch('data/discrim.json?t=' + Date.now()).then(r => r.json()).then(d => {
+    GLOSS = d.glossary || {}; items = shuffle(d.items || []);
+    if (!items.length) { app.innerHTML = '<div class="en">no items.</div>'; return; }
+    render();
+  }).catch(e => { app.innerHTML = '<div class="en">failed to load: ' + esc(e.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>
