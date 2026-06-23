@@ -3404,6 +3404,22 @@
       ]
     },
     {
+      "rank": 377,
+      "bare": "ראשון",
+      "niqqud": "רִאשׁוֹן",
+      "translit": "rishon",
+      "gloss": "first",
+      "type": "adj",
+      "shoresh": "ר־א־ש",
+      "grammar": "ordinal 'first' (m.sg); f. רִאשׁוֹנָה. From רֹאשׁ 'head'. יוֹם רִאשׁוֹן = Sunday.",
+      "examples": [
+        {
+          "he": "הוא היה ה*ראשון* שהגיע.",
+          "en": "He was the first to arrive."
+        }
+      ]
+    },
+    {
       "rank": 378,
       "bare": "לבוא",
       "niqqud": "לָבוֹא",
@@ -3882,6 +3898,22 @@
       ]
     },
     {
+      "rank": 454,
+      "bare": "אופן",
+      "niqqud": "אוֹפֶן",
+      "translit": "ofen",
+      "gloss": "manner / way",
+      "type": "noun",
+      "shoresh": "א־פ־ן",
+      "grammar": "noun (m.sg) 'manner / mode'. בְּאוֹפֶן + adj makes an adverb ('in a … way'); בְּכָל אוֹפֶן = 'in any case / anyway'.",
+      "examples": [
+        {
+          "he": "לא התכוונתי באופן *אישי*.",
+          "en": "I didn't mean it personally."
+        }
+      ]
+    },
+    {
       "bare": "ימים",
       "niqqud": "יָמִים",
       "translit": "yamim",
@@ -4030,6 +4062,22 @@
       ]
     },
     {
+      "rank": 501,
+      "bare": "צודק",
+      "niqqud": "צוֹדֵק",
+      "translit": "tzodek",
+      "gloss": "is right / correct",
+      "type": "verb",
+      "shoresh": "צ־ד־ק",
+      "grammar": "pa'al present m.sg of צ־ד־ק 'be right'; f. צוֹדֶקֶת. 'אתה צודק' = 'you're right'. Same root as צֶדֶק 'justice'.",
+      "examples": [
+        {
+          "he": "אולי הוא *צודק*.",
+          "en": "Maybe he is right."
+        }
+      ]
+    },
+    {
       "rank": 524,
       "bare": "דלת",
       "niqqud": "דֶּלֶת",
@@ -4158,6 +4206,22 @@
         {
           "he": "הם עם *המשפחה* שלך.",
           "en": "They're with your family."
+        }
+      ]
+    },
+    {
+      "rank": 604,
+      "bare": "לפגוש",
+      "niqqud": "לִפְגֹּשׁ",
+      "translit": "lifgosh",
+      "gloss": "to meet",
+      "type": "verb",
+      "shoresh": "פ־ג־ש",
+      "grammar": "infinitive of פ־ג־שׁ 'meet' (pa'al). נָעִים לִפְגֹּשׁ = 'nice to meet'.",
+      "examples": [
+        {
+          "he": "נעים מאוד *לפגוש* אותך.",
+          "en": "Very nice to meet you."
         }
       ]
     },
@@ -4370,6 +4434,22 @@
       ]
     },
     {
+      "rank": 707,
+      "bare": "שווה",
+      "niqqud": "שָׁוֶה",
+      "translit": "shave",
+      "gloss": "equals / is worth / worth it",
+      "type": "verb",
+      "shoresh": "ש־ו־ה",
+      "grammar": "'equals / is worth' (m.sg), root ש־ו־ה 'be equal'. שָׁוֶה לְנַסּוֹת = 'worth trying'.",
+      "examples": [
+        {
+          "he": "*שווה* לנסות את זה.",
+          "en": "It's worth trying."
+        }
+      ]
+    },
+    {
       "rank": 725,
       "bare": "מצב",
       "niqqud": "מַצָּב",
@@ -4386,6 +4466,22 @@
       ]
     },
     {
+      "rank": 731,
+      "bare": "שתיים",
+      "niqqud": "שְׁתַּיִם",
+      "translit": "shtayim",
+      "gloss": "two (f.)",
+      "type": "number",
+      "shoresh": null,
+      "grammar": "number 'two' — feminine standalone/counting form; construct שְׁתֵּי. Masculine: שְׁנַיִם / שְׁנֵי.",
+      "examples": [
+        {
+          "he": "אחת, *שתיים*, שלוש, ארבע.",
+          "en": "One, two, three, four."
+        }
+      ]
+    },
+    {
       "rank": 742,
       "bare": "טלפון",
       "niqqud": "טֶלֶפוֹן",
@@ -4398,6 +4494,22 @@
         {
           "he": "תן לי את *הטלפון*.",
           "en": "Give me the phone."
+        }
+      ]
+    },
+    {
+      "rank": 756,
+      "bare": "להאמין",
+      "niqqud": "לְהַאֲמִין",
+      "translit": "lehaamin",
+      "gloss": "to believe",
+      "type": "verb",
+      "shoresh": "א־מ־ן",
+      "grammar": "infinitive, hif'il of א־מ־ן. להאמין לְ = 'believe (someone)'; להאמין בְּ = 'believe in'. Cf. אֱמוּנָה 'faith'.",
+      "examples": [
+        {
+          "he": "אתה חייב *להאמין* לי!",
+          "en": "You have to believe me!"
         }
       ]
     },
@@ -4434,6 +4546,22 @@
       ]
     },
     {
+      "rank": 792,
+      "bare": "שמחה",
+      "niqqud": "שִׂמְחָה",
+      "translit": "simcha",
+      "gloss": "joy / glad (f.)",
+      "type": "noun",
+      "shoresh": "ש־מ־ח",
+      "grammar": "noun 'joy', or adj f. 'glad' (אני שמחה = 'I'm glad', f.; m. שָׂמֵחַ). בְּשִׂמְחָה = 'gladly'.",
+      "examples": [
+        {
+          "he": "אני *שמחה* שזה נגמר.",
+          "en": "I'm glad it's over."
+        }
+      ]
+    },
+    {
       "rank": 802,
       "bare": "במיוחד",
       "niqqud": "בִּמְיוּחָד",
@@ -4446,6 +4574,38 @@
         {
           "he": "לא, לא קר *במיוחד*.",
           "en": "No, not especially cold."
+        }
+      ]
+    },
+    {
+      "rank": 802,
+      "bare": "מיוחד",
+      "niqqud": "מְיוּחָד",
+      "translit": "meyuchad",
+      "gloss": "special",
+      "type": "adj",
+      "shoresh": "י־ח־ד",
+      "grammar": "adjective 'special' (m.sg); f. מְיוּחֶדֶת. Root י־ח־ד 'single out' — same as בִּמְיוּחָד 'especially'.",
+      "examples": [
+        {
+          "he": "אין בזה משהו *מיוחד*.",
+          "en": "There's nothing special about it."
+        }
+      ]
+    },
+    {
+      "rank": 828,
+      "bare": "ארבע",
+      "niqqud": "אַרְבַּע",
+      "translit": "arba",
+      "gloss": "four (f.)",
+      "type": "number",
+      "shoresh": "ר־ב־ע",
+      "grammar": "number 'four' (feminine counting form); masculine אַרְבָּעָה.",
+      "examples": [
+        {
+          "he": "היא בת *ארבע* וחצי.",
+          "en": "She's four and a half."
         }
       ]
     },
@@ -4466,6 +4626,22 @@
       ]
     },
     {
+      "rank": 859,
+      "bare": "לדאוג",
+      "niqqud": "לִדְאֹג",
+      "translit": "lid'og",
+      "gloss": "to worry / take care of",
+      "type": "verb",
+      "shoresh": "ד־א־ג",
+      "grammar": "infinitive of ד־א־ג (pa'al). אַל תִּדְאַג = 'don't worry'; לדאוג לְ = 'to take care of'.",
+      "examples": [
+        {
+          "he": "תן לי *לדאוג* לזה.",
+          "en": "Let me take care of it."
+        }
+      ]
+    },
+    {
       "rank": 893,
       "bare": "מילה",
       "niqqud": "מִילָה",
@@ -4478,6 +4654,22 @@
         {
           "he": "אל תגיד *מילה* בטלפון.",
           "en": "Don't say a word on the phone."
+        }
+      ]
+    },
+    {
+      "rank": 910,
+      "bare": "לתפוס",
+      "niqqud": "לִתְפֹּס",
+      "translit": "litpos",
+      "gloss": "to catch / grab",
+      "type": "verb",
+      "shoresh": "ת־פ־ס",
+      "grammar": "infinitive of ת־פ־ס (pa'al). 'catch / grab'; לתפוס מקום = 'to grab/save a spot'.",
+      "examples": [
+        {
+          "he": "לכי *לתפוס* לנו שולחן.",
+          "en": "Go grab us a table."
         }
       ]
     },
@@ -4594,6 +4786,22 @@
       ]
     },
     {
+      "rank": 1135,
+      "bare": "מנהל",
+      "niqqud": "מְנַהֵל",
+      "translit": "menahel",
+      "gloss": "manager / director",
+      "type": "noun",
+      "shoresh": "נ־ה־ל",
+      "grammar": "noun (m.sg) 'manager'; also pi'el present 'manages' (מנהל את…). f. מְנַהֶלֶת.",
+      "examples": [
+        {
+          "he": "אחרי הכול, אני ה*מנהל*.",
+          "en": "After all, I'm the manager."
+        }
+      ]
+    },
+    {
       "rank": 1143,
       "bare": "מלך",
       "niqqud": "מֶלֶךְ",
@@ -4658,6 +4866,22 @@
       ]
     },
     {
+      "rank": 1352,
+      "bare": "אור",
+      "niqqud": "אוֹר",
+      "translit": "or",
+      "gloss": "light",
+      "type": "noun",
+      "shoresh": "א־ו־ר",
+      "grammar": "noun (m.sg) 'light'; pl. אוֹרוֹת orot. Root א־ו־ר; לְהָאִיר 'to light up'.",
+      "examples": [
+        {
+          "he": "מה זה ה*אור* הזה?",
+          "en": "What's that light?"
+        }
+      ]
+    },
+    {
       "bare": "עולם",
       "niqqud": "עוֹלָם",
       "translit": "olam",
@@ -4670,6 +4894,22 @@
         {
           "he": "זה באמת *עולם* קטן.",
           "en": "It really is a small world."
+        }
+      ]
+    },
+    {
+      "rank": 1382,
+      "bare": "לרדת",
+      "niqqud": "לָרֶדֶת",
+      "translit": "laredet",
+      "gloss": "to go down / get off / fall (rain)",
+      "type": "verb",
+      "shoresh": "י־ר־ד",
+      "grammar": "infinitive of י־ר־ד 'descend' (pa'al). לרדת מ = 'get off/out of'; יוֹרֵד גֶּשֶׁם = 'it's raining'.",
+      "examples": [
+        {
+          "he": "אתה יכול *לרדת* עכשיו.",
+          "en": "You can get down/off now."
         }
       ]
     },
@@ -4706,6 +4946,22 @@
       ]
     },
     {
+      "rank": 2294,
+      "bare": "עייף",
+      "niqqud": "עָיֵף",
+      "translit": "ayef",
+      "gloss": "tired",
+      "type": "adj",
+      "shoresh": "ע־י־ף",
+      "grammar": "adjective 'tired' (m.sg); f. עֲיֵפָה.",
+      "examples": [
+        {
+          "he": "אני *עייף*, אני הולך לישון.",
+          "en": "I'm tired, I'm going to sleep."
+        }
+      ]
+    },
+    {
       "rank": 2330,
       "bare": "דווקא",
       "niqqud": "דַּווְקָא",
@@ -4722,6 +4978,38 @@
       ]
     },
     {
+      "rank": 2448,
+      "bare": "רשמי",
+      "niqqud": "רִשְׁמִי",
+      "translit": "rishmi",
+      "gloss": "official / formal",
+      "type": "adj",
+      "shoresh": "ר־ש־ם",
+      "grammar": "adjective 'official / formal'; בְּאוֹפֶן רִשְׁמִי = 'officially'. From ר־ש־ם 'register / record'.",
+      "examples": [
+        {
+          "he": "זה עדיין לא *רשמי*.",
+          "en": "It's not official yet."
+        }
+      ]
+    },
+    {
+      "rank": 2615,
+      "bare": "גשם",
+      "niqqud": "גֶּשֶׁם",
+      "translit": "geshem",
+      "gloss": "rain",
+      "type": "noun",
+      "shoresh": "ג־ש־ם",
+      "grammar": "noun (m.sg) 'rain'; pl. גְּשָׁמִים. יוֹרֵד גֶּשֶׁם = 'it's raining' (rain 'comes down').",
+      "examples": [
+        {
+          "he": "יורד *גשם* בחוץ.",
+          "en": "It's raining outside."
+        }
+      ]
+    },
+    {
       "bare": "ארוחה",
       "niqqud": "אֲרוּחָה",
       "translit": "arucha",
@@ -4734,6 +5022,70 @@
         {
           "he": "בחור לא יכול להכין *ארוחה*?",
           "en": "Can't a guy make a meal?"
+        }
+      ]
+    },
+    {
+      "rank": 3680,
+      "bare": "להצליח",
+      "niqqud": "לְהַצְלִיחַ",
+      "translit": "lehatzliach",
+      "gloss": "to succeed / manage to",
+      "type": "verb",
+      "shoresh": "צ־ל־ח",
+      "grammar": "infinitive, hif'il of צ־ל־ח 'succeed'. הִצְלַחְתִּי = 'I managed/succeeded'; הצלחתי לְ + inf = 'I managed to…'.",
+      "examples": [
+        {
+          "he": "הוא רצה *להצליח* בכל מחיר.",
+          "en": "He wanted to succeed at any cost."
+        }
+      ]
+    },
+    {
+      "rank": 3772,
+      "bare": "ליפול",
+      "niqqud": "לִיפֹּל",
+      "translit": "lipol",
+      "gloss": "to fall",
+      "type": "verb",
+      "shoresh": "נ־פ־ל",
+      "grammar": "infinitive of נ־פ־ל 'fall' (pa'al). נָפַלְתִּי = 'I fell'.",
+      "examples": [
+        {
+          "he": "תיזהר, אתה עומד *ליפול*!",
+          "en": "Careful, you're about to fall!"
+        }
+      ]
+    },
+    {
+      "rank": 10211,
+      "bare": "לטעות",
+      "niqqud": "לִטְעוֹת",
+      "translit": "lit'ot",
+      "gloss": "to be wrong / make a mistake",
+      "type": "verb",
+      "shoresh": "ט־ע־ה",
+      "grammar": "infinitive of ט־ע־ה 'err' (pa'al). טָעִיתִי = 'I was wrong'. Cf. טָעוּת 'mistake'.",
+      "examples": [
+        {
+          "he": "כולם יכולים *לטעות*.",
+          "en": "Anyone can make a mistake."
+        }
+      ]
+    },
+    {
+      "rank": 10775,
+      "bare": "כבוי",
+      "niqqud": "כָּבוּי",
+      "translit": "kavui",
+      "gloss": "off / turned off",
+      "type": "adj",
+      "shoresh": "כ־ב־ה",
+      "grammar": "adjective 'off / extinguished' (m.sg); f. כְּבוּיָה, pl. כְּבוּיִים. Opposite דָּלוּק 'on'. From כ־ב־ה 'go out'.",
+      "examples": [
+        {
+          "he": "הטלפון שלו *כבוי*.",
+          "en": "His phone is off."
         }
       ]
     }
