@@ -48,7 +48,7 @@
   const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"’-]*)/g, '<span class="he">$1</span>');
   const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  let GLOSS = {}, items = [], i = 0, score = 0, answered = false, answeredAt = 0;
+  let GLOSS = {}, NIQ = {}, items = [], i = 0, score = 0, answered = false, answeredAt = 0;
 
   const frameHTML = (frame, fill) => {
     const parts = esc(frame).split('___');
@@ -71,7 +71,7 @@
     shuffle(it.options).forEach(w => {
       const b = document.createElement('button');
       b.className = 'opt'; b.dataset.w = w;
-      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(w)}</span><span class="g" hidden>${esc(GLOSS[w] || '')}</span>`;
+      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(NIQ[w] || w)}</span><span class="g" hidden>${esc(GLOSS[w] || '')}</span>`;
       b.onclick = () => answer(w);
       box.appendChild(b);
     });
@@ -124,7 +124,7 @@
   });
 
   fetch('data/discrim.json?t=' + Date.now()).then(r => r.json()).then(d => {
-    GLOSS = d.glossary || {}; items = shuffle(d.items || []);
+    GLOSS = d.glossary || {}; NIQ = d.niqqud || {}; items = shuffle(d.items || []);
     if (!items.length) { app.innerHTML = '<div class="en">no items.</div>'; return; }
     render();
   }).catch(e => { app.innerHTML = '<div class="en">failed to load: ' + esc(e.message) + '</div>'; });
