@@ -12,7 +12,7 @@
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
   body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
-    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent; touch-action: pan-y;
     display: flex; align-items: center; justify-content: center; }
   #hud { position: fixed; top: 14px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 16px; color: #6b7387; font-size: 14px; }
   #hud a { color: #6b7387; text-decoration: none; } #hud .score { color: #ffd479; font-weight: 700; }
@@ -22,7 +22,7 @@
   .frame b { color: #ffd479; }
   .blank { display: inline-block; min-width: 70px; border-bottom: 2px solid #4a72c4; margin: 0 6px; }
   .en { color: #8b93a7; font-size: 16px; margin-top: 12px; line-height: 1.4; }
-  .opts { margin-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+  .opts { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
   .opt { font: inherit; padding: 13px 16px; border-radius: 11px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; display: flex; align-items: baseline; gap: 12px; }
   .opt:hover:not(:disabled) { border-color: #4a72c4; }
   .opt .w { font-family: 'Heebo', sans-serif; font-size: 24px; font-weight: 700; direction: rtl; }
@@ -30,10 +30,12 @@
   .opt.right { border-color: #3aa564; background: #16321f; } .opt.right .g { color: #c9f4d6; }
   .opt.wrong { border-color: #a5443a; background: #361a17; } .opt.wrong .g { color: #f4c9c4; }
   .opt.dim { opacity: .5; }
-  .why { margin-top: 20px; font-size: 16px; line-height: 1.55; color: #c8d3e6; background: #141823; border-left: 2px solid #c8a96a; border-radius: 6px; padding: 12px 14px; text-align: left; }
+  .why { margin-top: 18px; font-size: 16px; line-height: 1.55; color: #c8d3e6; background: #141823; border-left: 2px solid #c8a96a; border-radius: 6px; padding: 12px 14px; text-align: left; }
   .why .he { font-family: 'Heebo', sans-serif; }
-  .cont { margin-top: 18px; color: #6b7387; font-size: 14px; }
-  .done .frame { font-size: 56px; }
+  .nav { margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 16px; color: #6b7387; font-size: 14px; }
+  .nav button { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 9px; color: #cfd6e4; font: inherit; font-size: 15px; padding: 8px 18px; cursor: pointer; }
+  .nav button:disabled { opacity: .3; cursor: default; }
+  .done .frame { font-size: 50px; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -45,86 +47,62 @@
   const $ = (id) => document.getElementById(id);
   const app = $('app');
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
-  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"’-]*)/g, '<span class="he">$1</span>');
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"’/-]*)/g, '<span class="he">$1</span>');
   const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  let GLOSS = {}, NIQ = {}, items = [], i = 0, score = 0, answered = false, answeredAt = 0;
+  let GLOSS = {}, NIQ = {}, items = [], chosen = [], i = 0;
+  const scoreOf = () => chosen.reduce((s, c, idx) => s + (c && items[idx] && c === items[idx].answer ? 1 : 0), 0);
 
-  const frameHTML = (frame, fill) => {
-    const parts = esc(frame).split('___');
-    const mid = fill ? `<b>${esc(fill)}</b>` : '<span class="blank"></span>';
-    return parts.join(mid);
-  };
+  const frameHTML = (frame, fill) => esc(frame).split('___').join(fill ? `<b>${esc(fill)}</b>` : '<span class="blank"></span>');
   const enHTML = (en) => esc(en).replace('___', '<span style="opacity:.6">___</span>');
 
   function render() {
-    const it = items[i]; answered = false;
+    const it = items[i], chose = chosen[i];          // chose = the picked word, or undefined → unanswered
     app.className = '';
     app.innerHTML =
       `<div class="cluster">${esc(it.cluster)} — which fits?</div>
-       <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(it.frame, null)}</div>
-       <div class="en" id="en" hidden>${enHTML(it.en)}</div>
+       <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(it.frame, chose ? (NIQ[it.answer] || it.answer) : null)}</div>
+       <div class="en"${chose ? '' : ' hidden'}>${enHTML(it.en)}</div>
        <div class="opts" id="opts"></div>
-       <div class="why" id="why" hidden></div>
-       <div class="cont" id="cont" hidden>tap / space → next</div>`;
+       ${chose ? `<div class="why">${heb(it.why)}</div>` : ''}
+       <div class="nav">
+         <button id="prev" ${i === 0 ? 'disabled' : ''}>‹ back</button>
+         <button id="next" ${i >= items.length - 1 ? 'disabled' : ''}>next ›</button>
+       </div>`;
     const box = $('opts');
-    shuffle(it.options).forEach(w => {
+    for (const w of it._order) {
       const b = document.createElement('button');
-      b.className = 'opt'; b.dataset.w = w;
-      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(NIQ[w] || w)}</span><span class="g" hidden>${esc(GLOSS[w] || '')}</span>`;
-      b.onclick = () => answer(w);
+      b.className = 'opt' + (chose ? (w === it.answer ? ' right' : (w === chose ? ' wrong' : ' dim')) : '');
+      b.disabled = !!chose;
+      b.innerHTML = `<span class="w" lang="he" dir="rtl">${esc(NIQ[w] || w)}</span><span class="g"${chose ? '' : ' hidden'}>${esc(GLOSS[w] || '')}</span>`;
+      if (!chose) b.onclick = () => answer(w);
       box.appendChild(b);
-    });
+    }
+    $('prev').onclick = () => go(-1);
+    $('next').onclick = () => go(1);
     $('prog').textContent = `${i + 1} / ${items.length}`;
-    $('score').textContent = score;
+    $('score').textContent = scoreOf();
   }
 
-  function answer(w) {
-    if (answered) return; answered = true; answeredAt = Date.now();
-    const it = items[i], correct = w === it.answer;
-    if (correct) score += 1;
-    document.querySelectorAll('.opt').forEach(b => {
-      b.disabled = true;
-      if (b.dataset.w === it.answer) b.classList.add('right');
-      else if (b.dataset.w === w) b.classList.add('wrong');
-      else b.classList.add('dim');
-    });
-    document.querySelectorAll('.opt .g').forEach(g => g.hidden = false);   // glosses revealed only after the choice
-    $('frame').innerHTML = frameHTML(it.frame, NIQ[it.answer] || it.answer);   // fill the blank with the vocalized answer
-    $('en').hidden = false;                                   // English revealed only after the choice
-    const why = $('why'); why.hidden = false;
-    why.innerHTML = (correct ? '' : '') + heb(it.why);
-    $('cont').hidden = false;
-    $('score').textContent = score;
-  }
-
-  function next() {
-    if (!answered) return;
-    if (i + 1 >= items.length) return finish();
-    i += 1; render();
-  }
-
-  function finish() {
-    app.className = 'done';
-    app.innerHTML = `<div class="frame" lang="he" dir="rtl">✓ כל הכבוד</div>
-      <div class="en" style="font-size:18px;margin-top:14px">${score} / ${items.length} right — the nuance is sinking in.<br><a href="index.html" style="color:#8ab4ff">← menu</a></div>`;
-    $('prog').textContent = ''; $('score').textContent = score;
-  }
+  function answer(w) { if (chosen[i] != null) return; chosen[i] = w; render(); }
+  function go(delta) { const ni = i + delta; if (ni >= 0 && ni < items.length) { i = ni; render(); } }
 
   document.addEventListener('keydown', (e) => {
     if (!items.length) return;
-    if (!answered) { const n = parseInt(e.key, 10); const opts = document.querySelectorAll('.opt'); if (n >= 1 && n <= opts.length) { e.preventDefault(); opts[n - 1].click(); } }
-    else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    else if (chosen[i] == null) { const n = parseInt(e.key, 10); const opts = document.querySelectorAll('.opt'); if (n >= 1 && n <= opts.length) { e.preventDefault(); opts[n - 1].click(); } }
+    else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); go(1); }
   });
-  app.addEventListener('click', (e) => {
-    if (!answered || app.className === 'done') return;
-    if (e.target.closest('.opt')) return;
-    if (Date.now() - answeredAt < 250) return;
-    next();
-  });
+  // swipe left → next, swipe right → back (review)
+  let tx = 0, ty = 0;
+  app.addEventListener('touchstart', (e) => { const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; }, { passive: true });
+  app.addEventListener('touchend', (e) => { const t = e.changedTouches[0]; const dx = t.clientX - tx, dy = t.clientY - ty; if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1); }, { passive: true });
 
   fetch('data/discrim.json?t=' + Date.now()).then(r => r.json()).then(d => {
-    GLOSS = d.glossary || {}; NIQ = d.niqqud || {}; items = shuffle(d.items || []);
+    GLOSS = d.glossary || {}; NIQ = d.niqqud || {};
+    items = shuffle(d.items || []).map(it => ({ ...it, _order: shuffle(it.options) }));   // fixed option order per item
+    chosen = new Array(items.length).fill(null);
     if (!items.length) { app.innerHTML = '<div class="en">no items.</div>'; return; }
     render();
   }).catch(e => { app.innerHTML = '<div class="en">failed to load: ' + esc(e.message) + '</div>'; });
