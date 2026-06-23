@@ -1,0 +1,25 @@
+{
+  "_note": "Inflection sets for the crossword paradigm-trainer. forms keyed by type: past3ms / past3fs / presMs / inf / past1cs → [bare, niqqud, translit]. crossword.mjs samples one form per verb to build a variant.",
+  "verbs": [
+    { "lemma": "ירד", "shoresh": "י־ר־ד", "gloss": "go down / get off / fall (rain)",
+      "forms": { "past3ms": ["ירד", "יָרַד", "yarad"], "past3fs": ["ירדה", "יָרְדָה", "yarda"], "presMs": ["יורד", "יוֹרֵד", "yored"], "inf": ["לרדת", "לָרֶדֶת", "laredet"], "past1cs": ["ירדתי", "יָרַדְתִּי", "yaradti"] } },
+    { "lemma": "הלך", "shoresh": "ה־ל־ך", "gloss": "go / walk",
+      "forms": { "past3ms": ["הלך", "הָלַךְ", "halach"], "past3fs": ["הלכה", "הָלְכָה", "halcha"], "presMs": ["הולך", "הוֹלֵךְ", "holech"], "inf": ["ללכת", "לָלֶכֶת", "lalechet"], "past1cs": ["הלכתי", "הָלַכְתִּי", "halachti"] } },
+    { "lemma": "אכל", "shoresh": "א־כ־ל", "gloss": "eat",
+      "forms": { "past3ms": ["אכל", "אָכַל", "achal"], "past3fs": ["אכלה", "אָכְלָה", "achla"], "presMs": ["אוכל", "אוֹכֵל", "ochel"], "inf": ["לאכול", "לֶאֱכֹל", "le'echol"], "past1cs": ["אכלתי", "אָכַלְתִּי", "achalti"] } },
+    { "lemma": "אמר", "shoresh": "א־מ־ר", "gloss": "say",
+      "forms": { "past3ms": ["אמר", "אָמַר", "amar"], "past3fs": ["אמרה", "אָמְרָה", "amra"], "presMs": ["אומר", "אוֹמֵר", "omer"], "inf": ["לומר", "לוֹמַר", "lomar"], "past1cs": ["אמרתי", "אָמַרְתִּי", "amarti"] } },
+    { "lemma": "ידע", "shoresh": "י־ד־ע", "gloss": "know",
+      "forms": { "past3ms": ["ידע", "יָדַע", "yada"], "past3fs": ["ידעה", "יָדְעָה", "yad'a"], "presMs": ["יודע", "יוֹדֵעַ", "yodea"], "inf": ["לדעת", "לָדַעַת", "lada'at"], "past1cs": ["ידעתי", "יָדַעְתִּי", "yadati"] } },
+    { "lemma": "כתב", "shoresh": "כ־ת־ב", "gloss": "write",
+      "forms": { "past3ms": ["כתב", "כָּתַב", "katav"], "past3fs": ["כתבה", "כָּתְבָה", "katva"], "presMs": ["כותב", "כּוֹתֵב", "kotev"], "inf": ["לכתוב", "לִכְתֹּב", "lichtov"], "past1cs": ["כתבתי", "כָּתַבְתִּי", "katavti"] } },
+    { "lemma": "שמע", "shoresh": "ש־מ־ע", "gloss": "hear / listen",
+      "forms": { "past3ms": ["שמע", "שָׁמַע", "shama"], "past3fs": ["שמעה", "שָׁמְעָה", "sham'a"], "presMs": ["שומע", "שׁוֹמֵעַ", "shomea"], "inf": ["לשמוע", "לִשְׁמֹעַ", "lishmoa"], "past1cs": ["שמעתי", "שָׁמַעְתִּי", "shamati"] } },
+    { "lemma": "עבד", "shoresh": "ע־ב־ד", "gloss": "work",
+      "forms": { "past3ms": ["עבד", "עָבַד", "avad"], "past3fs": ["עבדה", "עָבְדָה", "avda"], "presMs": ["עובד", "עוֹבֵד", "oved"], "inf": ["לעבוד", "לַעֲבֹד", "la'avod"], "past1cs": ["עבדתי", "עָבַדְתִּי", "avadti"] } },
+    { "lemma": "סגר", "shoresh": "ס־ג־ר", "gloss": "close / shut",
+      "forms": { "past3ms": ["סגר", "סָגַר", "sagar"], "past3fs": ["סגרה", "סָגְרָה", "sagra"], "presMs": ["סוגר", "סוֹגֵר", "soger"], "inf": ["לסגור", "לִסְגֹּר", "lisgor"], "past1cs": ["סגרתי", "סָגַרְתִּי", "sagarti"] } },
+    { "lemma": "למד", "shoresh": "ל־מ־ד", "gloss": "learn / study",
+      "forms": { "past3ms": ["למד", "לָמַד", "lamad"], "past3fs": ["למדה", "לָמְדָה", "lamda"], "presMs": ["לומד", "לוֹמֵד", "lomed"], "inf": ["ללמוד", "לִלְמֹד", "lilmod"], "past1cs": ["למדתי", "לָמַדְתִּי", "lamadti"] } }
+  ]
+}

@@ -63,12 +63,15 @@
     const data = await (await fetch('data/crosswords.json?t=' + Date.now())).json();
     INDEX = data.index || [];
     $('themes').innerHTML = INDEX.map(t => {
-      const room = `${t.id}-${Math.random().toString(36).slice(2, 7)}`;   // a fresh private room to invite into
+      const variants = (t.variants && t.variants.length) ? t.variants : [t.id];
+      const v = variants[Math.floor(Math.random() * variants.length)];           // random variant each load
+      const room = `${t.id}-${Math.random().toString(36).slice(2, 7)}`;           // a fresh private room to invite into
+      const tag = variants.length > 1 ? `${t.words} words · ${variants.length} inflection sets` : `${t.words} words`;
       return `
       <div class="theme">
-        <div class="t">${titleHTML(t.title)}<span class="n">${t.words} words</span></div>
-        <a class="btn solo" href="crossword.html?puzzle=${encodeURIComponent(t.id)}">solo</a>
-        <a class="btn live" href="crossword.html?room=${encodeURIComponent(room)}&puzzle=${encodeURIComponent(t.id)}">🔗 invite →</a>
+        <div class="t">${titleHTML(t.title)}<span class="n">${tag}</span></div>
+        <a class="btn solo" href="crossword.html?puzzle=${encodeURIComponent(v)}">solo</a>
+        <a class="btn live" href="crossword.html?room=${encodeURIComponent(room)}&puzzle=${encodeURIComponent(v)}">🔗 invite →</a>
       </div>`;
     }).join('');
   }
