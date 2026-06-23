@@ -3,43 +3,50 @@
     {
       "id": "time",
       "title": "time · זמן",
-      "rows": 7,
-      "cols": 6,
+      "rows": 8,
+      "cols": 5,
       "words": 9
     },
     {
       "id": "people",
       "title": "people & body · אנשים",
-      "rows": 8,
+      "rows": 9,
       "cols": 5,
       "words": 9
     },
     {
       "id": "home",
       "title": "home & things · בבית",
-      "rows": 9,
+      "rows": 7,
       "cols": 7,
-      "words": 9
+      "words": 8
     },
     {
       "id": "verbs",
       "title": "verbs · פעלים",
-      "rows": 9,
-      "cols": 7,
+      "rows": 10,
+      "cols": 6,
       "words": 9
     },
     {
       "id": "adverbs",
       "title": "adverbs · תארי הפועל",
-      "rows": 5,
-      "cols": 12,
+      "rows": 8,
+      "cols": 8,
       "words": 9
     },
     {
       "id": "ideas",
       "title": "world & ideas · רעיונות",
-      "rows": 5,
-      "cols": 13,
+      "rows": 9,
+      "cols": 7,
+      "words": 9
+    },
+    {
+      "id": "fresh",
+      "title": "new words · מילים חדשות",
+      "rows": 6,
+      "cols": 9,
       "words": 9
     }
   ],
@@ -47,16 +54,16 @@
     "time": {
       "id": "time",
       "title": "time · זמן",
-      "rows": 7,
-      "cols": 6,
+      "rows": 8,
+      "cols": 5,
       "entries": [
         {
           "num": 1,
           "dir": "down",
           "answer": [
-            "ע",
-            "ר",
-            "ב"
+            "מ",
+            "ה",
+            "ר"
           ],
           "len": 3,
           "cells": [
@@ -73,20 +80,49 @@
               "c": 2
             }
           ],
-          "clue": "evening",
-          "niqqud": "עֶרֶב",
-          "translit": "erev",
-          "hint": "root ע־ר־ב",
-          "points": 20
+          "clue": "fast / quickly",
+          "niqqud": "מַהֵר",
+          "translit": "maher",
+          "hint": "root מ־ה־ר",
+          "points": 15
         },
         {
           "num": 2,
-          "dir": "down",
+          "dir": "across",
           "answer": [
-            "ש",
-            "ב",
-            "ו",
-            "ע"
+            "ז",
+            "מ",
+            "ן"
+          ],
+          "len": 3,
+          "cells": [
+            {
+              "r": 0,
+              "c": 3
+            },
+            {
+              "r": 0,
+              "c": 2
+            },
+            {
+              "r": 0,
+              "c": 1
+            }
+          ],
+          "clue": "time",
+          "niqqud": "זְמַן",
+          "translit": "zman",
+          "hint": "root ז־מ־ן",
+          "points": 10
+        },
+        {
+          "num": 3,
+          "dir": "across",
+          "answer": [
+            "מ",
+            "ז",
+            "מ",
+            "ן"
           ],
           "len": 4,
           "cells": [
@@ -95,32 +131,32 @@
               "c": 4
             },
             {
-              "r": 1,
-              "c": 4
+              "r": 0,
+              "c": 3
             },
             {
-              "r": 2,
-              "c": 4
+              "r": 0,
+              "c": 2
             },
             {
-              "r": 3,
-              "c": 4
+              "r": 0,
+              "c": 1
             }
           ],
-          "clue": "week",
-          "niqqud": "שָׁבוּעַ",
-          "translit": "shavua",
-          "hint": "root ש־ב־ע",
-          "points": 30
+          "clue": "long ago / for a long time",
+          "niqqud": "מִזְּמַן",
+          "translit": "mizman",
+          "hint": "from זְמַן \"time\"",
+          "points": 50
         },
         {
-          "num": 3,
+          "num": 4,
           "dir": "down",
           "answer": [
+            "ש",
             "ב",
             "ו",
-            "ק",
-            "ר"
+            "ע"
           ],
           "len": 4,
           "cells": [
@@ -141,14 +177,14 @@
               "c": 0
             }
           ],
-          "clue": "morning",
-          "niqqud": "בֹּקֶר",
-          "translit": "boker",
-          "hint": "root ב־ק־ר",
-          "points": 20
+          "clue": "week",
+          "niqqud": "שָׁבוּעַ",
+          "translit": "shavua",
+          "hint": "root ש־ב־ע",
+          "points": 30
         },
         {
-          "num": 4,
+          "num": 5,
           "dir": "across",
           "answer": [
             "ב",
@@ -160,23 +196,23 @@
           "len": 5,
           "cells": [
             {
-              "r": 1,
+              "r": 2,
               "c": 4
             },
             {
-              "r": 1,
+              "r": 2,
               "c": 3
             },
             {
-              "r": 1,
+              "r": 2,
               "c": 2
             },
             {
-              "r": 1,
+              "r": 2,
               "c": 1
             },
             {
-              "r": 1,
+              "r": 2,
               "c": 0
             }
           ],
@@ -188,76 +224,48 @@
         },
         {
           "num": 5,
-          "dir": "across",
+          "dir": "down",
           "answer": [
-            "ש",
-            "ע",
-            "ה"
+            "ב",
+            "ו",
+            "ק",
+            "ר"
           ],
-          "len": 3,
+          "len": 4,
           "cells": [
             {
-              "r": 3,
-              "c": 5
+              "r": 2,
+              "c": 4
             },
             {
               "r": 3,
               "c": 4
             },
             {
-              "r": 3,
-              "c": 3
-            }
-          ],
-          "clue": "hour / o'clock",
-          "niqqud": "שָׁעָה",
-          "translit": "sha'a",
-          "hint": "root שׁ־ע־ה",
-          "points": 25
-        },
-        {
-          "num": 6,
-          "dir": "across",
-          "answer": [
-            "מ",
-            "ח",
-            "ר"
-          ],
-          "len": 3,
-          "cells": [
-            {
               "r": 4,
-              "c": 2
+              "c": 4
             },
             {
-              "r": 4,
-              "c": 1
-            },
-            {
-              "r": 4,
-              "c": 0
+              "r": 5,
+              "c": 4
             }
           ],
-          "clue": "tomorrow",
-          "niqqud": "מָחָר",
-          "translit": "machar",
-          "hint": null,
-          "points": 15
+          "clue": "morning",
+          "niqqud": "בֹּקֶר",
+          "translit": "boker",
+          "hint": "root ב־ק־ר",
+          "points": 20
         },
         {
           "num": 6,
           "dir": "down",
           "answer": [
-            "מ",
-            "ה",
-            "ר"
+            "ע",
+            "ר",
+            "ב"
           ],
           "len": 3,
           "cells": [
-            {
-              "r": 4,
-              "c": 2
-            },
             {
               "r": 5,
               "c": 2
@@ -265,50 +273,20 @@
             {
               "r": 6,
               "c": 2
-            }
-          ],
-          "clue": "fast / quickly",
-          "niqqud": "מַהֵר",
-          "translit": "maher",
-          "hint": "root מ־ה־ר",
-          "points": 15
-        },
-        {
-          "num": 7,
-          "dir": "across",
-          "answer": [
-            "ל",
-            "י",
-            "ל",
-            "ה"
-          ],
-          "len": 4,
-          "cells": [
-            {
-              "r": 5,
-              "c": 5
             },
             {
-              "r": 5,
-              "c": 4
-            },
-            {
-              "r": 5,
-              "c": 3
-            },
-            {
-              "r": 5,
+              "r": 7,
               "c": 2
             }
           ],
-          "clue": "night",
-          "niqqud": "לַיְלָה",
-          "translit": "layla",
-          "hint": "root ל־י־ל",
+          "clue": "evening",
+          "niqqud": "עֶרֶב",
+          "translit": "erev",
+          "hint": "root ע־ר־ב",
           "points": 20
         },
         {
-          "num": 8,
+          "num": 7,
           "dir": "across",
           "answer": [
             "ר",
@@ -318,16 +296,16 @@
           "len": 3,
           "cells": [
             {
-              "r": 6,
+              "r": 5,
+              "c": 4
+            },
+            {
+              "r": 5,
+              "c": 3
+            },
+            {
+              "r": 5,
               "c": 2
-            },
-            {
-              "r": 6,
-              "c": 1
-            },
-            {
-              "r": 6,
-              "c": 0
             }
           ],
           "clue": "moment / hold on a sec",
@@ -335,13 +313,42 @@
           "translit": "rega",
           "hint": "root ר־ג־ע",
           "points": 15
+        },
+        {
+          "num": 8,
+          "dir": "across",
+          "answer": [
+            "ש",
+            "ו",
+            "ב"
+          ],
+          "len": 3,
+          "cells": [
+            {
+              "r": 7,
+              "c": 4
+            },
+            {
+              "r": 7,
+              "c": 3
+            },
+            {
+              "r": 7,
+              "c": 2
+            }
+          ],
+          "clue": "again",
+          "niqqud": "שׁוּב",
+          "translit": "shuv",
+          "hint": "root שׁ־ו־ב",
+          "points": 10
         }
       ]
     },
     "people": {
       "id": "people",
       "title": "people & body · אנשים",
-      "rows": 8,
+      "rows": 9,
       "cols": 5,
       "entries": [
         {
@@ -466,40 +473,6 @@
           "points": 15
         },
         {
-          "num": 3,
-          "dir": "down",
-          "answer": [
-            "א",
-            "י",
-            "ש",
-            "ה"
-          ],
-          "len": 4,
-          "cells": [
-            {
-              "r": 2,
-              "c": 3
-            },
-            {
-              "r": 3,
-              "c": 3
-            },
-            {
-              "r": 4,
-              "c": 3
-            },
-            {
-              "r": 5,
-              "c": 3
-            }
-          ],
-          "clue": "woman / wife",
-          "niqqud": "אִשָּׁה",
-          "translit": "isha",
-          "hint": "root א־שׁ־ה",
-          "points": 20
-        },
-        {
           "num": 4,
           "dir": "across",
           "answer": [
@@ -527,35 +500,6 @@
           "translit": "rosh",
           "hint": "root ר־א־שׁ",
           "points": 20
-        },
-        {
-          "num": 5,
-          "dir": "down",
-          "answer": [
-            "ח",
-            "ב",
-            "ר"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 4,
-              "c": 1
-            },
-            {
-              "r": 5,
-              "c": 1
-            },
-            {
-              "r": 6,
-              "c": 1
-            }
-          ],
-          "clue": "friend / boyfriend",
-          "niqqud": "חָבֵר",
-          "translit": "chaver",
-          "hint": "root ח־ב־ר",
-          "points": 10
         },
         {
           "num": 5,
@@ -629,13 +573,76 @@
           "translit": "mishpacha",
           "hint": "root ש־פ־ח",
           "points": 30
+        },
+        {
+          "num": 7,
+          "dir": "down",
+          "answer": [
+            "ח",
+            "ב",
+            "ר"
+          ],
+          "len": 3,
+          "cells": [
+            {
+              "r": 6,
+              "c": 3
+            },
+            {
+              "r": 7,
+              "c": 3
+            },
+            {
+              "r": 8,
+              "c": 3
+            }
+          ],
+          "clue": "friend / boyfriend",
+          "niqqud": "חָבֵר",
+          "translit": "chaver",
+          "hint": "root ח־ב־ר",
+          "points": 10
+        },
+        {
+          "num": 8,
+          "dir": "across",
+          "answer": [
+            "ב",
+            "ח",
+            "ו",
+            "ר"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 6,
+              "c": 4
+            },
+            {
+              "r": 6,
+              "c": 3
+            },
+            {
+              "r": 6,
+              "c": 2
+            },
+            {
+              "r": 6,
+              "c": 1
+            }
+          ],
+          "clue": "guy / young man",
+          "niqqud": "בָּחוּר",
+          "translit": "bachur",
+          "hint": "root ב־ח־ר",
+          "points": 20
         }
       ]
     },
     "home": {
       "id": "home",
       "title": "home & things · בבית",
-      "rows": 9,
+      "rows": 7,
       "cols": 7,
       "entries": [
         {
@@ -857,61 +864,32 @@
           "points": 30
         },
         {
-          "num": 7,
-          "dir": "across",
-          "answer": [
-            "ד",
-            "ל",
-            "ת"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 6,
-              "c": 2
-            },
-            {
-              "r": 6,
-              "c": 1
-            },
-            {
-              "r": 6,
-              "c": 0
-            }
-          ],
-          "clue": "door",
-          "niqqud": "דֶּלֶת",
-          "translit": "delet",
-          "hint": "root ד־ל־ת",
-          "points": 20
-        },
-        {
-          "num": 7,
+          "num": 6,
           "dir": "down",
           "answer": [
-            "ד",
-            "ר",
-            "ך"
+            "כ",
+            "ס",
+            "ף"
           ],
           "len": 3,
           "cells": [
             {
+              "r": 4,
+              "c": 2
+            },
+            {
+              "r": 5,
+              "c": 2
+            },
+            {
               "r": 6,
-              "c": 2
-            },
-            {
-              "r": 7,
-              "c": 2
-            },
-            {
-              "r": 8,
               "c": 2
             }
           ],
-          "clue": "way / road / through",
-          "niqqud": "דֶּרֶךְ",
-          "translit": "derech",
-          "hint": "root ד־ר־ך",
+          "clue": "money / silver",
+          "niqqud": "כֶּסֶף",
+          "translit": "kesef",
+          "hint": "root כ־ס־ף",
           "points": 15
         }
       ]
@@ -919,24 +897,59 @@
     "verbs": {
       "id": "verbs",
       "title": "verbs · פעלים",
-      "rows": 9,
-      "cols": 7,
+      "rows": 10,
+      "cols": 6,
       "entries": [
         {
           "num": 1,
-          "dir": "across",
+          "dir": "down",
           "answer": [
-            "ל",
-            "ד",
-            "ע",
-            "ת"
+            "מ",
+            "ק",
+            "ו",
+            "ו",
+            "ה"
           ],
-          "len": 4,
+          "len": 5,
           "cells": [
             {
               "r": 0,
-              "c": 4
+              "c": 1
             },
+            {
+              "r": 1,
+              "c": 1
+            },
+            {
+              "r": 2,
+              "c": 1
+            },
+            {
+              "r": 3,
+              "c": 1
+            },
+            {
+              "r": 4,
+              "c": 1
+            }
+          ],
+          "clue": "hopes",
+          "niqqud": "מְקַוֶּה",
+          "translit": "mekave",
+          "hint": "root ק־ו־ה",
+          "points": 25
+        },
+        {
+          "num": 2,
+          "dir": "across",
+          "answer": [
+            "ל",
+            "ו",
+            "מ",
+            "ר"
+          ],
+          "len": 4,
+          "cells": [
             {
               "r": 0,
               "c": 3
@@ -948,16 +961,93 @@
             {
               "r": 0,
               "c": 1
+            },
+            {
+              "r": 0,
+              "c": 0
             }
           ],
-          "clue": "to know",
-          "niqqud": "לָדַעַת",
-          "translit": "lada'at",
-          "hint": "root י־ד־ע",
+          "clue": "to say",
+          "niqqud": "לוֹמַר",
+          "translit": "lomar",
+          "hint": "root א־מ־ר",
           "points": 15
         },
         {
-          "num": 1,
+          "num": 2,
+          "dir": "down",
+          "answer": [
+            "ל",
+            "ד",
+            "ב",
+            "ר"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 0,
+              "c": 3
+            },
+            {
+              "r": 1,
+              "c": 3
+            },
+            {
+              "r": 2,
+              "c": 3
+            },
+            {
+              "r": 3,
+              "c": 3
+            }
+          ],
+          "clue": "to speak / to talk",
+          "niqqud": "לְדַבֵּר",
+          "translit": "ledaber",
+          "hint": "root ד־ב־ר",
+          "points": 15
+        },
+        {
+          "num": 3,
+          "dir": "across",
+          "answer": [
+            "ל",
+            "ר",
+            "א",
+            "ו",
+            "ת"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 3,
+              "c": 4
+            },
+            {
+              "r": 3,
+              "c": 3
+            },
+            {
+              "r": 3,
+              "c": 2
+            },
+            {
+              "r": 3,
+              "c": 1
+            },
+            {
+              "r": 3,
+              "c": 0
+            }
+          ],
+          "clue": "to see",
+          "niqqud": "לִרְאוֹת",
+          "translit": "lir'ot",
+          "hint": "root ר־א־ה",
+          "points": 15
+        },
+        {
+          "num": 3,
           "dir": "down",
           "answer": [
             "ל",
@@ -968,19 +1058,19 @@
           "len": 4,
           "cells": [
             {
-              "r": 0,
-              "c": 4
-            },
-            {
-              "r": 1,
-              "c": 4
-            },
-            {
-              "r": 2,
-              "c": 4
-            },
-            {
               "r": 3,
+              "c": 4
+            },
+            {
+              "r": 4,
+              "c": 4
+            },
+            {
+              "r": 5,
+              "c": 4
+            },
+            {
+              "r": 6,
               "c": 4
             }
           ],
@@ -989,84 +1079,6 @@
           "translit": "latzet",
           "hint": "root י־צ־א",
           "points": 20
-        },
-        {
-          "num": 2,
-          "dir": "down",
-          "answer": [
-            "ק",
-            "ו",
-            "ר",
-            "ה"
-          ],
-          "len": 4,
-          "cells": [
-            {
-              "r": 2,
-              "c": 2
-            },
-            {
-              "r": 3,
-              "c": 2
-            },
-            {
-              "r": 4,
-              "c": 2
-            },
-            {
-              "r": 5,
-              "c": 2
-            }
-          ],
-          "clue": "happens",
-          "niqqud": "קוֹרֶה",
-          "translit": "kore",
-          "hint": "root ק־ר־ה",
-          "points": 15
-        },
-        {
-          "num": 3,
-          "dir": "across",
-          "answer": [
-            "מ",
-            "ת",
-            "כ",
-            "ו",
-            "ו",
-            "ן"
-          ],
-          "len": 6,
-          "cells": [
-            {
-              "r": 3,
-              "c": 5
-            },
-            {
-              "r": 3,
-              "c": 4
-            },
-            {
-              "r": 3,
-              "c": 3
-            },
-            {
-              "r": 3,
-              "c": 2
-            },
-            {
-              "r": 3,
-              "c": 1
-            },
-            {
-              "r": 3,
-              "c": 0
-            }
-          ],
-          "clue": "means / intends",
-          "niqqud": "מִתְכַּוֵּן",
-          "translit": "mitkaven",
-          "hint": "root כ־ו־ן",
-          "points": 25
         },
         {
           "num": 4,
@@ -1081,19 +1093,19 @@
           "cells": [
             {
               "r": 5,
-              "c": 0
+              "c": 2
             },
             {
               "r": 6,
-              "c": 0
+              "c": 2
             },
             {
               "r": 7,
-              "c": 0
+              "c": 2
             },
             {
               "r": 8,
-              "c": 0
+              "c": 2
             }
           ],
           "clue": "loves / likes",
@@ -1104,150 +1116,233 @@
         },
         {
           "num": 5,
-          "dir": "down",
+          "dir": "across",
           "answer": [
-            "א",
-            "ו",
             "מ",
-            "ר"
+            "ת",
+            "כ",
+            "ו",
+            "ו",
+            "ן"
           ],
-          "len": 4,
+          "len": 6,
           "cells": [
             {
-              "r": 5,
-              "c": 3
+              "r": 6,
+              "c": 5
+            },
+            {
+              "r": 6,
+              "c": 4
             },
             {
               "r": 6,
               "c": 3
             },
             {
+              "r": 6,
+              "c": 2
+            },
+            {
+              "r": 6,
+              "c": 1
+            },
+            {
+              "r": 6,
+              "c": 0
+            }
+          ],
+          "clue": "means / intends",
+          "niqqud": "מִתְכַּוֵּן",
+          "translit": "mitkaven",
+          "hint": "root כ־ו־ן",
+          "points": 25
+        },
+        {
+          "num": 5,
+          "dir": "down",
+          "answer": [
+            "מ",
+            "ב",
+            "י",
+            "ן"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 6,
+              "c": 5
+            },
+            {
               "r": 7,
-              "c": 3
+              "c": 5
             },
             {
               "r": 8,
-              "c": 3
+              "c": 5
+            },
+            {
+              "r": 9,
+              "c": 5
             }
           ],
-          "clue": "says",
-          "niqqud": "אוֹמֵר",
-          "translit": "omer",
-          "hint": "root א־מ־ר",
+          "clue": "understands",
+          "niqqud": "מֵבִין",
+          "translit": "mevin",
+          "hint": "root ב־י־ן",
           "points": 15
         },
         {
           "num": 6,
           "dir": "across",
           "answer": [
-            "נ",
-            "ר",
-            "א",
-            "ה"
+            "ב",
+            "ו",
+            "א"
           ],
-          "len": 4,
+          "len": 3,
           "cells": [
             {
-              "r": 5,
-              "c": 5
-            },
-            {
-              "r": 5,
-              "c": 4
-            },
-            {
-              "r": 5,
-              "c": 3
-            },
-            {
-              "r": 5,
-              "c": 2
-            }
-          ],
-          "clue": "looks / seems",
-          "niqqud": "נִרְאֶה",
-          "translit": "nir'e",
-          "hint": "root ר־א־ה",
-          "points": 15
-        },
-        {
-          "num": 7,
-          "dir": "across",
-          "answer": [
-            "מ",
-            "נ",
-            "ס",
-            "ה"
-          ],
-          "len": 4,
-          "cells": [
-            {
-              "r": 7,
-              "c": 3
-            },
-            {
-              "r": 7,
+              "r": 8,
               "c": 2
             },
             {
-              "r": 7,
+              "r": 8,
               "c": 1
             },
             {
-              "r": 7,
+              "r": 8,
               "c": 0
             }
           ],
-          "clue": "trying (m)",
-          "niqqud": "מְנַסֶּה",
-          "translit": "menase",
-          "hint": "root נ־ס־ה",
-          "points": 15
-        },
-        {
-          "num": 8,
-          "dir": "across",
-          "answer": [
-            "ל",
-            "ד",
-            "ב",
-            "ר"
-          ],
-          "len": 4,
-          "cells": [
-            {
-              "r": 8,
-              "c": 6
-            },
-            {
-              "r": 8,
-              "c": 5
-            },
-            {
-              "r": 8,
-              "c": 4
-            },
-            {
-              "r": 8,
-              "c": 3
-            }
-          ],
-          "clue": "to speak / to talk",
-          "niqqud": "לְדַבֵּר",
-          "translit": "ledaber",
-          "hint": "root ד־ב־ר",
-          "points": 15
+          "clue": "come! (m.sg)",
+          "niqqud": "בּוֹא",
+          "translit": "bo",
+          "hint": "root ב־ו־א",
+          "points": 10
         }
       ]
     },
     "adverbs": {
       "id": "adverbs",
       "title": "adverbs · תארי הפועל",
-      "rows": 5,
-      "cols": 12,
+      "rows": 8,
+      "cols": 8,
       "entries": [
         {
           "num": 1,
+          "dir": "across",
+          "answer": [
+            "ב",
+            "ע",
+            "ר",
+            "ך"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 0,
+              "c": 5
+            },
+            {
+              "r": 0,
+              "c": 4
+            },
+            {
+              "r": 0,
+              "c": 3
+            },
+            {
+              "r": 0,
+              "c": 2
+            }
+          ],
+          "clue": "approximately / about",
+          "niqqud": "בְּעֵרֶךְ",
+          "translit": "be'erech",
+          "hint": "from עֵרֶךְ \"value\"",
+          "points": 25
+        },
+        {
+          "num": 1,
+          "dir": "down",
+          "answer": [
+            "ב",
+            "ק",
+            "ר",
+            "ו",
+            "ב"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 0,
+              "c": 5
+            },
+            {
+              "r": 1,
+              "c": 5
+            },
+            {
+              "r": 2,
+              "c": 5
+            },
+            {
+              "r": 3,
+              "c": 5
+            },
+            {
+              "r": 4,
+              "c": 5
+            }
+          ],
+          "clue": "soon",
+          "niqqud": "בְּקָרוֹב",
+          "translit": "bekarov",
+          "hint": "from קָרוֹב \"near\" — root ק־ר־ב",
+          "points": 30
+        },
+        {
+          "num": 2,
+          "dir": "down",
+          "answer": [
+            "פ",
+            "ת",
+            "א",
+            "ו",
+            "ם"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 0,
+              "c": 7
+            },
+            {
+              "r": 1,
+              "c": 7
+            },
+            {
+              "r": 2,
+              "c": 7
+            },
+            {
+              "r": 3,
+              "c": 7
+            },
+            {
+              "r": 4,
+              "c": 7
+            }
+          ],
+          "clue": "suddenly / all of a sudden",
+          "niqqud": "פִּתְאוֹם",
+          "translit": "pit'om",
+          "hint": "from פֶּתַע \"sudden\"",
+          "points": 45
+        },
+        {
+          "num": 3,
           "dir": "down",
           "answer": [
             "מ",
@@ -1258,20 +1353,20 @@
           "len": 4,
           "cells": [
             {
-              "r": 0,
-              "c": 1
-            },
-            {
               "r": 1,
-              "c": 1
+              "c": 0
             },
             {
               "r": 2,
-              "c": 1
+              "c": 0
             },
             {
               "r": 3,
-              "c": 1
+              "c": 0
+            },
+            {
+              "r": 4,
+              "c": 0
             }
           ],
           "clue": "very",
@@ -1281,41 +1376,75 @@
           "points": 15
         },
         {
-          "num": 2,
+          "num": 4,
           "dir": "across",
           "answer": [
-            "מ",
-            "ז",
-            "מ",
-            "ן"
+            "א",
+            "ח",
+            "ר"
           ],
-          "len": 4,
+          "len": 3,
           "cells": [
             {
-              "r": 0,
-              "c": 3
+              "r": 2,
+              "c": 7
             },
             {
-              "r": 0,
+              "r": 2,
+              "c": 6
+            },
+            {
+              "r": 2,
+              "c": 5
+            }
+          ],
+          "clue": "other / another",
+          "niqqud": "אַחֵר",
+          "translit": "acher",
+          "hint": "root א־ח־ר",
+          "points": 10
+        },
+        {
+          "num": 5,
+          "dir": "down",
+          "answer": [
+            "ד",
+            "ו",
+            "ו",
+            "ק",
+            "א"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 3,
               "c": 2
             },
             {
-              "r": 0,
-              "c": 1
+              "r": 4,
+              "c": 2
             },
             {
-              "r": 0,
-              "c": 0
+              "r": 5,
+              "c": 2
+            },
+            {
+              "r": 6,
+              "c": 2
+            },
+            {
+              "r": 7,
+              "c": 2
             }
           ],
-          "clue": "long ago / for a long time",
-          "niqqud": "מִזְּמַן",
-          "translit": "mizman",
-          "hint": "from זְמַן \"time\"",
-          "points": 50
+          "clue": "actually / of all things / precisely",
+          "niqqud": "דַּווְקָא",
+          "translit": "davka",
+          "hint": "Aramaic — root ד־ו־ק, \"exactness\"",
+          "points": 65
         },
         {
-          "num": 2,
+          "num": 6,
           "dir": "down",
           "answer": [
             "מ",
@@ -1325,16 +1454,16 @@
           "len": 3,
           "cells": [
             {
-              "r": 0,
-              "c": 3
+              "r": 4,
+              "c": 4
             },
             {
-              "r": 1,
-              "c": 3
+              "r": 5,
+              "c": 4
             },
             {
-              "r": 2,
-              "c": 3
+              "r": 6,
+              "c": 4
             }
           ],
           "clue": "immediately / right away",
@@ -1344,75 +1473,7 @@
           "points": 20
         },
         {
-          "num": 3,
-          "dir": "down",
-          "answer": [
-            "א",
-            "פ",
-            "י",
-            "ל",
-            "ו"
-          ],
-          "len": 5,
-          "cells": [
-            {
-              "r": 0,
-              "c": 6
-            },
-            {
-              "r": 1,
-              "c": 6
-            },
-            {
-              "r": 2,
-              "c": 6
-            },
-            {
-              "r": 3,
-              "c": 6
-            },
-            {
-              "r": 4,
-              "c": 6
-            }
-          ],
-          "clue": "even",
-          "niqqud": "אֲפִילוּ",
-          "translit": "afilu",
-          "hint": "emphatic particle — no Semitic root",
-          "points": 20
-        },
-        {
-          "num": 4,
-          "dir": "across",
-          "answer": [
-            "ל",
-            "א",
-            "ט"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 0,
-              "c": 7
-            },
-            {
-              "r": 0,
-              "c": 6
-            },
-            {
-              "r": 0,
-              "c": 5
-            }
-          ],
-          "clue": "slowly",
-          "niqqud": "לְאַט",
-          "translit": "le'at",
-          "hint": "adverb; לְאַט-לְאַט = \"gradually\"",
-          "points": 30
-        },
-        {
-          "num": 5,
+          "num": 7,
           "dir": "across",
           "answer": [
             "ב",
@@ -1425,28 +1486,28 @@
           "len": 6,
           "cells": [
             {
-              "r": 2,
-              "c": 8
-            },
-            {
-              "r": 2,
-              "c": 7
-            },
-            {
-              "r": 2,
-              "c": 6
-            },
-            {
-              "r": 2,
+              "r": 4,
               "c": 5
             },
             {
-              "r": 2,
+              "r": 4,
               "c": 4
             },
             {
-              "r": 2,
+              "r": 4,
               "c": 3
+            },
+            {
+              "r": 4,
+              "c": 2
+            },
+            {
+              "r": 4,
+              "c": 1
+            },
+            {
+              "r": 4,
+              "c": 0
             }
           ],
           "clue": "especially / particularly",
@@ -1456,107 +1517,219 @@
           "points": 35
         },
         {
-          "num": 5,
-          "dir": "down",
-          "answer": [
-            "ב",
-            "ט",
-            "ח"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 2,
-              "c": 8
-            },
-            {
-              "r": 3,
-              "c": 8
-            },
-            {
-              "r": 4,
-              "c": 8
-            }
-          ],
-          "clue": "sure / probably / of course",
-          "niqqud": "בֶּטַח",
-          "translit": "betach",
-          "hint": "root ב־ט־ח \"trust\"",
-          "points": 10
-        },
-        {
-          "num": 6,
-          "dir": "down",
-          "answer": [
-            "ל",
-            "כ",
-            "ן"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 2,
-              "c": 11
-            },
-            {
-              "r": 3,
-              "c": 11
-            },
-            {
-              "r": 4,
-              "c": 11
-            }
-          ],
-          "clue": "therefore / so",
-          "niqqud": "לָכֵן",
-          "translit": "lachen",
-          "hint": "connector \"therefore\"; cf. כֵּן \"so\"",
-          "points": 20
-        },
-        {
-          "num": 7,
+          "num": 8,
           "dir": "across",
           "answer": [
-            "כ",
-            "מ",
-            "ע",
+            "ל",
+            "א",
             "ט"
           ],
-          "len": 4,
+          "len": 3,
           "cells": [
             {
-              "r": 3,
-              "c": 11
+              "r": 7,
+              "c": 3
             },
             {
-              "r": 3,
-              "c": 10
+              "r": 7,
+              "c": 2
             },
             {
-              "r": 3,
-              "c": 9
-            },
-            {
-              "r": 3,
-              "c": 8
+              "r": 7,
+              "c": 1
             }
           ],
-          "clue": "almost",
-          "niqqud": "כִּמְעַט",
-          "translit": "kim'at",
-          "hint": "from מְעַט \"a little\"",
-          "points": 20
+          "clue": "slowly",
+          "niqqud": "לְאַט",
+          "translit": "le'at",
+          "hint": "adverb; לְאַט-לְאַט = \"gradually\"",
+          "points": 30
         }
       ]
     },
     "ideas": {
       "id": "ideas",
       "title": "world & ideas · רעיונות",
-      "rows": 5,
-      "cols": 13,
+      "rows": 9,
+      "cols": 7,
       "entries": [
         {
           "num": 1,
+          "dir": "down",
+          "answer": [
+            "ש",
+            "א",
+            "ל",
+            "ה"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 0,
+              "c": 3
+            },
+            {
+              "r": 1,
+              "c": 3
+            },
+            {
+              "r": 2,
+              "c": 3
+            },
+            {
+              "r": 3,
+              "c": 3
+            }
+          ],
+          "clue": "question",
+          "niqqud": "שְׁאֵלָה",
+          "translit": "she'ela",
+          "hint": "root שׁ־א־ל",
+          "points": 25
+        },
+        {
+          "num": 2,
+          "dir": "across",
+          "answer": [
+            "ח",
+            "ד",
+            "ש",
+            "ו",
+            "ת"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 0,
+              "c": 5
+            },
+            {
+              "r": 0,
+              "c": 4
+            },
+            {
+              "r": 0,
+              "c": 3
+            },
+            {
+              "r": 0,
+              "c": 2
+            },
+            {
+              "r": 0,
+              "c": 1
+            }
+          ],
+          "clue": "news",
+          "niqqud": "חֲדָשׁוֹת",
+          "translit": "chadashot",
+          "hint": "root ח־ד־שׁ",
+          "points": 30
+        },
+        {
+          "num": 3,
+          "dir": "down",
+          "answer": [
+            "כ",
+            "ו",
+            "ח"
+          ],
+          "len": 3,
+          "cells": [
+            {
+              "r": 1,
+              "c": 6
+            },
+            {
+              "r": 2,
+              "c": 6
+            },
+            {
+              "r": 3,
+              "c": 6
+            }
+          ],
+          "clue": "strength / power / force",
+          "niqqud": "כּוֹחַ",
+          "translit": "koach",
+          "hint": null,
+          "points": 25
+        },
+        {
+          "num": 4,
+          "dir": "down",
+          "answer": [
+            "ר",
+            "ע",
+            "י",
+            "ו",
+            "ן"
+          ],
+          "len": 5,
+          "cells": [
+            {
+              "r": 3,
+              "c": 4
+            },
+            {
+              "r": 4,
+              "c": 4
+            },
+            {
+              "r": 5,
+              "c": 4
+            },
+            {
+              "r": 6,
+              "c": 4
+            },
+            {
+              "r": 7,
+              "c": 4
+            }
+          ],
+          "clue": "idea",
+          "niqqud": "רַעְיוֹן",
+          "translit": "ra'ayon",
+          "hint": null,
+          "points": 25
+        },
+        {
+          "num": 5,
+          "dir": "across",
+          "answer": [
+            "ח",
+            "ב",
+            "ר",
+            "ה"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 3,
+              "c": 6
+            },
+            {
+              "r": 3,
+              "c": 5
+            },
+            {
+              "r": 3,
+              "c": 4
+            },
+            {
+              "r": 3,
+              "c": 3
+            }
+          ],
+          "clue": "girlfriend / female friend",
+          "niqqud": "חֲבֵרָה",
+          "translit": "chavera",
+          "hint": "root ח־ב־ר",
+          "points": 25
+        },
+        {
+          "num": 6,
           "dir": "across",
           "answer": [
             "א",
@@ -1566,15 +1739,15 @@
           "len": 3,
           "cells": [
             {
-              "r": 0,
+              "r": 4,
               "c": 2
             },
             {
-              "r": 0,
+              "r": 4,
               "c": 1
             },
             {
-              "r": 0,
+              "r": 4,
               "c": 0
             }
           ],
@@ -1585,7 +1758,7 @@
           "points": 30
         },
         {
-          "num": 1,
+          "num": 6,
           "dir": "down",
           "answer": [
             "א",
@@ -1596,19 +1769,19 @@
           "len": 4,
           "cells": [
             {
-              "r": 0,
+              "r": 4,
               "c": 2
             },
             {
-              "r": 1,
+              "r": 5,
               "c": 2
             },
             {
-              "r": 2,
+              "r": 6,
               "c": 2
             },
             {
-              "r": 3,
+              "r": 7,
               "c": 2
             }
           ],
@@ -1619,36 +1792,7 @@
           "points": 25
         },
         {
-          "num": 2,
-          "dir": "down",
-          "answer": [
-            "ע",
-            "י",
-            "ר"
-          ],
-          "len": 3,
-          "cells": [
-            {
-              "r": 0,
-              "c": 4
-            },
-            {
-              "r": 1,
-              "c": 4
-            },
-            {
-              "r": 2,
-              "c": 4
-            }
-          ],
-          "clue": "city",
-          "niqqud": "עִיר",
-          "translit": "ir",
-          "hint": "root ע־י־ר",
-          "points": 20
-        },
-        {
-          "num": 3,
+          "num": 7,
           "dir": "across",
           "answer": [
             "מ",
@@ -1660,23 +1804,23 @@
           "len": 5,
           "cells": [
             {
-              "r": 1,
+              "r": 5,
               "c": 6
             },
             {
-              "r": 1,
+              "r": 5,
               "c": 5
             },
             {
-              "r": 1,
+              "r": 5,
               "c": 4
             },
             {
-              "r": 1,
+              "r": 5,
               "c": 3
             },
             {
-              "r": 1,
+              "r": 5,
               "c": 2
             }
           ],
@@ -1687,174 +1831,357 @@
           "points": 40
         },
         {
-          "num": 3,
+          "num": 7,
           "dir": "down",
           "answer": [
             "מ",
-            "ק",
             "ו",
-            "ם"
+            "ש",
+            "ג"
           ],
           "len": 4,
           "cells": [
             {
-              "r": 1,
+              "r": 5,
               "c": 6
             },
             {
-              "r": 2,
+              "r": 6,
               "c": 6
             },
             {
-              "r": 3,
+              "r": 7,
               "c": 6
             },
             {
-              "r": 4,
+              "r": 8,
               "c": 6
             }
           ],
-          "clue": "place",
-          "niqqud": "מָקוֹם",
-          "translit": "makom",
-          "hint": "root ק־ו־ם",
-          "points": 15
-        },
+          "clue": "concept / idea (אין לי מושג = no idea)",
+          "niqqud": "מוּשָׂג",
+          "translit": "musag",
+          "hint": "root נ־שׂ־ג",
+          "points": 20
+        }
+      ]
+    },
+    "fresh": {
+      "id": "fresh",
+      "title": "new words · מילים חדשות",
+      "rows": 6,
+      "cols": 9,
+      "entries": [
         {
-          "num": 4,
+          "num": 1,
           "dir": "down",
           "answer": [
-            "ח",
+            "כ",
             "ב",
-            "ר",
-            "ה"
+            "ו",
+            "י"
           ],
           "len": 4,
           "cells": [
             {
+              "r": 0,
+              "c": 1
+            },
+            {
               "r": 1,
-              "c": 9
+              "c": 1
             },
             {
               "r": 2,
-              "c": 9
+              "c": 1
             },
             {
               "r": 3,
-              "c": 9
-            },
-            {
-              "r": 4,
-              "c": 9
+              "c": 1
             }
           ],
-          "clue": "girlfriend / female friend",
-          "niqqud": "חֲבֵרָה",
-          "translit": "chavera",
-          "hint": "root ח־ב־ר",
-          "points": 25
+          "clue": "off / turned off",
+          "niqqud": "כָּבוּי",
+          "translit": "kavui",
+          "hint": "root כ־ב־ה",
+          "points": 70
         },
         {
-          "num": 5,
-          "dir": "across",
+          "num": 2,
+          "dir": "down",
           "answer": [
-            "כ",
-            "ו",
-            "ח"
+            "מ",
+            "נ",
+            "ה",
+            "ל"
           ],
-          "len": 3,
+          "len": 4,
           "cells": [
             {
-              "r": 1,
-              "c": 11
+              "r": 0,
+              "c": 5
             },
             {
               "r": 1,
-              "c": 10
+              "c": 5
             },
             {
-              "r": 1,
-              "c": 9
-            }
-          ],
-          "clue": "strength / power / force",
-          "niqqud": "כּוֹחַ",
-          "translit": "koach",
-          "hint": null,
-          "points": 25
-        },
-        {
-          "num": 6,
-          "dir": "across",
-          "answer": [
-            "ר",
-            "ע",
-            "י",
-            "ו",
-            "ן"
-          ],
-          "len": 5,
-          "cells": [
-            {
-              "r": 3,
-              "c": 9
-            },
-            {
-              "r": 3,
-              "c": 8
-            },
-            {
-              "r": 3,
-              "c": 7
-            },
-            {
-              "r": 3,
-              "c": 6
+              "r": 2,
+              "c": 5
             },
             {
               "r": 3,
               "c": 5
             }
           ],
-          "clue": "idea",
-          "niqqud": "רַעְיוֹן",
-          "translit": "ra'ayon",
-          "hint": null,
-          "points": 25
+          "clue": "manager / director",
+          "niqqud": "מְנַהֵל",
+          "translit": "menahel",
+          "hint": "root נ־ה־ל",
+          "points": 35
         },
         {
-          "num": 7,
+          "num": 3,
           "dir": "across",
           "answer": [
-            "ס",
-            "י",
+            "ר",
+            "ש",
+            "מ",
+            "י"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 0,
+              "c": 7
+            },
+            {
+              "r": 0,
+              "c": 6
+            },
+            {
+              "r": 0,
+              "c": 5
+            },
+            {
+              "r": 0,
+              "c": 4
+            }
+          ],
+          "clue": "official / formal",
+          "niqqud": "רִשְׁמִי",
+          "translit": "rishmi",
+          "hint": "root ר־ש־ם",
+          "points": 65
+        },
+        {
+          "num": 4,
+          "dir": "across",
+          "answer": [
+            "א",
+            "ר",
             "ב",
+            "ע"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 1,
+              "c": 3
+            },
+            {
+              "r": 1,
+              "c": 2
+            },
+            {
+              "r": 1,
+              "c": 1
+            },
+            {
+              "r": 1,
+              "c": 0
+            }
+          ],
+          "clue": "four (f.)",
+          "niqqud": "אַרְבַּע",
+          "translit": "arba",
+          "hint": "root ר־ב־ע",
+          "points": 30
+        },
+        {
+          "num": 5,
+          "dir": "across",
+          "answer": [
+            "ש",
+            "מ",
+            "ח",
             "ה"
           ],
           "len": 4,
           "cells": [
             {
-              "r": 4,
-              "c": 12
+              "r": 2,
+              "c": 8
             },
             {
-              "r": 4,
-              "c": 11
+              "r": 2,
+              "c": 7
             },
             {
-              "r": 4,
-              "c": 10
+              "r": 2,
+              "c": 6
             },
             {
-              "r": 4,
-              "c": 9
+              "r": 2,
+              "c": 5
             }
           ],
-          "clue": "reason / cause",
-          "niqqud": "סִבָּה",
-          "translit": "siba",
-          "hint": "root ס־ב־ב",
-          "points": 25
+          "clue": "joy / glad (f.)",
+          "niqqud": "שִׂמְחָה",
+          "translit": "simcha",
+          "hint": "root ש־מ־ח",
+          "points": 30
+        },
+        {
+          "num": 5,
+          "dir": "down",
+          "answer": [
+            "ש",
+            "ו",
+            "ו",
+            "ה"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 2,
+              "c": 8
+            },
+            {
+              "r": 3,
+              "c": 8
+            },
+            {
+              "r": 4,
+              "c": 8
+            },
+            {
+              "r": 5,
+              "c": 8
+            }
+          ],
+          "clue": "equals / is worth / worth it",
+          "niqqud": "שָׁוֶה",
+          "translit": "shave",
+          "hint": "root ש־ו־ה",
+          "points": 30
+        },
+        {
+          "num": 6,
+          "dir": "down",
+          "answer": [
+            "א",
+            "ו",
+            "ר"
+          ],
+          "len": 3,
+          "cells": [
+            {
+              "r": 3,
+              "c": 3
+            },
+            {
+              "r": 4,
+              "c": 3
+            },
+            {
+              "r": 5,
+              "c": 3
+            }
+          ],
+          "clue": "light",
+          "niqqud": "אוֹר",
+          "translit": "or",
+          "hint": "root א־ו־ר",
+          "points": 40
+        },
+        {
+          "num": 7,
+          "dir": "across",
+          "answer": [
+            "ל",
+            "ה",
+            "א",
+            "מ",
+            "י",
+            "ן"
+          ],
+          "len": 6,
+          "cells": [
+            {
+              "r": 3,
+              "c": 5
+            },
+            {
+              "r": 3,
+              "c": 4
+            },
+            {
+              "r": 3,
+              "c": 3
+            },
+            {
+              "r": 3,
+              "c": 2
+            },
+            {
+              "r": 3,
+              "c": 1
+            },
+            {
+              "r": 3,
+              "c": 0
+            }
+          ],
+          "clue": "to believe",
+          "niqqud": "לְהַאֲמִין",
+          "translit": "lehaamin",
+          "hint": "root א־מ־ן",
+          "points": 35
+        },
+        {
+          "num": 8,
+          "dir": "across",
+          "answer": [
+            "ל",
+            "ר",
+            "ד",
+            "ת"
+          ],
+          "len": 4,
+          "cells": [
+            {
+              "r": 5,
+              "c": 4
+            },
+            {
+              "r": 5,
+              "c": 3
+            },
+            {
+              "r": 5,
+              "c": 2
+            },
+            {
+              "r": 5,
+              "c": 1
+            }
+          ],
+          "clue": "to go down / get off / fall (rain)",
+          "niqqud": "לָרֶדֶת",
+          "translit": "laredet",
+          "hint": "root י־ר־ד",
+          "points": 45
         }
       ]
     }
