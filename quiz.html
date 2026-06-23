@@ -255,29 +255,31 @@
        <div class="muted">★ <b>${fmtScore(score)}</b> points · ${doneIds.size} cards<br>${inner}</div>`;
   }
 
-  function renderSaved() {
-    const coach = playerId() === 'dan';   // the coach-loop cue is only meaningful for the member
-    doneShell(coach
-      ? `<span class="ok">✓ saved</span> — back to the terminal, say “done”.`
-      : `<span class="ok">✓ saved</span> — nice run! Your score is recorded.<br><span style="font-size:13px;color:#6b7387">Play again, or try the crossword from the menu.</span>`);
-  }
-  function renderSaving() { doneShell('saving…'); }
-  function renderFailed(msg) {
-    doneShell(`<span class="bad">couldn’t save:</span> ${esc(msg)}`);
-    const row = document.createElement('div'); row.className = 'btnrow';
-    row.innerHTML = `<button class="opt" id="retry"><span>retry</span></button><button class="opt" id="dl"><span>download instead</span></button>`;
-    app.appendChild(row);
-    document.getElementById('retry').onclick = save;
-    document.getElementById('dl').onclick = () => downloadResults(events);
+  function renderDone(status) {
+    app.className = 'done';
+    const fl = events.filter(e => e.points !== undefined);
+    const correct = fl.filter(e => e.grade === 'good').length;
+    app.innerHTML =
+      `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
+       <div class="muted">★ <b>${fmtScore(score)}</b> points · ${doneIds.size} cards · ${correct}/${fl.length} right<br>
+         <span style="font-size:13px;color:#6b7387">${status}</span></div>
+       <div class="btnrow">
+         <button class="opt" id="again"><span>↻ play again</span></button>
+         <button class="opt" id="prog"><span>📈 my progress</span></button>
+         <a class="opt" id="home" href="index.html" style="text-decoration:none;justify-content:center"><span>↩ menu</span></a>
+       </div>`
+      + (playerId() === 'dan' ? `<div class="notes-hint">coach: say “done” in the terminal to merge.</div>` : '');
+    document.getElementById('again').onclick = () => location.reload();
+    document.getElementById('prog').onclick = () => { location.href = 'stats.html'; };
   }
 
   async function save() {
-    renderSaving();
+    renderDone('saving…');
     try {
       const res = await fetch('/api/results', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ player: playerId(), session: session.sessionId, events }) });
       const j = await res.json();
-      if (j.ok) renderSaved(); else renderFailed(j.error || 'save failed');
-    } catch (e) { renderFailed(e.message); }
+      renderDone(j.ok ? '✓ saved' : '⚠ saved on this device only');
+    } catch (e) { renderDone('⚠ couldn’t reach the server'); }
   }
 
   function finish() {

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — my progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 40px; }
+  h1 { font-size: 23px; margin: 0 0 2px; }
+  h1 .he { font-family: 'Heebo', sans-serif; }
+  .sub { color: #6b7387; font-size: 13px; margin-bottom: 20px; }
+  .wrap { width: min(560px, 96vw); }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-bottom: 20px; }
+  @media (max-width: 460px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 13px; text-align: center; }
+  .stat .n { font-size: 24px; font-weight: 800; color: #ffd479; }
+  .stat .l { color: #6b7387; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; margin-top: 3px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin: 8px 0; }
+  .sess { display: flex; align-items: center; gap: 12px; background: #141823; border: 1px solid #2a2f3d; border-radius: 10px; padding: 11px 14px; margin-bottom: 7px; }
+  .sess .main { flex: 1; min-width: 0; }
+  .sess .name { font-weight: 600; font-size: 15px; }
+  .sess .when { color: #6b7387; font-size: 12px; margin-top: 2px; }
+  .sess .sc { color: #ffd479; font-weight: 700; }
+  .sess .acc { color: #79d18c; font-size: 13px; margin-left: 10px; }
+  .empty { color: #6b7387; text-align: center; padding: 26px 0; line-height: 1.6; }
+  a.btn { display: inline-block; text-decoration: none; background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 9px; color: #cfd6e4; padding: 9px 16px; font-size: 14px; }
+  a.back { color: #6b7387; margin-top: 22px; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1 id="title">my progress</h1>
+<div class="sub" id="sub"></div>
+<div class="wrap" id="body">loading…</div>
+<a class="back" href="index.html">← menu</a>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"-]*)/g, '<span class="he">$1</span>');
+  function ago(ms) { const s = Math.max(0, Math.round((Date.now() - ms) / 1000)); if (s < 60) return 'just now'; const m = Math.round(s / 60); if (m < 60) return m + 'm ago'; const h = Math.round(m / 60); if (h < 24) return h + 'h ago'; const d = Math.round(h / 24); return d < 7 ? d + 'd ago' : new Date(ms).toLocaleDateString(); }
+
+  const me = (localStorage.getItem('player_id') || '').trim();
+  if (!me) {
+    $('body').innerHTML = '<div class="empty">No player set yet.<br>Play a <a class="btn" href="quiz.html" style="margin-top:10px">drill</a> first — pick your name, and your progress shows up here.</div>';
+    return;
+  }
+
+  // resolve display name from the roster (best-effort)
+  fetch('data/players.json?t=' + Date.now()).then(r => r.json()).then(d => {
+    const p = (d.players || []).find(x => x.id === me);
+    $('title').innerHTML = 'progress — ' + heb(p ? p.name : me);
+  }).catch(() => { $('title').textContent = 'progress — ' + me; });
+
+  fetch('/api/stats?player=' + encodeURIComponent(me) + '&t=' + Date.now()).then(r => r.json()).then(d => {
+    const t = d.totals || { sessions: 0, cards: 0, correct: 0, score: 0 };
+    const acc = t.cards ? Math.round(t.correct / t.cards * 100) : 0;
+    $('sub').textContent = t.sessions ? `${t.sessions} session${t.sessions === 1 ? '' : 's'} tracked` : '';
+    if (!t.sessions) { $('body').innerHTML = '<div class="empty">No drills recorded yet — finish one and it’ll appear here.</div>'; return; }
+    $('body').innerHTML =
+      `<div class="cards">
+         <div class="stat"><div class="n">${t.sessions}</div><div class="l">sessions</div></div>
+         <div class="stat"><div class="n">${t.cards}</div><div class="l">cards</div></div>
+         <div class="stat"><div class="n">${acc}%</div><div class="l">accuracy</div></div>
+         <div class="stat"><div class="n">${t.score.toLocaleString('en-US')}</div><div class="l">total ★</div></div>
+       </div>
+       <h2>recent sessions</h2>
+       ${d.sessions.map(s => {
+        const a = s.cards ? Math.round(s.correct / s.cards * 100) : 0;
+        return `<div class="sess"><div class="main"><div class="name">${heb(s.session)}</div><div class="when">${ago(s.ts)}</div></div>
+                  <div class="sc">★ ${s.score.toLocaleString('en-US')}</div><div class="acc">${s.correct}/${s.cards}</div></div>`;
+      }).join('')}`;
+  }).catch(e => { $('body').innerHTML = '<div class="empty">couldn’t load progress: ' + esc(e.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>

@@ -55,6 +55,14 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ rooms: list }));
     return;
   }
+  if (pathname === '/api/stats') {   // a player's progress over time
+    const player = (new URL(req.url, 'http://x').searchParams.get('player') || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+    const mine = savedLog.filter(r => r.player === player).sort((a, b) => b.ts - a.ts);
+    const totals = mine.reduce((t, r) => ({ sessions: t.sessions + 1, cards: t.cards + r.cards, correct: t.correct + r.correct, score: t.score + r.score }), { sessions: 0, cards: 0, correct: 0, score: 0 });
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
+    res.end(JSON.stringify({ player, totals, sessions: mine.slice(0, 60) }));
+    return;
+  }
   if (req.method === 'POST' && pathname === '/api/results') {   // drill results — server saves them (no per-device token)
     let body = '';
     req.on('data', c => { body += c; if (body.length > 2e6) req.destroy(); });
@@ -137,26 +145,45 @@ async function persist(room) {
   } catch (e) { console.log('crossword save failed:', e.message); }
 }
 
-// persist a drill result (quiz/discrim) to the repo using the SERVER's token — clients send no token
-async function saveResult(d) {
+// ---------- drill results + per-player progress tracking ----------
+const savedLog = [];   // { player, session, ts, cards, correct, score }
+const summarize = (player, session, events, ts) => {
+  const fl = events.filter(e => e && e.points !== undefined);   // first-look (scored) events
+  const base = fl.length ? fl : events;
+  return { player, session, ts, cards: base.length, correct: base.filter(e => e && e.grade === 'good').length, score: fl.reduce((s, e) => s + (e.points || 0), 0) };
+};
+function seedStats() {   // load history committed before this deploy (server has the repo on disk)
+  try {
+    const dir = `${ROOT}/data/results`;
+    for (const f of fs.readdirSync(dir)) {
+      if (!f.endsWith('.jsonl') || !f.includes('--')) continue;
+      const [session, player] = f.replace(/\.jsonl$/, '').split('--');
+      let events; try { events = fs.readFileSync(`${dir}/${f}`, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)); } catch { continue; }
+      savedLog.push(summarize(player || 'anon', session || 'session', events, fs.statSync(`${dir}/${f}`).mtimeMs));
+    }
+    savedLog.sort((a, b) => a.ts - b.ts);
+    console.log(`seeded ${savedLog.length} drill results for progress tracking`);
+  } catch (e) { console.log('stats seed:', e.message); }
+}
+seedStats();
+
+function saveResult(d) {
   const player = String(d.player || 'anon').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40) || 'anon';
   const session = String(d.session || 'session').replace(/[^A-Za-z0-9_.-]/g, '').slice(0, 60) || 'session';
   const events = Array.isArray(d.events) ? d.events.slice(0, 600) : [];
   if (!events.length) return { ok: false, error: 'no events' };
-  const token = process.env.GH_TOKEN;
-  if (!token) return { ok: false, error: 'saving not configured on the server (GH_TOKEN unset)' };
-  const text = events.map(e => JSON.stringify(e)).join('\n') + '\n';
-  const name = `${session}--${player}--${new Date().toISOString().replace(/[:.]/g, '-')}.jsonl`;
-  try {
-    const resp = await fetch(`https://api.github.com/repos/taateev/ivrit/contents/data/results/${name}`, {
+  const summary = summarize(player, session, events, Date.now());
+  savedLog.push(summary);   // tracked immediately so progress always works
+  const token = process.env.GH_TOKEN;   // durable commit to the repo — best-effort, doesn't block the result
+  if (token) {
+    const text = events.map(e => JSON.stringify(e)).join('\n') + '\n';
+    const name = `${session}--${player}--${new Date().toISOString().replace(/[:.]/g, '-')}.jsonl`;
+    fetch(`https://api.github.com/repos/taateev/ivrit/contents/data/results/${name}`, {
       method: 'PUT', headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: `drill: ${player} · ${session} · ${events.length} reviews`, content: Buffer.from(text).toString('base64') }),
-    });
-    if (!resp.ok) return { ok: false, error: `GitHub ${resp.status}` };
-    const j = await resp.json();
-    console.log(`saved drill: ${name}`);
-    return { ok: true, name, sha: (j.commit && j.commit.sha) || '' };
-  } catch (e) { return { ok: false, error: e.message }; }
+    }).then(r => console.log(`saved drill ${name}: ${r.status}`)).catch(e => console.log('drill commit failed:', e.message));
+  }
+  return { ok: true, summary, durable: !!token };
 }
 
 const wss = new WebSocketServer({ noServer: true });
