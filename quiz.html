@@ -325,23 +325,37 @@
   });
 
   async function boot() {
+    ROSTER = await loadRoster();
+    if (currentPlayer()) loadSet();
+    else renderPicker();
+  }
+
+  function initSession() {
     session = (window.__SESSION && window.__SESSION.cards && window.__SESSION.cards.length)
       ? window.__SESSION : DEFAULT_SESSION;
     total = session.cards.length;
     q = session.cards.map(c => ({ ...c, tries: 0 }));
-    doneIds = new Set();
-    events = [];
-    score = 0;
-    scoredIds = new Set();
-    lastClickAt = null;
-    ROSTER = await loadRoster();
-    if (currentPlayer()) startDrill();
-    else renderPicker();
+    doneIds = new Set(); events = []; score = 0; scoredIds = new Set(); lastClickAt = null;
+  }
+
+  // ?set=<theme|weak|new|review|random> → fetch that set from the server; otherwise use the loaded session.js
+  async function loadSet() {
+    const setParam = new URLSearchParams(location.search).get('set');
+    if (setParam) {
+      app.className = ''; app.innerHTML = '<div class="muted">loading…</div>';
+      try {
+        const r = await fetch(`/api/drill?set=${encodeURIComponent(setParam)}&player=${encodeURIComponent(playerId())}&t=${Date.now()}`);
+        const data = await r.json();
+        if (data && data.cards && data.cards.length) window.__SESSION = data;
+      } catch (e) {}
+    }
+    initSession();
+    startDrill();
   }
 
   function startDrill() {
     if (q.length) render();
-    else app.innerHTML = '<div class="muted">No cards in this session.</div>';
+    else app.innerHTML = '<div class="muted">No cards in this set. <a href="drills.html" style="color:#8ab4ff">← pick another</a></div>';
   }
 
   function renderPicker() {
@@ -357,7 +371,7 @@
       const b = document.createElement('button');
       b.className = 'opt'; b.style.cursor = 'pointer'; b.style.justifyContent = 'center';
       b.innerHTML = `<span lang="he" dir="rtl" style="font-family:'Heebo',system-ui,sans-serif;font-size:27px">${esc(p.name)}</span>`;
-      b.onclick = () => { setPlayerId(p.id); if (p.guest) renderGuestIntro(); else startDrill(); };
+      b.onclick = () => { setPlayerId(p.id); if (p.guest) renderGuestIntro(); else loadSet(); };
       box.appendChild(b);
     });
   }
@@ -379,7 +393,7 @@
        <div class="btnrow">
          <button class="opt" id="gstart"><span>start drilling →</span></button>
        </div>`;
-    document.getElementById('gstart').onclick = () => startDrill();
+    document.getElementById('gstart').onclick = () => loadSet();
   }
 
   // Gear (top-right): switch player.

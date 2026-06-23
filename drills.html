@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 44px; }
+  h1 { font-size: 24px; margin: 0 0 2px; }
+  .sub { color: #6b7387; font-size: 13px; margin-bottom: 18px; }
+  h2 { width: min(560px, 96vw); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin: 18px 0 8px; }
+  .wrap { width: min(560px, 96vw); }
+  a.set { display: flex; align-items: center; gap: 12px; text-decoration: none; background: #141823; border: 1px solid #2a2f3d; border-radius: 11px; padding: 13px 15px; margin-bottom: 8px; color: #e8eaf0; }
+  a.set:hover { border-color: #4a72c4; }
+  a.set.smart { background: #16321f10; border-color: #2e5a3a; }
+  a.set .t { flex: 1; font-weight: 700; font-size: 16px; } a.set .t .he { font-family: 'Heebo', sans-serif; direction: rtl; }
+  a.set .t .n { display: block; color: #6b7387; font-size: 12px; font-weight: 400; margin-top: 2px; }
+  a.set .go { color: #6b7387; }
+  a.back { color: #6b7387; margin-top: 22px; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1>drill</h1>
+<div class="sub">pick a set — tap the meaning, wager your confidence</div>
+<h2>smart sets</h2>
+<div class="wrap" id="smart"></div>
+<h2>themes</h2>
+<div class="wrap" id="themes">loading…</div>
+<a class="back" href="index.html">← menu</a>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const titleHTML = (title) => { const [en, he] = String(title).split(' · '); return `${esc(en || title)}${he ? ` <span class="he">${esc(he)}</span>` : ''}`; };
+  const setRow = (id, title, note, smart) => `<a class="set${smart ? ' smart' : ''}" href="quiz.html?set=${encodeURIComponent(id)}"><div class="t">${title}${note ? `<span class="n">${esc(note)}</span>` : ''}</div><div class="go">→</div></a>`;
+
+  $('smart').innerHTML =
+    setRow('weak', '🎯 my weak words', 'the ones you keep missing — drill these first', true) +
+    setRow('new', '✨ new words', "words you haven't seen yet, by frequency", true) +
+    setRow('review', '🔁 review', 'words you’ve seen, oldest first', true) +
+    setRow('random', '🎲 random mix', 'a grab-bag from your frontier', true);
+
+  fetch('data/themes.json?t=' + Date.now()).then(r => r.json()).then(d => {
+    $('themes').innerHTML = (d.themes || []).map(t => setRow(t.id, titleHTML(t.title), `${t.pool.length} words`, false)).join('');
+  }).catch(() => $('themes').innerHTML = '<div class="sub">couldn’t load themes.</div>');
+})();
+</script>
+</body>
+</html>

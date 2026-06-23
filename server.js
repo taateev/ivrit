@@ -76,6 +76,15 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ player, count: words.length, words }));
     return;
   }
+  if (pathname === '/api/drill') {   // build a quiz set on demand (theme / weak / new / review / random)
+    const q = new URL(req.url, 'http://x').searchParams;
+    const set = (q.get('set') || 'random').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
+    const player = (q.get('player') || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+    const cards = shuf(pickSet(set, player)).map(b => cardFor(b, player)).filter(Boolean);
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
+    res.end(JSON.stringify({ sessionId: set, set, cards }));
+    return;
+  }
   if (req.method === 'POST' && pathname === '/api/results') {   // drill results — server saves them (no per-device token)
     let body = '';
     req.on('data', c => { body += c; if (body.length > 2e6) req.destroy(); });
@@ -159,8 +168,33 @@ async function persist(room) {
 }
 
 // ---------- drill results + per-player progress tracking ----------
-const GLOSS = new Map();   // bare → gloss, for the vocab list
-try { for (const w of JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words) GLOSS.set(w.bare, w.gloss); } catch (e) {}
+let WORDS = [], byBare = new Map(), THEMES = [];
+try { WORDS = JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words; byBare = new Map(WORDS.map(w => [w.bare, w])); } catch (e) {}
+try { THEMES = JSON.parse(fs.readFileSync(`${ROOT}/data/themes.json`, 'utf8')).themes || []; } catch (e) {}
+const GLOSS = new Map(WORDS.map(w => [w.bare, w.gloss]));   // bare → gloss, for the vocab list
+const COACH_NOTES = (() => { try { return JSON.parse(fs.readFileSync(`${ROOT}/data/notes.json`, 'utf8')).notes || {}; } catch (e) { return {}; } })();
+const USER_NOTES = (() => { const m = {}; try { for (const l of fs.readFileSync(`${ROOT}/data/reviews.jsonl`, 'utf8').split('\n')) { if (!l) continue; const e = JSON.parse(l); if (e.note) (m[e.id] = m[e.id] || []).push({ by: 'user', text: e.note, t: e.t }); } } catch (e) {} return m; })();
+const notesFor = (id) => [...(USER_NOTES[id] || []), ...((COACH_NOTES[id] || []).map(n => ({ by: 'coach', text: n.text, t: n.t })))].sort((a, b) => Date.parse(a.t || 0) - Date.parse(b.t || 0));
+const shuf = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+// build a quiz card for a word (3 distractor glosses, niqqud/translit/shoresh/grammar/examples/notes)
+function cardFor(bare, player) {
+  const w = byBare.get(bare); if (!w) return null;
+  const distractors = [], used = new Set([w.gloss]);
+  for (const x of shuf(WORDS)) { if (distractors.length >= 3) break; if (x.gloss && !used.has(x.gloss)) { used.add(x.gloss); distractors.push(x.gloss); } }
+  const seen = (wordStats.get(player) || new Map()).has(bare);
+  return { id: w.bare, bare: w.bare, niqqud: w.niqqud || '', translit: w.translit || '', gloss: w.gloss, shoresh: w.shoresh || null, grammar: w.grammar || null, examples: w.examples || [], distractors, phrase: false, isNew: !seen, notes: notesFor(w.bare) };
+}
+// pick the word ids for a named set
+function pickSet(set, player) {
+  const theme = THEMES.find(t => t.id === set);
+  if (theme) return theme.pool.filter(b => byBare.has(b)).slice(0, 14);
+  const ws = wordStats.get(player) || new Map();
+  if (set === 'weak') return [...ws].filter(([id, w]) => w.seen >= 1 && byBare.has(id)).map(([id, w]) => [id, (w.confN ? w.confSum / w.confN : 0) * 0.5 + (w.seen ? w.correct / w.seen : 0) * 0.5]).sort((a, b) => a[1] - b[1]).slice(0, 12).map(([id]) => id);
+  if (set === 'new') return WORDS.filter(w => w.rank >= 81 && !ws.has(w.bare)).sort((a, b) => a.rank - b.rank).slice(0, 12).map(w => w.bare);
+  if (set === 'review') return [...ws].filter(([id]) => byBare.has(id)).sort((a, b) => a[1].lastTs - b[1].lastTs).slice(0, 12).map(([id]) => id);
+  return shuf(WORDS.filter(w => w.rank >= 81)).slice(0, 12).map(w => w.bare);   // random
+}
 
 const savedLog = [];   // { player, session, ts, cards, correct, score }
 const wordStats = new Map();   // player → Map(word → { seen, correct, confSum, confN, lastTs })
