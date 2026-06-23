@@ -90,7 +90,7 @@
       else b.classList.add('dim');
     });
     document.querySelectorAll('.opt .g').forEach(g => g.hidden = false);   // glosses revealed only after the choice
-    $('frame').innerHTML = frameHTML(it.frame, it.answer);   // fill the blank with the right word
+    $('frame').innerHTML = frameHTML(it.frame, NIQ[it.answer] || it.answer);   // fill the blank with the vocalized answer
     $('en').hidden = false;                                   // English revealed only after the choice
     const why = $('why'); why.hidden = false;
     why.innerHTML = (correct ? '' : '') + heb(it.why);
