@@ -19,8 +19,16 @@
   #hud { width: min(640px, 96vw); display: flex; justify-content: space-between; align-items: baseline; color: #8b93a7; font-size: 14px; margin-bottom: 10px; }
   #hud .score { color: #ffd479; font-weight: 700; font-size: 18px; }
   #back { color: #6b7387; text-decoration: none; font-size: 13px; } #back:hover { color: #8b93a7; }
-  #newgame { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #8b93a7; font-size: 12px; padding: 4px 9px; cursor: pointer; }
-  #newgame:active { background: #2a3142; }
+  #newgame, #invite { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 7px; color: #8b93a7; font-size: 12px; padding: 4px 9px; cursor: pointer; }
+  #invite { color: #c9f4d6; border-color: #3aa564; }
+  #newgame:active, #invite:active { background: #2a3142; }
+  #toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); background: #1a2230; border: 1px solid #3a4760; color: #cfe0ff; padding: 10px 16px; border-radius: 10px; font-size: 14px; z-index: 40; box-shadow: 0 6px 24px rgba(0,0,0,.5); max-width: 90vw; word-break: break-word; text-align: center; }
+  .modal-bg { position: fixed; inset: 0; background: rgba(8,10,15,.8); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+  .modal { background: #141823; border: 1px solid #2a2f3d; border-radius: 14px; padding: 22px; width: min(380px, 92vw); text-align: center; }
+  .modal h3 { margin: 0 0 4px; font-size: 17px; color: #e8eaf0; } .modal p { color: #8b93a7; font-size: 13px; margin: 0 0 14px; }
+  .pick { display: flex; flex-direction: column; gap: 9px; }
+  .pick button { font: inherit; font-size: 22px; font-family: 'Heebo', sans-serif; padding: 12px; border-radius: 10px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; }
+  .pick button:hover { border-color: #4a72c4; }
   #grid { display: grid; gap: 3px; margin: 0 auto 14px; }
   .cell { position: relative; background: #11141c; border: 1px solid #2a2f3d; border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
@@ -68,7 +76,7 @@
 </style>
 </head>
 <body>
-<div id="hud"><a id="back" hidden>←</a><div id="prog">loading…</div><button id="newgame" hidden>↻ new game</button><div class="score" id="score">★ 0</div></div>
+<div id="hud"><a id="back" hidden>←</a><div id="prog">loading…</div><button id="invite" hidden>🔗 invite</button><button id="newgame" hidden>↻ new game</button><div class="score" id="score">★ 0</div></div>
 <div id="grid"></div>
 <div id="palette"></div>
 <div id="clues"></div>
@@ -214,9 +222,27 @@
   }
   // ---- live co-op ----
   function send(o) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(o)); }
+  function toast(msg) { const t = document.createElement('div'); t.id = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2800); }
+  function shareInvite() {
+    const url = `${location.origin}/crossword.html?room=${encodeURIComponent(ROOM)}&puzzle=${encodeURIComponent(PUZID)}`;
+    const title = (P && P.title) ? P.title.split(' · ')[0] : 'crossword';
+    if (navigator.share) navigator.share({ title: 'Couch Hebrew', text: `Join my Hebrew ${title} game →`, url }).catch(() => {});
+    else navigator.clipboard.writeText(url).then(() => toast('invite link copied — send it to a friend!')).catch(() => toast(url));
+  }
+  function pickName() {   // who's playing? (so a guest landing on an invite link is attributed)
+    const bg = document.createElement('div'); bg.className = 'modal-bg';
+    bg.innerHTML = `<div class="modal"><h3>Who's playing?</h3><p>so your moves show up under your name</p><div class="pick" id="roster"><div style="color:#6b7387;font-size:14px">loading…</div></div></div>`;
+    document.body.appendChild(bg);
+    const choose = (id) => { try { localStorage.setItem('player_id', id); } catch (e) {} ME = id; bg.remove(); connectLive(); };
+    fetch('data/players.json?t=' + Date.now()).then(r => r.json()).then(d => {
+      const box = bg.querySelector('#roster'); box.innerHTML = '';
+      (d.players || []).forEach(p => { const b = document.createElement('button'); b.innerHTML = `<span lang="he" dir="rtl">${esc(p.name)}</span>`; b.onclick = () => choose(p.id); box.appendChild(b); });
+      const g = document.createElement('button'); g.textContent = 'guest'; g.style.fontSize = '16px'; g.onclick = () => choose('guest'); box.appendChild(g);
+    }).catch(() => { const box = bg.querySelector('#roster'); box.innerHTML = ''; const g = document.createElement('button'); g.textContent = 'continue as guest'; g.onclick = () => choose('guest'); box.appendChild(g); });
+  }
   function connectLive() {
     ME = (localStorage.getItem('player_id') || '').trim();
-    if (!ME) { ME = ((prompt('Your name for co-op?') || 'guest').trim() || 'guest').slice(0, 20); try { localStorage.setItem('player_id', ME); } catch (e) {} }
+    if (!ME) { pickName(); return; }   // choose who you are, then connect
     ws = new WebSocket(`${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`);
     ws.onopen = () => send({ t: 'join', room: ROOM, player: ME, puzzle: PUZID });
     ws.onmessage = (ev) => {
@@ -304,6 +330,7 @@
       connectLive(); setupChat();
       const ng = $('newgame'); ng.hidden = false;
       ng.onclick = () => { if (confirm('Start a fresh board for everyone in the room?')) send({ t: 'reset' }); };
+      const inv = $('invite'); inv.hidden = false; inv.onclick = shareInvite;
     }
     const back = $('back'); back.hidden = false;
     back.href = LIVE ? 'lobby.html' : 'index.html';

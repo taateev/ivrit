@@ -42,7 +42,7 @@
 </head>
 <body>
 <h1>crosswords</h1>
-<div class="sub">pick a theme — play solo, or start a live game with friends</div>
+<div class="sub">pick a theme — play solo, or start a game and share the link to invite a friend</div>
 <h2>themes</h2>
 <div class="wrap" id="themes">loading…</div>
 <h2>live games now</h2>
@@ -62,12 +62,15 @@
   async function loadThemes() {
     const data = await (await fetch('data/crosswords.json?t=' + Date.now())).json();
     INDEX = data.index || [];
-    $('themes').innerHTML = INDEX.map(t => `
+    $('themes').innerHTML = INDEX.map(t => {
+      const room = `${t.id}-${Math.random().toString(36).slice(2, 7)}`;   // a fresh private room to invite into
+      return `
       <div class="theme">
         <div class="t">${titleHTML(t.title)}<span class="n">${t.words} words</span></div>
         <a class="btn solo" href="crossword.html?puzzle=${encodeURIComponent(t.id)}">solo</a>
-        <a class="btn live" href="crossword.html?room=${encodeURIComponent(t.id)}&puzzle=${encodeURIComponent(t.id)}">live →</a>
-      </div>`).join('');
+        <a class="btn live" href="crossword.html?room=${encodeURIComponent(room)}&puzzle=${encodeURIComponent(t.id)}">🔗 invite →</a>
+      </div>`;
+    }).join('');
   }
 
   function renderGames(rooms) {
