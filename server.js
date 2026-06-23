@@ -216,22 +216,51 @@ const summarize = (player, session, events, ts) => {
   const base = fl.length ? fl : events;
   return { player, session, ts, cards: base.length, correct: base.filter(e => e && e.grade === 'good').length, score: fl.reduce((s, e) => s + (e.points || 0), 0) };
 };
-function seedStats() {   // load history committed before this deploy (server has the repo on disk)
+const seededFiles = new Set();   // dedupe across disk + repo seeding
+const parseStamp = (name) => { const s = (name.replace(/\.jsonl$/, '').split('--')[2] || '').replace(/T(\d\d)-(\d\d)-(\d\d)-(\d{1,3})Z$/, 'T$1:$2:$3.$4Z'); return Date.parse(s) || null; };
+function seedOne(name, player, session, events, ts) {
+  if (seededFiles.has(name) || !events.length) return;
+  seededFiles.add(name);
+  savedLog.push(summarize(player || 'anon', session || 'session', events, ts));
+  ingest(player || 'anon', events, ts);
+}
+function seedStats() {   // fast local seed from the deploy snapshot
   try {
     const dir = `${ROOT}/data/results`;
     for (const f of fs.readdirSync(dir)) {
       if (!f.endsWith('.jsonl') || !f.includes('--')) continue;
       const [session, player] = f.replace(/\.jsonl$/, '').split('--');
       let events; try { events = fs.readFileSync(`${dir}/${f}`, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)); } catch { continue; }
-      const ts = fs.statSync(`${dir}/${f}`).mtimeMs;
-      savedLog.push(summarize(player || 'anon', session || 'session', events, ts));
-      ingest(player || 'anon', events, ts);
+      seedOne(f, player, session, events, parseStamp(f) || fs.statSync(`${dir}/${f}`).mtimeMs);
     }
     savedLog.sort((a, b) => a.ts - b.ts);
-    console.log(`seeded ${savedLog.length} drill results for progress tracking`);
-  } catch (e) { console.log('stats seed:', e.message); }
+    console.log(`seeded ${savedLog.length} results from disk`);
+  } catch (e) { console.log('stats seed (disk):', e.message); }
+}
+async function seedFromRepo() {   // authoritative: pull the latest committed results from the repo (survives sleep/wake)
+  try {
+    const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'ivrit' };
+    if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
+    const r = await fetch('https://api.github.com/repos/taateev/ivrit/contents/data/results', { headers });
+    if (!r.ok) { console.log('seedFromRepo list:', r.status); return; }
+    let added = 0;
+    for (const f of await r.json()) {
+      if (seededFiles.has(f.name) || !f.name.endsWith('.jsonl') || !f.name.includes('--')) continue;
+      try {
+        const cr = await fetch(f.download_url, { headers: { 'User-Agent': 'ivrit' } });
+        if (!cr.ok) continue;
+        const events = (await cr.text()).split('\n').filter(Boolean).map(l => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
+        const [session, player] = f.name.replace(/\.jsonl$/, '').split('--');
+        seedOne(f.name, player, session, events, parseStamp(f.name) || Date.now());
+        added++;
+      } catch (e) {}
+    }
+    savedLog.sort((a, b) => a.ts - b.ts);
+    if (added) console.log(`seedFromRepo: +${added} results (total ${savedLog.length})`);
+  } catch (e) { console.log('seedFromRepo:', e.message); }
 }
 seedStats();
+seedFromRepo();
 
 function saveResult(d) {
   const player = String(d.player || 'anon').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40) || 'anon';
