@@ -17,7 +17,19 @@ const HINTS = {
   'לאט': 'adverb; לְאַט-לְאַט = "gradually"', 'בעצם': 'from עֶצֶם "essence" — "in essence"', 'בערך': 'from עֵרֶךְ "value"',
   'במיוחד': 'from מְיוּחָד "special"', 'בוודאי': 'from וַדַּאי "certain"', 'פתאום': 'from פֶּתַע "sudden"', 'מזמן': 'from זְמַן "time"',
 };
-const hintFor = (b) => HINTS[b] || (byBare.get(b)?.shoresh ? `root ${byBare.get(b).shoresh}` : null);
+// short form label for a verb clue (so the solver knows WHICH inflection is wanted)
+const formTag = (w) => {
+  const g = w && w.grammar; if (!g) return null;
+  if (/infinitive/i.test(g)) return 'infinitive';
+  const m = g.match(/(present|past|future|imperative)(?:\s+(m\.|f\.)(sg|pl))?/i);
+  return m ? m[0].replace(/\s+/g, ' ').trim() : null;
+};
+// verbs → the morphology lesson (teaches the inflection via related forms); else curated etymology, then grammar, then root
+const hintFor = (b) => {
+  const w = byBare.get(b);
+  if (w && w.type === 'verb' && w.grammar) return w.grammar;
+  return HINTS[b] || (w && w.grammar) || (w && w.shoresh ? `root ${w.shoresh}` : null);
+};
 const pointsFor = (w) => Math.min(70, Math.max(10, Math.round((( (w.rank || 500) / 45) + [...w.bare].length * 3) / 5) * 5));
 
 const key = (r, c) => `${r},${c}`;
@@ -71,7 +83,7 @@ function generatePuzzle(theme) {
   for (const p of sorted) { const s = p.cells[0]; const k = key(s.r, s.c); if (!numAt.has(k)) numAt.set(k, ++num); p.num = numAt.get(k); }
   const entries = placed.map(p => { const w = byBare.get(p.bare); return {
     num: p.num, dir: p.dir, answer: [...p.bare], len: [...p.bare].length, cells: p.cells.map(c => ({ r: c.r, c: c.c })),
-    clue: w.gloss, niqqud: w.niqqud || p.bare, translit: w.translit || '', hint: hintFor(p.bare), points: pointsFor(w),
+    clue: w.gloss + (w.type === 'verb' && formTag(w) ? ` · ${formTag(w)}` : ''), niqqud: w.niqqud || p.bare, translit: w.translit || '', hint: hintFor(p.bare), points: pointsFor(w),
   }; }).sort((a, b) => a.num - b.num || (a.dir === 'across' ? -1 : 1));
   return { id: theme.id, title: theme.title, rows, cols, entries, skipped: present.length - placed.length, missing: theme.pool.filter(b => !byBare.has(b)) };
 }

@@ -162,7 +162,7 @@
           `<span class="pts">${hintsUsed.has(ekey(e)) ? Math.round(e.points / 2) : e.points}pt</span>` +
           `<span class="n">${e.num}.</span>${esc(e.clue)}` +
           (sv ? ` <span class="he">${esc(e.niqqud)}</span> <span class="tr">${esc(e.translit)}</span>` : '') +
-          (e.hint && !sv ? `<div class="hintbtn" data-hint="${ekey(e)}">💡 etymology hint (−½ pts)</div>` : '') +
+          (e.hint && !sv ? `<div class="hintbtn" data-hint="${ekey(e)}">💡 form hint (−½ pts)</div>` : '') +
           (e.hint && (hintsUsed.has(ekey(e)) || sv) ? `<div class="hint">${heb(e.hint)}</div>` : '');
         if (sv) div.classList.add('solved');
         div.onclick = (ev) => {
