@@ -61,7 +61,7 @@
     app.className = '';
     app.innerHTML =
       `<div class="cluster">${esc(it.cluster)} — which fits?</div>
-       <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(it.frame, chose ? (NIQ[it.answer] || it.answer) : null)}</div>
+       <div class="frame" id="frame" lang="he" dir="rtl">${frameHTML(chose ? (it.nq || it.frame) : it.frame, chose ? (NIQ[it.answer] || it.answer) : null)}</div>
        <div class="en"${chose ? '' : ' hidden'}>${enHTML(it.en)}</div>
        <div class="opts" id="opts"></div>
        ${chose ? `<div class="why">${heb(it.why)}</div>` : ''}

@@ -20,73 +20,278 @@
     "כמעט": "almost"
   },
   "niqqud": {
-    "דווקא": "דַּווְקָא", "בעצם": "בְּעֶצֶם", "למעשה": "לְמַעֲשֶׂה",
-    "מזמן": "מִזְּמַן", "לפני הרבה זמן": "לִפְנֵי הַרְבֵּה זְמַן", "לא מזמן": "לֹא מִזְּמַן",
-    "בגלל": "בִּגְלַל", "כי": "כִּי", "לכן": "לָכֵן",
-    "אולי": "אוּלַי", "כנראה": "כַּנִּרְאֶה", "בטח": "בֶּטַח", "בוודאי": "בְּווַדַּאי",
-    "מאוד": "מְאוֹד", "ממש": "מַמָּשׁ", "די": "דַּי", "כמעט": "כִּמְעַט"
+    "דווקא": "דַּווְקָא",
+    "בעצם": "בְּעֶצֶם",
+    "למעשה": "לְמַעֲשֶׂה",
+    "מזמן": "מִזְּמַן",
+    "לפני הרבה זמן": "לִפְנֵי הַרְבֵּה זְמַן",
+    "לא מזמן": "לֹא מִזְּמַן",
+    "בגלל": "בִּגְלַל",
+    "כי": "כִּי",
+    "לכן": "לָכֵן",
+    "אולי": "אוּלַי",
+    "כנראה": "כַּנִּרְאֶה",
+    "בטח": "בֶּטַח",
+    "בוודאי": "בְּווַדַּאי",
+    "מאוד": "מְאוֹד",
+    "ממש": "מַמָּשׁ",
+    "די": "דַּי",
+    "כמעט": "כִּמְעַט"
   },
   "items": [
-    { "cluster": "actually", "options": ["דווקא", "בעצם", "למעשה"], "answer": "דווקא",
-      "frame": "אמרו לו לא לבוא, אז הוא ___ בא.", "en": "They told him not to come, so he came ___.",
-      "why": "דווקא = doing it *because* you were told not to — defiance / contrary to expectation. בעצם and למעשה carry no such spin." },
-    { "cluster": "actually", "options": ["דווקא", "בעצם", "למעשה"], "answer": "בעצם",
-      "frame": "רגע... ___ אתה צודק. טעיתי.", "en": "Wait… ___ you're right. I was wrong.",
-      "why": "בעצם marks a mid-thought self-correction ('on second thought'). דווקא (against expectation) and למעשה (in practice) don't fit a change of mind." },
-    { "cluster": "actually", "options": ["דווקא", "בעצם", "למעשה"], "answer": "למעשה",
-      "frame": "הוא מנהל את החברה ___, גם אם לא באופן רשמי.", "en": "He runs the company ___, even if not officially.",
-      "why": "למעשה = 'in practice / de facto'. דווקא and בעצם can't mean 'in actual fact' the way 'de facto' needs here." },
-    { "cluster": "actually", "options": ["דווקא", "בעצם", "למעשה"], "answer": "דווקא",
-      "frame": "חשבתי שלא יבוא, אבל הוא ___ הגיע ראשון.", "en": "I thought he wouldn't come, but he ___ arrived first.",
-      "why": "Reversal of expectation — not only came, came first. That surprise-against-prediction is דווקא's core." },
-
-    { "cluster": "long ago", "options": ["מזמן", "לפני הרבה זמן", "לא מזמן"], "answer": "מזמן",
-      "frame": "___ לא ראיתי אותך! מה שלומך?", "en": "I haven't seen you ___! How are you?",
-      "why": "The collocation מזמן לא = 'haven't … in ages' (up to now). לפני הרבה זמן can't sit in this present-connected negative." },
-    { "cluster": "long ago", "options": ["מזמן", "לפני הרבה זמן", "לא מזמן"], "answer": "מזמן",
-      "frame": "אל תדאג — הוא ___ בבית.", "en": "Don't worry — he's ___ home.",
-      "why": "Here מזמן = 'already / long since' marking an elapsed state into the present. לפני הרבה זמן (a finished past point) is ungrammatical with a current state." },
-    { "cluster": "long ago", "options": ["מזמן", "לפני הרבה זמן", "לא מזמן"], "answer": "לא מזמן",
-      "frame": "פגשתי אותה ___, רק לפני שבוע.", "en": "I met her ___, just a week ago.",
-      "why": "לא מזמן = 'recently'. (Note: it's NOT the negation of idiomatic מזמן — it's the *opposite* of 'long ago'.) 'A week ago' rules out the two 'long ago' options." },
-    { "cluster": "long ago", "options": ["מזמן", "לפני הרבה זמן", "לא מזמן"], "answer": "מזמן",
-      "frame": "— מתי הגעת? — ___!", "en": "— When did you get here? — ___!",
-      "why": "Standalone מזמן! = 'ages ago!' (often with an implied '…and I've been waiting'). A bare לפני הרבה זמן sounds oddly flat as a reply." },
-
-    { "cluster": "because", "options": ["בגלל", "כי", "לכן"], "answer": "בגלל",
-      "frame": "לא באתי ___ הגשם.", "en": "I didn't come because of the rain.",
-      "why": "בגלל takes a NOUN (הגשם). כי needs a full clause; לכן means 'therefore'." },
-    { "cluster": "because", "options": ["בגלל", "כי", "לכן"], "answer": "כי",
-      "frame": "לא באתי ___ ירד גשם.", "en": "I didn't come because it was raining.",
-      "why": "כי introduces a CLAUSE (ירד גשם). You can't say בגלל ירד גשם — בגלל needs a noun." },
-    { "cluster": "because", "options": ["בגלל", "כי", "לכן"], "answer": "לכן",
-      "frame": "ירד גשם, ___ לא באתי.", "en": "It was raining, so I didn't come.",
-      "why": "לכן = 'therefore', marks the RESULT. בגלל/כי point at the cause — wrong direction." },
-    { "cluster": "because", "options": ["בגלל", "כי", "לכן"], "answer": "כי",
-      "frame": "הוא עייף ___ עבד כל הלילה.", "en": "He's tired because he worked all night.",
-      "why": "A clause follows (עבד כל הלילה) → כי. בגלל would need a noun: בגלל העבודה." },
-
-    { "cluster": "certainty", "options": ["אולי", "כנראה", "בטח", "בוודאי"], "answer": "אולי",
-      "frame": "אני לא בטוח, ___ הוא יבוא.", "en": "I'm not sure, ___ he'll come.",
-      "why": "Lowest certainty ('maybe') pairs with 'I'm not sure'. בטח/בוודאי (high certainty) clash with the hedge." },
-    { "cluster": "certainty", "options": ["אולי", "כנראה", "בטח", "בוודאי"], "answer": "כנראה",
-      "frame": "האורות כבויים — ___ אין אף אחד בבית.", "en": "The lights are off — ___ no one's home.",
-      "why": "כנראה = an inference from evidence ('apparently/probably'). אולי is a bare guess; בוודאי overclaims given it's just an inference." },
-    { "cluster": "certainty", "options": ["אולי", "כנראה", "בטח", "בוודאי"], "answer": "בטח",
-      "frame": "— אתה בא? — ___, בשמחה!", "en": "— You coming? — ___, gladly!",
-      "why": "בטח as an enthusiastic 'sure! / of course!'. אולי (maybe) contradicts 'gladly'." },
-    { "cluster": "certainty", "options": ["אולי", "כנראה", "בטח", "בוודאי"], "answer": "בוודאי",
-      "frame": "שתיים ועוד שתיים שווה ארבע — זה ___ נכון.", "en": "Two plus two is four — that's ___ true.",
-      "why": "Certainty about a fact → בוודאי. אולי/כנראה under-commit to something that's simply certain." },
-
-    { "cluster": "degree", "options": ["מאוד", "ממש", "די", "כמעט"], "answer": "ממש",
-      "frame": "אני ___ לא מאמין!", "en": "I ___ can't believe it!",
-      "why": "ממש intensifies a whole statement/verb ('I really can't…'). מאוד modifies adjectives, not לא מאמין — *מאוד לא מאמין* is off." },
-    { "cluster": "degree", "options": ["מאוד", "ממש", "די", "כמעט"], "answer": "די",
-      "frame": "היה ___ נחמד, אבל לא משהו מיוחד.", "en": "It was ___ nice, but nothing special.",
-      "why": "די = 'fairly / moderately' — matches the dialed-down 'nothing special'. מאוד/ממש (very/really) clash with that." },
-    { "cluster": "degree", "options": ["מאוד", "ממש", "די", "כמעט"], "answer": "כמעט",
-      "frame": "___ נפלתי, אבל הצלחתי לתפוס את עצמי.", "en": "I ___ fell, but caught myself.",
-      "why": "כמעט = 'almost' — the event didn't actually happen. The others are intensifiers, not 'almost'." }
+    {
+      "cluster": "actually",
+      "options": [
+        "דווקא",
+        "בעצם",
+        "למעשה"
+      ],
+      "answer": "דווקא",
+      "frame": "אמרו לו לא לבוא, אז הוא ___ בא.",
+      "en": "They told him not to come, so he came ___.",
+      "why": "דווקא = doing it *because* you were told not to — defiance / contrary to expectation. בעצם and למעשה carry no such spin.",
+      "nq": "אָמְרוּ לוֹ לֹא לָבוֹא, אָז הוּא ___ בָּא."
+    },
+    {
+      "cluster": "actually",
+      "options": [
+        "דווקא",
+        "בעצם",
+        "למעשה"
+      ],
+      "answer": "בעצם",
+      "frame": "רגע... ___ אתה צודק. טעיתי.",
+      "en": "Wait… ___ you're right. I was wrong.",
+      "why": "בעצם marks a mid-thought self-correction ('on second thought'). דווקא (against expectation) and למעשה (in practice) don't fit a change of mind.",
+      "nq": "רֶגַע... ___ אַתָּה צוֹדֵק. טָעִיתִי."
+    },
+    {
+      "cluster": "actually",
+      "options": [
+        "דווקא",
+        "בעצם",
+        "למעשה"
+      ],
+      "answer": "למעשה",
+      "frame": "הוא מנהל את החברה ___, גם אם לא באופן רשמי.",
+      "en": "He runs the company ___, even if not officially.",
+      "why": "למעשה = 'in practice / de facto'. דווקא and בעצם can't mean 'in actual fact' the way 'de facto' needs here.",
+      "nq": "הוּא מְנַהֵל אֶת הַחֶבְרָה ___, גַּם אִם לֹא בְּאוֹפֶן רִשְׁמִי."
+    },
+    {
+      "cluster": "actually",
+      "options": [
+        "דווקא",
+        "בעצם",
+        "למעשה"
+      ],
+      "answer": "דווקא",
+      "frame": "חשבתי שלא יבוא, אבל הוא ___ הגיע ראשון.",
+      "en": "I thought he wouldn't come, but he ___ arrived first.",
+      "why": "Reversal of expectation — not only came, came first. That surprise-against-prediction is דווקא's core.",
+      "nq": "חָשַׁבְתִּי שֶׁלֹּא יָבוֹא, אֲבָל הוּא ___ הִגִּיעַ רִאשׁוֹן."
+    },
+    {
+      "cluster": "long ago",
+      "options": [
+        "מזמן",
+        "לפני הרבה זמן",
+        "לא מזמן"
+      ],
+      "answer": "מזמן",
+      "frame": "___ לא ראיתי אותך! מה שלומך?",
+      "en": "I haven't seen you ___! How are you?",
+      "why": "The collocation מזמן לא = 'haven't … in ages' (up to now). לפני הרבה זמן can't sit in this present-connected negative.",
+      "nq": "___ לֹא רָאִיתִי אוֹתְךָ! מָה שְׁלוֹמְךָ?"
+    },
+    {
+      "cluster": "long ago",
+      "options": [
+        "מזמן",
+        "לפני הרבה זמן",
+        "לא מזמן"
+      ],
+      "answer": "מזמן",
+      "frame": "אל תדאג — הוא ___ בבית.",
+      "en": "Don't worry — he's ___ home.",
+      "why": "Here מזמן = 'already / long since' marking an elapsed state into the present. לפני הרבה זמן (a finished past point) is ungrammatical with a current state.",
+      "nq": "אַל תִּדְאַג — הוּא ___ בַּבַּיִת."
+    },
+    {
+      "cluster": "long ago",
+      "options": [
+        "מזמן",
+        "לפני הרבה זמן",
+        "לא מזמן"
+      ],
+      "answer": "לא מזמן",
+      "frame": "פגשתי אותה ___, רק לפני שבוע.",
+      "en": "I met her ___, just a week ago.",
+      "why": "לא מזמן = 'recently'. (Note: it's NOT the negation of idiomatic מזמן — it's the *opposite* of 'long ago'.) 'A week ago' rules out the two 'long ago' options.",
+      "nq": "פָּגַשְׁתִּי אוֹתָהּ ___, רַק לִפְנֵי שָׁבוּעַ."
+    },
+    {
+      "cluster": "long ago",
+      "options": [
+        "מזמן",
+        "לפני הרבה זמן",
+        "לא מזמן"
+      ],
+      "answer": "מזמן",
+      "frame": "— מתי הגעת? — ___!",
+      "en": "— When did you get here? — ___!",
+      "why": "Standalone מזמן! = 'ages ago!' (often with an implied '…and I've been waiting'). A bare לפני הרבה זמן sounds oddly flat as a reply.",
+      "nq": "— מָתַי הִגַּעְתָּ? — ___!"
+    },
+    {
+      "cluster": "because",
+      "options": [
+        "בגלל",
+        "כי",
+        "לכן"
+      ],
+      "answer": "בגלל",
+      "frame": "לא באתי ___ הגשם.",
+      "en": "I didn't come because of the rain.",
+      "why": "בגלל takes a NOUN (הגשם). כי needs a full clause; לכן means 'therefore'.",
+      "nq": "לֹא בָּאתִי ___ הַגֶּשֶׁם."
+    },
+    {
+      "cluster": "because",
+      "options": [
+        "בגלל",
+        "כי",
+        "לכן"
+      ],
+      "answer": "כי",
+      "frame": "לא באתי ___ ירד גשם.",
+      "en": "I didn't come because it was raining.",
+      "why": "כי introduces a CLAUSE (ירד גשם). You can't say בגלל ירד גשם — בגלל needs a noun.",
+      "nq": "לֹא בָּאתִי ___ יָרַד גֶּשֶׁם."
+    },
+    {
+      "cluster": "because",
+      "options": [
+        "בגלל",
+        "כי",
+        "לכן"
+      ],
+      "answer": "לכן",
+      "frame": "ירד גשם, ___ לא באתי.",
+      "en": "It was raining, so I didn't come.",
+      "why": "לכן = 'therefore', marks the RESULT. בגלל/כי point at the cause — wrong direction.",
+      "nq": "יָרַד גֶּשֶׁם, ___ לֹא בָּאתִי."
+    },
+    {
+      "cluster": "because",
+      "options": [
+        "בגלל",
+        "כי",
+        "לכן"
+      ],
+      "answer": "כי",
+      "frame": "הוא עייף ___ עבד כל הלילה.",
+      "en": "He's tired because he worked all night.",
+      "why": "A clause follows (עבד כל הלילה) → כי. בגלל would need a noun: בגלל העבודה.",
+      "nq": "הוּא עָיֵף ___ עָבַד כָּל הַלַּיְלָה."
+    },
+    {
+      "cluster": "certainty",
+      "options": [
+        "אולי",
+        "כנראה",
+        "בטח",
+        "בוודאי"
+      ],
+      "answer": "אולי",
+      "frame": "אני לא בטוח, ___ הוא יבוא.",
+      "en": "I'm not sure, ___ he'll come.",
+      "why": "Lowest certainty ('maybe') pairs with 'I'm not sure'. בטח/בוודאי (high certainty) clash with the hedge.",
+      "nq": "אֲנִי לֹא בָּטוּחַ, ___ הוּא יָבוֹא."
+    },
+    {
+      "cluster": "certainty",
+      "options": [
+        "אולי",
+        "כנראה",
+        "בטח",
+        "בוודאי"
+      ],
+      "answer": "כנראה",
+      "frame": "האורות כבויים — ___ אין אף אחד בבית.",
+      "en": "The lights are off — ___ no one's home.",
+      "why": "כנראה = an inference from evidence ('apparently/probably'). אולי is a bare guess; בוודאי overclaims given it's just an inference.",
+      "nq": "הָאוֹרוֹת כְּבוּיִים — ___ אֵין אַף אֶחָד בַּבַּיִת."
+    },
+    {
+      "cluster": "certainty",
+      "options": [
+        "אולי",
+        "כנראה",
+        "בטח",
+        "בוודאי"
+      ],
+      "answer": "בטח",
+      "frame": "— אתה בא? — ___, בשמחה!",
+      "en": "— You coming? — ___, gladly!",
+      "why": "בטח as an enthusiastic 'sure! / of course!'. אולי (maybe) contradicts 'gladly'.",
+      "nq": "— אַתָּה בָּא? — ___, בְּשִׂמְחָה!"
+    },
+    {
+      "cluster": "certainty",
+      "options": [
+        "אולי",
+        "כנראה",
+        "בטח",
+        "בוודאי"
+      ],
+      "answer": "בוודאי",
+      "frame": "שתיים ועוד שתיים שווה ארבע — זה ___ נכון.",
+      "en": "Two plus two is four — that's ___ true.",
+      "why": "Certainty about a fact → בוודאי. אולי/כנראה under-commit to something that's simply certain.",
+      "nq": "שְׁתַּיִם וְעוֹד שְׁתַּיִם שָׁוֶה אַרְבַּע — זֶה ___ נָכוֹן."
+    },
+    {
+      "cluster": "degree",
+      "options": [
+        "מאוד",
+        "ממש",
+        "די",
+        "כמעט"
+      ],
+      "answer": "ממש",
+      "frame": "אני ___ לא מאמין!",
+      "en": "I ___ can't believe it!",
+      "why": "ממש intensifies a whole statement/verb ('I really can't…'). מאוד modifies adjectives, not לא מאמין — *מאוד לא מאמין* is off.",
+      "nq": "אֲנִי ___ לֹא מַאֲמִין!"
+    },
+    {
+      "cluster": "degree",
+      "options": [
+        "מאוד",
+        "ממש",
+        "די",
+        "כמעט"
+      ],
+      "answer": "די",
+      "frame": "היה ___ נחמד, אבל לא משהו מיוחד.",
+      "en": "It was ___ nice, but nothing special.",
+      "why": "די = 'fairly / moderately' — matches the dialed-down 'nothing special'. מאוד/ממש (very/really) clash with that.",
+      "nq": "הָיָה ___ נֶחְמָד, אֲבָל לֹא מַשֶּׁהוּ מְיוּחָד."
+    },
+    {
+      "cluster": "degree",
+      "options": [
+        "מאוד",
+        "ממש",
+        "די",
+        "כמעט"
+      ],
+      "answer": "כמעט",
+      "frame": "___ נפלתי, אבל הצלחתי לתפוס את עצמי.",
+      "en": "I ___ fell, but caught myself.",
+      "why": "כמעט = 'almost' — the event didn't actually happen. The others are intensifiers, not 'almost'.",
+      "nq": "___ נָפַלְתִּי, אֲבָל הִצְלַחְתִּי לִתְפֹּס אֶת עַצְמִי."
+    }
   ]
 }
