@@ -2616,6 +2616,22 @@
       ]
     },
     {
+      "rank": 295,
+      "bare": "הר",
+      "niqqud": "הַר",
+      "translit": "har",
+      "gloss": "mountain",
+      "type": "noun",
+      "shoresh": "ה־ר־ר",
+      "grammar": "noun (m.sg); pl. הָרִים harim.",
+      "examples": [
+        {
+          "he": "ה*הר* הזה גבוה מאוד.",
+          "en": "This mountain is very tall."
+        }
+      ]
+    },
+    {
       "rank": 300,
       "bare": "נשמע",
       "niqqud": "נִשְׁמָע",
@@ -2880,6 +2896,22 @@
         {
           "he": "לא *ידעתי* את זה.",
           "en": "I didn't know that."
+        }
+      ]
+    },
+    {
+      "rank": 321,
+      "bare": "רחוב",
+      "niqqud": "רְחוֹב",
+      "translit": "rechov",
+      "gloss": "street",
+      "type": "noun",
+      "shoresh": "ר־ח־ב",
+      "grammar": "noun (m.sg); pl. רְחוֹבוֹת. From ר־ח־ב 'wide' — a street as a 'broad way'.",
+      "examples": [
+        {
+          "he": "מצאתי אותו ב*רחוב*.",
+          "en": "I found him in the street."
         }
       ]
     },
@@ -3294,6 +3326,22 @@
         {
           "he": "בסדר, *החוצה* כולם.",
           "en": "Okay, everybody out."
+        }
+      ]
+    },
+    {
+      "rank": 369,
+      "bare": "תמונה",
+      "niqqud": "תְּמוּנָה",
+      "translit": "tmuna",
+      "gloss": "picture / photo",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (f.sg); pl. תְּמוּנוֹת. 'picture / image / photo'.",
+      "examples": [
+        {
+          "he": "זו *תמונה* שלי.",
+          "en": "That's a photo of me."
         }
       ]
     },
@@ -3866,6 +3914,22 @@
       ]
     },
     {
+      "rank": 445,
+      "bare": "להישאר",
+      "niqqud": "לְהִישָׁאֵר",
+      "translit": "lehishaer",
+      "gloss": "to stay / remain",
+      "type": "verb",
+      "shoresh": "ש־א־ר",
+      "grammar": "infinitive, nif'al of ש־א־ר. נִשְׁאַרְתִּי = 'I stayed'.",
+      "examples": [
+        {
+          "he": "לא תוכל *להישאר* כאן.",
+          "en": "You can't stay here."
+        }
+      ]
+    },
+    {
       "bare": "ערב",
       "niqqud": "עֶרֶב",
       "translit": "erev",
@@ -3926,6 +3990,22 @@
         {
           "he": "אני מנסה לדבר איתך כבר שלושה *ימים*.",
           "en": "I've been trying to talk to you for three days."
+        }
+      ]
+    },
+    {
+      "rank": 467,
+      "bare": "לשאול",
+      "niqqud": "לִשְׁאוֹל",
+      "translit": "lish'ol",
+      "gloss": "to ask / borrow",
+      "type": "verb",
+      "shoresh": "ש־א־ל",
+      "grammar": "infinitive, pa'al of ש־א־ל. Also 'to borrow'. Same root as שְׁאֵלָה 'question'.",
+      "examples": [
+        {
+          "he": "אפשר *לשאול* אותך משהו?",
+          "en": "Can I ask you something?"
         }
       ]
     },
@@ -4078,6 +4158,54 @@
       ]
     },
     {
+      "rank": 512,
+      "bare": "לאכול",
+      "niqqud": "לֶאֱכֹל",
+      "translit": "le'echol",
+      "gloss": "to eat",
+      "type": "verb",
+      "shoresh": "א־כ־ל",
+      "grammar": "infinitive, pa'al of א־כ־ל. Same root as אוֹכֶל 'food'.",
+      "examples": [
+        {
+          "he": "תן לי משהו *לאכול*.",
+          "en": "Give me something to eat."
+        }
+      ]
+    },
+    {
+      "rank": 513,
+      "bare": "לעזוב",
+      "niqqud": "לַעֲזֹב",
+      "translit": "la'azov",
+      "gloss": "to leave / abandon",
+      "type": "verb",
+      "shoresh": "ע־ז־ב",
+      "grammar": "infinitive, pa'al of ע־ז־ב. עֲזֹב! = 'leave it! / forget it!'.",
+      "examples": [
+        {
+          "he": "נוכל *לעזוב* מתי שתרצה.",
+          "en": "We can leave whenever you want."
+        }
+      ]
+    },
+    {
+      "rank": 519,
+      "bare": "לעצור",
+      "niqqud": "לַעֲצֹר",
+      "translit": "la'atzor",
+      "gloss": "to stop / arrest",
+      "type": "verb",
+      "shoresh": "ע־צ־ר",
+      "grammar": "infinitive, pa'al of ע־צ־ר. Also 'to arrest'; עֲצֹר! = 'stop!'.",
+      "examples": [
+        {
+          "he": "אתה לא יכול *לעצור* אותי.",
+          "en": "You can't stop me."
+        }
+      ]
+    },
+    {
       "rank": 524,
       "bare": "דלת",
       "niqqud": "דֶּלֶת",
@@ -4210,6 +4338,38 @@
       ]
     },
     {
+      "rank": 581,
+      "bare": "לקרוא",
+      "niqqud": "לִקְרֹא",
+      "translit": "likro",
+      "gloss": "to read / call / name",
+      "type": "verb",
+      "shoresh": "ק־ר־א",
+      "grammar": "infinitive, pa'al of ק־ר־א — 'read', 'call out', or 'name (call X)'. Context decides.",
+      "examples": [
+        {
+          "he": "אתם לא יודעים *לקרוא*?",
+          "en": "Don't you know how to read?"
+        }
+      ]
+    },
+    {
+      "rank": 602,
+      "bare": "לשחק",
+      "niqqud": "לְשַׂחֵק",
+      "translit": "lesachek",
+      "gloss": "to play",
+      "type": "verb",
+      "shoresh": "ש־ח־ק",
+      "grammar": "infinitive, pi'el of ש־ח־ק. מִשְׂחָק = 'a game'.",
+      "examples": [
+        {
+          "he": "הילדים אוהבים *לשחק*.",
+          "en": "The kids love to play."
+        }
+      ]
+    },
+    {
       "rank": 604,
       "bare": "לפגוש",
       "niqqud": "לִפְגֹּשׁ",
@@ -4238,6 +4398,38 @@
         {
           "he": "איבדתי תינוק לפני ארבעה *חודשים*.",
           "en": "I lost a baby four months ago."
+        }
+      ]
+    },
+    {
+      "rank": 611,
+      "bare": "להתחיל",
+      "niqqud": "לְהַתְחִיל",
+      "translit": "lehatchil",
+      "gloss": "to start / begin",
+      "type": "verb",
+      "shoresh": "ת־ח־ל",
+      "grammar": "infinitive, hif'il of ת־ח־ל. הַתְחָלָה = 'a beginning'.",
+      "examples": [
+        {
+          "he": "אנחנו יכולים *להתחיל*.",
+          "en": "We can start."
+        }
+      ]
+    },
+    {
+      "rank": 618,
+      "bare": "לישון",
+      "niqqud": "לִישׁוֹן",
+      "translit": "lishon",
+      "gloss": "to sleep",
+      "type": "verb",
+      "shoresh": "י־ש־נ",
+      "grammar": "infinitive, pa'al of י־ש־נ. הלך לישון = 'went to sleep'.",
+      "examples": [
+        {
+          "he": "אני הולך *לישון*.",
+          "en": "I'm going to sleep."
         }
       ]
     },
@@ -4322,6 +4514,22 @@
       ]
     },
     {
+      "rank": 634,
+      "bare": "לבדוק",
+      "niqqud": "לִבְדֹּק",
+      "translit": "livdok",
+      "gloss": "to check / examine",
+      "type": "verb",
+      "shoresh": "ב־ד־ק",
+      "grammar": "infinitive, pa'al of ב־ד־ק. בְּדִיקָה = 'a test / check-up'.",
+      "examples": [
+        {
+          "he": "אני צריך *לבדוק* את זה.",
+          "en": "I need to check this."
+        }
+      ]
+    },
+    {
       "bare": "נשים",
       "niqqud": "נָשִׁים",
       "translit": "nashim",
@@ -4334,6 +4542,22 @@
         {
           "he": "אין לך כבוד כלפי *נשים*.",
           "en": "You have no respect for women."
+        }
+      ]
+    },
+    {
+      "rank": 643,
+      "bare": "לחכות",
+      "niqqud": "לְחַכּוֹת",
+      "translit": "lechakot",
+      "gloss": "to wait",
+      "type": "verb",
+      "shoresh": "ח־כ־ה",
+      "grammar": "infinitive, pi'el of ח־כ־ה. חַכֵּה! = 'wait!'.",
+      "examples": [
+        {
+          "he": "אתה צריך *לחכות* כאן.",
+          "en": "You need to wait here."
         }
       ]
     },
@@ -4366,6 +4590,38 @@
         {
           "he": "יש לי עוד *שאלה* אחת.",
           "en": "I have one more question."
+        }
+      ]
+    },
+    {
+      "rank": 651,
+      "bare": "לשים",
+      "niqqud": "לָשִׂים",
+      "translit": "lasim",
+      "gloss": "to put / place",
+      "type": "verb",
+      "shoresh": "ש־י־ם",
+      "grammar": "infinitive, pa'al of שׂ־י־ם. שִׂים לֵב = 'pay attention' (lit. 'put heart').",
+      "examples": [
+        {
+          "he": "איפה *לשים* את זה?",
+          "en": "Where should I put this?"
+        }
+      ]
+    },
+    {
+      "rank": 657,
+      "bare": "מכונית",
+      "niqqud": "מְכוֹנִית",
+      "translit": "mechonit",
+      "gloss": "car",
+      "type": "noun",
+      "shoresh": "כ־ו־ן",
+      "grammar": "noun (f.sg); pl. מְכוֹנִיוֹת. From מְכוֹנָה 'machine'. Casual synonym: אוטו.",
+      "examples": [
+        {
+          "he": "אני לוקח את ה*מכונית*.",
+          "en": "I'm taking the car."
         }
       ]
     },
@@ -4434,6 +4690,22 @@
       ]
     },
     {
+      "rank": 678,
+      "bare": "ים",
+      "niqqud": "יָם",
+      "translit": "yam",
+      "gloss": "sea",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (m.sg); pl. יַמִּים yamim (same spelling as 'days'!). 'sea / ocean'.",
+      "examples": [
+        {
+          "he": "ה*ים* יפה היום.",
+          "en": "The sea is beautiful today."
+        }
+      ]
+    },
+    {
       "rank": 707,
       "bare": "שווה",
       "niqqud": "שָׁוֶה",
@@ -4446,6 +4718,22 @@
         {
           "he": "*שווה* לנסות את זה.",
           "en": "It's worth trying."
+        }
+      ]
+    },
+    {
+      "rank": 717,
+      "bare": "לקנות",
+      "niqqud": "לִקְנוֹת",
+      "translit": "liknot",
+      "gloss": "to buy",
+      "type": "verb",
+      "shoresh": "ק־נ־ה",
+      "grammar": "infinitive, pa'al of ק־נ־ה. קְנִיּוֹת = 'shopping'.",
+      "examples": [
+        {
+          "he": "אני רוצה *לקנות* אוכל.",
+          "en": "I want to buy food."
         }
       ]
     },
@@ -4882,6 +5170,22 @@
       ]
     },
     {
+      "rank": 1368,
+      "bare": "שולחן",
+      "niqqud": "שׁוּלְחָן",
+      "translit": "shulchan",
+      "gloss": "table",
+      "type": "noun",
+      "shoresh": "ש־ל־ח",
+      "grammar": "noun (m.sg); pl. שׁוּלְחָנוֹת shulchanot.",
+      "examples": [
+        {
+          "he": "שים את זה על ה*שולחן*.",
+          "en": "Put it on the table."
+        }
+      ]
+    },
+    {
       "bare": "עולם",
       "niqqud": "עוֹלָם",
       "translit": "olam",
@@ -4930,6 +5234,86 @@
       ]
     },
     {
+      "rank": 1450,
+      "bare": "כוס",
+      "niqqud": "כּוֹס",
+      "translit": "kos",
+      "gloss": "glass / cup",
+      "type": "noun",
+      "shoresh": null,
+      "grammar": "noun (f.sg); pl. כּוֹסוֹת. כּוֹס תֵּה / קָפֶה = 'a cup of tea / coffee'.",
+      "examples": [
+        {
+          "he": "הבאתי לך *כוס* תה.",
+          "en": "I brought you a cup of tea."
+        }
+      ]
+    },
+    {
+      "rank": 1498,
+      "bare": "בשר",
+      "niqqud": "בָּשָׂר",
+      "translit": "basar",
+      "gloss": "meat / flesh",
+      "type": "noun",
+      "shoresh": "ב־ש־ר",
+      "grammar": "noun (m.sg) 'meat / flesh'. Same root as בְּשׂוֹרָה 'news/tidings'.",
+      "examples": [
+        {
+          "he": "אני צריך את ה*בשר*.",
+          "en": "I need the meat."
+        }
+      ]
+    },
+    {
+      "rank": 1499,
+      "bare": "מפתח",
+      "niqqud": "מַפְתֵּחַ",
+      "translit": "mafteach",
+      "gloss": "key",
+      "type": "noun",
+      "shoresh": "פ־ת־ח",
+      "grammar": "noun (m.sg); pl. מַפְתְּחוֹת. From פ־ת־ח 'open' — a key opens.",
+      "examples": [
+        {
+          "he": "איפה ה*מפתח* שלי?",
+          "en": "Where's my key?"
+        }
+      ]
+    },
+    {
+      "rank": 1604,
+      "bare": "שמש",
+      "niqqud": "שֶׁמֶשׁ",
+      "translit": "shemesh",
+      "gloss": "sun",
+      "type": "noun",
+      "shoresh": "ש־מ־ש",
+      "grammar": "noun (f.sg) 'sun'. Don't confuse with מְשַׁמֵּשׁ 'serves' (same letters, ש-מ-ש).",
+      "examples": [
+        {
+          "he": "היום יש *שמש*.",
+          "en": "It's sunny today."
+        }
+      ]
+    },
+    {
+      "rank": 1671,
+      "bare": "עץ",
+      "niqqud": "עֵץ",
+      "translit": "etz",
+      "gloss": "tree / wood",
+      "type": "noun",
+      "shoresh": "ע־צ־ה",
+      "grammar": "noun (m.sg); pl. עֵצִים etzim. Means both 'tree' and 'wood'.",
+      "examples": [
+        {
+          "he": "ה*עץ* הזה מושלם.",
+          "en": "This tree is perfect."
+        }
+      ]
+    },
+    {
       "rank": 1755,
       "bare": "מזמן",
       "niqqud": "מִזְּמַן",
@@ -4942,6 +5326,22 @@
         {
           "he": "לא ראיתי אותך *מזמן*.",
           "en": "I haven't seen you in a long time."
+        }
+      ]
+    },
+    {
+      "rank": 1806,
+      "bare": "מיטה",
+      "niqqud": "מִיטָה",
+      "translit": "mita",
+      "gloss": "bed",
+      "type": "noun",
+      "shoresh": "נ־ט־ה",
+      "grammar": "noun (f.sg); pl. מִיטוֹת. From נ־ט־ה 'incline / lay down'.",
+      "examples": [
+        {
+          "he": "אני הולך ל*מיטה*.",
+          "en": "I'm going to bed."
         }
       ]
     },
