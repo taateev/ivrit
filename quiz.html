@@ -284,7 +284,10 @@
   }
 
   function renderUploaded(name, sha) {
-    doneShell(`<span class="ok">✓ committed</span> <code>${esc(name)}</code>${sha ? ` · ${esc(sha.slice(0, 7))}` : ''}<br>Back to the terminal — say “done”.`);
+    const coach = playerId() === 'dan';   // the coach-loop instruction is only meaningful for the member
+    doneShell(coach
+      ? `<span class="ok">✓ committed</span> <code>${esc(name)}</code>${sha ? ` · ${esc(sha.slice(0, 7))}` : ''}<br>Back to the terminal — say “done”.`
+      : `<span class="ok">✓ saved</span> — nice run! Your score is recorded.<br><span style="font-size:13px;color:#6b7387">Play again, or try the crossword from the menu.</span>`);
   }
   function renderUploading() { doneShell('uploading to GitHub…'); }
   function renderFailed(msg) {
@@ -342,7 +345,7 @@
     const a = document.createElement('a'); a.href = url; a.download = name;
     document.body.appendChild(a); a.click();
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1500);
-    doneShell(`saved <code>${esc(name)}</code> via download.<br>Back to the terminal — say “done”.`);
+    doneShell(`<span class="ok">✓ saved</span> <code>${esc(name)}</code> via download.` + (playerId() === 'dan' ? `<br>Back to the terminal — say “done”.` : `<br><span style="font-size:13px;color:#6b7387">nice run!</span>`));
     return name;
   }
 
