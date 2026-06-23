@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — my vocabulary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 22px 14px 40px; }
+  h1 { font-size: 23px; margin: 0 0 2px; } h1 .he { font-family: 'Heebo', sans-serif; }
+  .sub { color: #6b7387; font-size: 13px; margin-bottom: 16px; }
+  .wrap { width: min(620px, 96vw); }
+  .sorts { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 14px; }
+  .sorts button { background: #141823; border: 1px solid #2a2f3d; border-radius: 999px; color: #8b93a7; font: inherit; font-size: 13px; padding: 6px 13px; cursor: pointer; }
+  .sorts button.on { background: #1a2230; border-color: #4a72c4; color: #cfe0ff; }
+  .row { display: flex; align-items: center; gap: 12px; background: #141823; border: 1px solid #2a2f3d; border-radius: 10px; padding: 10px 13px; margin-bottom: 6px; }
+  .row .word { font-family: 'Heebo', sans-serif; font-size: 22px; font-weight: 700; direction: rtl; min-width: 92px; text-align: right; }
+  .row .mid { flex: 1; min-width: 0; }
+  .row .gloss { font-size: 14px; color: #c2c9d8; }
+  .row .meta { font-size: 12px; color: #6b7387; margin-top: 2px; }
+  .bar { width: 84px; height: 8px; border-radius: 999px; background: #2a2f3d; overflow: hidden; flex-shrink: 0; }
+  .bar > i { display: block; height: 100%; }
+  .empty { color: #6b7387; text-align: center; padding: 26px 0; line-height: 1.6; }
+  a.btn { display: inline-block; text-decoration: none; background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 9px; color: #cfd6e4; padding: 9px 16px; font-size: 14px; }
+  a.back { color: #6b7387; margin-top: 22px; font-size: 14px; text-decoration: none; }
+</style>
+</head>
+<body>
+<h1 id="title">my vocabulary</h1>
+<div class="sub" id="sub"></div>
+<div class="wrap">
+  <div class="sorts" id="sorts" hidden>
+    <button data-s="weak" class="on">needs work</button>
+    <button data-s="strong">strongest</button>
+    <button data-s="seen">most seen</button>
+    <button data-s="recent">recent</button>
+  </div>
+  <div id="list">loading…</div>
+</div>
+<a class="back" href="index.html">← menu</a>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"-]*)/g, '<span class="he">$1</span>');
+  function ago(ms) { const s = Math.max(0, Math.round((Date.now() - ms) / 1000)); if (s < 60) return 'just now'; const m = Math.round(s / 60); if (m < 60) return m + 'm'; const h = Math.round(m / 60); if (h < 24) return h + 'h'; const d = Math.round(h / 24); return d < 7 ? d + 'd' : new Date(ms).toLocaleDateString(); }
+  const barColor = (st) => `hsl(${Math.round(st * 120)}, 60%, 45%)`;   // red → green
+
+  const me = (localStorage.getItem('player_id') || '').trim();
+  if (!me) { $('list').innerHTML = '<div class="empty">No player set yet.<br>Play a <a class="btn" href="quiz.html" style="margin-top:10px">drill</a> first.</div>'; return; }
+  fetch('data/players.json?t=' + Date.now()).then(r => r.json()).then(d => { const p = (d.players || []).find(x => x.id === me); $('title').innerHTML = 'vocabulary — ' + heb(p ? p.name : me); }).catch(() => {});
+
+  let words = [], sort = 'weak';
+  const sorters = {
+    weak: (a, b) => a.strength - b.strength || b.seen - a.seen,
+    strong: (a, b) => b.strength - a.strength || b.seen - a.seen,
+    seen: (a, b) => b.seen - a.seen || a.strength - b.strength,
+    recent: (a, b) => b.lastTs - a.lastTs,
+  };
+  function render() {
+    const rows = [...words].sort(sorters[sort]);
+    $('list').innerHTML = rows.map(w => {
+      const acc = Math.round(w.acc * 100), conf = w.conf == null ? null : Math.round(w.conf * 100);
+      return `<div class="row">
+        <div class="word">${esc(w.word)}</div>
+        <div class="mid"><div class="gloss">${esc(w.gloss || '—')}</div>
+          <div class="meta">seen ${w.seen}× · ${acc}% right${conf != null ? ` · ${conf}% sure` : ''} · ${ago(w.lastTs)}</div></div>
+        <div class="bar"><i style="width:${Math.round(w.strength * 100)}%;background:${barColor(w.strength)}"></i></div>
+      </div>`;
+    }).join('');
+  }
+  $('sorts').querySelectorAll('button').forEach(b => b.onclick = () => {
+    sort = b.dataset.s; $('sorts').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); render();
+  });
+
+  fetch('/api/words?player=' + encodeURIComponent(me) + '&t=' + Date.now()).then(r => r.json()).then(d => {
+    words = d.words || [];
+    if (!words.length) { $('list').innerHTML = '<div class="empty">No words drilled yet — finish a drill and they’ll appear here.</div>'; return; }
+    $('sub').textContent = `${d.count} word${d.count === 1 ? '' : 's'} touched · weakest first`;
+    $('sorts').hidden = false; render();
+  }).catch(e => { $('list').innerHTML = '<div class="empty">couldn’t load: ' + esc(e.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>

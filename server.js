@@ -63,6 +63,19 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ player, totals, sessions: mine.slice(0, 60) }));
     return;
   }
+  if (pathname === '/api/words') {   // a player's vocabulary, weighted by repetition + performance
+    const player = (new URL(req.url, 'http://x').searchParams.get('player') || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+    const m = wordStats.get(player) || new Map();
+    const words = [...m].map(([word, w]) => {
+      const acc = w.seen ? w.correct / w.seen : 0;
+      const conf = w.confN ? w.confSum / w.confN : null;
+      const strength = conf != null ? acc * 0.5 + conf * 0.5 : acc;   // 0..1
+      return { word, gloss: GLOSS.get(word) || '', seen: w.seen, correct: w.correct, acc, conf, lastTs: w.lastTs, strength };
+    }).sort((a, b) => a.strength - b.strength || b.seen - a.seen);   // weakest (needs work) first
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
+    res.end(JSON.stringify({ player, count: words.length, words }));
+    return;
+  }
   if (req.method === 'POST' && pathname === '/api/results') {   // drill results — server saves them (no per-device token)
     let body = '';
     req.on('data', c => { body += c; if (body.length > 2e6) req.destroy(); });
@@ -146,7 +159,24 @@ async function persist(room) {
 }
 
 // ---------- drill results + per-player progress tracking ----------
+const GLOSS = new Map();   // bare → gloss, for the vocab list
+try { for (const w of JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words) GLOSS.set(w.bare, w.gloss); } catch (e) {}
+
 const savedLog = [];   // { player, session, ts, cards, correct, score }
+const wordStats = new Map();   // player → Map(word → { seen, correct, confSum, confN, lastTs })
+function ingest(player, events, ts) {   // one count per word per session (first look)
+  if (!wordStats.has(player)) wordStats.set(player, new Map());
+  const m = wordStats.get(player), seenIds = new Set();
+  for (const ev of events) {
+    if (!ev || !ev.id || !ev.grade || seenIds.has(ev.id)) continue;
+    seenIds.add(ev.id);
+    const w = m.get(ev.id) || { seen: 0, correct: 0, confSum: 0, confN: 0, lastTs: 0 };
+    w.seen++; if (ev.grade === 'good') w.correct++;
+    if (typeof ev.confidence === 'number') { w.confSum += ev.confidence; w.confN++; }
+    w.lastTs = Math.max(w.lastTs, ts || 0);
+    m.set(ev.id, w);
+  }
+}
 const summarize = (player, session, events, ts) => {
   const fl = events.filter(e => e && e.points !== undefined);   // first-look (scored) events
   const base = fl.length ? fl : events;
@@ -159,7 +189,9 @@ function seedStats() {   // load history committed before this deploy (server ha
       if (!f.endsWith('.jsonl') || !f.includes('--')) continue;
       const [session, player] = f.replace(/\.jsonl$/, '').split('--');
       let events; try { events = fs.readFileSync(`${dir}/${f}`, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)); } catch { continue; }
-      savedLog.push(summarize(player || 'anon', session || 'session', events, fs.statSync(`${dir}/${f}`).mtimeMs));
+      const ts = fs.statSync(`${dir}/${f}`).mtimeMs;
+      savedLog.push(summarize(player || 'anon', session || 'session', events, ts));
+      ingest(player || 'anon', events, ts);
     }
     savedLog.sort((a, b) => a.ts - b.ts);
     console.log(`seeded ${savedLog.length} drill results for progress tracking`);
@@ -174,6 +206,7 @@ function saveResult(d) {
   if (!events.length) return { ok: false, error: 'no events' };
   const summary = summarize(player, session, events, Date.now());
   savedLog.push(summary);   // tracked immediately so progress always works
+  ingest(player, events, summary.ts);
   const token = process.env.GH_TOKEN;   // durable commit to the repo — best-effort, doesn't block the result
   if (token) {
     const text = events.map(e => JSON.stringify(e)).join('\n') + '\n';
