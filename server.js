@@ -55,6 +55,17 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ rooms: list }));
     return;
   }
+  if (req.method === 'POST' && pathname === '/api/results') {   // drill results — server saves them (no per-device token)
+    let body = '';
+    req.on('data', c => { body += c; if (body.length > 2e6) req.destroy(); });
+    req.on('end', async () => {
+      let d; try { d = JSON.parse(body); } catch { res.writeHead(400, { 'Content-Type': 'application/json' }); res.end('{"ok":false,"error":"bad json"}'); return; }
+      const r = await saveResult(d);
+      res.writeHead(r.ok ? 200 : 500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(r));
+    });
+    return;
+  }
   if (pathname === '/') pathname = '/index.html';
   const filePath = path.normalize(path.join(ROOT, pathname));
   if (!filePath.startsWith(ROOT + path.sep) || pathname.split('/').some(s => s.startsWith('.'))) { res.writeHead(403); res.end('forbidden'); return; }
@@ -124,6 +135,28 @@ async function persist(room) {
     });
     console.log('crossword save:', res.status);
   } catch (e) { console.log('crossword save failed:', e.message); }
+}
+
+// persist a drill result (quiz/discrim) to the repo using the SERVER's token — clients send no token
+async function saveResult(d) {
+  const player = String(d.player || 'anon').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40) || 'anon';
+  const session = String(d.session || 'session').replace(/[^A-Za-z0-9_.-]/g, '').slice(0, 60) || 'session';
+  const events = Array.isArray(d.events) ? d.events.slice(0, 600) : [];
+  if (!events.length) return { ok: false, error: 'no events' };
+  const token = process.env.GH_TOKEN;
+  if (!token) return { ok: false, error: 'saving not configured on the server (GH_TOKEN unset)' };
+  const text = events.map(e => JSON.stringify(e)).join('\n') + '\n';
+  const name = `${session}--${player}--${new Date().toISOString().replace(/[:.]/g, '-')}.jsonl`;
+  try {
+    const resp = await fetch(`https://api.github.com/repos/taateev/ivrit/contents/data/results/${name}`, {
+      method: 'PUT', headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `drill: ${player} · ${session} · ${events.length} reviews`, content: Buffer.from(text).toString('base64') }),
+    });
+    if (!resp.ok) return { ok: false, error: `GitHub ${resp.status}` };
+    const j = await resp.json();
+    console.log(`saved drill: ${name}`);
+    return { ok: true, name, sha: (j.commit && j.commit.sha) || '' };
+  } catch (e) { return { ok: false, error: e.message }; }
 }
 
 const wss = new WebSocketServer({ noServer: true });

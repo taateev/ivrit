@@ -92,12 +92,7 @@
   const app = document.getElementById('app');
   const hud = document.getElementById('hud');
 
-  // --- write-back target (NOT secret; the token is supplied at runtime from localStorage) ---
-  const GH = { owner: 'taateev', repo: 'ivrit', branch: 'main', dir: 'data/results' };
-  const TOKEN_KEY = 'gh_token';
-  const getToken = () => { try { return (localStorage.getItem(TOKEN_KEY) || '').trim(); } catch (e) { return ''; } };
-  const setToken = (t) => { try { localStorage.setItem(TOKEN_KEY, t); } catch (e) {} };
-  const clearToken = () => { try { localStorage.removeItem(TOKEN_KEY); } catch (e) {} };
+  // Results are saved by the SERVER (POST /api/results) — no per-device token needed.
 
   // --- players + wager scoring ---------------------------------------------------------------
   // Your tap position is your BET (0 far-left … 1 far-right). Right earns the bet, wrong costs it.
@@ -253,29 +248,6 @@
   const resultsName = () => `${session.sessionId}--${playerId()}--${nowISO().replace(/[:.]/g, '-')}.jsonl`;
   const resultsBody = (evs) => evs.map(e => JSON.stringify(e)).join('\n') + '\n';
 
-  function b64utf8(s) {
-    const bytes = new TextEncoder().encode(s);
-    let bin = ''; const CH = 0x8000;
-    for (let i = 0; i < bytes.length; i += CH) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CH));
-    return btoa(bin);
-  }
-
-  async function commitResults(evs) {
-    const token = getToken();
-    if (!token) throw new Error('no-token');
-    const name = resultsName();
-    const path = `${GH.dir}/${name}`;
-    const res = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${path}`, {
-      method: 'PUT',
-      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `${playerId()} · ${session.sessionId} · ${score} pts · ${evs.length} reviews`, content: b64utf8(resultsBody(evs)), branch: GH.branch }),
-    });
-    if (res.status === 401 || res.status === 403) throw new Error('bad-token');
-    if (!res.ok) throw new Error(`GitHub ${res.status}: ${(await res.text()).slice(0, 160)}`);
-    const j = await res.json();
-    return { name, sha: (j.commit && j.commit.sha) || '' };
-  }
-
   function doneShell(inner) {
     app.className = 'done';
     app.innerHTML =
@@ -283,60 +255,35 @@
        <div class="muted">★ <b>${fmtScore(score)}</b> points · ${doneIds.size} cards<br>${inner}</div>`;
   }
 
-  function renderUploaded(name, sha) {
-    const coach = playerId() === 'dan';   // the coach-loop instruction is only meaningful for the member
+  function renderSaved() {
+    const coach = playerId() === 'dan';   // the coach-loop cue is only meaningful for the member
     doneShell(coach
-      ? `<span class="ok">✓ committed</span> <code>${esc(name)}</code>${sha ? ` · ${esc(sha.slice(0, 7))}` : ''}<br>Back to the terminal — say “done”.`
+      ? `<span class="ok">✓ saved</span> — back to the terminal, say “done”.`
       : `<span class="ok">✓ saved</span> — nice run! Your score is recorded.<br><span style="font-size:13px;color:#6b7387">Play again, or try the crossword from the menu.</span>`);
   }
-  function renderUploading() { doneShell('uploading to GitHub…'); }
+  function renderSaving() { doneShell('saving…'); }
   function renderFailed(msg) {
-    doneShell(`<span class="bad">upload failed:</span> ${esc(msg)}`);
+    doneShell(`<span class="bad">couldn’t save:</span> ${esc(msg)}`);
     const row = document.createElement('div'); row.className = 'btnrow';
     row.innerHTML = `<button class="opt" id="retry"><span>retry</span></button><button class="opt" id="dl"><span>download instead</span></button>`;
     app.appendChild(row);
-    document.getElementById('retry').onclick = uploadFlow;
+    document.getElementById('retry').onclick = save;
     document.getElementById('dl').onclick = () => downloadResults(events);
   }
 
-  function renderTokenPrompt(intro) {
-    app.className = 'done';
-    app.innerHTML =
-      `<div class="word notranslate" translate="no" lang="he">✓ תודה</div>
-       <div class="muted">★ ${fmtScore(score)} points · ${doneIds.size} cards<br>${esc(intro)}</div>
-       <div class="notes">
-         <input id="ghtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
-         <div class="btnrow">
-           <button class="opt" id="ghsave"><span>save &amp; upload</span></button>
-           <button class="opt" id="ghdl"><span>download instead</span></button>
-         </div>
-         <div class="notes-hint">Stored only in this browser (localStorage) and sent only to GitHub. Paste it once; it persists on this device.</div>
-       </div>`;
-    const inp = document.getElementById('ghtok');
-    document.getElementById('ghsave').onclick = () => {
-      const v = inp.value.trim(); if (!v) { inp.focus(); return; }
-      setToken(v); uploadFlow();
-    };
-    document.getElementById('ghdl').onclick = () => downloadResults(events);
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('ghsave').click(); });
-  }
-
-  async function uploadFlow() {
-    if (!getToken()) { renderTokenPrompt('Paste your GitHub token to save this session to the repo:'); return; }
-    renderUploading();
+  async function save() {
+    renderSaving();
     try {
-      const { name, sha } = await commitResults(events);
-      renderUploaded(name, sha);
-    } catch (e) {
-      if (e.message === 'bad-token') { clearToken(); renderTokenPrompt('That token was rejected (401/403). Paste a valid one:'); }
-      else renderFailed(e.message);
-    }
+      const res = await fetch('/api/results', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ player: playerId(), session: session.sessionId, events }) });
+      const j = await res.json();
+      if (j.ok) renderSaved(); else renderFailed(j.error || 'save failed');
+    } catch (e) { renderFailed(e.message); }
   }
 
   function finish() {
     hud.textContent = '';
     window.__results = { events };
-    uploadFlow();
+    save();
   }
 
   function downloadResults(evs) {
@@ -425,51 +372,34 @@
          <p><b>Read &amp; choose.</b> You'll see a Hebrew word and tap its English meaning from four options.</p>
          <p><b>Where you tap = how sure you are.</b> The buttons are wide on purpose: tap toward the <b>left</b> if you're guessing, toward the <b>right</b> if you're confident. (We also quietly time how long you take.)</p>
          <p><b>Right earns your bet, wrong costs it.</b> So go far-right only when you're certain — a confident miss stings most, while an honest left-side guess barely costs you.</p>
-         <p><b>To save your score</b>, paste the access code Dan sent you (just once). You can also do it later from the ⚙ up top.</p>
+         <p>Your score saves automatically when you finish. That's it — have fun.</p>
        </div>
-       <input id="gtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="paste the code Dan sent (github_pat_…)">
        <div class="btnrow">
          <button class="opt" id="gstart"><span>start drilling →</span></button>
        </div>`;
-    const inp = document.getElementById('gtok');
-    const start = () => { const v = inp.value.trim(); if (v) setToken(v); refreshGear(); startDrill(); };
-    document.getElementById('gstart').onclick = start;
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') start(); });
+    document.getElementById('gstart').onclick = () => startDrill();
   }
 
-  // Always-available token setup (the gear, top-right). Lets you paste/replace/clear the token
-  // any time — not just at the end-of-session prompt.
+  // Gear (top-right): switch player.
   const gear = document.getElementById('gear');
-  const refreshGear = () => { if (gear) gear.classList.toggle('unset', !getToken()); };
-  function showTokenModal() {
-    const has = !!getToken();
+  function showSettings() {
     const bg = document.createElement('div'); bg.className = 'modal-bg';
     bg.innerHTML =
       `<div class="modal">
-         <div class="status" style="margin-bottom:16px">Playing as <b>${esc((currentPlayer() || { name: '—' }).name)}</b> · <a href="#" id="mswitch" style="color:#8ab4ff">switch player</a></div>
-         <h3>GitHub token</h3>
-         <p>Lets this device save your drill results to the repo. Stored only here (localStorage) and sent only to GitHub. Paste the <code>github_pat_…</code> you created.</p>
-         <div class="status">${has ? '<span class="ok">✓ a token is saved on this device</span>' : '<span style="color:#c8a96a">no token saved yet</span>'}</div>
-         <input id="mtok" class="tokfield" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="github_pat_…">
+         <div class="status" style="margin-bottom:14px">Playing as <b>${esc((currentPlayer() || { name: '—' }).name)}</b></div>
+         <p>Results save automatically to the server when you finish — nothing to set up here.</p>
          <div class="btnrow">
-           <button class="opt" id="msave"><span>save</span></button>
-           ${has ? '<button class="opt" id="mclear"><span>clear</span></button>' : ''}
+           <button class="opt" id="mswitch"><span>switch player</span></button>
            <button class="opt" id="mclose"><span>close</span></button>
          </div>
        </div>`;
     document.body.appendChild(bg);
     const close = () => bg.remove();
-    const inp = bg.querySelector('#mtok');
     bg.addEventListener('click', (e) => { if (e.target === bg) close(); });
-    const sw = bg.querySelector('#mswitch'); if (sw) sw.onclick = (e) => { e.preventDefault(); close(); setPlayerId(''); boot(); };
-    bg.querySelector('#msave').onclick = () => { const v = inp.value.trim(); if (!v) { inp.focus(); return; } setToken(v); refreshGear(); close(); };
-    const clr = bg.querySelector('#mclear'); if (clr) clr.onclick = () => { clearToken(); refreshGear(); close(); };
+    bg.querySelector('#mswitch').onclick = () => { close(); setPlayerId(''); boot(); };
     bg.querySelector('#mclose').onclick = close;
-    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') bg.querySelector('#msave').click(); else if (e.key === 'Escape') close(); });
-    setTimeout(() => inp.focus(), 30);
   }
-  if (gear) gear.onclick = showTokenModal;
-  refreshGear();
+  if (gear) { gear.onclick = showSettings; gear.classList.remove('unset'); }
 
   // Load the session with a cache-buster so the phone always gets the latest pushed session
   // (GitHub Pages caches assets ~10min). Falls back to DEFAULT_SESSION if it can't load.
