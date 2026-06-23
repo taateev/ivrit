@@ -1,0 +1,30 @@
+{
+  "level": 1,
+  "binyan": "Pa'al / פָּעַל",
+  "tense": "present · הוֹוֶה",
+  "template": "CoCeC",
+  "intro": "Pa'al present (הוֹוֶה) is the most common verb form in Hebrew. It drops the root into an <b>o–e</b> template and agrees like an adjective — by gender &amp; number only, <b>no person</b>. Learn the four forms of one verb and the pattern transfers to every regular root.",
+  "model": { "root": "כ־ת־ב", "gloss": "write" },
+  "subjects": {
+    "ms": { "pron": "הוּא", "en": "he", "tag": "m. sg" },
+    "fs": { "pron": "הִיא", "en": "she", "tag": "f. sg" },
+    "mp": { "pron": "הֵם", "en": "they", "tag": "m. pl" },
+    "fp": { "pron": "הֵן", "en": "they", "tag": "f. pl" }
+  },
+  "verbs": [
+    { "root": "כ־ת־ב", "gloss": "write", "forms": { "ms": "כּוֹתֵב", "fs": "כּוֹתֶבֶת", "mp": "כּוֹתְבִים", "fp": "כּוֹתְבוֹת" } },
+    { "root": "שׁ־מ־ר", "gloss": "guard / keep", "forms": { "ms": "שׁוֹמֵר", "fs": "שׁוֹמֶרֶת", "mp": "שׁוֹמְרִים", "fp": "שׁוֹמְרוֹת" } },
+    { "root": "ל־מ־ד", "gloss": "learn / study", "forms": { "ms": "לוֹמֵד", "fs": "לוֹמֶדֶת", "mp": "לוֹמְדִים", "fp": "לוֹמְדוֹת" } },
+    { "root": "ס־ג־ר", "gloss": "close / shut", "forms": { "ms": "סוֹגֵר", "fs": "סוֹגֶרֶת", "mp": "סוֹגְרִים", "fp": "סוֹגְרוֹת" } },
+    { "root": "ז־כ־ר", "gloss": "remember", "forms": { "ms": "זוֹכֵר", "fs": "זוֹכֶרֶת", "mp": "זוֹכְרִים", "fp": "זוֹכְרוֹת" } },
+    { "root": "ג־מ־ר", "gloss": "finish", "forms": { "ms": "גּוֹמֵר", "fs": "גּוֹמֶרֶת", "mp": "גּוֹמְרִים", "fp": "גּוֹמְרוֹת" } },
+    { "root": "ב־ד־ק", "gloss": "check / examine", "forms": { "ms": "בּוֹדֵק", "fs": "בּוֹדֶקֶת", "mp": "בּוֹדְקִים", "fp": "בּוֹדְקוֹת" } },
+    { "root": "שׁ־ב־ר", "gloss": "break", "forms": { "ms": "שׁוֹבֵר", "fs": "שׁוֹבֶרֶת", "mp": "שׁוֹבְרִים", "fp": "שׁוֹבְרוֹת" } },
+    { "root": "פ־ג־שׁ", "gloss": "meet", "forms": { "ms": "פּוֹגֵשׁ", "fs": "פּוֹגֶשֶׁת", "mp": "פּוֹגְשִׁים", "fp": "פּוֹגְשׁוֹת" } },
+    { "root": "ת־פ־ס", "gloss": "catch / grab", "forms": { "ms": "תּוֹפֵס", "fs": "תּוֹפֶסֶת", "mp": "תּוֹפְסִים", "fp": "תּוֹפְסוֹת" } },
+    { "root": "ח־שׁ־ב", "gloss": "think", "forms": { "ms": "חוֹשֵׁב", "fs": "חוֹשֶׁבֶת", "mp": "חוֹשְׁבִים", "fp": "חוֹשְׁבוֹת" } },
+    { "root": "י־שׁ־ב", "gloss": "sit", "forms": { "ms": "יוֹשֵׁב", "fs": "יוֹשֶׁבֶת", "mp": "יוֹשְׁבִים", "fp": "יוֹשְׁבוֹת" } },
+    { "root": "ר־ק־ד", "gloss": "dance", "forms": { "ms": "רוֹקֵד", "fs": "רוֹקֶדֶת", "mp": "רוֹקְדִים", "fp": "רוֹקְדוֹת" } },
+    { "root": "ע־ב־ד", "gloss": "work", "forms": { "ms": "עוֹבֵד", "fs": "עוֹבֶדֶת", "mp": "עוֹבְדִים", "fp": "עוֹבְדוֹת" } }
+  ]
+}

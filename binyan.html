@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — binyan trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent; display: flex; align-items: center; justify-content: center; }
+  #hud { position: fixed; top: 14px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 16px; color: #6b7387; font-size: 14px; }
+  #hud a { color: #6b7387; text-decoration: none; } #hud .score { color: #ffd479; font-weight: 700; }
+  #app { width: min(620px, 92vw); text-align: center; }
+  .badge { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #6b7387; margin-bottom: 12px; }
+  .badge b { color: #8ab4ff; }
+  .prompt { font-size: 19px; line-height: 1.5; color: #cfd6e4; }
+  .root { font-family: 'Heebo', sans-serif; font-size: 40px; font-weight: 800; direction: rtl; letter-spacing: 4px; margin: 8px 0; }
+  .formq { font-family: 'Heebo', sans-serif; font-size: 46px; font-weight: 800; direction: rtl; margin: 6px 0; }
+  .ask { color: #8b93a7; font-size: 16px; margin-top: 6px; }
+  .ask .he { font-family: 'Heebo', sans-serif; font-size: 20px; }
+  .opts { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .opt { font: inherit; padding: 13px 16px; border-radius: 11px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; display: flex; align-items: baseline; gap: 12px; justify-content: center; }
+  .opt:hover:not(:disabled) { border-color: #4a72c4; }
+  .opt .w { font-family: 'Heebo', sans-serif; font-size: 26px; font-weight: 700; direction: rtl; }
+  .opt .sub { color: #8b93a7; font-size: 14px; }
+  .opt.right { border-color: #3aa564; background: #16321f; }
+  .opt.wrong { border-color: #a5443a; background: #361a17; }
+  .opt.dim { opacity: .45; }
+  .reveal { margin-top: 18px; background: #141823; border: 1px solid #2a2f3d; border-radius: 10px; padding: 14px 16px; text-align: left; }
+  .reveal .tpl { font-size: 13px; color: #c8a96a; margin-bottom: 10px; } .reveal .tpl b { color: #ffd479; }
+  .para { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; }
+  .para .s { color: #8b93a7; font-size: 14px; text-align: right; }
+  .para .f { font-family: 'Heebo', sans-serif; font-size: 22px; direction: rtl; }
+  .para .f.hit { color: #79d18c; font-weight: 700; }
+  .nav { margin-top: 20px; } .nav button { background: #1a1e29; border: 1px solid #2a2f3d; border-radius: 9px; color: #cfd6e4; font: inherit; font-size: 15px; padding: 9px 22px; cursor: pointer; }
+  .intro { text-align: left; font-size: 16px; line-height: 1.6; color: #cfd6e4; }
+  .intro h1 { font-size: 23px; margin: 0 0 4px; text-align: center; } .intro h1 .he { font-family: 'Heebo', sans-serif; }
+  .intro .lvl { text-align: center; color: #8ab4ff; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .modeltable { display: grid; grid-template-columns: auto 1fr auto; gap: 5px 12px; margin: 14px 0; background: #141823; border: 1px solid #2a2f3d; border-radius: 10px; padding: 14px; }
+  .modeltable .s { color: #8b93a7; font-size: 14px; } .modeltable .f { font-family: 'Heebo', sans-serif; font-size: 24px; direction: rtl; text-align: right; } .modeltable .t { color: #6b7387; font-size: 13px; }
+  .go { margin-top: 18px; text-align: center; } .go button { background: #1a2230; border: 1px solid #4a72c4; border-radius: 10px; color: #cfe0ff; font: inherit; font-size: 16px; padding: 11px 28px; cursor: pointer; }
+  .done .root { font-size: 30px; letter-spacing: normal; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="hud"><a href="index.html">← menu</a><div><span id="prog"></span> · <span class="score" id="score">0</span></div></div>
+<div id="app"></div>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const app = $('app');
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const ORDER = ['ms', 'fs', 'mp', 'fp'];
+  let D, items = [], i = 0, score = 0, answered = false;
+
+  function buildItems(n) {
+    const out = [];
+    const verbs = shuffle(D.verbs);
+    for (let k = 0; k < n; k++) {
+      const v = verbs[k % verbs.length];
+      const subj = ORDER[Math.floor(Math.random() * 4)];
+      const dir = Math.random() < 0.5 ? 'produce' : 'parse';
+      out.push({ v, subj, dir });
+    }
+    return out;
+  }
+
+  function paradigm(v, hit) {
+    return `<div class="para">` + ORDER.map(k =>
+      `<div class="s">${esc(D.subjects[k].pron)} · ${esc(D.subjects[k].tag)}</div><div class="f${k === hit ? ' hit' : ''}">${esc(v.forms[k])}</div>`).join('') + `</div>`;
+  }
+
+  function render() {
+    const it = items[i]; answered = false;
+    app.className = '';
+    const s = D.subjects[it.subj];
+    let head, opts;
+    if (it.dir === 'produce') {
+      head = `<div class="prompt">Pa'al present of</div>
+        <div class="root" lang="he" dir="rtl">${esc(it.v.root)}</div>
+        <div class="prompt">“${esc(it.v.gloss)}”</div>
+        <div class="ask">for <span class="he">${esc(s.pron)}</span> — <b>${esc(s.en)}</b> (${esc(s.tag)})?</div>`;
+      opts = shuffle(ORDER).map(k => ({ key: k, html: `<span class="w" lang="he" dir="rtl">${esc(it.v.forms[k])}</span>`, correct: k === it.subj }));
+    } else {
+      head = `<div class="prompt">Who is doing it?</div>
+        <div class="formq" lang="he" dir="rtl">${esc(it.v.forms[it.subj])}</div>
+        <div class="ask">“${esc(it.v.gloss)}” · Pa'al present</div>`;
+      opts = shuffle(ORDER).map(k => ({ key: k, html: `<span class="w" lang="he" dir="rtl">${esc(D.subjects[k].pron)}</span><span class="sub">${esc(D.subjects[k].en)} · ${esc(D.subjects[k].tag)}</span>`, correct: k === it.subj }));
+    }
+    app.innerHTML = `<div class="badge">binyan trainer · <b>level 1</b> — Pa'al present</div>${head}<div class="opts" id="opts"></div><div id="after"></div>`;
+    const box = $('opts');
+    for (const o of opts) {
+      const b = document.createElement('button');
+      b.className = 'opt'; b.innerHTML = o.html;
+      b.onclick = () => answer(o, b, opts);
+      box.appendChild(b);
+    }
+    $('prog').textContent = `${i + 1} / ${items.length}`;
+    $('score').textContent = score;
+  }
+
+  function answer(chosen, btn, opts) {
+    if (answered) return; answered = true;
+    const it = items[i];
+    const correct = chosen.correct;
+    if (correct) score++;
+    [...$('opts').children].forEach((b, idx) => {
+      const o = opts[idx];
+      b.disabled = true;
+      if (o.correct) b.classList.add('right');
+      else if (b === btn) b.classList.add('wrong');
+      else b.classList.add('dim');
+    });
+    $('score').textContent = score;
+    $('after').innerHTML =
+      `<div class="reveal">
+         <div class="tpl">${correct ? '✓' : '✗'} <b>${esc(it.v.root)}</b> “${esc(it.v.gloss)}” · Pa'al present = the <b>o–e</b> template (CoCeC)</div>
+         ${paradigm(it.v, it.subj)}
+       </div>
+       <div class="nav"><button id="next">${i + 1 >= items.length ? 'see result →' : 'next →'}</button></div>`;
+    $('next').onclick = next;
+    $('next').focus();
+  }
+
+  function next() { if (i + 1 >= items.length) return finish(); i++; render(); }
+
+  function finish() {
+    app.className = 'done';
+    const pct = Math.round(score / items.length * 100);
+    app.innerHTML =
+      `<div class="badge">binyan trainer · level 1</div>
+       <div class="root" lang="he" dir="rtl">✓ פָּעַל</div>
+       <div class="prompt">${score} / ${items.length} right · ${pct}%<br>
+         <span style="font-size:14px;color:#6b7387">You've drilled the Pa'al present template across ${new Set(items.map(x=>x.v.root)).size} roots.</span></div>
+       <div class="opts">
+         <button class="opt" id="again" style="justify-content:center">↻ play again</button>
+         <a class="opt" id="home" href="index.html" style="justify-content:center;text-decoration:none">↩ menu</a>
+       </div>`;
+    $('again').onclick = start;
+  }
+
+  function intro() {
+    app.className = '';
+    app.innerHTML =
+      `<div class="intro">
+         <div class="lvl">binyan trainer · level 1</div>
+         <h1>Pa'al present <span class="he">· הוֹוֶה</span></h1>
+         <p>${D.intro}</p>
+         <div class="modeltable">` +
+           ORDER.map(k => `<div class="s">${esc(D.subjects[k].pron)}</div><div class="f">${esc(D.model && D.verbs[0].forms[k])}</div><div class="t">${esc(D.subjects[k].en)} · ${esc(D.subjects[k].tag)}</div>`).join('') +
+        `</div>
+         <p style="font-size:14px;color:#8b93a7">Learn the four endings on <span class="he" style="font-size:18px">${esc(D.verbs[0].root)}</span> “write” — then the o–e shape transfers to any regular root.</p>
+       </div>
+       <div class="go"><button id="start">start →</button></div>`;
+    $('start').onclick = start;
+  }
+
+  function start() { items = buildItems(12); i = 0; score = 0; render(); }
+
+  document.addEventListener('keydown', (e) => {
+    if (answered && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); const n = $('next'); if (n) n.click(); }
+    else if (!answered) { const n = parseInt(e.key, 10); const o = document.querySelectorAll('.opt'); if (n >= 1 && n <= o.length) { e.preventDefault(); o[n - 1].click(); } }
+  });
+
+  fetch('data/binyan.json?t=' + Date.now()).then(r => r.json()).then(d => { D = d; intro(); })
+    .catch(e => { app.innerHTML = '<div class="prompt">failed to load: ' + esc(e.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>
