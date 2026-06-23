@@ -1,0 +1,14 @@
+{"t":"2026-06-23T03:05:45.353Z","session":"batch-fresh","player":"sean","id":"ראשון","grade":"good","peeked":false,"confidence":0.96,"tookMs":2213,"gapMs":null,"points":960}
+{"t":"2026-06-23T03:06:03.237Z","session":"batch-fresh","player":"sean","id":"אופן","grade":"good","peeked":false,"confidence":0.95,"tookMs":7771,"gapMs":10532,"points":950}
+{"t":"2026-06-23T03:06:10.307Z","session":"batch-fresh","player":"sean","id":"צודק","grade":"good","peeked":false,"confidence":0.96,"tookMs":4569,"gapMs":14679,"points":960}
+{"t":"2026-06-23T03:06:15.468Z","session":"batch-fresh","player":"sean","id":"לפגוש","grade":"good","peeked":false,"confidence":0.95,"tookMs":3777,"gapMs":6278,"points":950}
+{"t":"2026-06-23T03:06:24.568Z","session":"batch-fresh","player":"sean","id":"שווה","grade":"good","peeked":false,"confidence":0.94,"tookMs":7871,"gapMs":9254,"points":940}
+{"t":"2026-06-23T03:06:29.417Z","session":"batch-fresh","player":"sean","id":"שתיים","grade":"good","peeked":false,"confidence":0.96,"tookMs":3750,"gapMs":4979,"points":960}
+{"t":"2026-06-23T03:06:41.102Z","session":"batch-fresh","player":"sean","id":"להאמין","grade":"good","peeked":false,"confidence":0.95,"tookMs":10448,"gapMs":11548,"points":950}
+{"t":"2026-06-23T03:06:48.592Z","session":"batch-fresh","player":"sean","id":"שמחה","grade":"good","peeked":false,"confidence":0.94,"tookMs":6237,"gapMs":7474,"points":940}
+{"t":"2026-06-23T03:07:01.056Z","session":"batch-fresh","player":"sean","id":"מיוחד","grade":"again","peeked":false,"confidence":0.93,"tookMs":10850,"gapMs":12103,"points":-930}
+{"t":"2026-06-23T03:07:04.134Z","session":"batch-fresh","player":"sean","id":"ארבע","grade":"good","peeked":false,"confidence":0.94,"tookMs":2376,"gapMs":3992,"points":940}
+{"t":"2026-06-23T03:07:14.019Z","session":"batch-fresh","player":"sean","id":"לדאוג","grade":"good","peeked":false,"confidence":0.77,"tookMs":8951,"gapMs":9651,"points":770}
+{"t":"2026-06-23T03:07:24.175Z","session":"batch-fresh","player":"sean","id":"לתפוס","grade":"good","peeked":false,"confidence":0.9,"tookMs":9074,"gapMs":10008,"points":900}
+{"t":"2026-06-23T03:07:34.694Z","session":"batch-fresh","player":"sean","id":"מיוחד","grade":"again","peeked":false,"confidence":0.91,"tookMs":9597,"gapMs":10679}
+{"t":"2026-06-23T03:07:37.052Z","session":"batch-fresh","player":"sean","id":"מיוחד","grade":"good","peeked":false,"confidence":0.92,"tookMs":1695,"gapMs":2616}
