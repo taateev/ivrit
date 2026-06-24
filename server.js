@@ -214,7 +214,7 @@ function ingest(player, events, ts) {   // one count per word per session (first
 const summarize = (player, session, events, ts) => {
   const fl = events.filter(e => e && e.points !== undefined);   // first-look (scored) events
   const base = fl.length ? fl : events;
-  return { player, session, ts, cards: base.length, correct: base.filter(e => e && e.grade === 'good').length, score: fl.reduce((s, e) => s + (e.points || 0), 0) };
+  return { player, session, ts, cards: base.length, correct: base.filter(e => e && e.grade && e.grade !== 'again').length, score: fl.reduce((s, e) => s + (e.points || 0), 0) };
 };
 const seededFiles = new Set();   // dedupe across disk + repo seeding
 const parseStamp = (name) => { const s = (name.replace(/\.jsonl$/, '').split('--')[2] || '').replace(/T(\d\d)-(\d\d)-(\d\d)-(\d{1,3})Z$/, 'T$1:$2:$3.$4Z'); return Date.parse(s) || null; };
@@ -259,7 +259,37 @@ async function seedFromRepo() {   // authoritative: pull the latest committed re
     if (added) console.log(`seedFromRepo: +${added} results (total ${savedLog.length})`);
   } catch (e) { console.log('seedFromRepo:', e.message); }
 }
+function seedReviews() {   // dan's canonical merged history lives in reviews.jsonl, grouped by session
+  try {
+    const bySession = new Map();
+    for (const l of fs.readFileSync(`${ROOT}/data/reviews.jsonl`, 'utf8').split('\n')) {
+      if (!l) continue;
+      let e; try { e = JSON.parse(l); } catch { continue; }
+      const sk = e.session || 'reviews';
+      if (!bySession.has(sk)) bySession.set(sk, []);
+      bySession.get(sk).push(e);
+    }
+    let n = 0;
+    for (const [session, events] of bySession) {
+      const fkey = `reviews:${session}`;
+      if (seededFiles.has(fkey)) continue;
+      seededFiles.add(fkey);
+      const ts = Math.max(0, ...events.map(e => Date.parse(e.t) || 0));
+      const first = new Map();   // distinct words, first-look grade
+      for (const e of events) if (e.id && !first.has(e.id)) first.set(e.id, e);
+      const cards = first.size;
+      const correct = [...first.values()].filter(e => e.grade && e.grade !== 'again').length;
+      const score = events.reduce((s, e) => s + (e.points || 0), 0);
+      savedLog.push({ player: 'dan', session, ts, cards, correct, score });
+      ingest('dan', events, ts);
+      n++;
+    }
+    savedLog.sort((a, b) => a.ts - b.ts);
+    console.log(`seeded ${n} dan sessions from reviews.jsonl`);
+  } catch (e) { console.log('seedReviews:', e.message); }
+}
 seedStats();
+seedReviews();
 seedFromRepo();
 
 function saveResult(d) {
