@@ -45,12 +45,13 @@
     setRow('weak', '🎯 my weak words', 'the ones you keep missing — drill these first', true) +
     setRow('new', '✨ new words', "words you haven't seen yet, by frequency", true) +
     setRow('review', '🔁 review', 'words you’ve seen, oldest first', true) +
-    setRow('random', '🎲 random mix', 'a grab-bag from your frontier', true) +
-    setRow('marks', '🔤 marks & closers', 'parens · gershayim · the ס־ג־ר root', true) +
-    `<a class="set" href="marks.html"><div class="t">📖 marks &amp; closers — etymology<span class="n">the story behind those terms</span></div><div class="go">→</div></a>`;
+    setRow('random', '🎲 random mix', 'a grab-bag from your frontier', true);
 
   fetch('data/themes.json?t=' + Date.now()).then(r => r.json()).then(d => {
-    $('themes').innerHTML = (d.themes || []).map(t => setRow(t.id, titleHTML(t.title), `${t.pool.length} words`, false)).join('');
+    $('themes').innerHTML =
+      (d.themes || []).map(t => setRow(t.id, titleHTML(t.title), `${t.pool.length} words`, false)).join('') +
+      setRow('marks', titleHTML('marks & closers'), 'punctuation + the ס־ג־ר root · 10', false) +
+      `<a href="marks.html" style="display:block;text-align:center;color:#8ab4ff;text-decoration:none;font-size:13px;padding:6px">📖 …or read the etymology behind them →</a>`;
   }).catch(() => $('themes').innerHTML = '<div class="sub">couldn’t load themes.</div>');
 })();
 </script>
