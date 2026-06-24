@@ -80,6 +80,11 @@ const server = http.createServer((req, res) => {
     const q = new URL(req.url, 'http://x').searchParams;
     const set = (q.get('set') || 'random').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
     const player = (q.get('player') || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40);
+    if (set === 'marks') {
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
+      res.end(JSON.stringify({ sessionId: 'marks', set, cards: shuf(MARKS).map(markCard) }));
+      return;
+    }
     const cards = shuf(pickSet(set, player)).map(b => cardFor(b, player)).filter(Boolean);
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });
     res.end(JSON.stringify({ sessionId: set, set, cards }));
@@ -172,6 +177,9 @@ let WORDS = [], byBare = new Map(), THEMES = [];
 try { WORDS = JSON.parse(fs.readFileSync(`${ROOT}/data/words.json`, 'utf8')).words; byBare = new Map(WORDS.map(w => [w.bare, w])); } catch (e) {}
 try { THEMES = JSON.parse(fs.readFileSync(`${ROOT}/data/themes.json`, 'utf8')).themes || []; } catch (e) {}
 const GLOSS = new Map(WORDS.map(w => [w.bare, w.gloss]));   // bare → gloss, for the vocab list
+const stripNiq = (s) => String(s).replace(/[֑-ׇ]/g, '');
+const MARKS = (() => { try { return JSON.parse(fs.readFileSync(`${ROOT}/data/marks.json`, 'utf8')).cards || []; } catch (e) { return []; } })();
+for (const c of MARKS) GLOSS.set(stripNiq(c.he), c.en);   // so the vocab list can gloss the punctuation terms too
 const COACH_NOTES = (() => { try { return JSON.parse(fs.readFileSync(`${ROOT}/data/notes.json`, 'utf8')).notes || {}; } catch (e) { return {}; } })();
 const USER_NOTES = (() => { const m = {}; try { for (const l of fs.readFileSync(`${ROOT}/data/reviews.jsonl`, 'utf8').split('\n')) { if (!l) continue; const e = JSON.parse(l); if (e.note) (m[e.id] = m[e.id] || []).push({ by: 'user', text: e.note, t: e.t }); } } catch (e) {} return m; })();
 const notesFor = (id) => [...(USER_NOTES[id] || []), ...((COACH_NOTES[id] || []).map(n => ({ by: 'coach', text: n.text, t: n.t })))].sort((a, b) => Date.parse(a.t || 0) - Date.parse(b.t || 0));
@@ -184,6 +192,12 @@ function cardFor(bare, player) {
   for (const x of shuf(WORDS)) { if (distractors.length >= 3) break; if (x.gloss && !used.has(x.gloss)) { used.add(x.gloss); distractors.push(x.gloss); } }
   const seen = (wordStats.get(player) || new Map()).has(bare);
   return { id: w.bare, bare: w.bare, niqqud: w.niqqud || '', translit: w.translit || '', gloss: w.gloss, shoresh: w.shoresh || null, grammar: w.grammar || null, examples: w.examples || [], distractors, phrase: false, isNew: !seen, notes: notesFor(w.bare) };
+}
+// build a quiz card from a marks.json entry (the punctuation + ס־ג־ר set)
+function markCard(c) {
+  const bare = stripNiq(c.he);
+  const distractors = shuf(MARKS).filter(x => x.en !== c.en).slice(0, 3).map(x => x.en);
+  return { id: bare, bare, niqqud: c.he, translit: c.tr || '', gloss: c.en, shoresh: null, grammar: c.note || null, examples: [], distractors, phrase: false, isNew: true, notes: c.note ? [{ by: 'coach', text: c.note }] : [] };
 }
 // pick the word ids for a named set
 function pickSet(set, player) {

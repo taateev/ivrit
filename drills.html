@@ -45,7 +45,9 @@
     setRow('weak', '🎯 my weak words', 'the ones you keep missing — drill these first', true) +
     setRow('new', '✨ new words', "words you haven't seen yet, by frequency", true) +
     setRow('review', '🔁 review', 'words you’ve seen, oldest first', true) +
-    setRow('random', '🎲 random mix', 'a grab-bag from your frontier', true);
+    setRow('random', '🎲 random mix', 'a grab-bag from your frontier', true) +
+    setRow('marks', '🔤 marks & closers', 'parens · gershayim · the ס־ג־ר root', true) +
+    `<a class="set" href="marks.html"><div class="t">📖 marks &amp; closers — etymology<span class="n">the story behind those terms</span></div><div class="go">→</div></a>`;
 
   fetch('data/themes.json?t=' + Date.now()).then(r => r.json()).then(d => {
     $('themes').innerHTML = (d.themes || []).map(t => setRow(t.id, titleHTML(t.title), `${t.pool.length} words`, false)).join('');
