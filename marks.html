@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Couch Hebrew — marks & closers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #0f1117; color: #e8eaf0; font-family: system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent; display: flex; flex-direction: column; align-items: center; padding: 0 14px 48px; }
+  #hud { width: 100%; max-width: 620px; display: flex; justify-content: space-between; padding: 14px 2px; color: #6b7387; font-size: 14px; }
+  #hud a { color: #6b7387; text-decoration: none; } #hud .k { color: #79d18c; font-weight: 700; }
+  .card { width: min(560px, 94vw); min-height: 230px; background: #141823; border: 1px solid #2a2f3d; border-radius: 16px; padding: 24px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; user-select: none; }
+  .card:hover { border-color: #3a4760; }
+  .card .he { font-family: 'Heebo', sans-serif; font-size: 52px; font-weight: 700; direction: rtl; }
+  .card .sym { font-size: 30px; color: #8ab4ff; margin-top: 10px; min-height: 20px; }
+  .card .fliphint { color: #4a5163; font-size: 13px; margin-top: 18px; }
+  .card .tr { color: #8b93a7; font-size: 17px; margin-top: 6px; }
+  .card .en { font-size: 26px; font-weight: 700; margin-top: 14px; }
+  .card .note { color: #c2c9d8; font-size: 14.5px; line-height: 1.5; margin-top: 12px; max-width: 440px; }
+  .card .note .he, .note .he { font-family: 'Heebo', sans-serif; }
+  .grade { width: min(560px, 94vw); display: flex; gap: 10px; margin-top: 12px; }
+  .grade button { flex: 1; font: inherit; font-size: 16px; padding: 13px; border-radius: 11px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; }
+  .grade .yes { border-color: #3aa564; color: #c9f4d6; } .grade .no { border-color: #a5443a; color: #f4c9c4; }
+  .done { width: min(560px, 94vw); text-align: center; padding: 30px 0; }
+  .done .big { font-size: 30px; font-weight: 800; color: #ffd479; }
+  .done button, .done a { font: inherit; font-size: 15px; padding: 10px 20px; border-radius: 10px; border: 1px solid #2a2f3d; background: #1a1e29; color: #e8eaf0; cursor: pointer; text-decoration: none; display: inline-block; margin: 6px 4px 0; }
+  details.ety { width: min(620px, 94vw); margin-top: 26px; }
+  details.ety > summary { cursor: pointer; color: #8ab4ff; font-size: 15px; list-style: none; padding: 8px 0; }
+  details.ety > summary::-webkit-details-marker { display: none; }
+  .ety .sec { background: #141823; border: 1px solid #2a2f3d; border-left: 2px solid #c8a96a; border-radius: 8px; padding: 13px 15px; margin-bottom: 9px; }
+  .ety .sec h3 { margin: 0 0 6px; font-size: 15px; color: #ffd479; }
+  .ety .sec h3 .he, .ety .sec p .he { font-family: 'Heebo', sans-serif; }
+  .ety .sec p { margin: 0; font-size: 14.5px; line-height: 1.6; color: #cfd6e4; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div id="hud"><a href="index.html">← menu</a><div><span id="prog"></span> · <span class="k" id="known">0</span> known</div></div>
+<div id="stage"></div>
+<details class="ety" id="etywrap"><summary>📖 the etymology behind these</summary><div id="ety"></div></details>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+  const heb = (s) => esc(s).replace(/([֐-׿][֐-׿ ־'"׳״]*)/g, '<span class="he">$1</span>');
+  const shuffle = (a) => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  let D, deck = [], total = 0, knownFirst = 0, seen = new Set(), flipped = false;
+
+  function renderCard() {
+    if (!deck.length) return finish();
+    const c = deck[0]; flipped = false;
+    const remaining = new Set(deck.map(x => x.i)).size;
+    $('prog').textContent = `${total - remaining}/${total}`;
+    $('known').textContent = knownFirst;
+    $('stage').innerHTML =
+      `<div class="card" id="card">
+         <div class="he" dir="rtl">${esc(c.he)}</div>
+         ${c.sym ? `<div class="sym">${esc(c.sym)}</div>` : '<div class="sym"></div>'}
+         <div class="fliphint">tap to reveal</div>
+       </div>`;
+    $('card').onclick = flip;
+  }
+
+  function flip() {
+    if (flipped) return; flipped = true;
+    const c = deck[0];
+    $('stage').innerHTML =
+      `<div class="card">
+         <div class="he" dir="rtl">${esc(c.he)}</div>
+         <div class="tr">${esc(c.tr)}</div>
+         <div class="en">${heb(c.en)}</div>
+         <div class="note">${heb(c.note)}</div>
+       </div>
+       <div class="grade">
+         <button class="no" id="no">↻ review</button>
+         <button class="yes" id="yes">✓ got it</button>
+       </div>`;
+    $('yes').onclick = () => grade(true);
+    $('no').onclick = () => grade(false);
+  }
+
+  function grade(ok) {
+    const c = deck.shift();
+    if (!seen.has(c.i)) { seen.add(c.i); if (ok) knownFirst++; }
+    if (!ok) deck.push(c);          // recycle missed cards to the end
+    renderCard();
+  }
+
+  function finish() {
+    $('prog').textContent = `${total}/${total}`;
+    $('stage').innerHTML =
+      `<div class="done">
+         <div class="big">✓ deck cleared</div>
+         <div style="color:#8b93a7;margin-top:8px">${knownFirst}/${total} known on the first look</div>
+         <div style="margin-top:16px"><button id="again">↻ shuffle &amp; go again</button><a href="index.html">↩ menu</a></div>
+       </div>`;
+    $('again').onclick = start;
+  }
+
+  function start() { deck = shuffle(D.cards.map((c, i) => ({ ...c, i }))); total = D.cards.length; knownFirst = 0; seen = new Set(); renderCard(); }
+
+  document.addEventListener('keydown', (e) => {
+    if (!deck.length) return;
+    if (!flipped && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); flip(); }
+    else if (flipped && (e.key === 'ArrowRight' || e.key === 'y' || e.key === ' ')) { e.preventDefault(); grade(true); }
+    else if (flipped && (e.key === 'ArrowLeft' || e.key === 'n')) { e.preventDefault(); grade(false); }
+  });
+
+  fetch('data/marks.json?t=' + Date.now()).then(r => r.json()).then(d => {
+    D = d;
+    document.title = 'Couch Hebrew — ' + d.title;
+    $('ety').innerHTML = (d.etymology || []).map(s => `<div class="sec"><h3>${heb(s.h)}</h3><p>${s.p}</p></div>`).join('');
+    start();
+  }).catch(e => { $('stage').innerHTML = '<div class="done">failed to load: ' + esc(e.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>

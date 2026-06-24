@@ -1,0 +1,22 @@
+{
+  "title": "marks & closers",
+  "subtitle": "Hebrew punctuation + the ס־ג־ר root",
+  "cards": [
+    { "he": "סוֹגְרַיִם", "tr": "sog-RA-yim", "en": "parentheses ( )", "sym": "( )", "note": "dual of סוֹגֵר \"closer\" — the marks that shut a phrase in" },
+    { "he": "גֶּרֶשׁ", "tr": "GE-resh", "en": "geresh  ׳", "sym": "׳", "note": "single mark — makes foreign sounds (ג׳=j, צ׳=ch) and abbreviations" },
+    { "he": "גֵּרְשַׁיִם", "tr": "ger-sha-YIM", "en": "gershayim  ״", "sym": "״", "note": "dual of geresh — acronyms (תנ״ך) and Hebrew numerals; sits before the last letter" },
+    { "he": "מֵירְכָאוֹת", "tr": "mer-kha-OT", "en": "quotation marks", "sym": "“ ”", "note": "quotes — set off speech and titles" },
+    { "he": "נְקֻדָּתַיִם", "tr": "ne-ku-da-TA-yim", "en": "colon  :", "sym": ":", "note": "dual — literally \"two dots\"" },
+    { "he": "לִסְגֹּר", "tr": "lis-GOR", "en": "to close / shut", "sym": "", "note": "root ס־ג־ר; also 'turn off' a device, 'close' a deal" },
+    { "he": "סָגוּר", "tr": "sa-GUR", "en": "closed", "sym": "", "note": "חנות סגורה = closed shop; biblical זהב סגור = pure gold" },
+    { "he": "מִסְגֶּרֶת", "tr": "mis-GE-ret", "en": "frame / framework", "sym": "▭", "note": "what encloses — picture frame → abstract framework" },
+    { "he": "מוּסְגָּר", "tr": "mus-GAR", "en": "parenthetical / enclosed", "sym": "", "note": "מאמר מוסגר = an aside 'shut inside' the parens" },
+    { "he": "סֶגֶר", "tr": "SE-ger", "en": "closure / lockdown", "sym": "", "note": "military closure; the COVID 'lockdown' word" }
+  ],
+  "etymology": [
+    { "h": "ס־ג־ר — \"to close\"", "p": "The Semitic root for shut / seal-off. Hebrew <b>sagar</b> spawns a whole family: <b>סוגריים</b> (parentheses = \"the closers\"), <b>מסגרת</b> (frame), <b>מוסגר</b> (parenthetical/enclosed), <b>סגר</b> (lockdown). The \"dam / block\" image is actually a sibling root, ס־כ־ר (Akkadian <i>sekēru</i>; Hebrew סכר \"dam\"). Aramaic סגר is solid — in Daniel, God \"shut\" (sagar) the lions' mouths. <b>Ugaritic</b> sgr, though, is a <i>different</i> word — a noun \"watchman / guard\" (per Modern South Arabian), not the \"close\" verb." },
+    { "h": "ג־ר־ש — \"to drive out\"", "p": "<b>geresh</b> and <b>gershayim</b> are named from ג־ר־ש \"expel / drive out\" (גירש \"expelled\", גירושין \"divorce\"). They began as names of a Masoretic <i>cantillation</i> accent (the geresh ta'am) and were later borrowed for the typographic marks: ׳ for foreign sounds & abbreviations, ״ for acronyms & numerals." },
+    { "h": "the dual pattern", "p": "Hebrew names several marks as <b>pairs</b>, with the ־ַיִם dual ending: סוֹגְרַיִם (parens), גֵּרְשַׁיִם (gershayim), נְקֻדָּתַיִם (colon = \"two dots\") — the same logic as נעליים (shoes) and אוזניים (ears), things that come in twos." },
+    { "h": "parens: two metaphors", "p": "English & Spanish <i>parenthesis</i> = Greek <i>para-en-thesis</i>, \"placed in beside\" — it names the inserted <b>aside</b>. Hebrew <b>סוגריים</b> = \"the closers\" — it names the <b>marks</b> that enclose. Greek points at the content; Hebrew at the brackets." }
+  ]
+}
