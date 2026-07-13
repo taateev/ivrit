@@ -29,7 +29,17 @@
   .shoresh { font-size: 26px; margin-top: 8px; color: #c8a96a; direction: rtl; }
   .shoresh .root-mark { font-size: 12px; color: #6b7387; letter-spacing: 1px; vertical-align: middle; margin-left: 8px; }
   .shoresh [lang="he"] { font-family: 'Heebo', system-ui, sans-serif; font-weight: 500; letter-spacing: 2px; }
+  .shoresh .root-gloss { color: #8b93a7; font-size: 17px; letter-spacing: normal; margin-left: 8px; direction: ltr; }
   .grammar { font-size: 15px; color: #7e869a; font-style: italic; margin-top: 6px; }
+  .related { margin-top: 12px; display: inline-flex; flex-direction: column; gap: 4px; text-align: right; }
+  .rel { font-size: 16px; color: #c2c9d8; direction: rtl; }
+  .rel .kind { font-size: 10px; text-transform: uppercase; letter-spacing: .6px; color: #c8a96a; margin-left: 8px; vertical-align: middle; }
+  .rel [lang="he"] { font-family: 'Heebo', system-ui, sans-serif; font-weight: 500; }
+  .rel .rel-en { color: #8b93a7; font-size: 14px; }
+  .details { margin: 16px auto 0; text-align: left; max-width: 480px; }
+  .details .drow { font-size: 14px; color: #b7bfd0; line-height: 1.55; margin: 7px 0; }
+  .details .dlbl { color: #c8a96a; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: .6px; margin-right: 8px; }
+  .details [lang="he"] { font-family: 'Heebo', system-ui, sans-serif; }
   .examples { margin-top: 16px; }
   .example { margin: 9px 0; }
   .ex-he { font-family: 'Heebo', system-ui, sans-serif; font-size: 25px; color: #d4dae6; display: block; direction: rtl; line-height: 1.4; }
@@ -133,13 +143,16 @@
   const esc = (s) => String(s).replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
   const exHe = (s) => esc(s).replace(/\*([^*]+)\*/g, '<b>$1</b>');   // *target* -> highlighted
   const hasHebrew = (s) => /[֐-׿]/.test(s);
+  const hebInline = (s) => esc(s).replace(/[֐-׿]+(?: +[֐-׿]+)*/g, m => `<span lang="he" dir="rtl">${m}</span>`);   // wrap Hebrew runs (internal spaces kept, no trailing space/punct) so mixed lines stay unscrambled
   function renderSavedNotes(c) {
     const notes = (c.notes || []);
     if (!notes.length) return '<div class="muted" style="margin:0">No notes yet — jot one below; it shows up here next time.</div>';
     return notes.map(n => {
-      const heb = hasHebrew(n.text);
-      return `<div class="note"><span class="who ${n.by === 'coach' ? 'coach' : 'user'}">${n.by === 'coach' ? 'coach' : 'you'}</span>` +
-        `<span${heb ? ' lang="he" dir="rtl"' : ''}>${esc(n.text)}</span></div>`;
+      // Hebrew-only note → rtl whole; mixed en/he → wrap Hebrew runs inline so English stays LTR (no scramble)
+      const body = /[A-Za-z]/.test(n.text) ? hebInline(n.text) : `<span lang="he" dir="rtl">${esc(n.text)}</span>`;
+      // reference detail (by:'ref') has no author — show it plain, no byline. Authored notes keep you/coach.
+      const who = n.by === 'ref' ? '' : `<span class="who ${n.by === 'coach' ? 'coach' : 'user'}">${n.by === 'coach' ? 'coach' : 'you'}</span>`;
+      return `<div class="note">${who}<span>${body}</span></div>`;
     }).join('');
   }
   const notesHint = (c) => { const n = (c.notes || []).length; const label = `notes${n ? ` (${n})` : ''}`; return TOUCH ? `✎ ${label}` : `<kbd>n</kbd> ${label}`; };
@@ -161,7 +174,6 @@
       ${c.isNew ? '<div class="badge">new</div>' : ''}
       <div class="word${c.phrase ? ' phrase' : ''} notranslate" translate="no" lang="he">${c.frame || c.bare || c.id}</div>
       <div class="niqqud${c.phrase ? ' phrase' : ''} notranslate" translate="no" lang="he" id="niqqud" hidden>${c.niqqud || ''}</div>
-      <div class="translit" id="translit" hidden>${c.translit || ''}</div>
       ${c.shoresh ? `<div class="shoresh notranslate" translate="no" id="shoresh" hidden><span class="root-mark">שורש</span> <span lang="he" dir="rtl">${c.shoresh}</span></div>` : ''}
       ${c.grammar ? `<div class="grammar" id="grammar" hidden>${c.grammar}</div>` : ''}
       ${(c.examples && c.examples.length) ? `<div class="examples notranslate" translate="no" id="examples" hidden>${c.examples.map(ex => `<div class="example"><span class="ex-he" lang="he" dir="rtl">${exHe(ex.he)}</span><span class="ex-en">${esc(ex.en)}${ex.canon ? ` <span class="ex-src">— ${esc(ex.canon)}</span>` : ''}</span></div>`).join('')}</div>` : ''}
@@ -215,7 +227,6 @@
       btn.appendChild(dot);
     }
     document.getElementById('niqqud').hidden = false;
-    document.getElementById('translit').hidden = false;
     const sh = document.getElementById('shoresh'); if (sh) sh.hidden = false;
     const gr = document.getElementById('grammar'); if (gr) gr.hidden = false;
     const ex = document.getElementById('examples'); if (ex) ex.hidden = false;

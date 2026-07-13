@@ -191,7 +191,11 @@ function cardFor(bare, player) {
   const distractors = [], used = new Set([w.gloss]);
   for (const x of shuf(WORDS)) { if (distractors.length >= 3) break; if (x.gloss && !used.has(x.gloss)) { used.add(x.gloss); distractors.push(x.gloss); } }
   const seen = (wordStats.get(player) || new Map()).has(bare);
-  return { id: w.bare, bare: w.bare, niqqud: w.niqqud || '', translit: w.translit || '', gloss: w.gloss, shoresh: w.shoresh || null, grammar: w.grammar || null, examples: w.examples || [], distractors, phrase: false, isNew: !seen, notes: notesFor(w.bare) };
+  const notes = notesFor(w.bare);
+  // extensive reference detail (etymology/register/connotation) rides along as a note, not on the card face
+  const ref = [w.etymology || '', w.register ? `Register: ${w.register}` : '', w.connotation ? `Connotation: ${w.connotation}` : ''].filter(Boolean).join(' ');
+  if (ref) notes.push({ by: 'ref', text: ref });   // reference detail — no author, so no byline
+  return { id: w.bare, bare: w.bare, niqqud: w.niqqud || '', translit: w.translit || '', gloss: w.gloss, shoresh: w.shoresh || null, grammar: w.grammar || null, examples: w.examples || [], distractors, phrase: /\s/.test(w.bare), isNew: !seen, notes };
 }
 // build a quiz card from a marks.json entry (the punctuation + ס־ג־ר set)
 function markCard(c) {
@@ -202,7 +206,7 @@ function markCard(c) {
 // pick the word ids for a named set
 function pickSet(set, player) {
   const theme = THEMES.find(t => t.id === set);
-  if (theme) return theme.pool.filter(b => byBare.has(b)).slice(0, 14);
+  if (theme) { const arr = theme.pool.filter(b => byBare.has(b)); return theme.full ? arr : arr.slice(0, 14); }   // full-deck themes drill the whole pool
   const ws = wordStats.get(player) || new Map();
   if (set === 'weak') return [...ws].filter(([id, w]) => w.seen >= 1 && byBare.has(id)).map(([id, w]) => [id, (w.confN ? w.confSum / w.confN : 0) * 0.5 + (w.seen ? w.correct / w.seen : 0) * 0.5]).sort((a, b) => a[1] - b[1]).slice(0, 12).map(([id]) => id);
   if (set === 'new') return WORDS.filter(w => w.rank >= 81 && !ws.has(w.bare)).sort((a, b) => a.rank - b.rank).slice(0, 12).map(w => w.bare);

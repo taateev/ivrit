@@ -91,7 +91,7 @@ function build(order, has) {
 }
 
 function generatePuzzle(id, title, poolBares, vocab) {
-  const present = [...new Set(poolBares)].filter(b => vocab.has(b));
+  const present = [...new Set(poolBares)].filter(b => vocab.has(b) && !b.includes(' '));   // single words only (multiword phrases can't be crossword entries)
   const has = (b) => vocab.has(b);
   const anchor = [...present].sort((a, b) => [...b].length - [...a].length)[0];
   const rest = present.filter(b => b !== anchor);
@@ -133,5 +133,6 @@ for (const theme of THEMES) {
     console.log(`${p.id.padEnd(9)} "${p.title}"  ${p.entries.length}w ${p.rows}×${p.cols}` + (missing.length ? `  (not in lexicon: ${missing.join(' ')})` : ''));
   }
 }
+
 fs.writeFileSync(`${ROOT}/data/crosswords.json`, JSON.stringify(out, null, 2) + '\n');
 console.log(`\nwrote data/crosswords.json — ${out.index.length} themes, ${Object.keys(out.puzzles).length} puzzles`);

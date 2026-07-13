@@ -47,7 +47,7 @@
   fetch('data/marks.json?t=' + Date.now()).then(r => r.json()).then(d => {
     $('terms').innerHTML = (d.cards || []).map(c =>
       `<div class="row"><div class="he" dir="rtl">${esc(c.he)}</div><div class="mid">
-        <div class="en">${heb(c.en)}</div><div class="tr">${esc(c.tr)}</div>
+        <div class="en">${heb(c.en)}</div>
         <div class="note">${heb(c.note)}</div></div></div>`).join('');
     $('ety').innerHTML = (d.etymology || []).map(s => `<div class="sec"><h3>${heb(s.h)}</h3><p>${s.p}</p></div>`).join('');
   }).catch(e => { $('terms').innerHTML = 'failed to load: ' + esc(e.message); });

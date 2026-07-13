@@ -2565,7 +2565,10 @@
           "he": "אתה *עובד* כל חייך!",
           "en": "You work your whole life!"
         }
-      ]
+      ],
+      "etymology": "Pa'al participle of ע־ב־ד 'work, serve' (עֲבוֹדָה 'work', עֶבֶד 'servant').",
+      "register": "Neutral.",
+      "connotation": "A neutral job term; also the present tense 'works'."
     },
     {
       "rank": 289,
@@ -3396,7 +3399,10 @@
           "he": "המפקד, שום דבר *חשוב* באמת.",
           "en": "Sir, nothing really important."
         }
-      ]
+      ],
+      "etymology": "Pa'al passive participle of ח־שׁ־ב → 'reckoned, esteemed' → important.",
+      "register": "Everyday.",
+      "connotation": "לֹא חָשׁוּב = 'never mind'."
     },
     {
       "rank": 374,
@@ -4799,7 +4805,10 @@
           "he": "אתה חייב *להאמין* לי!",
           "en": "You have to believe me!"
         }
-      ]
+      ],
+      "etymology": "Hif'il of א־מ־ן → 'hold as firm, true'. מַאֲמִין = 'a believer'.",
+      "register": "Neutral; everyday.",
+      "connotation": "Faith (מאמין ב) and crediting a claim (מאמין ל)."
     },
     {
       "rank": 759,
@@ -5087,7 +5096,10 @@
           "he": "אחרי הכול, אני ה*מנהל*.",
           "en": "After all, I'm the manager."
         }
-      ]
+      ],
+      "etymology": "Pi'el agent-noun (מְקַטֵּל) of נ־ה־ל 'administer'. Distinct from מִנְהָל 'administration'.",
+      "register": "Neutral.",
+      "connotation": "An operational role; less grand than מַנְהִיג 'leader'."
     },
     {
       "rank": 1143,
@@ -5488,6 +5500,971 @@
           "en": "His phone is off."
         }
       ]
+    },
+    {
+      "bare": "אופי",
+      "niqqud": "אֹפִי",
+      "translit": "ofi",
+      "gloss": "character",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "אופי חזק",
+          "en": "strong character"
+        },
+        {
+          "he": "תכונות אופי",
+          "en": "character traits"
+        }
+      ],
+      "etymology": "Modern noun, related to אֹפֶן 'manner, mode'; the characteristic mode of a person.",
+      "register": "Neutral.",
+      "connotation": "The moral fibre of a person; חֲסַר אֹפִי = spineless."
+    },
+    {
+      "bare": "אישיות",
+      "niqqud": "אִישִׁיּוּת",
+      "translit": "ishiyut",
+      "gloss": "personality",
+      "type": "invariant",
+      "shoresh": "א־י־שׁ",
+      "grammar": "noun · ־וּת abstract",
+      "examples": [
+        {
+          "he": "אישיות ציבורית",
+          "en": "a public figure"
+        }
+      ],
+      "etymology": "Abstract ־וּת noun from אִישׁ 'person' → 'person-hood'.",
+      "register": "Neutral.",
+      "connotation": "The outward social self; also 'a public figure'."
+    },
+    {
+      "bare": "תכונה",
+      "niqqud": "תְּכוּנָה",
+      "translit": "tkhuna",
+      "gloss": "trait / characteristic",
+      "type": "invariant",
+      "shoresh": "כ־ו־ן",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "תכונה טובה",
+          "en": "a good trait"
+        }
+      ],
+      "etymology": "Root כ־ו־ן 'set, establish' (cf. נָכוֹן 'correct'); a fixed quality.",
+      "register": "Neutral.",
+      "connotation": "Used of people, animals, and products."
+    },
+    {
+      "bare": "חרוץ",
+      "niqqud": "חָרוּץ",
+      "translit": "kharutz",
+      "gloss": "hard-working / diligent",
+      "type": "invariant",
+      "shoresh": "ח־ר־ץ",
+      "grammar": "adjective · passive participle",
+      "examples": [
+        {
+          "he": "עובד חרוץ",
+          "en": "a hard worker"
+        }
+      ],
+      "etymology": "Root ח־ר־ץ 'cut, sharpen, be decisive'; passive participle 'sharpened' → diligent. Cf. נֶחְרָץ 'decided'.",
+      "register": "Neutral; common praise.",
+      "connotation": "Positive in work and social contexts alike."
+    },
+    {
+      "bare": "עקשן",
+      "niqqud": "עַקְשָׁן",
+      "translit": "akshan",
+      "gloss": "stubborn",
+      "type": "invariant",
+      "shoresh": "ע־ק־שׁ",
+      "grammar": "adjective · קַטְלָן agent",
+      "examples": [
+        {
+          "he": "עקשן כמו פרד",
+          "en": "stubborn as a mule"
+        }
+      ],
+      "etymology": "Root ע־ק־שׁ 'crooked, perverse' (biblical עִקֵּשׁ); קַטְלָן habitual-trait pattern.",
+      "register": "Everyday.",
+      "connotation": "Usually negative; the positive counterpart is נָחוּשׁ 'determined'."
+    },
+    {
+      "bare": "ביישן",
+      "niqqud": "בַּיְשָׁן",
+      "translit": "bayshan",
+      "gloss": "shy",
+      "type": "invariant",
+      "shoresh": "ב־ו־שׁ",
+      "grammar": "adjective · קַטְלָן agent",
+      "examples": [
+        {
+          "he": "ילד ביישן",
+          "en": "a shy child"
+        }
+      ],
+      "etymology": "Root ב־ו־שׁ 'be ashamed' (בּוּשָׁה 'shame'); קַטְלָן pattern.",
+      "register": "Everyday.",
+      "connotation": "Mild, often used of children; a drawback in interviews and sales."
+    },
+    {
+      "bare": "אחראי",
+      "niqqud": "אַחְרַאי",
+      "translit": "akhrai",
+      "gloss": "responsible",
+      "type": "invariant",
+      "shoresh": "א־ח־ר",
+      "grammar": "adjective",
+      "examples": [
+        {
+          "he": "אחראי על הפרויקט",
+          "en": "in charge of the project"
+        }
+      ],
+      "etymology": "Root א־ח־ר 'after, behind'; 'the one who answers for'. Abstract אַחְרָיוּת 'responsibility'.",
+      "register": "Neutral.",
+      "connotation": "Positive; also a job title ('the person in charge', אחראי על)."
+    },
+    {
+      "bare": "סבלני",
+      "niqqud": "סַבְלָנִי",
+      "translit": "savlani",
+      "gloss": "patient",
+      "type": "invariant",
+      "shoresh": "ס־ב־ל",
+      "grammar": "adjective · ־ָנִי",
+      "examples": [
+        {
+          "he": "מורה סבלנית",
+          "en": "a patient teacher"
+        }
+      ],
+      "etymology": "Root ס־ב־ל 'bear, endure' (סֵבֶל 'suffering', סַבָּל 'porter'); from סַבְלָנוּת 'patience'.",
+      "register": "Neutral.",
+      "connotation": "Positive; endurance rather than passivity."
+    },
+    {
+      "bare": "מבולגן",
+      "niqqud": "מְבֻלְגָּן",
+      "translit": "mevulgan",
+      "gloss": "messy / disorganized",
+      "type": "invariant",
+      "shoresh": "ב־ל־ג־ן",
+      "grammar": "adjective · pu'al participle",
+      "examples": [
+        {
+          "he": "חדר מבולגן",
+          "en": "a messy room"
+        }
+      ],
+      "etymology": "Pu'al participle of בִּלְגֵּן, denominative from בַּלָּגָן 'mess' (loan via Russian/Turkish balagan, ultimately Persian bālā-ḫāna).",
+      "register": "Colloquial.",
+      "connotation": "Negative at work; mild of a person. Opposite מְסֻדָּר."
+    },
+    {
+      "bare": "יצירתי",
+      "niqqud": "יְצִירָתִי",
+      "translit": "yetsirati",
+      "gloss": "creative",
+      "type": "invariant",
+      "shoresh": "י־צ־ר",
+      "grammar": "adjective · ־ִי",
+      "examples": [
+        {
+          "he": "פתרון יצירתי",
+          "en": "a creative solution"
+        }
+      ],
+      "etymology": "־ִי adjective from יְצִירָה 'creation', root י־צ־ר 'form, create'.",
+      "register": "Neutral.",
+      "connotation": "Positive; common in work and school contexts."
+    },
+    {
+      "bare": "עצלן",
+      "niqqud": "עַצְלָן",
+      "translit": "atzlan",
+      "gloss": "lazy",
+      "type": "invariant",
+      "shoresh": "ע־צ־ל",
+      "grammar": "adjective · קַטְלָן agent",
+      "examples": [
+        {
+          "he": "עצלן כמו חתול",
+          "en": "lazy as a cat"
+        }
+      ],
+      "etymology": "Root ע־צ־ל 'sluggish' (biblical עָצֵל 'the sluggard'); קַטְלָן pattern. Also 'a sloth' (the animal).",
+      "register": "Everyday.",
+      "connotation": "Negative, but mild enough for self-deprecation."
+    },
+    {
+      "bare": "נחוש",
+      "niqqud": "נָחוּשׁ",
+      "translit": "nakhush",
+      "gloss": "determined / resolute",
+      "type": "invariant",
+      "shoresh": "נ־ח־שׁ",
+      "grammar": "adjective · passive participle",
+      "examples": [
+        {
+          "he": "נחוש בדעתו",
+          "en": "firmly resolved"
+        }
+      ],
+      "etymology": "Root נ־ח־שׁ; from נְחֹשֶׁת 'bronze, copper' → hard, unyielding.",
+      "register": "Slightly formal; common in news (נָחוּשׁ בְּדַעְתּוֹ).",
+      "connotation": "Positive resolve; the positive counterpart to עַקְשָׁן."
+    },
+    {
+      "bare": "אסרטיבי",
+      "niqqud": "אָסֶרְטִיבִי",
+      "translit": "asertivi",
+      "gloss": "assertive",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adjective · loanword",
+      "examples": [
+        {
+          "he": "להיות אסרטיבי",
+          "en": "to be assertive"
+        }
+      ],
+      "etymology": "Loan from English 'assertive' (Latin asserere); no Semitic root.",
+      "register": "Modern; HR and psychology usage.",
+      "connotation": "Positive ('assertive, not aggressive'); a self-improvement term."
+    },
+    {
+      "bare": "אמין",
+      "niqqud": "אָמִין",
+      "translit": "amin",
+      "gloss": "trustworthy / reliable",
+      "type": "invariant",
+      "shoresh": "א־מ־ן",
+      "grammar": "adjective · קָטִיל",
+      "examples": [
+        {
+          "he": "מקור אמין",
+          "en": "a reliable source"
+        }
+      ],
+      "etymology": "Root א־מ־ן 'be firm, reliable'; קָטִיל adjective. Family of אֱמֶת, אֱמוּנָה. Noun אֲמִינוּת 'trustworthiness'.",
+      "register": "Neutral.",
+      "connotation": "Positive; used of people and of things (sources, cars)."
+    },
+    {
+      "bare": "סקרן",
+      "niqqud": "סַקְרָן",
+      "translit": "sakran",
+      "gloss": "curious",
+      "type": "invariant",
+      "shoresh": "ס־ק־ר",
+      "grammar": "adjective · קַטְלָן agent",
+      "examples": [
+        {
+          "he": "ילד סקרן",
+          "en": "a curious child"
+        }
+      ],
+      "etymology": "Root ס־ק־ר 'scan, survey' (סֶקֶר 'survey'); קַטְלָן pattern.",
+      "register": "Neutral.",
+      "connotation": "Positive for learning; 'nosy' when aimed at people."
+    },
+    {
+      "bare": "פתוח",
+      "niqqud": "פָּתוּחַ",
+      "translit": "patuakh",
+      "gloss": "open / open-minded",
+      "type": "invariant",
+      "shoresh": "פ־ת־ח",
+      "grammar": "adjective · passive participle",
+      "examples": [
+        {
+          "he": "ראש פתוח",
+          "en": "open-minded"
+        }
+      ],
+      "etymology": "Root פ־ת־ח 'open'; passive participle. The 'open-minded' sense comes from the idiom רֹאשׁ פָּתוּחַ.",
+      "register": "Neutral literal; 'open-minded' sense colloquial.",
+      "connotation": "Positive; also literal 'open' (question, shop)."
+    },
+    {
+      "bare": "מופנם",
+      "niqqud": "מוּפְנָם",
+      "translit": "mufnam",
+      "gloss": "introverted",
+      "type": "invariant",
+      "shoresh": "פ־נ־ם",
+      "grammar": "adjective · huf'al participle",
+      "examples": [
+        {
+          "he": "אדם מופנם",
+          "en": "an introvert"
+        }
+      ],
+      "etymology": "Huf'al participle from פְּנִים 'interior' → 'turned inward'. Modern psychology coinage.",
+      "register": "Modern; semi-technical.",
+      "connotation": "Neutral; a temperament. Opposite מוּחְצָן."
+    },
+    {
+      "bare": "ישיר",
+      "niqqud": "יָשִׁיר",
+      "translit": "yashir",
+      "gloss": "direct / straightforward",
+      "type": "invariant",
+      "shoresh": "י־שׁ־ר",
+      "grammar": "adjective · קָטִיל",
+      "examples": [
+        {
+          "he": "שאלה ישירה",
+          "en": "a direct question"
+        },
+        {
+          "he": "שידור ישיר",
+          "en": "a live broadcast"
+        }
+      ],
+      "etymology": "Root י־שׁ־ר 'straight, upright' (יָשָׁר 'honest').",
+      "register": "Neutral.",
+      "connotation": "Positive for clarity; 'too direct' is a euphemism for blunt. Also 'live' (broadcast) and 'nonstop' (flight)."
+    },
+    {
+      "bare": "להעדיף",
+      "niqqud": "לְהַעֲדִיף",
+      "translit": "lehaadif",
+      "gloss": "to prefer",
+      "type": "verb",
+      "shoresh": "ע־ד־ף",
+      "grammar": "verb · hif'il · + על פני / מ־",
+      "examples": [
+        {
+          "he": "מעדיף תה",
+          "en": "prefers tea"
+        }
+      ],
+      "etymology": "Hif'il of ע־ד־ף 'surplus, advantage' (עָדִיף 'preferable').",
+      "register": "Neutral.",
+      "connotation": "Expresses a considered choice."
+    },
+    {
+      "bare": "לכבד",
+      "niqqud": "לְכַבֵּד",
+      "translit": "lekhabed",
+      "gloss": "to respect / honor",
+      "type": "verb",
+      "shoresh": "כ־ב־ד",
+      "grammar": "verb · pi'el",
+      "examples": [
+        {
+          "he": "לכבד את ההורים",
+          "en": "to honor one's parents"
+        }
+      ],
+      "etymology": "Pi'el of כ־ב־ד 'heavy' (כָּבוֹד 'honour') → 'give weight to'. Also 'treat, offer' food (כִּבּוּד 'refreshments').",
+      "register": "Neutral.",
+      "connotation": "Respectful; the hospitality sense is warm and everyday."
+    },
+    {
+      "bare": "להעסיק",
+      "niqqud": "לְהַעֲסִיק",
+      "translit": "lehaasik",
+      "gloss": "to employ / keep busy",
+      "type": "verb",
+      "shoresh": "ע־ס־ק",
+      "grammar": "verb · hif'il",
+      "examples": [
+        {
+          "he": "מעסיק מאתיים עובדים",
+          "en": "employs 200 workers"
+        }
+      ],
+      "etymology": "Hif'il of ע־ס־ק 'engage, do business' (עֵסֶק 'business', עָסוּק 'busy'); noun הַעֲסָקָה 'employment'.",
+      "register": "Neutral; business and HR.",
+      "connotation": "Two senses: to employ, and to preoccupy the mind."
+    },
+    {
+      "bare": "לנהל",
+      "niqqud": "לְנַהֵל",
+      "translit": "lenahel",
+      "gloss": "to manage / run",
+      "type": "verb",
+      "shoresh": "נ־ה־ל",
+      "grammar": "verb · pi'el",
+      "examples": [
+        {
+          "he": "לנהל חברה",
+          "en": "to run a company"
+        },
+        {
+          "he": "לנהל משא ומתן",
+          "en": "to conduct negotiations"
+        }
+      ],
+      "etymology": "Pi'el of נ־ה־ל (cousin of נ־ה־ג 'lead') → 'run, administer'. Yields מְנַהֵל, נִהוּל, הַנְהָלָה.",
+      "register": "Neutral.",
+      "connotation": "Broad — a company, records, or a process."
+    },
+    {
+      "bare": "לתכנן",
+      "niqqud": "לְתַכְנֵן",
+      "translit": "letakhnen",
+      "gloss": "to plan",
+      "type": "verb",
+      "shoresh": "ת־כ־נ",
+      "grammar": "verb · pi'el",
+      "examples": [
+        {
+          "he": "לתכנן חופשה",
+          "en": "to plan a vacation"
+        }
+      ],
+      "etymology": "Pi'el built on תָּכְנִית 'a plan' (root ת־כ־נ, kin to תֹּכֶן 'content'); noun תִּכְנוּן.",
+      "register": "Neutral.",
+      "connotation": "Forward-looking; מְתֻכְנָן = 'scheduled, planned'."
+    },
+    {
+      "bare": "קולגה",
+      "niqqud": "קוֹלֵגָה",
+      "translit": "kolega",
+      "gloss": "colleague",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun · loanword",
+      "examples": [
+        {
+          "he": "קולגה מהעבודה",
+          "en": "a colleague from work"
+        }
+      ],
+      "etymology": "Loan from Latin collega 'one chosen alongside'; the native word is עָמִית.",
+      "register": "Informal; עָמִית is more formal.",
+      "connotation": "Casual; unisex despite the ־ָה ending."
+    },
+    {
+      "bare": "שותף",
+      "niqqud": "שֻׁתָּף",
+      "translit": "shutaf",
+      "gloss": "partner / roommate",
+      "type": "invariant",
+      "shoresh": "שׁ־ת־ף",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "שותף עסקי",
+          "en": "a business partner"
+        },
+        {
+          "he": "שותף לדירה",
+          "en": "a flatmate"
+        }
+      ],
+      "etymology": "Root שׁ־ת־ף 'share, join' (שֻׁתָּפוּת 'partnership', שִׁתּוּף פְּעֻלָּה 'cooperation').",
+      "register": "Neutral.",
+      "connotation": "Wide-ranging: business, flat, or life partner."
+    },
+    {
+      "bare": "צוות",
+      "niqqud": "צֶוֶת",
+      "translit": "tzevet",
+      "gloss": "team / staff",
+      "type": "invariant",
+      "shoresh": "צ־ו־ת",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "עבודת צוות",
+          "en": "teamwork"
+        }
+      ],
+      "etymology": "Root צ־ו־ת, kin to Aramaic צַוְתָּא 'togetherness' (בְּצַוְתָּא 'together').",
+      "register": "Neutral.",
+      "connotation": "Collaborative; strong workplace and military use."
+    },
+    {
+      "bare": "ריאיון",
+      "niqqud": "רִאָיוֹן",
+      "translit": "riayon",
+      "gloss": "interview",
+      "type": "invariant",
+      "shoresh": "ר־א־ה",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "ריאיון עבודה",
+          "en": "a job interview"
+        }
+      ],
+      "etymology": "Modern noun from ר־א־ה 'see' (a mutual seeing); verb לְרַאֲיֵן 'to interview'. Also spelled רֵאָיוֹן.",
+      "register": "Neutral.",
+      "connotation": "Job, journalistic, or research interviews."
+    },
+    {
+      "bare": "כבוד",
+      "niqqud": "כָּבוֹד",
+      "translit": "kavod",
+      "gloss": "respect / honor",
+      "type": "invariant",
+      "shoresh": "כ־ב־ד",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "כל הכבוד",
+          "en": "well done"
+        },
+        {
+          "he": "כבוד עצמי",
+          "en": "self-respect"
+        }
+      ],
+      "etymology": "Root כ־ב־ד 'heavy' → 'weight' → honour (biblical כְּבוֹד ה').",
+      "register": "Neutral; also an exclamation.",
+      "connotation": "A culturally significant value. כל הכבוד = 'well done'; בכבוד = 'respectfully' (sign-off)."
+    },
+    {
+      "bare": "אמונה",
+      "niqqud": "אֱמוּנָה",
+      "translit": "emuna",
+      "gloss": "faith / belief",
+      "type": "invariant",
+      "shoresh": "א־מ־ן",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "אמונה באלוהים",
+          "en": "belief in God"
+        },
+        {
+          "he": "אמונה בעצמך",
+          "en": "self-belief"
+        },
+        {
+          "he": "אמונה טפלה",
+          "en": "superstition"
+        }
+      ],
+      "etymology": "Root א־מ־ן 'be firm / reliable'; abstract noun 'firmness' → faith, belief. Distinct from אֵמוּן 'trust placed in a person'.",
+      "register": "Neutral; frequently religious.",
+      "connotation": "Ranges from religious faith to self-belief to superstition (אמונה טפלה)."
+    },
+    {
+      "bare": "חיובי",
+      "niqqud": "חִיּוּבִי",
+      "gloss": "positive",
+      "type": "invariant",
+      "shoresh": "ח־י־ב",
+      "grammar": "adjective · evaluation tag (+)",
+      "examples": [
+        {
+          "he": "תכונה חיובית",
+          "en": "a positive trait"
+        }
+      ],
+      "etymology": "From חִיּוּב 'affirmation, obligation', root ח־י־ב.",
+      "register": "Neutral.",
+      "connotation": "The '+' evaluation category."
+    },
+    {
+      "bare": "שלילי",
+      "niqqud": "שְׁלִילִי",
+      "gloss": "negative",
+      "type": "invariant",
+      "shoresh": "שׁ־ל־ל",
+      "grammar": "adjective · evaluation tag (–)",
+      "examples": [
+        {
+          "he": "תכונה שלילית",
+          "en": "a negative trait"
+        }
+      ],
+      "etymology": "From שְׁלִילָה 'negation', root שׁ־ל־ל.",
+      "register": "Neutral.",
+      "connotation": "The '–' evaluation category."
+    },
+    {
+      "bare": "ניטרלי",
+      "niqqud": "נֵיטְרָלִי",
+      "gloss": "neutral",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "adjective · loanword · evaluation tag (=)",
+      "examples": [
+        {
+          "he": "תכונה ניטרלית",
+          "en": "a neutral trait"
+        }
+      ],
+      "etymology": "Loan from 'neutral' (Latin neuter).",
+      "register": "Neutral; also technical.",
+      "connotation": "The '=' evaluation category."
+    },
+    {
+      "bare": "לנוח",
+      "niqqud": "לָנוּחַ",
+      "gloss": "to rest",
+      "type": "verb",
+      "shoresh": "נ־ו־ח",
+      "grammar": "verb · pa'al",
+      "examples": [
+        {
+          "he": "אני צריך לנוח",
+          "en": "I need to rest"
+        }
+      ],
+      "etymology": "Pa'al of נ־ו־ח 'rest' (מְנוּחָה 'rest').",
+      "register": "Everyday.",
+      "connotation": "Physical rest."
+    },
+    {
+      "bare": "לחקות",
+      "niqqud": "לְחַקּוֹת",
+      "gloss": "to imitate",
+      "type": "verb",
+      "shoresh": "ח־ק־ה",
+      "grammar": "verb · pi'el · + את",
+      "examples": [
+        {
+          "he": "לחקות מישהו",
+          "en": "to imitate someone"
+        }
+      ],
+      "etymology": "Pi'el of ח־ק־ה 'imitate' (חִקּוּי 'imitation'). Near-homophone of לְחַכּוֹת 'to wait' (כ vs ק).",
+      "register": "Neutral.",
+      "connotation": "Distinct from לְחַכּוֹת 'to wait'."
+    },
+    {
+      "bare": "למהר",
+      "niqqud": "לְמַהֵר",
+      "gloss": "to hurry",
+      "type": "verb",
+      "shoresh": "מ־ה־ר",
+      "grammar": "verb · pi'el",
+      "examples": [
+        {
+          "he": "אל תמהר",
+          "en": "don't rush"
+        },
+        {
+          "he": "מהר",
+          "en": "quickly"
+        }
+      ],
+      "etymology": "Pi'el of מ־ה־ר 'hasten' (מַהֵר 'quickly').",
+      "register": "Everyday.",
+      "connotation": "Can imply haste."
+    },
+    {
+      "bare": "לתאר",
+      "niqqud": "לְתָאֵר",
+      "gloss": "to describe",
+      "type": "verb",
+      "shoresh": "ת־א־ר",
+      "grammar": "verb · pi'el · + את",
+      "examples": [
+        {
+          "he": "לתאר אופי",
+          "en": "to describe a character"
+        }
+      ],
+      "etymology": "Pi'el of ת־א־ר 'describe' (תֵּאוּר 'description', תֹּאַר 'title, adjective').",
+      "register": "Neutral.",
+      "connotation": "Neutral."
+    },
+    {
+      "bare": "להכין",
+      "niqqud": "לְהָכִין",
+      "gloss": "to prepare",
+      "type": "verb",
+      "shoresh": "כ־ו־ן",
+      "grammar": "verb · hif'il · + את",
+      "examples": [
+        {
+          "he": "להכין ארוחה",
+          "en": "to prepare a meal"
+        }
+      ],
+      "etymology": "Hif'il of כ־ו־ן 'establish, set' (נָכוֹן 'correct', הֲכָנָה 'preparation').",
+      "register": "Everyday.",
+      "connotation": "Neutral."
+    },
+    {
+      "bare": "תלוי",
+      "niqqud": "תָּלוּי",
+      "gloss": "depends / dependent",
+      "type": "invariant",
+      "shoresh": "ת־ל־ה",
+      "grammar": "adjective · passive participle · + ב־",
+      "examples": [
+        {
+          "he": "זה תלוי",
+          "en": "it depends"
+        },
+        {
+          "he": "תלוי בך",
+          "en": "up to you"
+        }
+      ],
+      "etymology": "Pa'al passive participle of ת־ל־ה 'hang' → 'hanging on' → dependent.",
+      "register": "Everyday.",
+      "connotation": "זה תלוי = 'it depends'."
+    },
+    {
+      "bare": "נוח",
+      "niqqud": "נוֹחַ",
+      "gloss": "comfortable",
+      "type": "invariant",
+      "shoresh": "נ־ו־ח",
+      "grammar": "adjective",
+      "examples": [
+        {
+          "he": "כיסא נוח",
+          "en": "a comfortable chair"
+        },
+        {
+          "he": "נוח לי",
+          "en": "it's comfortable for me"
+        }
+      ],
+      "etymology": "Root נ־ו־ח 'rest' (same as לָנוּחַ 'to rest').",
+      "register": "Everyday.",
+      "connotation": "Comfortable, easygoing."
+    },
+    {
+      "bare": "תוכנית",
+      "niqqud": "תָּכְנִית",
+      "gloss": "a plan / program",
+      "type": "invariant",
+      "shoresh": "ת־כ־נ",
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "תוכנית טובה",
+          "en": "a good plan"
+        },
+        {
+          "he": "תוכנית טלוויזיה",
+          "en": "a TV program"
+        }
+      ],
+      "etymology": "Noun of ת־כ־נ (kin to תֹּכֶן 'content'); verb לְתַכְנֵן 'to plan'.",
+      "register": "Neutral.",
+      "connotation": "A plan or a broadcast program."
+    },
+    {
+      "bare": "בלגן",
+      "niqqud": "בַּלָּגָן",
+      "gloss": "mess",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "noun",
+      "examples": [
+        {
+          "he": "איזה בלגן",
+          "en": "what a mess"
+        }
+      ],
+      "etymology": "Loan via Russian/Turkish balagan, ultimately Persian bālā-ḫāna 'upper room, stage'. Verb בִּלְגֵּן, adjective מְבֻלְגָּן.",
+      "register": "Colloquial; very common.",
+      "connotation": "Physical or figurative mess; often light."
+    },
+    {
+      "bare": "מתאים",
+      "niqqud": "מַתְאִים",
+      "gloss": "suitable / fits",
+      "type": "invariant",
+      "shoresh": "ת־א־ם",
+      "grammar": "adjective · active participle · + ל־",
+      "examples": [
+        {
+          "he": "מתאים לעבודה",
+          "en": "suited to the job"
+        },
+        {
+          "he": "זה מתאים לי",
+          "en": "that works for me"
+        }
+      ],
+      "etymology": "Hif'il participle of ת־א־ם 'match, fit' (הַתְאָמָה 'matching').",
+      "register": "Everyday.",
+      "connotation": "Doubles as 'fits, matches'."
+    },
+    {
+      "bare": "מושלם",
+      "niqqud": "מֻשְׁלָם",
+      "gloss": "perfect",
+      "type": "invariant",
+      "shoresh": "שׁ־ל־ם",
+      "grammar": "adjective · huf'al participle",
+      "examples": [
+        {
+          "he": "פתרון מושלם",
+          "en": "a perfect solution"
+        }
+      ],
+      "etymology": "Huf'al participle of שׁ־ל־ם 'be complete' (שָׁלֵם 'whole', הַשְׁלָמָה 'completion').",
+      "register": "Neutral.",
+      "connotation": "Positive; complete, flawless."
+    },
+    {
+      "bare": "בטוח בעצמו",
+      "niqqud": "בָּטוּחַ בְּעַצְמוֹ",
+      "gloss": "self-confident",
+      "type": "invariant",
+      "shoresh": "ב־ט־ח",
+      "grammar": "phrase (adjective)",
+      "examples": [
+        {
+          "he": "הוא בטוח בעצמו",
+          "en": "he's self-confident"
+        }
+      ],
+      "etymology": "בָּטוּחַ 'sure, safe' (root ב־ט־ח) + בְּעַצְמוֹ 'in himself'.",
+      "register": "Everyday.",
+      "connotation": "Confidence vs. arrogance by degree; f. בְּטוּחָה בְּעַצְמָהּ."
+    },
+    {
+      "bare": "ראש פתוח",
+      "niqqud": "רֹאשׁ פָּתוּחַ",
+      "gloss": "open-minded ('open head')",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "idiom",
+      "examples": [
+        {
+          "he": "הוא ראש פתוח",
+          "en": "he's open-minded"
+        }
+      ],
+      "etymology": "Literally 'open head'. Opposite רֹאשׁ קָשֶׁה.",
+      "register": "Colloquial idiom.",
+      "connotation": "Positive: flexible, tolerant."
+    },
+    {
+      "bare": "ראש קשה",
+      "niqqud": "רֹאשׁ קָשֶׁה",
+      "gloss": "stubborn ('hard head')",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "idiom",
+      "examples": [
+        {
+          "he": "ראש קשה",
+          "en": "thick-headed"
+        }
+      ],
+      "etymology": "Literally 'hard head'. Opposite רֹאשׁ פָּתוּחַ.",
+      "register": "Colloquial idiom.",
+      "connotation": "Negative: stubborn, inflexible."
+    },
+    {
+      "bare": "חמום מוח",
+      "niqqud": "חֲמוּם מוֹחַ",
+      "gloss": "hot-headed",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "idiom",
+      "examples": [
+        {
+          "he": "חמום מוח",
+          "en": "hot-headed"
+        }
+      ],
+      "etymology": "Literally 'heated brain' (חַם 'hot' + מֹחַ 'brain').",
+      "register": "Colloquial idiom.",
+      "connotation": "Negative: quick-tempered."
+    },
+    {
+      "bare": "ראש כרוב",
+      "niqqud": "רֹאשׁ כְּרוּב",
+      "gloss": "stupid ('cabbage head')",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "slang idiom",
+      "examples": [
+        {
+          "he": "ראש כרוב",
+          "en": "airhead"
+        }
+      ],
+      "etymology": "Literally 'cabbage head' (כְּרוּב 'cabbage').",
+      "register": "Slang; insulting.",
+      "connotation": "Negative: scatterbrained."
+    },
+    {
+      "bare": "מחלקת מכירות",
+      "niqqud": "מַחְלֶקֶת מְכִירוֹת",
+      "gloss": "sales department",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "phrase (noun)",
+      "examples": [
+        {
+          "he": "מחלקת מכירות",
+          "en": "sales department"
+        }
+      ],
+      "etymology": "מַחְלָקָה 'department' (root ח־ל־ק 'divide') + מְכִירוֹת 'sales' (root מ־כ־ר 'sell').",
+      "register": "Neutral; business.",
+      "connotation": "A workplace unit."
+    },
+    {
+      "bare": "פרטים קטנים",
+      "niqqud": "פְּרָטִים קְטַנִּים",
+      "gloss": "small details",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "phrase (noun)",
+      "examples": [
+        {
+          "he": "פרטים קטנים",
+          "en": "small details"
+        }
+      ],
+      "etymology": "פְּרָטִים 'details' (פְּרָט 'detail') + קְטַנִּים 'small'.",
+      "register": "Neutral.",
+      "connotation": "The fine details."
+    },
+    {
+      "bare": "בזמן קצר",
+      "niqqud": "בִּזְמַן קָצָר",
+      "gloss": "in a short time",
+      "type": "invariant",
+      "shoresh": null,
+      "grammar": "phrase (adverbial)",
+      "examples": [
+        {
+          "he": "בזמן קצר",
+          "en": "in a short time"
+        }
+      ],
+      "etymology": "בְּ + זְמַן 'time' + קָצָר 'short'.",
+      "register": "Neutral.",
+      "connotation": "Quickly, within a short span."
+    },
+    {
+      "bare": "בנוסף",
+      "niqqud": "בְּנוֹסָף",
+      "gloss": "in addition",
+      "type": "invariant",
+      "shoresh": "י־ס־ף",
+      "grammar": "adverb / connector",
+      "examples": [
+        {
+          "he": "בנוסף",
+          "en": "in addition"
+        },
+        {
+          "he": "בנוסף לכך",
+          "en": "additionally"
+        }
+      ],
+      "etymology": "בְּ + נוֹסָף 'added' (root י־ס־ף 'add', לְהוֹסִיף 'to add').",
+      "register": "Neutral; connector.",
+      "connotation": "A discourse connector."
     }
   ]
 }
